@@ -1,0 +1,11 @@
+
+public class ScarletGemMain extends JFrame
+{
+  
+  /* ADD YOUR CODE HERE */
+  public ScarletGemMain()
+  {
+    super ("The Scarlet Gem");
+  }
+  
+}
