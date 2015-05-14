@@ -1,10 +1,8 @@
 /**
  * Auto Generated Java Class.
  */
-import javax.swing.*;
-public class MapPanel extends JPanel implements Runnable
+public class gameTimer  implements Runnable
 {
- 
   public void run()
   {
   }

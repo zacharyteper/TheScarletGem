@@ -1,7 +1,9 @@
 /**
  * Auto Generated Java Class.
  */
-public class CountryPanel extends JPanel {
+import javax.swing.*;
+public class CountryPanel extends JPanel implements Runnable
+{
   
   /* ADD YOUR CODE HERE */
   
