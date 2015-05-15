@@ -13,7 +13,7 @@ public class Question {
   {
     return question;
   }
-  public Question (char ans,String q)
+  public Question (String q,char ans)
   {
     answer=ans;
     question=q;

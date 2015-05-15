@@ -56,7 +56,8 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   {
     if (ae.getSource().equals(exitItem))
     {
-      //stuff goes here
+      dispose();
+      System.exit(0);
     }
       
   }
@@ -114,12 +115,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     menuBar.add(fileMenu);
     menuBar.add(helpMenu);
     
-    fileMenu.add(howToPlayItem);
+    
     fileMenu.add(saveItem);
     fileMenu.add(printItem);
     fileMenu.add(highScoresItem);
     fileMenu.add(exitItem);
     
+    helpMenu.add(howToPlayItem);
     helpMenu.add(helpItem);
     helpMenu.add(aboutItem);
     
@@ -140,6 +142,41 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     mainMenuPanel.getHardButton().addActionListener(this);
     mainMenuPanel.getLoadButton().addActionListener(this);
     revalidate();
+    
+    //setup countries
+    Question[] canadaEasy=
+    {new Question ("What is the capital of Canada?"+
+      "\n A. Toronto"+
+      "\n B. Montreal"+
+      "\n C. Ottawa"+
+      "\n D. Portugal"
+                     ,'C'),
+      new Question ("In what part of Canada is Newfoundland located?"+
+      "\n A. North"+
+      "\n B. West"+
+      "\n C. South"+
+      "\n D. East"
+                     ,'D'),
+      new Question ("In what part of Canada is Nunavut?"+
+      "\n A. North"+
+      "\n B. West"+
+      "\n C. South"+
+      "\n D. East"
+                     ,'A'),
+      new Question ("What continent is Canada part of?"+
+      "\n A. Europe"+
+      "\n B. North America"+
+      "\n C. Africa"+
+      "\n D. Asia"
+                     ,'B'),
+      new Question ("What languages the two official languages of Canada?"+
+      "\n A. Spanish & French"+
+      "\n B. Montreal"+
+      "\n C. Ottawa"+
+      "\n D. Portugal"
+                     ,'A'),
+      
+    Country canada =new Country ("Canada",
   }
   
 }
