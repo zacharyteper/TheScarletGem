@@ -1,9 +1,42 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.print.*;
+import javax.imageio.*;
 import java.awt.event.*;
-public class ScarletGemMain extends JFrame implements ActionListener, Printable, KeyListener, MouseListener
+import java.io.*;
+import java.util.*;
+public class ScarletGemMain extends JFrame implements ActionListener, Printable, KeyListener, MouseListener,
+  WindowListener
 {
+  Country currentCountry;
+  int difficulty;
+  int levelsRemaining;
+  int timeRemaining;
+  boolean paused;
+  ArrayList <Country> alreadyBeen;
+  Country[] countries;
+  
+  public void windowDeactivated(WindowEvent e)
+  {
+  }
+  public void windowOpened (WindowEvent e)
+  {
+  }
+  public void windowClosing (WindowEvent e)
+  {
+  }
+  public void windowActivated (WindowEvent e)
+  {
+  }
+  public void windowDeiconified (WindowEvent e)
+  {
+  }
+  public void windowIconified(WindowEvent e)
+  {
+  }
+  public void windowClosed (WindowEvent e)
+  {
+  }
   public void actionPerformed(ActionEvent ae)
   {
   }
@@ -39,6 +72,19 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   public ScarletGemMain()
   {
     super ("The Scarlet Gem");
+    setVisible (true);
+    setSize (640,500);
+    setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
+    
+    //set the JFrame icon
+    try
+    {
+    setIconImage (ImageIO.read (new File ("scarlet-gem.png")));
+    }
+    catch (IOException e)
+    {
+    }
+    
   }
   
 }
