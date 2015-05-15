@@ -3,24 +3,47 @@
  */
 import java.awt.*;
 public class Country {
-  Question[] easyy;
+  Question[] easy;
   Question[] medium;
   Question[] hard;
   String name;
-  String[]easyClues;
-  String[]mediumClues;
-  String[]hardClues;
+  String[]clues;
   Image background;
   
   public Question getRandQuestion (int difficulty)
   {
     int index= (int) (Math.random()*10+1);
     if (difficulty==0)
-      return 
+      return easy[index];
+    else
+    {
+      if (difficulty==1)
+        return medium[index];
+    }
+    return hard[index];
   }
-  public Country (String name, Question[]a,Question[]b,
-                  Question[]c,Image back, String[]clueA,String[] clueB, String[]clueC)
+  public Image getBackground ()
   {
+    return background;
+  }
+  public String getRandClue()
+  {
+    return clues [(int)(Math.random()*4)];
+  }
+  public String getName ()
+  {
+    return name;
+  }
+  
+  public Country (String name, Question[]a,Question[]b,
+                  Question[]c,Image back, String[]clues)
+  {
+    this.name=name;
+    easy=a;
+    medium=b;
+    hard=c;
+    background=back;
+    this.clues=clues;
   }
   /* ADD YOUR CODE HERE */
   

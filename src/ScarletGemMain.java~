@@ -8,28 +8,28 @@ import java.util.*;
 public class ScarletGemMain extends JFrame implements ActionListener, Printable, KeyListener, MouseListener,
   WindowListener
 {
-  Country currentCountry;
-  int difficulty;
-  int levelsRemaining;
-  int timeRemaining;
-  boolean paused;
-  ArrayList <Country> alreadyBeen;
-  Country[] countries;
-  JPanel gamePanel;
-  MapPanel mapPanel;
-  CountryPanel countryPanel;
-  MainMenuPanel mainMenuPanel;
-  HighScoresViewer highScoresViewer;
-  InstructionsViewer instructionsViewer;
-  GameTimer gameTimer;
-  JMenuItem howToPlayItem =new JMenuItem ("How To Play Ctrl+R");
-  JMenuItem printItem=new JMenuItem ("Print Ctrl+P");
-  JMenuItem saveItem=new JMenuItem ("Save Ctrl+S");
-  JMenuItem exitItem=new JMenuItem ("Exit Ctrl+Q");
-  JMenuItem highScoresItem=new JMenuItem ("View High Scores Ctrl+E");
+  private Country currentCountry;
+  private int difficulty;
+  private int levelsRemaining;
+  private int timeRemaining;
+  private boolean paused;
+  private ArrayList <Country> alreadyBeen;
+  private Country[] countries;
+  private JPanel gamePanel;
+  private MapPanel mapPanel;
+  private CountryPanel countryPanel;
+  private MainMenuPanel mainMenuPanel;
+  private HighScoresViewer highScoresViewer;
+  private InstructionsViewer instructionsViewer;
+  private GameTimer gameTimer;
+  private JMenuItem howToPlayItem =new JMenuItem ("How To Play Ctrl+R");
+  private JMenuItem printItem=new JMenuItem ("Print Ctrl+P");
+  private JMenuItem saveItem=new JMenuItem ("Save Ctrl+S");
+  private JMenuItem exitItem=new JMenuItem ("Exit Ctrl+Q");
+  private JMenuItem highScoresItem=new JMenuItem ("View High Scores Ctrl+E");
   
-  JMenuItem helpItem=new JMenuItem ("Help Ctrl+H");
-  JMenuItem aboutItem=new JMenuItem ("About Ctrl+A");
+  private JMenuItem helpItem=new JMenuItem ("Help Ctrl+H");
+  private JMenuItem aboutItem=new JMenuItem ("About Ctrl+A");
   
   public void windowDeactivated(WindowEvent e)
   {
@@ -59,7 +59,16 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       dispose();
       System.exit(0);
     }
-      
+    if (ae.getSource().equals(mainMenuPanel.getEasyButton()))
+    {
+      remove (mainMenuPanel);
+      countryPanel=new CountryPanel (countries[0],null);
+      add (countryPanel);
+    }
+    
+  }
+  private void askQuestion()
+  {
   }
   public void keyReleased (KeyEvent e)
   {
@@ -100,7 +109,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     //set the JFrame icon
     try
     {
-    setIconImage (ImageIO.read (new File ("scarlet-gem.png")));
+      setIconImage (ImageIO.read (new File ("scarlet-gem.png")));
     }
     catch (IOException e)
     {
@@ -144,39 +153,51 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     revalidate();
     
     //setup countries
+    countries=new Country[14];
+    
     Question[] canadaEasy=
     {new Question ("What is the capital of Canada?"+
-      "\n A. Toronto"+
-      "\n B. Montreal"+
-      "\n C. Ottawa"+
-      "\n D. Portugal"
+                   "\n A. Toronto"+
+                   "\n B. Montreal"+
+                   "\n C. Ottawa"+
+                   "\n D. Portugal"
                      ,'C'),
       new Question ("In what part of Canada is Newfoundland located?"+
-      "\n A. North"+
-      "\n B. West"+
-      "\n C. South"+
-      "\n D. East"
-                     ,'D'),
+                    "\n A. North"+
+                    "\n B. West"+
+                    "\n C. South"+
+                    "\n D. East"
+                      ,'D'),
       new Question ("In what part of Canada is Nunavut?"+
-      "\n A. North"+
-      "\n B. West"+
-      "\n C. South"+
-      "\n D. East"
-                     ,'A'),
+                    "\n A. North"+
+                    "\n B. West"+
+                    "\n C. South"+
+                    "\n D. East"
+                      ,'A'),
       new Question ("What continent is Canada part of?"+
-      "\n A. Europe"+
-      "\n B. North America"+
-      "\n C. Africa"+
-      "\n D. Asia"
-                     ,'B'),
+                    "\n A. Europe"+
+                    "\n B. North America"+
+                    "\n C. Africa"+
+                    "\n D. Asia"
+                      ,'B'),
       new Question ("What languages the two official languages of Canada?"+
-      "\n A. Spanish & French"+
-      "\n B. Montreal"+
-      "\n C. Ottawa"+
-      "\n D. Portugal"
-                     ,'A'),
-      
-    Country canada =new Country ("Canada",
+                    "\n A. Spanish & French"+
+                    "\n B. German & English"+
+                    "\n C. English & Spanish"+
+                    "\n D. French & English"
+                      ,'D')
+    };
+    try
+    {
+      Country canada =new Country ("Canada",canadaEasy, null, null, ImageIO.read (new File ("canada.jpg")),
+                                   null);
+      countries [0]=canada;
+    }
+    catch (IOException e)
+    {
+      System.out.println ("IO");
+    }
+    revalidate();
   }
   
 }
