@@ -1,10 +1,10 @@
-medium
+medium //level
 
-china
+china //country already went
 mexico
 
-USA
+USA //country currently at
 
-0:30
+0:30 //time left
 
-1
+1 //question currently at
