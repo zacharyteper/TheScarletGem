@@ -56,7 +56,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   {
     if (ae.getSource().equals(exitItem))
     {
-      
+      //stuff goes here
     }
       
   }

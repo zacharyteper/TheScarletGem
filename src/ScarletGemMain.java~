@@ -15,6 +15,21 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   boolean paused;
   ArrayList <Country> alreadyBeen;
   Country[] countries;
+  JPanel gamePanel;
+  MapPanel mapPanel;
+  CountryPanel countryPanel;
+  MainMenuPanel mainMenuPanel;
+  HighScoresViewer highScoresViewer;
+  InstructionsViewer instructionsViewer;
+  GameTimer gameTimer;
+  JMenuItem howToPlayItem =new JMenuItem ("How To Play Ctrl+R");
+  JMenuItem printItem=new JMenuItem ("Print Ctrl+P");
+  JMenuItem saveItem=new JMenuItem ("Save Ctrl+S");
+  JMenuItem exitItem=new JMenuItem ("Exit Ctrl+Q");
+  JMenuItem highScoresItem=new JMenuItem ("View High Scores Ctrl+E");
+  
+  JMenuItem helpItem=new JMenuItem ("Help Ctrl+H");
+  JMenuItem aboutItem=new JMenuItem ("About Ctrl+A");
   
   public void windowDeactivated(WindowEvent e)
   {
@@ -39,6 +54,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   public void actionPerformed(ActionEvent ae)
   {
+    if (ae.getSource().equals(exitItem))
+    {
+      
+    }
+      
   }
   public void keyReleased (KeyEvent e)
   {
@@ -85,6 +105,41 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
     }
     
+    //initialize menus
+    JMenuBar menuBar=new JMenuBar();
+    add (menuBar);
+    setJMenuBar (menuBar);
+    JMenu helpMenu=new JMenu ("Help");
+    JMenu fileMenu =new JMenu ("File");
+    menuBar.add(fileMenu);
+    menuBar.add(helpMenu);
+    
+    fileMenu.add(howToPlayItem);
+    fileMenu.add(saveItem);
+    fileMenu.add(printItem);
+    fileMenu.add(highScoresItem);
+    fileMenu.add(exitItem);
+    
+    helpMenu.add(helpItem);
+    helpMenu.add(aboutItem);
+    
+    howToPlayItem.addActionListener(this);
+    printItem.addActionListener(this);
+    saveItem.addActionListener(this);
+    exitItem.addActionListener(this);
+    highScoresItem.addActionListener(this);
+    
+    helpItem.addActionListener(this);
+    aboutItem.addActionListener(this);
+    
+    //load main menu
+    mainMenuPanel=new MainMenuPanel();
+    add(mainMenuPanel);
+    mainMenuPanel.getEasyButton().addActionListener(this);
+    mainMenuPanel.getMediumButton().addActionListener(this);
+    mainMenuPanel.getHardButton().addActionListener(this);
+    mainMenuPanel.getLoadButton().addActionListener(this);
+    revalidate();
   }
   
 }
