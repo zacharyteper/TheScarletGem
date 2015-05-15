@@ -1,0 +1,9 @@
+/**
+ * Auto Generated Java Class.
+ */
+import javax.swing.*;
+public class InstructionsViewer extends JFrame {
+  
+  /* ADD YOUR CODE HERE */
+  
+}

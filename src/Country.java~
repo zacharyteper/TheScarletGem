@@ -1,0 +1,27 @@
+/**
+ * Auto Generated Java Class.
+ */
+import java.awt.*;
+public class Country {
+  Question[] easyy;
+  Question[] medium;
+  Question[] hard;
+  String name;
+  String[]easyClues;
+  String[]mediumClues;
+  String[]hardClues;
+  Image background;
+  
+  public Question getRandQuestion (int difficulty)
+  {
+    int index= (int) (Math.random()*10+1);
+    if (difficulty==0)
+      return 
+  }
+  public Country (String name, Question[]a,Question[]b,
+                  Question[]c,Image back, String[]clueA,String[] clueB, String[]clueC)
+  {
+  }
+  /* ADD YOUR CODE HERE */
+  
+}
