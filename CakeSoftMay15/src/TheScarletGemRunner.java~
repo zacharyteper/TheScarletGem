@@ -1,0 +1,10 @@
+/**
+ * Auto Generated Java Class.
+ */
+public class TheScarletGemRunner {
+  
+  public static void main (String[]args)
+  {
+  }
+  
+}

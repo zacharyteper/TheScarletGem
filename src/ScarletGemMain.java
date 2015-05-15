@@ -114,12 +114,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     menuBar.add(fileMenu);
     menuBar.add(helpMenu);
     
-    fileMenu.add(howToPlayItem);
+    
     fileMenu.add(saveItem);
     fileMenu.add(printItem);
     fileMenu.add(highScoresItem);
     fileMenu.add(exitItem);
     
+    helpMenu.add(howToPlayItem);
     helpMenu.add(helpItem);
     helpMenu.add(aboutItem);
     
