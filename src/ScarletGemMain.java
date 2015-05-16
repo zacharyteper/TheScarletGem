@@ -8,6 +8,22 @@ import java.util.*;
 public class ScarletGemMain extends JFrame implements ActionListener, Printable, KeyListener, MouseListener,
   WindowListener
 {
+  /* currentCountry index:
+   * 0 - Canada
+   * 1 - China
+   * 2 - USA
+   * 3 - Mexico
+   * 4 - Portugal
+   * 5 - Australia
+   * 6 - Egypt
+   * 7 - India
+   * 8 - Russia
+   * 9 - Japan
+   * 10 - Brazil
+   * 11 - Cuba
+   * 12 - South Africa
+   * 13 - Switzerland
+   */
   private Country currentCountry;
   private int difficulty;
   private int levelsRemaining;
@@ -62,30 +78,37 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     if (ae.getSource().equals(mainMenuPanel.getEasyButton()))
     {
       remove (mainMenuPanel);
-      countryPanel=new CountryPanel (countries[0],null);
+      countryPanel=new CountryPanel (countries[0],null,countries[0].getRandQuestion(0));
       add (countryPanel);
-      countryPanel.setQuestionLabel(countries[0].getRandQuestion(0).getQuestion());
+      countryPanel.getAButton().addActionListener(this);
+      countryPanel.getBButton().addActionListener(this);
+      countryPanel.getCButton().addActionListener(this);
+      countryPanel.getDButton().addActionListener(this);
     }
     if (ae.getSource().equals(countryPanel.getAButton()))
     {
+      checkAnswer('A');
     }
     if (ae.getSource().equals(countryPanel.getBButton()))
     {
+      checkAnswer ('B');
     }
-    if (ae.getSource().equals(countryPanel.getBButton()))
+    if (ae.getSource().equals(countryPanel.getCButton()))
     {
+      checkAnswer ('C');
     }
-    if (ae.getSource().equals(countryPanel.getBButton()))
+    if (ae.getSource().equals(countryPanel.getDButton()))
     {
+      checkAnswer ('D');
     }
     revalidate();
   }
-  private void playEasy ()
+  private void checkAnswer (char answer)
   {
-    remove (mainMenuPanel);
-    countryPanel=new CountryPanel (countries[0],null);
-    add (countryPanel);
-    countryPanel.setQuestionLabel(countries[0].getRandQuestion(0).getQuestion());
+    if (countryPanel.getCurrentQuestion().getAnswer()==answer)
+      System.out.println ("Correct");
+    else
+      countryPanel.removeWrongAnswer(answer);
   }
   private void askQuestion()
   {
