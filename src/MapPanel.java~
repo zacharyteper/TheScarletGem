@@ -7,6 +7,25 @@ public class MapPanel extends JPanel implements Runnable
 {
   private Graphics screen;
   private Country[] destinations;
+  private JButton destination1;
+  private JButton destination2;
+  private JButton destination3;
+  private JLabel clue;
+  private int answer;
+  
+  public JButton getDestination1()
+  {
+    return destination1;
+  }
+  public JButton getDestination2()
+  {
+    return destination2;
+  }
+  public JButton getDestination3()
+  {
+    return destination3;
+  }
+  
   public Country[] getDestinations ()
   {
     return destinations;
@@ -23,10 +42,36 @@ public class MapPanel extends JPanel implements Runnable
   {
     screen=g;
   }
-  public MapPanel (Graphics g,Country[]c)
+  public int getAnswer()
+  {
+    return answer;
+  }
+  public void setAnswer(int ans)
+  {
+    answer=ans;
+  }
+  public void removeWrongAnswer (int destination)
+  {
+    if (destination==1)
+      remove(destination1);
+    else if (destination==2)
+      remove(destination2);
+    else
+      remove(destination3);
+  }
+  public MapPanel (Graphics g,Country[]c,String s,int ans)
   {
     screen=g;
     destinations=c;
+    answer=ans;
+    destination1=new JButton(c[0].getName());
+    destination2=new JButton(c[1].getName());
+    destination3=new JButton (c[2].getName());
+    clue=new JLabel(s);
+    add (destination1);
+    add (destination2);
+    add (destination3);
+    add (clue);
   }
  
   public void run()

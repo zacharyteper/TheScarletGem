@@ -75,36 +75,36 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       dispose();
       System.exit(0);
     }
-    if (ae.getSource().equals(mainMenuPanel.getEasyButton()))
+    else if (ae.getSource().equals(mainMenuPanel.getEasyButton()))
     {
       levelsRemaining=1;
       showCountryPanel();      
     }
-    if (ae.getSource().equals(countryPanel.getAButton()))
+    else if (ae.getSource().equals(countryPanel.getAButton()))
     {
       checkAnswer('A');
     }
-    if (ae.getSource().equals(countryPanel.getBButton()))
+    else if (ae.getSource().equals(countryPanel.getBButton()))
     {
       checkAnswer ('B');
     }
-    if (ae.getSource().equals(countryPanel.getCButton()))
+    else if (ae.getSource().equals(countryPanel.getCButton()))
     {
       checkAnswer ('C');
     }
-    if (ae.getSource().equals(countryPanel.getDButton()))
+    else if (ae.getSource().equals(countryPanel.getDButton()))
     {
       checkAnswer ('D');
     }
-    if (ae.getSource().equals(mapPanel.getDestination1()))
+    else if (ae.getSource().equals(mapPanel.getDestination1()))
     {
       checkDestination (1);
     }
-    if (ae.getSource().equals(mapPanel.getDestination2()))
+    else if (ae.getSource().equals(mapPanel.getDestination2()))
     {
       checkDestination (2);
     }
-    if (ae.getSource().equals(mapPanel.getDestination3()))
+    else if (ae.getSource().equals(mapPanel.getDestination3()))
     {
       checkDestination (3);
     }
@@ -125,9 +125,10 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   {
     do
     {
-      currentCountry=countries[(int)(Math.random()*13)];
+      currentCountry=countries[(int)(Math.random()*4)];
+      System.out.println (currentCountry.getName());
     }
-    while (!alreadyBeen.contains(currentCountry));
+    while (alreadyBeen.contains(currentCountry));
     
     System.out.println  ("showMap");
     remove (countryPanel);
@@ -137,14 +138,21 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                              {countries[1], countries[2],countries[3]},countries[1].getRandClue(),1);
     
     add (mapPanel);
+    mapPanel.getDestination1().addActionListener(this);
+    mapPanel.getDestination2().addActionListener(this);
+    mapPanel.getDestination3().addActionListener(this);
   }
   private void checkDestination (int destination)
   {
+    System.out.println (destination);
     if (destination==mapPanel.getAnswer())
     {
     }
     else
+    {
       mapPanel.removeWrongAnswer(destination);
+      System.out.println ("wrong");
+    }
     
   }
   private void checkAnswer (char answer)
@@ -152,6 +160,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     if (countryPanel.getCurrentQuestion().getAnswer()==answer)
     {
       levelsRemaining--;
+      alreadyBeen.add(currentCountry);
       showMapPanel();
     }
     else
@@ -320,7 +329,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     try
     {
       Country china =new Country ("China",chinaEasy, null, null, ImageIO.read (new File ("china.jpg")),
-                                  new String[]{"I am in the country with the largest population in the world."});
+                                  new String[]{"I am in the country with the largest population in the world."
+        ,"I am in the counry whose capital is Beijing."
+                                    ,"I am in the country where bamboo forests, pandas and the Asian Black Bear"+
+                                     "can be found.",
+                                    "I am in the country which was ruled by over 15 different dynasties over the"+
+                                    "course of 5000 years."
+      });
       countries [1]=china;
     }
     catch (IOException e)
@@ -413,6 +428,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       System.out.println ("IO");
     }
+    alreadyBeen=new ArrayList<Country>();
     revalidate();
   }
   

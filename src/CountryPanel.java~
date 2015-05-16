@@ -12,14 +12,31 @@ public class CountryPanel extends JPanel implements Runnable
   private JButton C;
   private JButton D;
   private JLabel questionLabel;
+  private Question currentQuestion;
   
-  public JLabel getQuestionLabel()
+  public Question getCurrentQuestion()
   {
-    return questionLabel;
+    return currentQuestion;
   }
-  public void setQuestionLabel(String q)
+  public void setCurrentQuestion(Question q)
   {
-    questionLabel.setText(q);
+    currentQuestion=q;
+  }
+  public void removeWrongAnswer (char button)
+  {
+    if (button=='A')
+      remove(A);
+    else if (button=='B')
+      remove(B);
+    else if (button=='C')
+      remove(C);
+    else
+      remove(D);
+  }
+  public void setQuestion(Question q)
+  {
+    currentQuestion=q;
+    questionLabel.setText(q.getQuestion());
     System.out.println (q);
   }
   public JButton getAButton()
@@ -51,7 +68,7 @@ public class CountryPanel extends JPanel implements Runnable
   {
     screen=g;
   }
-  public CountryPanel (Country c, Graphics g)
+  public CountryPanel (Country c, Graphics g, Question first)
   {
     country=c;
     screen=g;
@@ -59,7 +76,8 @@ public class CountryPanel extends JPanel implements Runnable
     B=new JButton ("B");
     C=new JButton ("C");
     D=new JButton ("D");
-    questionLabel=new JLabel();
+    questionLabel=new JLabel(first.getQuestion());
+    currentQuestion=first;
     add(A);
     add(B);
     add(C);

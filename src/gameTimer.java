@@ -7,5 +7,7 @@ public class GameTimer implements Runnable {
   public void run()
   {
   }
-  
+  public GameTimer()
+  {
+  }
 }
