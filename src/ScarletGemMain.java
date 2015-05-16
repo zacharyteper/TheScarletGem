@@ -134,6 +134,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     remove (countryPanel);
     System.out.println (countries[1]);
     System.out.println (countries[2]);
+    //countries[(int)(Math.random()*
     mapPanel=new MapPanel (null, new Country[]
                              {countries[1], countries[2],countries[3]},countries[1].getRandClue(),1);
     
@@ -147,6 +148,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     System.out.println (destination);
     if (destination==mapPanel.getAnswer())
     {
+      currentCountry=countries[1];
     }
     else
     {
@@ -362,7 +364,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                                   new String[]{"I am in the country with the largest population in the world."
         ,"I am in the counry whose capital is Beijing."
                                     ,"I am in the country where bamboo forests, pandas and the Asian Black Bear"+
-                                     "can be found.",
+                                     " can be found.",
                                     "I am in the country which was ruled by over 15 different dynasties over the"+
                                     "course of 5000 years.",
                                     "I am in the country in which the city of Shanghai is located."
@@ -409,7 +411,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     try
     {
       Country usa =new Country ("USA",usaEasy, null, null, ImageIO.read (new File ("USA.jpg")),
-                                   null);
+                                   new String[]
+                                  {"I am in the country in which Chicago is located.",
+        "I am in the country with the largest military in the world.",
+                                    "I am in the country whose national flower is the Rose.",
+                                    "I am in the country whose flag contains stars and stripes.",
+                                    "I am in the country which contains 50 states."
+      });
       countries [2]=usa;
     }
     catch (IOException e)
@@ -424,11 +432,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "\n C. Monterrey"+
                    "\n D. Cancun"
                      ,'C'),
-      new Question ("In what part of Mexico is Newfoundland located?"+
-                    "\n A. North"+
-                    "\n B. West"+
-                    "\n C. South"+
-                    "\n D. East"
+      new Question ("Which tribal group is indigenous to Mexico?"+
+                    "\n A. Inuit"+
+                    "\n B. Hindi"+
+                    "\n C. Portugal"+
+                    "\n D. Aztec"
                       ,'D'),
       new Question ("In what part of Canada is Nunavut?"+
                     "\n A. North"+
@@ -452,7 +460,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     try
     {
       Country mexico =new Country ("Mexico",mexicoEasy, null, null, ImageIO.read (new File ("mexico.jpeg")),
-                                   null);
+                                   new String[]{
+        "I am in the country which was home to the Maya and Aztec people.",
+          "I am in the country in which corn was first grown as a crop.",
+          "I am in the country whose national bird is the Golden Eagle.",
+          "I am in the southernmost country in North America.",
+          "I am in the country whose states include Tabasco, Oaxaca and Morelos."
+      });
       countries [3]=mexico;
     }
     catch (IOException e)

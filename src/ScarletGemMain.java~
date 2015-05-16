@@ -249,7 +249,37 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     revalidate();
     
     //setup countries
+    /* currentCountry index:
+   * 0 - Canada
+   * 1 - China
+   * 2 - USA
+   * 3 - Mexico
+   * 4 - Portugal
+   * 5 - Australia
+   * 6 - Egypt
+   * 7 - India
+   * 8 - Russia
+   * 9 - Japan
+   * 10 - Brazil
+   * 11 - Cuba
+   * 12 - South Africa
+   * 13 - Switzerland
+   */
     countries=new Country[14];
+    countries[0]=new Country("Canada");
+    countries[1]=new Country("China");
+    countries[2]=new Country("USA");
+    countries[3]=new Country("Mexico");
+    countries[4]=new Country("Portugal");
+    countries[5]=new Country("Australia");
+    countries[6]=new Country("Egypt");
+    countries[7]=new Country("India");
+    countries[8]=new Country("Russia");
+    countries[9]=new Country("Japan");
+    countries[10]=new Country("Brazil");
+    countries[11]=new Country("Cuba");
+    countries[12]=new Country("South Africa");
+    countries[13]=new Country("Switzerland");
     
     Question[] canadaEasy=
     {new Question ("What is the capital of Canada?"+
@@ -276,7 +306,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "\n C. Africa"+
                     "\n D. Asia"
                       ,'B'),
-      new Question ("What languages the two official languages of Canada?"+
+      new Question ("What are the two official languages of Canada?"+
                     "\n A. Spanish & French"+
                     "\n B. German & English"+
                     "\n C. English & Spanish"+
@@ -301,7 +331,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "\n C. Bangkok"+
                    "\n D. Tokyo"
                      ,'A'),
-      new Question ("Which Ocean is off the coast of China?"+
+      new Question ("Which ocean is off the coast of China?"+
                     "\n A. Atlantic"+
                     "\n B. Indian"+
                     "\n C. Pacific"+
@@ -334,7 +364,8 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                                     ,"I am in the country where bamboo forests, pandas and the Asian Black Bear"+
                                      "can be found.",
                                     "I am in the country which was ruled by over 15 different dynasties over the"+
-                                    "course of 5000 years."
+                                    "course of 5000 years.",
+                                    "I am in the country in which the city of Shanghai is located."
       });
       countries [1]=china;
     }
@@ -344,31 +375,31 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     //initialize USA
     Question[] usaEasy=
-    {new Question ("What is the capital of USA?"+
+    {new Question ("What is the capital of the USA?"+
                    "\n A. Boston"+
                    "\n B. New York"+
                    "\n C. Texas"+
                    "\n D. Washington D.C."
                      ,'D'),
-      new Question ("In what part of USA is New Jersey located?"+
+      new Question ("In what part of the USA is New Jersey located?"+
                     "\n A. North"+
                     "\n B. West"+
                     "\n C. East"+
                     "\n D. South"
                       ,'C'),
-      new Question ("In which state of USA is San Fransisco?"+
+      new Question ("In which state is San Fransisco located?"+
                     "\n A. Texas"+
                     "\n B. California"+
                     "\n C. Mexico"+
                     "\n D. Florida"
                       ,'B'),
-      new Question ("What continent is USA part of?"+
+      new Question ("What continent is the USA part of?"+
                     "\n A. Europe"+
                     "\n B. Asia"+
                     "\n C. Africa"+
                     "\n D. North America"
                       ,'D'),
-      new Question ("What is the official language of USA?"+
+      new Question ("What is the official language of the USA?"+
                     "\n A. English"+
                     "\n B. Spanish"+
                     "\n C. French"+
