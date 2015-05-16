@@ -12,7 +12,7 @@ public class Country {
   
   public Question getRandQuestion (int difficulty)
   {
-    int index= (int) (Math.random()*10+1);
+    int index= (int) (Math.random()*4);
     if (difficulty==0)
       return easy[index];
     else
