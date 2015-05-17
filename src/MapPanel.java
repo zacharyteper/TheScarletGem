@@ -58,7 +58,25 @@ public class MapPanel extends JPanel implements Runnable
       remove(destination2);
     else
       remove(destination3);
+    refresh();
   }
+  public void shuffleButtons()
+  {
+    int index=(int)(Math.random()*3);
+    answer=index;
+    Country temp=destinations[index];
+    destinations[index]=destinations[0];
+    destinations[0]=temp;    
+    refresh();
+  }
+  private void refresh()
+  {
+    destination1.setText(destinations[0].getName());
+    destination2.setText(destinations[1].getName());
+    destination3.setText(destinations[2].getName());
+    revalidate();
+  }
+    
   public MapPanel ()
   {
   }

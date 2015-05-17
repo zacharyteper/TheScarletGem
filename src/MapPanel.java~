@@ -59,6 +59,9 @@ public class MapPanel extends JPanel implements Runnable
     else
       remove(destination3);
   }
+  public MapPanel ()
+  {
+  }
   public MapPanel (Graphics g,Country[]c,String s,int ans)
   {
     screen=g;
