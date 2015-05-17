@@ -6,7 +6,7 @@ public class Country {
   Question[] easy;
   Question[] medium;
   Question[] hard;
-  String name;
+  final String name;
   String[]clues;
   Image background;
   
@@ -33,6 +33,10 @@ public class Country {
   public String getName ()
   {
     return name;
+  }
+  public Country (String s)
+  {
+    name=s;
   }
   
   public Country (String name, Question[]a,Question[]b,

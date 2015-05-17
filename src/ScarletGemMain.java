@@ -136,7 +136,8 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     System.out.println (countries[2]);
     //countries[(int)(Math.random()*
     mapPanel=new MapPanel (null, new Country[]
-                             {countries[1], countries[2],countries[3]},countries[1].getRandClue(),1);
+                             {currentCountry, countries[2],countries[3]},currentCountry.getRandClue(),
+    currentCountry.getIndex());
     
     add (mapPanel);
     mapPanel.getDestination1().addActionListener(this);
@@ -148,7 +149,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     System.out.println (destination);
     if (destination==mapPanel.getAnswer())
     {
-      currentCountry=countries[1];
+      currentCountry=countries[(int)(Math.random()*3)];
     }
     else
     {
@@ -268,20 +269,20 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    * 13 - Switzerland
    */
     countries=new Country[14];
-    countries[0]=new Country("Canada");
-    countries[1]=new Country("China");
-    countries[2]=new Country("USA");
-    countries[3]=new Country("Mexico");
-    countries[4]=new Country("Portugal");
-    countries[5]=new Country("Australia");
-    countries[6]=new Country("Egypt");
-    countries[7]=new Country("India");
-    countries[8]=new Country("Russia");
-    countries[9]=new Country("Japan");
-    countries[10]=new Country("Brazil");
-    countries[11]=new Country("Cuba");
-    countries[12]=new Country("South Africa");
-    countries[13]=new Country("Switzerland");
+//    countries[0]=new Country("Canada");
+//    countries[1]=new Country("China");
+//    countries[2]=new Country("USA");
+//    countries[3]=new Country("Mexico");
+//    countries[4]=new Country("Portugal");
+//    countries[5]=new Country("Australia");
+//    countries[6]=new Country("Egypt");
+//    countries[7]=new Country("India");
+//    countries[8]=new Country("Russia");
+//    countries[9]=new Country("Japan");
+//    countries[10]=new Country("Brazil");
+//    countries[11]=new Country("Cuba");
+//    countries[12]=new Country("South Africa");
+//    countries[13]=new Country("Switzerland");
     
     Question[] canadaEasy=
     {new Question ("What is the capital of Canada?"+
@@ -431,30 +432,30 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "\n B. Mexico City"+
                    "\n C. Monterrey"+
                    "\n D. Cancun"
-                     ,'C'),
+                     ,'B'),
       new Question ("Which tribal group is indigenous to Mexico?"+
                     "\n A. Inuit"+
                     "\n B. Hindi"+
                     "\n C. Portugal"+
                     "\n D. Aztec"
                       ,'D'),
-      new Question ("In what part of Canada is Nunavut?"+
-                    "\n A. North"+
-                    "\n B. West"+
-                    "\n C. South"+
-                    "\n D. East"
+      new Question ("Which country is directly north of Mexico?"+
+                    "\n A. USA"+
+                    "\n B. Chile"+
+                    "\n C. Africa"+
+                    "\n D. Arctic"
                       ,'A'),
-      new Question ("What continent is Canada part of?"+
+      new Question ("What continent is Mexico part of?"+
                     "\n A. Europe"+
                     "\n B. North America"+
                     "\n C. Africa"+
                     "\n D. Asia"
                       ,'B'),
-      new Question ("What languages the two official languages of Canada?"+
-                    "\n A. Spanish & French"+
-                    "\n B. German & English"+
-                    "\n C. English & Spanish"+
-                    "\n D. French & English"
+      new Question ("What is the official language of Mexico?"+
+                    "\n A. French"+
+                    "\n B. German"+
+                    "\n C. English"+
+                    "\n D. Spanish"
                       ,'D')
     };
     try
