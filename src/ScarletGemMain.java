@@ -5,6 +5,16 @@ import javax.imageio.*;
 import java.awt.event.*;
 import java.io.*;
 import java.util.*;
+/**
+ * This is the 'Main' class for this project. All of the event listeners used
+ * in the game are implemented by this class. This class will respond to any buttons pressed
+ * in any other classes. This class acts as the "brain" of the project: it does all of the logic,
+ * processing and recordkeeping. The other classes are just utility classes that help to store temporary
+ * game data (such as the question sets for each country) and display the GUI.
+ * 
+ * @author Zachary Teper and Angela Zhu
+ * @version 1.0 17.05.15
+ */
 public class ScarletGemMain extends JFrame implements ActionListener, Printable, KeyListener, MouseListener,
   WindowListener
 {
@@ -24,9 +34,27 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    * 12 - South Africa
    * 13 - Switzerland
    */
+  /**
+   * Holds the country that the user is currently in. This value will be reassigned
+   * to a new value every time the user completes a level.
+   */
   private Country currentCountry;
+  /**
+   * Holds the number representing the difficulty chosen by the user at the start of the game.
+   * 0 represents easy. 1 represents medium and 2 represents hard.
+   */
   private int difficulty;
+  /**
+   * Holds the number of levels that the user has left. In easy mode, this is initialized to 3.
+   * In medium mode, this is initialized to 5. In hard mode, this is initialized to 7. When <code>
+   * difficulty</code> reaches 0, the game ends.
+   */
   private int levelsRemaining;
+  /**
+   * Holds the time remaining in the game, in seconds. This value will be regularly decremented 
+   * throughout the game, and displayed at the top of the game screen. When this value reaches 0, 
+   * the game will end.
+   */
   private int timeRemaining;
   private boolean paused;
   private ArrayList <Country> alreadyBeen;

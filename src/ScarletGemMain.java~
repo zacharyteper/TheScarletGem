@@ -5,6 +5,16 @@ import javax.imageio.*;
 import java.awt.event.*;
 import java.io.*;
 import java.util.*;
+/**
+ * This is the 'Main' class for this project. All of the event listeners used
+ * in the game are implemented by this class. This class will respond to any buttons pressed
+ * in any other classes. This class acts as the "brain" of the project: it does all of the logic,
+ * processing and recordkeeping. The other classes are just utility classes that help to store temporary
+ * game data (such as the question sets for each country) and display the GUI.
+ * 
+ * @author Zachary Teper and Angela Zhu
+ * @version 1.0 17.05.15
+ */
 public class ScarletGemMain extends JFrame implements ActionListener, Printable, KeyListener, MouseListener,
   WindowListener
 {
@@ -24,6 +34,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    * 12 - South Africa
    * 13 - Switzerland
    */
+  
   private Country currentCountry;
   private int difficulty;
   private int levelsRemaining;
@@ -112,7 +123,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   private void showCountryPanel()
   {
-    System.out.println ("showCountry");
    remove (mainMenuPanel);
    remove (mapPanel);
       countryPanel=new CountryPanel (currentCountry,null,currentCountry.getRandQuestion(0));
@@ -126,31 +136,26 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   {
     do
     {
-      currentCountry=countries[(int)(Math.random()*4)];
-      System.out.println (currentCountry.getName());
+      currentCountry=countries[(int)(Math.random()*6)];
     }
     while (alreadyBeen.contains(currentCountry));
     Country wrong1;
     Country wrong2;
     do
     {
-      wrong1=countries[(int)(Math.random()*4)];
+      wrong1=countries[(int)(Math.random()*6)];
     }
     while (alreadyBeen.contains(currentCountry)||wrong1.equals(currentCountry));
     do
     {
-      wrong2=countries[(int)(Math.random()*4)];
+      wrong2=countries[(int)(Math.random()*6)];
     }
     while (alreadyBeen.contains(currentCountry)||wrong1.equals(currentCountry)
              ||wrong2.equals(currentCountry));
-    System.out.println  ("showMap");
     remove (countryPanel);
-    System.out.println (countries[1]);
-    System.out.println (countries[2]);
     //countries[(int)(Math.random()*
     mapPanel=new MapPanel (null, new Country[]
-                             {currentCountry, countries[2],countries[3]},currentCountry.getRandClue(),
-    currentCountry.getIndex());
+                             {currentCountry, wrong1,wrong2},currentCountry.getRandClue());
     
     add (mapPanel);
     mapPanel.getDestination1().addActionListener(this);
@@ -159,16 +164,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   private void checkDestination (int destination)
   {
-    System.out.println (destination);
     if (destination==mapPanel.getAnswer())
     {
-      currentCountry=countries[(int)(Math.random()*3)];
       showCountryPanel();
     }
     else
     {
       mapPanel.removeWrongAnswer(destination);
-      System.out.println ("wrong");
     }
     
   }
@@ -592,6 +594,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     mapPanel=new MapPanel();
     alreadyBeen=new ArrayList<Country>();
     currentCountry=countries[0];
+    alreadyBeen.add(countries[0]);
     revalidate();
   }
   
