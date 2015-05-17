@@ -68,6 +68,10 @@ public class CountryPanel extends JPanel implements Runnable
   {
     screen=g;
   }
+  public CountryPanel (Country c)
+  {
+    country=c;
+  }
   public CountryPanel (Country c, Graphics g, Question first)
   {
     country=c;

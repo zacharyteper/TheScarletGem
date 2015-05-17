@@ -37,7 +37,6 @@ public class CountryPanel extends JPanel implements Runnable
   {
     currentQuestion=q;
     questionLabel.setText(q.getQuestion());
-    System.out.println (q);
   }
   public JButton getAButton()
   {

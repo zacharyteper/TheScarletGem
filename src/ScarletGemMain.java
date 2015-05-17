@@ -112,7 +112,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   private void showCountryPanel()
   {
-    System.out.println ("showCountry");
    remove (mainMenuPanel);
    remove (mapPanel);
       countryPanel=new CountryPanel (currentCountry,null,currentCountry.getRandQuestion(0));
@@ -126,31 +125,26 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   {
     do
     {
-      currentCountry=countries[(int)(Math.random()*4)];
-      System.out.println (currentCountry.getName());
+      currentCountry=countries[(int)(Math.random()*6)];
     }
     while (alreadyBeen.contains(currentCountry));
     Country wrong1;
     Country wrong2;
     do
     {
-      wrong1=countries[(int)(Math.random()*4)];
+      wrong1=countries[(int)(Math.random()*6)];
     }
     while (alreadyBeen.contains(currentCountry)||wrong1.equals(currentCountry));
     do
     {
-      wrong2=countries[(int)(Math.random()*4)];
+      wrong2=countries[(int)(Math.random()*6)];
     }
     while (alreadyBeen.contains(currentCountry)||wrong1.equals(currentCountry)
              ||wrong2.equals(currentCountry));
-    System.out.println  ("showMap");
     remove (countryPanel);
-    System.out.println (countries[1]);
-    System.out.println (countries[2]);
     //countries[(int)(Math.random()*
     mapPanel=new MapPanel (null, new Country[]
-                             {currentCountry, countries[2],countries[3]},currentCountry.getRandClue(),
-    currentCountry.getIndex());
+                             {currentCountry, wrong1,wrong2},currentCountry.getRandClue());
     
     add (mapPanel);
     mapPanel.getDestination1().addActionListener(this);
@@ -159,16 +153,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   private void checkDestination (int destination)
   {
-    System.out.println (destination);
     if (destination==mapPanel.getAnswer())
     {
-      currentCountry=countries[(int)(Math.random()*3)];
       showCountryPanel();
     }
     else
     {
       mapPanel.removeWrongAnswer(destination);
-      System.out.println ("wrong");
     }
     
   }
@@ -592,6 +583,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     mapPanel=new MapPanel();
     alreadyBeen=new ArrayList<Country>();
     currentCountry=countries[0];
+    alreadyBeen.add(countries[0]);
     revalidate();
   }
   

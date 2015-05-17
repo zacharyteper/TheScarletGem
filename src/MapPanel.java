@@ -60,14 +60,15 @@ public class MapPanel extends JPanel implements Runnable
       remove(destination3);
     refresh();
   }
-  public void shuffleButtons()
+  private int shuffleButtons()
   {
     int index=(int)(Math.random()*3);
     answer=index;
-    Country temp=destinations[index];
-    destinations[index]=destinations[0];
-    destinations[0]=temp;    
+    Country temp=destinations[0];
+    destinations[0]=destinations[index];
+    destinations[index]=temp;    
     refresh();
+    return index;
   }
   private void refresh()
   {
@@ -80,15 +81,16 @@ public class MapPanel extends JPanel implements Runnable
   public MapPanel ()
   {
   }
-  public MapPanel (Graphics g,Country[]c,String s,int ans)
+  //The first element in c MUST be the correct answer!
+  public MapPanel (Graphics g,Country[]c,String s)
   {
     screen=g;
     destinations=c;
-    answer=ans;
     destination1=new JButton(c[0].getName());
     destination2=new JButton(c[1].getName());
     destination3=new JButton (c[2].getName());
     clue=new JLabel(s);
+    answer=shuffleButtons()+1;
     add (destination1);
     add (destination2);
     add (destination3);

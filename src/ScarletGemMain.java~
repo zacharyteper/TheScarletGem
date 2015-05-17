@@ -77,7 +77,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     else if (ae.getSource().equals(mainMenuPanel.getEasyButton()))
     {
-      levelsRemaining=1;
+      levelsRemaining=3;
       showCountryPanel();      
     }
     else if (ae.getSource().equals(countryPanel.getAButton()))
@@ -114,7 +114,8 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   {
     System.out.println ("showCountry");
    remove (mainMenuPanel);
-      countryPanel=new CountryPanel (countries[0],null,countries[0].getRandQuestion(0));
+   remove (mapPanel);
+      countryPanel=new CountryPanel (currentCountry,null,currentCountry.getRandQuestion(0));
       add (countryPanel);
       countryPanel.getAButton().addActionListener(this);
       countryPanel.getBButton().addActionListener(this);
@@ -162,6 +163,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     if (destination==mapPanel.getAnswer())
     {
       currentCountry=countries[(int)(Math.random()*3)];
+      showCountryPanel();
     }
     else
     {
@@ -176,7 +178,10 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       levelsRemaining--;
       alreadyBeen.add(currentCountry);
-      showMapPanel();
+      if (levelsRemaining>0)
+        showMapPanel();
+      else
+        JOptionPane.showMessageDialog(null,"You Win");
     }
     else
       countryPanel.removeWrongAnswer(answer);
@@ -486,7 +491,107 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       System.out.println ("IO");
     }
+    //initialize Portugal
+    Question[] portugalEasy=
+    {new Question ("What is the capital of Portugal?"+
+                   "\n A. Barcelona"+
+                   "\n B. Lisbon"+
+                   "\n C. Madrid"+
+                   "\n D. Madeira"
+                     ,'B'),
+      new Question ("Which ocean is off the coast of Portugal?"+
+                    "\n A. Arctic"+
+                    "\n B. Pacific"+
+                    "\n C. Indian"+
+                    "\n D. Atlantic"
+                      ,'D'),
+      new Question ("Which country is directly east of Portugal?"+
+                    "\n A. Spain"+
+                    "\n B. Chile"+
+                    "\n C. Africa"+
+                    "\n D. Arctic"
+                      ,'A'),
+      new Question ("What continent is Portugal part of?"+
+                    "\n A. North America"+
+                    "\n B. Europe"+
+                    "\n C. Africa"+
+                    "\n D. Asia"
+                      ,'B'),
+      new Question ("What is the official language of Portugal?"+
+                    "\n A. French"+
+                    "\n B. German"+
+                    "\n C. English"+
+                    "\n D. Portuguese"
+                      ,'D')
+    };
+    try
+    {
+      Country portugal =new Country ("Portugal",portugalEasy, null, null, ImageIO.read (new File ("portugal.jpg")),
+                                   new String[]{
+        "I am in the country which contains the Tagus River.",
+          "I am in the country in which the Temple of Evora can be found.",
+          "I am in the country whose national symbol is the Armillary Sphere.",
+          "I am in the westernmost country in Europe.",
+          "I am in the country whose districts include Beja, Aveiro and Madeira."
+      });
+      countries [4]=portugal;
+    }
+    catch (IOException e)
+    {
+      System.out.println ("IO");
+    }
+    //initialize Australia
+    Question[] australiaEasy=
+    {new Question ("What is the capital of Australia?"+
+                   "\n A. Sydney"+
+                   "\n B. Canberra"+
+                   "\n C. Brisbane"+
+                   "\n D. New Zealand"
+                     ,'B'),
+      new Question ("Which ocean is off the west coast of Australia?"+
+                    "\n A. Arctic"+
+                    "\n B. Pacific"+
+                    "\n C. Indian"+
+                    "\n D. Atlantic"
+                      ,'C'),
+      new Question ("Which country is directly north of Australia?"+
+                    "\n A. Indonesia"+
+                    "\n B. Russia"+
+                    "\n C. Africa"+
+                    "\n D. Mexico"
+                      ,'A'),
+      new Question ("What continent is Australia part of?"+
+                    "\n A. India"+
+                    "\n B. Australia"+
+                    "\n C. Africa"+
+                    "\n D. Asia"
+                      ,'B'),
+      new Question ("What is the largest city in Australia?"+
+                    "\n A. New Zealand"+
+                    "\n B. Canberra"+
+                    "\n C. Melbourne"+
+                    "\n D. Sydney"
+                      ,'D')
+    };
+    try
+    {
+      Country australia =new Country ("Australia",australiaEasy, null, null, ImageIO.read (new File ("australia.jpg")),
+                                   new String[]{
+        "I am in the country in which Ayers Rock can be found.",
+          "I am in the country in which the Murray River can be found.",
+          "I am in the country which is the world's fourth largest producer of wine.",
+          "I am in the country whose name is the same as its continent's name.",
+          "I am in the country whose states include New South Wales, Queensland and Victoria."
+      });
+      countries [5]=australia;
+    }
+    catch (IOException e)
+    {
+      System.out.println ("IO");
+    }
+    mapPanel=new MapPanel();
     alreadyBeen=new ArrayList<Country>();
+    currentCountry=countries[0];
     revalidate();
   }
   
