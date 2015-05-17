@@ -129,7 +129,19 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       System.out.println (currentCountry.getName());
     }
     while (alreadyBeen.contains(currentCountry));
-    
+    Country wrong1;
+    Country wrong2;
+    do
+    {
+      wrong1=countries[(int)(Math.random()*4)];
+    }
+    while (alreadyBeen.contains(currentCountry)||wrong1.equals(currentCountry));
+    do
+    {
+      wrong2=countries[(int)(Math.random()*4)];
+    }
+    while (alreadyBeen.contains(currentCountry)||wrong1.equals(currentCountry)
+             ||wrong2.equals(currentCountry));
     System.out.println  ("showMap");
     remove (countryPanel);
     System.out.println (countries[1]);
