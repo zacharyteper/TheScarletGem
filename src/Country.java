@@ -6,7 +6,7 @@ public class Country {
   Question[] easy;
   Question[] medium;
   Question[] hard;
-  String name;
+  final String name;
   String[]clues;
   Image background;
   
@@ -22,6 +22,37 @@ public class Country {
     }
     return hard[index];
   }
+  public int getIndex()
+  {
+    if (name.equals("Canada"))
+      return 0;
+    else if (name.equals("China"))
+      return 1;
+    else if (name.equals("USA"))
+      return 2;
+    else if (name.equals("Mexico"))
+      return 3;
+    else if (name.equals("Portugal"))
+      return 4;
+    else if (name.equals("Australia"))
+      return 5;
+    else if (name.equals("Egypt"))
+      return 6;
+    else if (name.equals("India"))
+      return 7;
+    else if (name.equals("Russia"))
+      return 8;
+    else if (name.equals("Japan"))
+      return 9;
+    else if (name.equals("Brazil"))
+      return 10;
+    else if (name.equals("Cuba"))
+      return 11;
+    else if (name.equals("South Africa"))
+      return 12;
+   
+      return 13;
+  }
   public Image getBackground ()
   {
     return background;
@@ -33,6 +64,14 @@ public class Country {
   public String getName ()
   {
     return name;
+  }
+  public boolean equals (Country other)
+  {
+    return other.getName().equals(name);
+  }
+  public Country (String s)
+  {
+    name=s;
   }
   
   public Country (String name, Question[]a,Question[]b,

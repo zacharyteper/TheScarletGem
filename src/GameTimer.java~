@@ -1,11 +1,8 @@
 /**
  * Auto Generated Java Class.
  */
-public class GameTimer  implements Runnable
-{
-  public void run()
-  {
-  }
+public class GameTimer implements Runnable {
+  
   /* ADD YOUR CODE HERE */
   
 }
