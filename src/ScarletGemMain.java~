@@ -64,8 +64,28 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       remove (mainMenuPanel);
       countryPanel=new CountryPanel (countries[0],null);
       add (countryPanel);
+      countryPanel.setQuestionLabel(countries[0].getRandQuestion(0).getQuestion());
     }
-    
+    if (ae.getScource().equals(countryPanel.getAButton()))
+    {
+    }
+    if (ae.getSource().equals(countryPanel.getBButton()))
+    {
+    }
+    if (ae.getSource().equals(countryPanel.getBButton()))
+    {
+    }
+    if (ae.getSource().equals(countryPanel.getBButton()))
+    {
+    }
+    revalidate();
+  }
+  private void playEasy ()
+  {
+    remove (mainMenuPanel);
+    countryPanel=new CountryPanel (countries[0],null);
+    add (countryPanel);
+    countryPanel.setQuestionLabel(countries[0].getRandQuestion(0).getQuestion());
   }
   private void askQuestion()
   {

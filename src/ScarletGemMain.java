@@ -66,7 +66,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       add (countryPanel);
       countryPanel.setQuestionLabel(countries[0].getRandQuestion(0).getQuestion());
     }
-    if (ae.getScource().equals(countryPanel.getAButton()))
+    if (ae.getSource().equals(countryPanel.getAButton()))
     {
     }
     if (ae.getSource().equals(countryPanel.getBButton()))
