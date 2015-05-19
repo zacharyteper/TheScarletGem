@@ -60,9 +60,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   private ArrayList <Country> alreadyBeen;
   private Country[] countries;
   private JPanel gamePanel;
-  private JLabel timer;
-  private JButton pauseButton;
-  private JLabel levelCounter;
   private MapPanel mapPanel;
   private CountryPanel countryPanel;
   private MainMenuPanel mainMenuPanel;
@@ -109,9 +106,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     else if (ae.getSource().equals(mainMenuPanel.getEasyButton()))
     {
       levelsRemaining=3;
-      remove(mainMenuPanel);
-      add(levelCounter);
-      add(gamePanel);
       showCountryPanel();      
     }
     else if (ae.getSource().equals(countryPanel.getAButton()))
@@ -127,7 +121,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       checkAnswer ('C');
     }
     else if (ae.getSource().equals(countryPanel.getDButton()))
-
     {
       checkAnswer ('D');
     }
@@ -147,13 +140,14 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   private void showCountryPanel()
   {
-    gamePanel.remove (mapPanel);
-    countryPanel=new CountryPanel (currentCountry,null,currentCountry.getRandQuestion(0));
-    add (countryPanel);
-    countryPanel.getAButton().addActionListener(this);
-    countryPanel.getBButton().addActionListener(this);
-    countryPanel.getCButton().addActionListener(this);
-    countryPanel.getDButton().addActionListener(this); 
+   remove (mainMenuPanel);
+   remove (mapPanel);
+      countryPanel=new CountryPanel (currentCountry,null,currentCountry.getRandQuestion(0));
+      add (countryPanel);
+      countryPanel.getAButton().addActionListener(this);
+      countryPanel.getBButton().addActionListener(this);
+      countryPanel.getCButton().addActionListener(this);
+      countryPanel.getDButton().addActionListener(this); 
   }
   private void showMapPanel()
   {
@@ -175,12 +169,12 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     while (alreadyBeen.contains(currentCountry)||wrong1.equals(currentCountry)
              ||wrong2.equals(currentCountry));
-    gamePanel.remove (countryPanel);
+    remove (countryPanel);
     //countries[(int)(Math.random()*
     mapPanel=new MapPanel (null, new Country[]
                              {currentCountry, wrong1,wrong2},currentCountry.getRandClue());
     
-    gamePanel.add (mapPanel);
+    add (mapPanel);
     mapPanel.getDestination1().addActionListener(this);
     mapPanel.getDestination2().addActionListener(this);
     mapPanel.getDestination3().addActionListener(this);
@@ -617,8 +611,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     mapPanel=new MapPanel();
     alreadyBeen=new ArrayList<Country>();
     currentCountry=countries[0];
-    levelCounter=new JLabel(levelsRemaining+" levels remaining");
-    gamePanel=new JPanel();
     alreadyBeen.add(countries[0]);
     revalidate();
   }
