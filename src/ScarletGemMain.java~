@@ -127,7 +127,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       checkAnswer ('C');
     }
     else if (ae.getSource().equals(countryPanel.getDButton()))
-
+      
     {
       checkAnswer ('D');
     }
@@ -149,11 +149,19 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   {
     gamePanel.remove (mapPanel);
     countryPanel=new CountryPanel (currentCountry,null,currentCountry.getRandQuestion(0));
-    add (countryPanel);
-    countryPanel.getAButton().addActionListener(this);
-    countryPanel.getBButton().addActionListener(this);
-    countryPanel.getCButton().addActionListener(this);
-    countryPanel.getDButton().addActionListener(this); 
+    if (levelsRemaining==0)
+    {
+      JOptionPane.showMessageDialog(null,"You Win");
+      endGame();
+    }
+    else
+    {
+      gamePanel.add (countryPanel);
+      countryPanel.getAButton().addActionListener(this);
+      countryPanel.getBButton().addActionListener(this);
+      countryPanel.getCButton().addActionListener(this);
+      countryPanel.getDButton().addActionListener(this); 
+    }
   }
   private void showMapPanel()
   {
@@ -203,13 +211,19 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       levelsRemaining--;
       alreadyBeen.add(currentCountry);
-      if (levelsRemaining>0)
-        showMapPanel();
-      else
-        JOptionPane.showMessageDialog(null,"You Win");
+      showMapPanel();
     }
     else
       countryPanel.removeWrongAnswer(answer);
+  }
+  private void endGame()
+  {
+    remove(gamePanel);
+    remove(levelCounter);
+    //remove(timer);
+    //remove(pauseButton);
+    add(mainMenuPanel);
+    revalidate();
   }
   public void keyReleased (KeyEvent e)
   {
@@ -295,22 +309,22 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     
     //setup countries
     /* currentCountry index:
-   * 0 - Canada
-   * 1 - China
-   * 2 - USA
-   * 3 - Mexico
-   * 4 - Portugal
-   * 5 - Australia
-   * 6 - Egypt
-   * 7 - India
-   * 8 - Russia
-   * 9 - Japan
-   * 10 - Brazil
-   * 11 - Cuba
-   * 12 - South Africa
-   * 13 - Switzerland
-   */
-    countries=new Country[14];
+     * 0 - Canada
+     * 1 - China
+     * 2 - USA
+     * 3 - Mexico
+     * 4 - Portugal
+     * 5 - Australia
+     * 6 - Egypt
+     * 7 - India
+     * 8 - Russia
+     * 9 - Japan
+     * 10 - Brazil
+     * 11 - Cuba
+     * 12 - South Africa
+     * 13 - Switzerland
+     */
+    countries=new Country[12];
 //    countries[0]=new Country("Canada");
 //    countries[1]=new Country("China");
 //    countries[2]=new Country("USA");
@@ -407,7 +421,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                                   new String[]{"I am in the country with the largest population in the world."
         ,"I am in the counry whose capital is Beijing."
                                     ,"I am in the country where bamboo forests, pandas and the Asian Black Bear"+
-                                     " can be found.",
+                                    " can be found.",
                                     "I am in the country which was ruled by over 15 different dynasties over the"+
                                     "course of 5000 years.",
                                     "I am in the country in which the city of Shanghai is located."
@@ -454,7 +468,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     try
     {
       Country usa =new Country ("USA",usaEasy, null, null, ImageIO.read (new File ("USA.jpg")),
-                                   new String[]
+                                new String[]
                                   {"I am in the country in which Chicago is located.",
         "I am in the country with the largest military in the world.",
                                     "I am in the country whose national flower is the Rose.",
@@ -552,7 +566,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     try
     {
       Country portugal =new Country ("Portugal",portugalEasy, null, null, ImageIO.read (new File ("portugal.jpg")),
-                                   new String[]{
+                                     new String[]{
         "I am in the country which contains the Tagus River.",
           "I am in the country in which the Temple of Evora can be found.",
           "I am in the country whose national symbol is the Armillary Sphere.",
@@ -601,7 +615,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     try
     {
       Country australia =new Country ("Australia",australiaEasy, null, null, ImageIO.read (new File ("australia.jpg")),
-                                   new String[]{
+                                      new String[]{
         "I am in the country in which Ayers Rock can be found.",
           "I am in the country in which the Murray River can be found.",
           "I am in the country which is the world's fourth largest producer of wine.",
