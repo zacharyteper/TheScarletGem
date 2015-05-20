@@ -34,18 +34,32 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    * 12 - South Africa
    * 13 - Switzerland
    */
-  
+  /**
+   * Holds the country that the user is currently in. This value will be reassigned
+   * to a new value every time the user completes a level.
+   */
   private Country currentCountry;
+  /**
+   * Holds the number representing the difficulty chosen by the user at the start of the game.
+   * 0 represents easy. 1 represents medium and 2 represents hard.
+   */
   private int difficulty;
+  /**
+   * Holds the number of levels that the user has left. In easy mode, this is initialized to 3.
+   * In medium mode, this is initialized to 5. In hard mode, this is initialized to 7. When <code>
+   * difficulty</code> reaches 0, the game ends.
+   */
   private int levelsRemaining;
+  /**
+   * Holds the time remaining in the game, in seconds. This value will be regularly decremented 
+   * throughout the game, and displayed at the top of the game screen. When this value reaches 0, 
+   * the game will end.
+   */
   private int timeRemaining;
   private boolean paused;
   private ArrayList <Country> alreadyBeen;
   private Country[] countries;
   private JPanel gamePanel;
-  private JLabel timer;
-  private JButton pauseButton;
-  private JLabel levelCounter;
   private MapPanel mapPanel;
   private CountryPanel countryPanel;
   private MainMenuPanel mainMenuPanel;
@@ -92,9 +106,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     else if (ae.getSource().equals(mainMenuPanel.getEasyButton()))
     {
       levelsRemaining=3;
-      remove(mainMenuPanel);
-      add(levelCounter);
-      add(gamePanel);
       showCountryPanel();      
     }
     else if (ae.getSource().equals(countryPanel.getAButton()))
@@ -111,13 +122,9 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     else if (ae.getSource().equals(countryPanel.getDButton()))
 <<<<<<< HEAD
+=======
       
-=======
-<<<<<<< HEAD
-=======
-
 >>>>>>> 1060ecc2b037af9012df1c9e537431507086500e
->>>>>>> 0746d8aa0737b2ccc7dc8052d437155add5a1d6a
     {
       checkAnswer ('D');
     }
@@ -137,6 +144,12 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   private void showCountryPanel()
   {
+<<<<<<< HEAD
+   remove (mainMenuPanel);
+   remove (mapPanel);
+      countryPanel=new CountryPanel (currentCountry,null,currentCountry.getRandQuestion(0));
+      add (countryPanel);
+=======
     gamePanel.remove (mapPanel);
     countryPanel=new CountryPanel (currentCountry,null,currentCountry.getRandQuestion(0));
     if (levelsRemaining==0)
@@ -147,38 +160,58 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     else
     {
       gamePanel.add (countryPanel);
+>>>>>>> 1060ecc2b037af9012df1c9e537431507086500e
       countryPanel.getAButton().addActionListener(this);
       countryPanel.getBButton().addActionListener(this);
       countryPanel.getCButton().addActionListener(this);
       countryPanel.getDButton().addActionListener(this); 
+<<<<<<< HEAD
+=======
     }
+>>>>>>> 1060ecc2b037af9012df1c9e537431507086500e
   }
   private void showMapPanel()
   {
+//    for (Country s:alreadyBeen)
+//      System.out.println(s.getName());
     do
     {
       currentCountry=countries[(int)(Math.random()*6)];
     }
     while (alreadyBeen.contains(currentCountry));
+    System.out.println (alreadyBeen.contains(currentCountry));
+    
     Country wrong1;
     Country wrong2;
     do
     {
       wrong1=countries[(int)(Math.random()*6)];
     }
-    while (alreadyBeen.contains(currentCountry)||wrong1.equals(currentCountry));
+    while (alreadyBeen.contains(wrong1)||wrong1.equals(currentCountry));
+    System.out.println (currentCountry.equals(wrong1));
+    
     do
     {
       wrong2=countries[(int)(Math.random()*6)];
     }
-    while (alreadyBeen.contains(currentCountry)||wrong1.equals(currentCountry)
+    while (alreadyBeen.contains(wrong2)||wrong1.equals(wrong2)
              ||wrong2.equals(currentCountry));
+<<<<<<< HEAD
+    System.out.println (currentCountry.equals(wrong2)||wrong1.equals(wrong2));
+    
     gamePanel.remove (countryPanel);
+=======
+    remove (countryPanel);
+>>>>>>> 0746d8aa0737b2ccc7dc8052d437155add5a1d6a
     //countries[(int)(Math.random()*
+    System.out.println (currentCountry.getName());
+    System.out.println (wrong1.getName());
+    System.out.println (wrong2.getName());
+    System.out.println ();
     mapPanel=new MapPanel (null, new Country[]
                              {currentCountry, wrong1,wrong2},currentCountry.getRandClue());
     
-    gamePanel.add (mapPanel);
+    add (mapPanel);
     mapPanel.getDestination1().addActionListener(this);
     mapPanel.getDestination2().addActionListener(this);
     mapPanel.getDestination3().addActionListener(this);
@@ -621,8 +654,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     mapPanel=new MapPanel();
     alreadyBeen=new ArrayList<Country>();
     currentCountry=countries[0];
-    levelCounter=new JLabel(levelsRemaining+" levels remaining");
-    gamePanel=new JPanel();
     alreadyBeen.add(countries[0]);
     revalidate();
   }

@@ -61,6 +61,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   private Country[] countries;
   private JPanel gamePanel;
   private MapPanel mapPanel;
+  private JLabel levelCounter;
   private CountryPanel countryPanel;
   private MainMenuPanel mainMenuPanel;
   private HighScoresViewer highScoresViewer;
@@ -121,10 +122,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       checkAnswer ('C');
     }
     else if (ae.getSource().equals(countryPanel.getDButton()))
-<<<<<<< HEAD
-=======
-      
->>>>>>> 1060ecc2b037af9012df1c9e537431507086500e
     {
       checkAnswer ('D');
     }
@@ -144,12 +141,10 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   private void showCountryPanel()
   {
-<<<<<<< HEAD
    remove (mainMenuPanel);
    remove (mapPanel);
       countryPanel=new CountryPanel (currentCountry,null,currentCountry.getRandQuestion(0));
       add (countryPanel);
-=======
     gamePanel.remove (mapPanel);
     countryPanel=new CountryPanel (currentCountry,null,currentCountry.getRandQuestion(0));
     if (levelsRemaining==0)
@@ -160,15 +155,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     else
     {
       gamePanel.add (countryPanel);
->>>>>>> 1060ecc2b037af9012df1c9e537431507086500e
       countryPanel.getAButton().addActionListener(this);
       countryPanel.getBButton().addActionListener(this);
       countryPanel.getCButton().addActionListener(this);
       countryPanel.getDButton().addActionListener(this); 
-<<<<<<< HEAD
-=======
     }
->>>>>>> 1060ecc2b037af9012df1c9e537431507086500e
   }
   private void showMapPanel()
   {
@@ -196,13 +187,10 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     while (alreadyBeen.contains(wrong2)||wrong1.equals(wrong2)
              ||wrong2.equals(currentCountry));
-<<<<<<< HEAD
     System.out.println (currentCountry.equals(wrong2)||wrong1.equals(wrong2));
     
     gamePanel.remove (countryPanel);
-=======
     remove (countryPanel);
->>>>>>> 0746d8aa0737b2ccc7dc8052d437155add5a1d6a
     //countries[(int)(Math.random()*
     System.out.println (currentCountry.getName());
     System.out.println (wrong1.getName());
