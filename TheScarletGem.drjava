@@ -3,9 +3,56 @@
   <project autorefresh="false" build="bin/" main="ScarletGemRunner" root="src/" work="">
     <createjar file=""/>
     <source>
+<<<<<<< HEAD
       <file active="true" name="ScarletGemMain.java" package="" timestamp="20-May-2015 11:19:15">
         <select from="5303" to="5303"/>
         <scroll column="2887" row="0"/>
+=======
+<<<<<<< HEAD
+      <file active="true" name="ScarletGemMain.java" package="" timestamp="17-May-2015 15:09:51">
+        <select from="2015" to="2015"/>
+        <scroll column="553" row="0"/>
+      </file>
+      <file name="Country.java" package="" timestamp="16-May-2015 21:31:23">
+        <select from="2015" to="2015"/>
+        <scroll column="553" row="0"/>
+      </file>
+      <file name="ScarletGemRunner.java" package="" timestamp="15-May-2015 18:21:59">
+        <select from="2015" to="2015"/>
+        <scroll column="553" row="0"/>
+      </file>
+      <file name="InstructionsViewer.java" package="" timestamp="15-May-2015 18:21:59">
+        <select from="2015" to="2015"/>
+        <scroll column="553" row="0"/>
+      </file>
+      <file name="MainMenuPanel.java" package="" timestamp="15-May-2015 18:21:59">
+        <select from="2015" to="2015"/>
+        <scroll column="553" row="0"/>
+      </file>
+      <file name="Question.java" package="" timestamp="15-May-2015 18:21:59">
+        <select from="2015" to="2015"/>
+        <scroll column="553" row="0"/>
+      </file>
+      <file name="GameTimer.java" package="" timestamp="16-May-2015 10:46:05">
+        <select from="2015" to="2015"/>
+        <scroll column="553" row="0"/>
+      </file>
+      <file name="HighScoresViewer.java" package="" timestamp="16-May-2015 10:47:32">
+        <select from="2015" to="2015"/>
+        <scroll column="553" row="0"/>
+      </file>
+      <file name="CountryPanel.java" package="" timestamp="17-May-2015 13:27:24">
+        <select from="2015" to="2015"/>
+        <scroll column="553" row="0"/>
+      </file>
+      <file name="MapPanel.java" package="" timestamp="17-May-2015 13:29:37">
+        <select from="2015" to="2015"/>
+        <scroll column="553" row="0"/>
+=======
+      <file active="true" name="ScarletGemMain.java" package="" timestamp="19-May-2015 11:29:24">
+        <select from="6298" to="6298"/>
+        <scroll column="3465" row="0"/>
+>>>>>>> 0746d8aa0737b2ccc7dc8052d437155add5a1d6a
       </file>
       <file name="ScarletGemRunner.java" package="" timestamp="19-May-2015 10:21:13">
         <select from="5303" to="5303"/>
@@ -40,8 +87,14 @@
         <scroll column="2887" row="0"/>
       </file>
       <file name="Country.java" package="" timestamp="19-May-2015 11:13:38">
+<<<<<<< HEAD
         <select from="5303" to="5303"/>
         <scroll column="2887" row="0"/>
+=======
+        <select from="6298" to="6298"/>
+        <scroll column="3465" row="0"/>
+>>>>>>> 1060ecc2b037af9012df1c9e537431507086500e
+>>>>>>> 0746d8aa0737b2ccc7dc8052d437155add5a1d6a
       </file>
     </source>
     <included/>

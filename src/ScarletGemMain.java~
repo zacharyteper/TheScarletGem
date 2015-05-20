@@ -34,27 +34,10 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    * 12 - South Africa
    * 13 - Switzerland
    */
-  /**
-   * Holds the country that the user is currently in. This value will be reassigned
-   * to a new value every time the user completes a level.
-   */
+  
   private Country currentCountry;
-  /**
-   * Holds the number representing the difficulty chosen by the user at the start of the game.
-   * 0 represents easy. 1 represents medium and 2 represents hard.
-   */
   private int difficulty;
-  /**
-   * Holds the number of levels that the user has left. In easy mode, this is initialized to 3.
-   * In medium mode, this is initialized to 5. In hard mode, this is initialized to 7. When <code>
-   * difficulty</code> reaches 0, the game ends.
-   */
   private int levelsRemaining;
-  /**
-   * Holds the time remaining in the game, in seconds. This value will be regularly decremented 
-   * throughout the game, and displayed at the top of the game screen. When this value reaches 0, 
-   * the game will end.
-   */
   private int timeRemaining;
   private boolean paused;
   private ArrayList <Country> alreadyBeen;
@@ -127,7 +110,14 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       checkAnswer ('C');
     }
     else if (ae.getSource().equals(countryPanel.getDButton()))
+<<<<<<< HEAD
       
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1060ecc2b037af9012df1c9e537431507086500e
+>>>>>>> 0746d8aa0737b2ccc7dc8052d437155add5a1d6a
     {
       checkAnswer ('D');
     }
