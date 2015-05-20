@@ -65,6 +65,10 @@ public class Country {
   {
     return name;
   }
+  public boolean equals (Country other)
+  {
+    return other.getName().equals(name);
+  }
   public Country (String s)
   {
     name=s;
