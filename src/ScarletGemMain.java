@@ -85,6 +85,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   public void windowClosing (WindowEvent e)
   {
+    closeWarning();
   }
   public void windowActivated (WindowEvent e)
   {
@@ -102,11 +103,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   {
     if (ae.getSource().equals(exitItem))
     {
-      dispose();
-      System.exit(0);
+      closeWarning();
     }
     else if (ae.getSource().equals(saveItem))
     {
+      save();
     }
     else if (ae.getSource().equals(printItem))
     {
@@ -162,6 +163,27 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       checkDestination (3);
     }
     revalidate();
+  }
+  private void closeWarning()
+  {
+    int option=JOptionPane.showConfirmDialog(this,
+                                  "Do you want to save your progress?",
+                                  "Save?",
+                                  JOptionPane.YES_NO_CANCEL_OPTION);
+    if (option==JOptionPane.YES_OPTION)
+    {
+      save();
+      System.exit(0);
+    }
+    else
+    {
+      if (option==JOptionPane.NO_OPTION)
+          System.exit(0);
+    }
+  }
+  private void save()
+  {
+    System.out.println ("save");
   }
   private void showCountryPanel()
   {
@@ -303,7 +325,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     super ("The Scarlet Gem");
     setVisible (true);
     setSize (640,500);
-    setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
+    setDefaultCloseOperation (JFrame.DO_NOTHING_ON_CLOSE);
     
     //set the JFrame icon
     try
@@ -988,6 +1010,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     alreadyBeen.add(countries[0]);
     gamePanel=new JPanel();
     levelCounter=new JLabel(levelsRemaining+"");
+    addWindowListener(this);
     revalidate();
   }
   
