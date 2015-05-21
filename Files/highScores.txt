@@ -1,0 +1,17 @@
+angela
+0:30
+medium
+zach
+0:45
+medium
+
+david
+1:00
+easy
+john
+2:15
+easy
+
+ms Dyke
+0:01
+hard
