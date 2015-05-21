@@ -134,6 +134,29 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       add(gamePanel);
       showCountryPanel();      
     }
+    else if (ae.getSource().equals(mainMenuPanel.getLoadButton()))
+    {
+      System.out.println ("load");
+      try
+      {
+        BufferedReader in=new BufferedReader(new FileReader("progress.txt"));
+        difficulty=Integer.parseInt(in.readLine());
+        in.readLine();
+        String next=in.readLine();
+        while (!next.equals(""))
+        {
+          alreadyBeen.add(getCountry(in.readLine()));
+        }
+        in.readLine();
+        timeRemaining=Integer.parseInt(in.readLine());
+        in.readLine();
+        currentQuestion=Integer.parseInt(in.readLine());
+      }
+      catch (IOException e)
+      {
+        JOptionPane.showMessageDialog(null,"File could not be loaded.");
+      }
+    }
     else if (ae.getSource().equals(countryPanel.getAButton()))
     {
       checkAnswer('A');
@@ -164,6 +187,10 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     revalidate();
   }
+  private Country getCountry(String name)
+  {
+    return new Country (name);
+  }
   private void closeWarning()
   {
     int option=JOptionPane.showConfirmDialog(this,
@@ -184,6 +211,23 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   private void save()
   {
     System.out.println ("save");
+    try
+    {
+      PrintWriter out=new PrintWriter(new FileWriter("progress.txt"));
+      out.println (difficulty);
+      out.println ();
+      for (Country s:alreadyBeen)
+        out.println(s.getName());
+      out.println();
+      out.println (timeRemaining);
+      out.println ();
+      out.println (currentQuestion);
+      out.close();
+    }
+    catch (IOException e)
+    {
+      JOptionPane.showMessageDialog(null,"Progress could not be saved.");
+    }
   }
   private void showCountryPanel()
   {
