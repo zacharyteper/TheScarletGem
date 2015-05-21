@@ -14,13 +14,9 @@ public class CountryPanel extends JPanel implements Runnable
   private JLabel questionLabel;
   private Question currentQuestion;
   
-  public Question getCurrentQuestion()
+  public Question getQuestion()
   {
     return currentQuestion;
-  }
-  public void setCurrentQuestion(Question q)
-  {
-    currentQuestion=q;
   }
   public void removeWrongAnswer (char button)
   {

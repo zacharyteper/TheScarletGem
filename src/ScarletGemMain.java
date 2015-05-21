@@ -67,6 +67,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   private HighScoresViewer highScoresViewer;
   private InstructionsViewer instructionsViewer;
   private GameTimer gameTimer;
+  private int currentQuestion=0;
   private JMenuItem howToPlayItem =new JMenuItem ("How To Play Ctrl+R");
   private JMenuItem printItem=new JMenuItem ("Print Ctrl+P");
   private JMenuItem saveItem=new JMenuItem ("Save Ctrl+S");
@@ -103,6 +104,24 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       dispose();
       System.exit(0);
+    }
+    else if (ae.getSource().equals(saveItem))
+    {
+    }
+    else if (ae.getSource().equals(printItem))
+    {
+    }
+    else if (ae.getSource().equals(howToPlayItem))
+    {
+    }
+    else if (ae.getSource().equals(helpItem))
+    {
+    }
+    else if (ae.getSource().equals(aboutItem))
+    {
+    }
+    else if (ae.getSource().equals(highScoresItem))
+    {
     }
     else if (ae.getSource().equals(mainMenuPanel.getEasyButton()))
     {
@@ -146,6 +165,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   private void showCountryPanel()
   {
+    currentQuestion=0;
    gamePanel.remove (mapPanel);
       countryPanel=new CountryPanel (currentCountry,null,currentCountry.getRandQuestion(0));
     if (levelsRemaining==0)
@@ -218,11 +238,24 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   private void checkAnswer (char answer)
   {
-    if (countryPanel.getCurrentQuestion().getAnswer()==answer)
+    if (countryPanel.getQuestion().getAnswer()==answer)
     {
+      if (currentQuestion==0)
+      {
+        Question temp=currentCountry.getRandQuestion(0);
+        while (temp==countryPanel.getQuestion())
+        {
+          temp=currentCountry.getRandQuestion(0);
+        }
+        countryPanel.setQuestion(temp);
+        currentQuestion++;
+      }
+        else
+      {
       levelsRemaining--;
       alreadyBeen.add(currentCountry);
       showMapPanel();
+      }
     }
     else
       countryPanel.removeWrongAnswer(answer);
@@ -316,6 +349,21 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     mainMenuPanel.getMediumButton().addActionListener(this);
     mainMenuPanel.getHardButton().addActionListener(this);
     mainMenuPanel.getLoadButton().addActionListener(this);
+    
+    saveItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,
+                                                   Event.CTRL_MASK));
+    exitItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q,
+                                                   Event.CTRL_MASK));
+    howToPlayItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R,
+                                                   Event.CTRL_MASK));
+    printItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P,
+                                                   Event.CTRL_MASK));
+    aboutItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U,
+                                                   Event.CTRL_MASK));
+    helpItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H,
+                                                   Event.CTRL_MASK));
+    highScoresItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E,
+                                                   Event.CTRL_MASK));
     revalidate();
     
     //setup countries
