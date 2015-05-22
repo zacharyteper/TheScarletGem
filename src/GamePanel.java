@@ -4,7 +4,7 @@
 import javax.swing.*;
 import java.awt.*;
 public class GamePanel extends JPanel implements Runnable {
-  private final Country country;
+  private Country country;
   private JButton A;
   private JButton B;
   private JButton C;
@@ -41,6 +41,15 @@ public class GamePanel extends JPanel implements Runnable {
     else
       remove(D);
   }
+  public void removeWrongDestination (int button)
+  {
+    if (button==0)
+      remove(A);
+    else if (button==1)
+      remove(B);
+    else
+      remove(C);
+  }
   public void setQuestion(Question q)
   {
     currentQuestion=q;
@@ -76,25 +85,6 @@ public class GamePanel extends JPanel implements Runnable {
   {
     return country;
   }
-  public GamePanel (Country c)
-  {
-    country=c;
-  }
-  public GamePanel (Country c, Question first)
-  {
-    country=c;
-    A=new JButton ("A");
-    B=new JButton ("B");
-    C=new JButton ("C");
-    D=new JButton ("D");
-    questionLabel=new JLabel(first.getQuestion());
-    currentQuestion=first;
-    add(A);
-    add(B);
-    add(C);
-    add(D);
-    add(questionLabel);
-  }
   
   public Country[] getDestinations ()
   {
@@ -117,22 +107,20 @@ public class GamePanel extends JPanel implements Runnable {
     revalidate();
   }
     
+  //The first element in c MUST be the correct answer!
   public GamePanel ()
   {
-    country=new Country("");
-  }
-  //The first element in c MUST be the correct answer!
-  public GamePanel (Country[]c,String s,int ans)
-  {
-    destinations=c;
-    clue=new JLabel(s);
-    answer=ans;
-    add (A);
-    add (B);
-    add (C);
-    add (D);
-    add (clue);
-    country=new Country("");
+
+    A=new JButton ("A");
+    B=new JButton ("B");
+    C=new JButton ("C");
+    D=new JButton ("D");
+    questionLabel=new JLabel();
+    add(A);
+    add(B);
+    add(C);
+    add(D);
+    add(questionLabel);
   }
   /* ADD YOUR CODE HERE */
   public void run()
