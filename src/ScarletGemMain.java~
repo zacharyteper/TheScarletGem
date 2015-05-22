@@ -142,11 +142,16 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
         BufferedReader in=new BufferedReader(new FileReader("progress.txt"));
         difficulty=Integer.parseInt(in.readLine());
         in.readLine();
-        String next=in.readLine();
-        while (!next.equals(""))
+        String next;
+        while(true)
         {
-          alreadyBeen.add(getCountry(in.readLine()));
+          next=in.readLine();
+          if (next.equals(""))
+            break;
+          alreadyBeen.add(getCountry(next));
         }
+        //in.readLine();
+        currentCountry=getCountry(in.readLine());
         in.readLine();
         timeRemaining=Integer.parseInt(in.readLine());
         in.readLine();
@@ -156,6 +161,17 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       {
         JOptionPane.showMessageDialog(null,"File could not be loaded.");
       }
+      catch (NumberFormatException e)
+      {
+        System.out.println (e);
+      }
+      System.out.println (currentQuestion);
+      levelsRemaining=3;
+      remove (mainMenuPanel);
+      add(levelCounter);
+      add(gamePanel);
+      levelsRemaining=3-alreadyBeen.size();
+      showCountryPanel();
     }
     else if (ae.getSource().equals(countryPanel.getAButton()))
     {
@@ -189,14 +205,36 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   private Country getCountry(String name)
   {
-    return new Country (name);
+    if (name.equals("Canada"))
+      return countries[0];
+    else if (name.equals("China"))
+      return countries[1];
+    else if (name.equals("USA"))
+      return countries[2];
+    else if (name.equals("Mexico"))
+      return countries[3];
+    else if (name.equals("Portugal"))
+      return countries[4];
+    else if (name.equals("Australia"))
+      return countries[5];
+    else if (name.equals("Egypt"))
+      return countries[6];
+    else if (name.equals("India"))
+      return countries[7];
+    else if (name.equals("Russia"))
+      return countries[8];
+    else if (name.equals("Japan"))
+      return countries[9];
+    else if (name.equals("France"))
+      return countries[10];
+    return countries[11];
   }
   private void closeWarning()
   {
     int option=JOptionPane.showConfirmDialog(this,
-                                  "Do you want to save your progress?",
-                                  "Save?",
-                                  JOptionPane.YES_NO_CANCEL_OPTION);
+                                             "Do you want to save your progress?",
+                                             "Save?",
+                                             JOptionPane.YES_NO_CANCEL_OPTION);
     if (option==JOptionPane.YES_OPTION)
     {
       save();
@@ -205,7 +243,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     else
     {
       if (option==JOptionPane.NO_OPTION)
-          System.exit(0);
+        System.exit(0);
     }
   }
   private void save()
@@ -219,6 +257,8 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       for (Country s:alreadyBeen)
         out.println(s.getName());
       out.println();
+      out.println (currentCountry.getName());
+      out.println();
       out.println (timeRemaining);
       out.println ();
       out.println (currentQuestion);
@@ -231,9 +271,10 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   private void showCountryPanel()
   {
-    currentQuestion=0;
-   gamePanel.remove (mapPanel);
-      countryPanel=new CountryPanel (currentCountry,null,currentCountry.getRandQuestion(0));
+    if (!alreadyBeen.contains(currentCountry))
+      currentQuestion=0;
+    gamePanel.remove (mapPanel);
+    countryPanel=new CountryPanel (currentCountry,null,currentCountry.getRandQuestion(0));
     if (levelsRemaining==0)
     {
       JOptionPane.showMessageDialog(null,"You Win");
@@ -316,12 +357,15 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
         countryPanel.setQuestion(temp);
         currentQuestion++;
       }
-        else
+      else
       {
-      levelsRemaining--;
-      alreadyBeen.add(currentCountry);
-      showMapPanel();
+        System.out.println ("Exec");
+        levelsRemaining--;
+        alreadyBeen.add(currentCountry);
+        showMapPanel();
       }
+      for (Country s:alreadyBeen)
+        System.out.println (s.getName());
     }
     else
       countryPanel.removeWrongAnswer(answer);
@@ -333,6 +377,8 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     //remove(timer);
     //remove(pauseButton);
     add(mainMenuPanel);
+    currentCountry=countries[0];
+    alreadyBeen=new ArrayList<Country>();
     revalidate();
   }
   public void keyReleased (KeyEvent e)
@@ -421,15 +467,15 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     exitItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q,
                                                    Event.CTRL_MASK));
     howToPlayItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R,
-                                                   Event.CTRL_MASK));
+                                                        Event.CTRL_MASK));
     printItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P,
-                                                   Event.CTRL_MASK));
+                                                    Event.CTRL_MASK));
     aboutItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U,
-                                                   Event.CTRL_MASK));
+                                                    Event.CTRL_MASK));
     helpItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H,
                                                    Event.CTRL_MASK));
     highScoresItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E,
-                                                   Event.CTRL_MASK));
+                                                         Event.CTRL_MASK));
     revalidate();
     
     //setup countries
@@ -1051,7 +1097,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     mapPanel=new MapPanel();
     alreadyBeen=new ArrayList<Country>();
     currentCountry=countries[0];
-    alreadyBeen.add(countries[0]);
+    //alreadyBeen.add(countries[0]);
     gamePanel=new JPanel();
     levelCounter=new JLabel(levelsRemaining+"");
     addWindowListener(this);

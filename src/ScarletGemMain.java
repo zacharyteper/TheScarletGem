@@ -58,7 +58,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   private int timeRemaining;
   private boolean paused;
   private ArrayList <Country> alreadyBeen;
-  private Country[] countries;
+  public static final Country[] countries=new Country[12];
   private JPanel gamePanel;
   private MapPanel mapPanel;
   private JLabel levelCounter;
@@ -495,7 +495,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
      * 12 - South Africa
      * 13 - Switzerland
      */
-    countries=new Country[12];
 //    countries[0]=new Country("Canada");
 //    countries[1]=new Country("China");
 //    countries[2]=new Country("USA");
