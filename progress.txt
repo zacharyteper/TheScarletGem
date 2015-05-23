@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 0
 
 Canada
@@ -7,3 +8,15 @@ Portugal
 0
 
 1
+=======
+0
+
+Canada
+Canada
+
+China
+
+0
+
+1
+>>>>>>> master
