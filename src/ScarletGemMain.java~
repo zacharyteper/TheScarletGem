@@ -58,11 +58,9 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   private int timeRemaining;
   private boolean paused;
   private ArrayList <Country> alreadyBeen;
-  private Country[] countries;
-  private JPanel gamePanel;
-  private MapPanel mapPanel;
+  public static final Country[] countries=new Country[12];
+  private GamePanel gamePanel=new GamePanel();
   private JLabel levelCounter;
-  private CountryPanel countryPanel;
   private MainMenuPanel mainMenuPanel;
   private HighScoresViewer highScoresViewer;
   private InstructionsViewer instructionsViewer;
@@ -173,33 +171,21 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       levelsRemaining=3-alreadyBeen.size();
       showCountryPanel();
     }
-    else if (ae.getSource().equals(countryPanel.getAButton()))
+    else if (ae.getSource().equals(gamePanel.getAButton()))
     {
       checkAnswer('A');
     }
-    else if (ae.getSource().equals(countryPanel.getBButton()))
+    else if (ae.getSource().equals(gamePanel.getBButton()))
     {
       checkAnswer ('B');
     }
-    else if (ae.getSource().equals(countryPanel.getCButton()))
+    else if (ae.getSource().equals(gamePanel.getCButton()))
     {
       checkAnswer ('C');
     }
-    else if (ae.getSource().equals(countryPanel.getDButton()))
+    else if (ae.getSource().equals(gamePanel.getDButton()))
     {
       checkAnswer ('D');
-    }
-    else if (ae.getSource().equals(mapPanel.getDestination1()))
-    {
-      checkDestination (1);
-    }
-    else if (ae.getSource().equals(mapPanel.getDestination2()))
-    {
-      checkDestination (2);
-    }
-    else if (ae.getSource().equals(mapPanel.getDestination3()))
-    {
-      checkDestination (3);
     }
     revalidate();
   }
@@ -273,8 +259,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   {
     if (!alreadyBeen.contains(currentCountry))
       currentQuestion=0;
-    gamePanel.remove (mapPanel);
-    countryPanel=new CountryPanel (currentCountry,null,currentCountry.getRandQuestion(0));
     if (levelsRemaining==0)
     {
       JOptionPane.showMessageDialog(null,"You Win");
@@ -282,11 +266,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     else
     {
-      gamePanel.add (countryPanel);
-      countryPanel.getAButton().addActionListener(this);
-      countryPanel.getBButton().addActionListener(this);
-      countryPanel.getCButton().addActionListener(this);
-      countryPanel.getDButton().addActionListener(this); 
+      gamePanel.switchToCountry();
+      gamePanel.getAButton().addActionListener(this);
+      gamePanel.getBButton().addActionListener(this);
+      gamePanel.getCButton().addActionListener(this);
+      gamePanel.getDButton().addActionListener(this); 
     }
   }
   private void showMapPanel()
@@ -317,44 +301,38 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
              ||wrong2.equals(currentCountry));
     System.out.println (currentCountry.equals(wrong2)||wrong1.equals(wrong2));
     
-    gamePanel.remove (countryPanel);
+    gamePanel.switchToMap();
     //countries[(int)(Math.random()*
     System.out.println (currentCountry.getName());
     System.out.println (wrong1.getName());
     System.out.println (wrong2.getName());
     System.out.println ();
-    mapPanel=new MapPanel (null, new Country[]
-                             {currentCountry, wrong1,wrong2},currentCountry.getRandClue());
     
-    gamePanel.add (mapPanel);
-    mapPanel.getDestination1().addActionListener(this);
-    mapPanel.getDestination2().addActionListener(this);
-    mapPanel.getDestination3().addActionListener(this);
   }
   private void checkDestination (int destination)
   {
-    if (destination==mapPanel.getAnswer())
+    if (destination==gamePanel.getAnswer())
     {
       showCountryPanel();
     }
     else
     {
-      mapPanel.removeWrongAnswer(destination);
+      gamePanel.removeWrongDestination(destination);
     }
     
   }
   private void checkAnswer (char answer)
   {
-    if (countryPanel.getQuestion().getAnswer()==answer)
+    if (gamePanel.getQuestion().getAnswer()==answer)
     {
       if (currentQuestion==0)
       {
         Question temp=currentCountry.getRandQuestion(0);
-        while (temp==countryPanel.getQuestion())
+        while (temp==gamePanel.getQuestion())
         {
           temp=currentCountry.getRandQuestion(0);
         }
-        countryPanel.setQuestion(temp);
+        gamePanel.setQuestion(temp);
         currentQuestion++;
       }
       else
@@ -368,7 +346,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
         System.out.println (s.getName());
     }
     else
-      countryPanel.removeWrongAnswer(answer);
+      gamePanel.removeWrongAnswer(answer);
   }
   private void endGame()
   {
@@ -495,7 +473,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
      * 12 - South Africa
      * 13 - Switzerland
      */
-    countries=new Country[12];
 //    countries[0]=new Country("Canada");
 //    countries[1]=new Country("China");
 //    countries[2]=new Country("USA");
@@ -1094,11 +1071,9 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
 //      System.out.println ("IO");
 //    }
     
-    mapPanel=new MapPanel();
     alreadyBeen=new ArrayList<Country>();
     currentCountry=countries[0];
     //alreadyBeen.add(countries[0]);
-    gamePanel=new JPanel();
     levelCounter=new JLabel(levelsRemaining+"");
     addWindowListener(this);
     revalidate();

@@ -15,16 +15,23 @@ public class GamePanel extends JPanel implements Runnable {
   private JButton pauseButton;
   private JLabel timeLabel;
   private JLabel feedbackLabel;
-  private boolean atQuestionStage;
+  private boolean atQuestionStage=true;
   private JLabel levelCounter;
   private int currentQuestionNumber;
   private Country[] destinations;
-  private JLabel clue;
   private int answer;
   
   public Question getQuestion()
   {
     return currentQuestion;
+  }
+  public boolean getStage()
+  {
+    return atQuestionStage;
+  }
+  public void changeStage()
+  {
+    atQuestionStage=!atQuestionStage;
   }
   public int getQuestionNumber()
   {
@@ -57,11 +64,18 @@ public class GamePanel extends JPanel implements Runnable {
   }
   public void switchToCountry()
   {
+    questionLabel.setText(currentQuestion.getQuestion());
     add(D);
+    revalidate();
   }
   public void switchToMap()
   {
     remove(D);
+    A.setText(destinations[0].getName());
+    B.setText(destinations[1].getName());
+    C.setText(destinations[2].getName());
+    questionLabel.setText(destinations[0].getRandClue());
+    revalidate();
   }
   
   public JButton getAButton()
