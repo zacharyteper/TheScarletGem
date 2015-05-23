@@ -60,7 +60,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   private ArrayList <Country> alreadyBeen;
   public static final Country[] countries=new Country[12];
   private GamePanel gamePanel=new GamePanel();
-  private JLabel levelCounter;
+  private JLabel levelCounter=new JLabel();
   private MainMenuPanel mainMenuPanel;
   private HighScoresViewer highScoresViewer;
   private InstructionsViewer instructionsViewer;
@@ -262,7 +262,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   private void showCountryPanel()
   {
-
+    System.out.println (currentCountry.getName());
     try
     {
       Thread.sleep(10);
@@ -309,7 +309,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     gamePanel.getCButton().setEnabled(true);
     do
     {
-      currentCountry=countries[(int)(Math.random()*6)];
+      currentCountry=countries[(int)(Math.random()*10)];
     }
     while (alreadyBeen.contains(currentCountry));
     
@@ -317,13 +317,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     Country wrong2;
     do
     {
-      wrong1=countries[(int)(Math.random()*6)];
+      wrong1=countries[(int)(Math.random()*10)];
     }
     while (alreadyBeen.contains(wrong1)||wrong1.equals(currentCountry));
     
     do
     {
-      wrong2=countries[(int)(Math.random()*6)];
+      wrong2=countries[(int)(Math.random()*10)];
     }
     while (alreadyBeen.contains(wrong2)||wrong1.equals(wrong2)
              ||wrong2.equals(currentCountry));
@@ -821,300 +821,300 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       System.out.println ("IO");
     }
-//    //initialize Egypt
-//    Question[] egyptEasy=
-//    {new Question ("What is the capital of Australia?"+
-//                   "\n A. Sydney"+
-//                   "\n B. Canberra"+
-//                   "\n C. Brisbane"+
-//                   "\n D. New Zealand"
-//                     ,'B'),
-//      new Question ("Which ocean is off the west coast of Australia?"+
-//                    "\n A. Arctic"+
-//                    "\n B. Pacific"+
-//                    "\n C. Indian"+
-//                    "\n D. Atlantic"
-//                      ,'C'),
-//      new Question ("Which country is directly north of Australia?"+
-//                    "\n A. Indonesia"+
-//                    "\n B. Russia"+
-//                    "\n C. Africa"+
-//                    "\n D. Mexico"
-//                      ,'A'),
-//      new Question ("What continent is Australia part of?"+
-//                    "\n A. India"+
-//                    "\n B. Australia"+
-//                    "\n C. Africa"+
-//                    "\n D. Asia"
-//                      ,'B'),
-//      new Question ("What is the largest city in Australia?"+
-//                    "\n A. New Zealand"+
-//                    "\n B. Canberra"+
-//                    "\n C. Melbourne"+
-//                    "\n D. Sydney"
-//                      ,'D')
-//    };
-//    try
-//    {
-//      Country egypt =new Country ("Egypt",egyptEasy, null, null, ImageIO.read (new File ("egypt.jpg")),
-//                                      new String[]{
-//        "I am in the country in which Ayers Rock can be found.",
-//          "I am in the country in which the Murray River can be found.",
-//          "I am in the country which is the world's fourth largest producer of wine.",
-//          "I am in the country whose name is the same as its continent's name.",
-//          "I am in the country whose states include New South Wales, Queensland and Victoria."
-//      });
-//      countries [6]=egypt;
-//    }
-//    catch (IOException e)
-//    {
-//      System.out.println ("IO");
-//    }
-//    //initialize Australia
-//    Question[] australiaEasy=
-//    {new Question ("What is the capital of Australia?"+
-//                   "\n A. Sydney"+
-//                   "\n B. Canberra"+
-//                   "\n C. Brisbane"+
-//                   "\n D. New Zealand"
-//                     ,'B'),
-//      new Question ("Which ocean is off the west coast of Australia?"+
-//                    "\n A. Arctic"+
-//                    "\n B. Pacific"+
-//                    "\n C. Indian"+
-//                    "\n D. Atlantic"
-//                      ,'C'),
-//      new Question ("Which country is directly north of Australia?"+
-//                    "\n A. Indonesia"+
-//                    "\n B. Russia"+
-//                    "\n C. Africa"+
-//                    "\n D. Mexico"
-//                      ,'A'),
-//      new Question ("What continent is Australia part of?"+
-//                    "\n A. India"+
-//                    "\n B. Australia"+
-//                    "\n C. Africa"+
-//                    "\n D. Asia"
-//                      ,'B'),
-//      new Question ("What is the largest city in Australia?"+
-//                    "\n A. New Zealand"+
-//                    "\n B. Canberra"+
-//                    "\n C. Melbourne"+
-//                    "\n D. Sydney"
-//                      ,'D')
-//    };
-//    try
-//    {
-//      Country australia =new Country ("Australia",australiaEasy, null, null, ImageIO.read (new File ("australia.jpg")),
-//                                      new String[]{
-//        "I am in the country in which Ayers Rock can be found.",
-//          "I am in the country in which the Murray River can be found.",
-//          "I am in the country which is the world's fourth largest producer of wine.",
-//          "I am in the country whose name is the same as its continent's name.",
-//          "I am in the country whose states include New South Wales, Queensland and Victoria."
-//      });
-//      countries [5]=australia;
-//    }
-//    catch (IOException e)
-//    {
-//      System.out.println ("IO");
-//    }
-//    //initialize Australia
-//    Question[] australiaEasy=
-//    {new Question ("What is the capital of Australia?"+
-//                   "\n A. Sydney"+
-//                   "\n B. Canberra"+
-//                   "\n C. Brisbane"+
-//                   "\n D. New Zealand"
-//                     ,'B'),
-//      new Question ("Which ocean is off the west coast of Australia?"+
-//                    "\n A. Arctic"+
-//                    "\n B. Pacific"+
-//                    "\n C. Indian"+
-//                    "\n D. Atlantic"
-//                      ,'C'),
-//      new Question ("Which country is directly north of Australia?"+
-//                    "\n A. Indonesia"+
-//                    "\n B. Russia"+
-//                    "\n C. Africa"+
-//                    "\n D. Mexico"
-//                      ,'A'),
-//      new Question ("What continent is Australia part of?"+
-//                    "\n A. India"+
-//                    "\n B. Australia"+
-//                    "\n C. Africa"+
-//                    "\n D. Asia"
-//                      ,'B'),
-//      new Question ("What is the largest city in Australia?"+
-//                    "\n A. New Zealand"+
-//                    "\n B. Canberra"+
-//                    "\n C. Melbourne"+
-//                    "\n D. Sydney"
-//                      ,'D')
-//    };
-//    try
-//    {
-//      Country australia =new Country ("Australia",australiaEasy, null, null, ImageIO.read (new File ("australia.jpg")),
-//                                      new String[]{
-//        "I am in the country in which Ayers Rock can be found.",
-//          "I am in the country in which the Murray River can be found.",
-//          "I am in the country which is the world's fourth largest producer of wine.",
-//          "I am in the country whose name is the same as its continent's name.",
-//          "I am in the country whose states include New South Wales, Queensland and Victoria."
-//      });
-//      countries [5]=australia;
-//    }
-//    catch (IOException e)
-//    {
-//      System.out.println ("IO");
-//    }
-//    //initialize Australia
-//    Question[] australiaEasy=
-//    {new Question ("What is the capital of Australia?"+
-//                   "\n A. Sydney"+
-//                   "\n B. Canberra"+
-//                   "\n C. Brisbane"+
-//                   "\n D. New Zealand"
-//                     ,'B'),
-//      new Question ("Which ocean is off the west coast of Australia?"+
-//                    "\n A. Arctic"+
-//                    "\n B. Pacific"+
-//                    "\n C. Indian"+
-//                    "\n D. Atlantic"
-//                      ,'C'),
-//      new Question ("Which country is directly north of Australia?"+
-//                    "\n A. Indonesia"+
-//                    "\n B. Russia"+
-//                    "\n C. Africa"+
-//                    "\n D. Mexico"
-//                      ,'A'),
-//      new Question ("What continent is Australia part of?"+
-//                    "\n A. India"+
-//                    "\n B. Australia"+
-//                    "\n C. Africa"+
-//                    "\n D. Asia"
-//                      ,'B'),
-//      new Question ("What is the largest city in Australia?"+
-//                    "\n A. New Zealand"+
-//                    "\n B. Canberra"+
-//                    "\n C. Melbourne"+
-//                    "\n D. Sydney"
-//                      ,'D')
-//    };
-//    try
-//    {
-//      Country australia =new Country ("Australia",australiaEasy, null, null, ImageIO.read (new File ("australia.jpg")),
-//                                      new String[]{
-//        "I am in the country in which Ayers Rock can be found.",
-//          "I am in the country in which the Murray River can be found.",
-//          "I am in the country which is the world's fourth largest producer of wine.",
-//          "I am in the country whose name is the same as its continent's name.",
-//          "I am in the country whose states include New South Wales, Queensland and Victoria."
-//      });
-//      countries [5]=australia;
-//    }
-//    catch (IOException e)
-//    {
-//      System.out.println ("IO");
-//    }
-//    //initialize Australia
-//    Question[] australiaEasy=
-//    {new Question ("What is the capital of Australia?"+
-//                   "\n A. Sydney"+
-//                   "\n B. Canberra"+
-//                   "\n C. Brisbane"+
-//                   "\n D. New Zealand"
-//                     ,'B'),
-//      new Question ("Which ocean is off the west coast of Australia?"+
-//                    "\n A. Arctic"+
-//                    "\n B. Pacific"+
-//                    "\n C. Indian"+
-//                    "\n D. Atlantic"
-//                      ,'C'),
-//      new Question ("Which country is directly north of Australia?"+
-//                    "\n A. Indonesia"+
-//                    "\n B. Russia"+
-//                    "\n C. Africa"+
-//                    "\n D. Mexico"
-//                      ,'A'),
-//      new Question ("What continent is Australia part of?"+
-//                    "\n A. India"+
-//                    "\n B. Australia"+
-//                    "\n C. Africa"+
-//                    "\n D. Asia"
-//                      ,'B'),
-//      new Question ("What is the largest city in Australia?"+
-//                    "\n A. New Zealand"+
-//                    "\n B. Canberra"+
-//                    "\n C. Melbourne"+
-//                    "\n D. Sydney"
-//                      ,'D')
-//    };
-//    try
-//    {
-//      Country australia =new Country ("Australia",australiaEasy, null, null, ImageIO.read (new File ("australia.jpg")),
-//                                      new String[]{
-//        "I am in the country in which Ayers Rock can be found.",
-//          "I am in the country in which the Murray River can be found.",
-//          "I am in the country which is the world's fourth largest producer of wine.",
-//          "I am in the country whose name is the same as its continent's name.",
-//          "I am in the country whose states include New South Wales, Queensland and Victoria."
-//      });
-//      countries [5]=australia;
-//    }
-//    catch (IOException e)
-//    {
-//      System.out.println ("IO");
-//    }
-//    //initialize Australia
-//    Question[] australiaEasy=
-//    {new Question ("What is the capital of Australia?"+
-//                   "\n A. Sydney"+
-//                   "\n B. Canberra"+
-//                   "\n C. Brisbane"+
-//                   "\n D. New Zealand"
-//                     ,'B'),
-//      new Question ("Which ocean is off the west coast of Australia?"+
-//                    "\n A. Arctic"+
-//                    "\n B. Pacific"+
-//                    "\n C. Indian"+
-//                    "\n D. Atlantic"
-//                      ,'C'),
-//      new Question ("Which country is directly north of Australia?"+
-//                    "\n A. Indonesia"+
-//                    "\n B. Russia"+
-//                    "\n C. Africa"+
-//                    "\n D. Mexico"
-//                      ,'A'),
-//      new Question ("What continent is Australia part of?"+
-//                    "\n A. India"+
-//                    "\n B. Australia"+
-//                    "\n C. Africa"+
-//                    "\n D. Asia"
-//                      ,'B'),
-//      new Question ("What is the largest city in Australia?"+
-//                    "\n A. New Zealand"+
-//                    "\n B. Canberra"+
-//                    "\n C. Melbourne"+
-//                    "\n D. Sydney"
-//                      ,'D')
-//    };
-//    try
-//    {
-//      Country australia =new Country ("Australia",australiaEasy, null, null, ImageIO.read (new File ("australia.jpg")),
-//                                      new String[]{
-//        "I am in the country in which Ayers Rock can be found.",
-//          "I am in the country in which the Murray River can be found.",
-//          "I am in the country which is the world's fourth largest producer of wine.",
-//          "I am in the country whose name is the same as its continent's name.",
-//          "I am in the country whose states include New South Wales, Queensland and Victoria."
-//      });
-//      countries [5]=australia;
-//    }
-//    catch (IOException e)
-//    {
-//      System.out.println ("IO");
-//    }
+    //initialize Egypt
+    Question[] egyptEasy=
+    {new Question ("What is the capital of Egypt?"+
+                   "\n A. Cairo"+
+                   "\n B. Memphis"+
+                   "\n C. Alexandria"+
+                   "\n D. Suez"
+                     ,'A'),
+      new Question ("EgyptEasy2"+
+                    "\n A. Arctic"+
+                    "\n B. Pacific"+
+                    "\n C. Indian"+
+                    "\n D. Atlantic"
+                      ,'C'),
+      new Question ("EgyptEasy3"+
+                    "\n A. Indonesia"+
+                    "\n B. Russia"+
+                    "\n C. Africa"+
+                    "\n D. Mexico"
+                      ,'A'),
+      new Question ("EgyptEasy4"+
+                    "\n A. India"+
+                    "\n B. Australia"+
+                    "\n C. Africa"+
+                    "\n D. Asia"
+                      ,'B'),
+      new Question ("EgyptEasy5"+
+                    "\n A. New Zealand"+
+                    "\n B. Canberra"+
+                    "\n C. Melbourne"+
+                    "\n D. Sydney"
+                      ,'D')
+    };
+    try
+    {
+      Country egypt =new Country ("Egypt",egyptEasy, null, null, ImageIO.read (new File ("egypt.jpg")),
+                                      new String[]{
+        "EgyptClue1.",
+          "EgyptClue2.",
+          "EgyptClue3.",
+          "EgyptClue4.",
+          "EgyptClue5."
+      });
+      countries [6]=egypt;
+    }
+    catch (IOException e)
+    {
+      System.out.println ("IO");
+    }
+    //initialize India
+    Question[] indiaEasy=
+    {new Question ("What is the capital of India?"+
+                   "\n A. Mumbai"+
+                   "\n B. Bangalore"+
+                   "\n C. New Delhi"+
+                   "\n D. Hyderabad"
+                     ,'C'),
+      new Question ("IndiaEasy2"+
+                    "\n A. Arctic"+
+                    "\n B. Pacific"+
+                    "\n C. Indian"+
+                    "\n D. Atlantic"
+                      ,'C'),
+      new Question ("IndiaEasy3"+
+                    "\n A. Indonesia"+
+                    "\n B. Russia"+
+                    "\n C. Africa"+
+                    "\n D. Mexico"
+                      ,'A'),
+      new Question ("IndiaEasy4"+
+                    "\n A. India"+
+                    "\n B. Australia"+
+                    "\n C. Africa"+
+                    "\n D. Asia"
+                      ,'B'),
+      new Question ("IndiaEasy5"+
+                    "\n A. New Zealand"+
+                    "\n B. Canberra"+
+                    "\n C. Melbourne"+
+                    "\n D. Sydney"
+                      ,'D')
+    };
+    try
+    {
+      Country india =new Country ("India",indiaEasy, null, null, ImageIO.read (new File ("india.jpg")),
+                                      new String[]{
+        "IndiaClue1.",
+          "IndiaClue2.",
+          "IndiaClue3.",
+          "IndiaClue4.",
+          "IndiaClue5."
+      });
+      countries [7]=india;
+    }
+    catch (IOException e)
+    {
+      System.out.println ("IO");
+    }
+    //initialize Russia
+    Question[] russiaEasy=
+    {new Question ("What is the capital of Russia?"+
+                   "\n A. St. Petersburg"+
+                   "\n B. Kazan"+
+                   "\n C. Samara"+
+                   "\n D. Moscow"
+                     ,'A'),
+      new Question ("RussiaEasy2"+
+                    "\n A. Arctic"+
+                    "\n B. Pacific"+
+                    "\n C. Indian"+
+                    "\n D. Atlantic"
+                      ,'C'),
+      new Question ("RussiaEasy3"+
+                    "\n A. Indonesia"+
+                    "\n B. Russia"+
+                    "\n C. Africa"+
+                    "\n D. Mexico"
+                      ,'A'),
+      new Question ("RussiaEasy4"+
+                    "\n A. India"+
+                    "\n B. Australia"+
+                    "\n C. Africa"+
+                    "\n D. Asia"
+                      ,'B'),
+      new Question ("RussiaEasy5"+
+                    "\n A. New Zealand"+
+                    "\n B. Canberra"+
+                    "\n C. Melbourne"+
+                    "\n D. Sydney"
+                      ,'D')
+    };
+    try
+    {
+      Country russia =new Country ("Russia",russiaEasy, null, null, ImageIO.read (new File ("russia.jpg")),
+                                      new String[]{
+        "RussiaClue1.",
+          "RussiaClue2.",
+          "RussiaClue3.",
+          "RussiaClue4.",
+          "RussiaClue5."
+      });
+      countries [8]=russia;
+    }
+    catch (IOException e)
+    {
+      System.out.println ("IO");
+    }
+    //initialize Japan
+    Question[] japanEasy=
+    {new Question ("What is the capital of Japan?"+
+                   "\n A. Yokohama"+
+                   "\n B. Osaka"+
+                   "\n C. Tokyo"+
+                   "\n D. Nagoya"
+                     ,'C'),
+      new Question ("JapanEasy2"+
+                    "\n A. Arctic"+
+                    "\n B. Pacific"+
+                    "\n C. Indian"+
+                    "\n D. Atlantic"
+                      ,'C'),
+      new Question ("JapanEasy3"+
+                    "\n A. Indonesia"+
+                    "\n B. Russia"+
+                    "\n C. Africa"+
+                    "\n D. Mexico"
+                      ,'A'),
+      new Question ("JapanEasy4"+
+                    "\n A. India"+
+                    "\n B. Australia"+
+                    "\n C. Africa"+
+                    "\n D. Asia"
+                      ,'B'),
+      new Question ("JapanEasy5"+
+                    "\n A. New Zealand"+
+                    "\n B. Canberra"+
+                    "\n C. Melbourne"+
+                    "\n D. Sydney"
+                      ,'D')
+    };
+    try
+    {
+      Country japan =new Country ("Japan",japanEasy, null, null, ImageIO.read (new File ("japan.jpg")),
+                                      new String[]{
+        "JapanClue1.",
+          "JapanClue2.",
+          "JapanClue3.",
+          "JapanClue4.",
+          "JapanClue5."
+      });
+      countries [9]=japan;
+    }
+    catch (IOException e)
+    {
+      System.out.println ("IO");
+    }
+    //initialize France
+    Question[] franceEasy=
+    {new Question ("What is the capital of France?"+
+                   "\n A. Marceille"+
+                   "\n B. Nice"+
+                   "\n C. Lille"+
+                   "\n D. Paris"
+                     ,'D'),
+      new Question ("FranceEasy2"+
+                    "\n A. Arctic"+
+                    "\n B. Pacific"+
+                    "\n C. Indian"+
+                    "\n D. Atlantic"
+                      ,'C'),
+      new Question ("FranceEasy3"+
+                    "\n A. Indonesia"+
+                    "\n B. Russia"+
+                    "\n C. Africa"+
+                    "\n D. Mexico"
+                      ,'A'),
+      new Question ("FranceEasy4"+
+                    "\n A. India"+
+                    "\n B. Australia"+
+                    "\n C. Africa"+
+                    "\n D. Asia"
+                      ,'B'),
+      new Question ("FranceEasy5"+
+                    "\n A. New Zealand"+
+                    "\n B. Canberra"+
+                    "\n C. Melbourne"+
+                    "\n D. Sydney"
+                      ,'D')
+    };
+    try
+    {
+      Country france =new Country ("France",franceEasy, null, null, ImageIO.read (new File ("france.jpeg")),
+                                      new String[]{
+        "FranceClue1.",
+          "FranceClue2.",
+          "FranceClue3.",
+          "FranceClue4.",
+          "FranceClue5."
+      });
+      countries [10]=france;
+    }
+    catch (IOException e)
+    {
+      System.out.println ("IO");
+    }
+    //initialize England
+    Question[] englandEasy=
+    {new Question ("What is the capital of England?"+
+                   "\n A. London"+
+                   "\n B. Leeds"+
+                   "\n C. Birmingham"+
+                   "\n D. Bradford"
+                     ,'B'),
+      new Question ("EngalndEasy2"+
+                    "\n A. Arctic"+
+                    "\n B. Pacific"+
+                    "\n C. Indian"+
+                    "\n D. Atlantic"
+                      ,'C'),
+      new Question ("EnglandEasy3"+
+                    "\n A. Indonesia"+
+                    "\n B. Russia"+
+                    "\n C. Africa"+
+                    "\n D. Mexico"
+                      ,'A'),
+      new Question ("EnglandEasy4"+
+                    "\n A. India"+
+                    "\n B. Australia"+
+                    "\n C. Africa"+
+                    "\n D. Asia"
+                      ,'B'),
+      new Question ("EnglandEasy5"+
+                    "\n A. New Zealand"+
+                    "\n B. Canberra"+
+                    "\n C. Melbourne"+
+                    "\n D. Sydney"
+                      ,'D')
+    };
+    try
+    {
+      Country england =new Country ("England",englandEasy, null, null, ImageIO.read (new File ("england.jpg")),
+                                      new String[]{
+        "EnglandClue1.",
+          "EnglandClue2.",
+          "EnglandClue3.",
+          "EnglandClue4.",
+          "EnglandClue5."
+      });
+      countries [11]=england;
+    }
+    catch (IOException e)
+    {
+      System.out.println ("IO");
+    }
     
     alreadyBeen=new ArrayList<Country>();
     currentCountry=countries[0];
