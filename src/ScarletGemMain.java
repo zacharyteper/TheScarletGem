@@ -565,9 +565,41 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "\n D. French & English"
                       ,'D')
     };
+    Question[] canadaMedium=
+    {new Question ("CanadaMedium1"+
+                   "\n A. Toronto"+
+                   "\n B. Montreal"+
+                   "\n C. Ottawa"+
+                   "\n D. Portugal"
+                     ,'C'),
+      new Question ("CanadaMedium2"+
+                    "\n A. North"+
+                    "\n B. West"+
+                    "\n C. South"+
+                    "\n D. East"
+                      ,'D'),
+      new Question ("CanadaMedium3"+
+                    "\n A. North"+
+                    "\n B. West"+
+                    "\n C. South"+
+                    "\n D. East"
+                      ,'A'),
+      new Question ("CanadaMedium4"+
+                    "\n A. Europe"+
+                    "\n B. North America"+
+                    "\n C. Africa"+
+                    "\n D. Asia"
+                      ,'B'),
+      new Question ("CanadaMedium5"+
+                    "\n A. Spanish & French"+
+                    "\n B. German & English"+
+                    "\n C. English & Spanish"+
+                    "\n D. French & English"
+                      ,'D')
+    };
     try
     {
-      Country canada =new Country ("Canada",canadaEasy, null, null, ImageIO.read (new File ("canada.jpg")),
+      Country canada =new Country ("Canada",canadaEasy, canadaMedium, null, ImageIO.read (new File ("canada.jpg")),
                                    null);
       countries [0]=canada;
     }
@@ -608,9 +640,41 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "\n D. Corn"
                       ,'B')
     };
+    Question[] chinaMedium=
+    {new Question ("ChinaMedium1"+
+                   "\n A. Beijing"+
+                   "\n B. Shanghai"+
+                   "\n C. Bangkok"+
+                   "\n D. Tokyo"
+                     ,'A'),
+      new Question ("chinaMedium2"+
+                    "\n A. Atlantic"+
+                    "\n B. Indian"+
+                    "\n C. Pacific"+
+                    "\n D. Arctic"
+                      ,'C'),
+      new Question ("chinaMedium3"+
+                    "\n A. North"+
+                    "\n B. West"+
+                    "\n C. South"+
+                    "\n D. East"
+                      ,'B'),
+      new Question ("chinaMedium4"+
+                    "\n A. Europe"+
+                    "\n B. North America"+
+                    "\n C. Africa"+
+                    "\n D. Asia"
+                      ,'D'),
+      new Question ("chinaMedium5"+
+                    "\n A. Tomatoes"+
+                    "\n B. Rice"+
+                    "\n C. Radishes"+
+                    "\n D. Corn"
+                      ,'B')
+    };
     try
     {
-      Country china =new Country ("China",chinaEasy, null, null, ImageIO.read (new File ("china.jpg")),
+      Country china =new Country ("China",chinaEasy, chinaMedium, null, ImageIO.read (new File ("china.jpg")),
                                   new String[]{"I am in the country with the largest population in the world."
         ,"I am in the counry whose capital is Beijing."
                                     ,"I am in the country where bamboo forests, pandas and the Asian Black Bear"+
