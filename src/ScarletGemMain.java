@@ -252,6 +252,17 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   private void showCountryPanel()
   {
+    try
+    {
+      Thread.sleep(10);
+    }
+    catch (InterruptedException e)
+    {
+    }
+    gamePanel.getAButton().setEnabled(true);
+    gamePanel.getBButton().setEnabled(true);
+    gamePanel.getCButton().setEnabled(true);
+    gamePanel.getDButton().setEnabled(true);
     if (!alreadyBeen.contains(currentCountry))
       currentQuestion=0;
     if (levelsRemaining==0)
@@ -275,6 +286,9 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   {
 //    for (Country s:alreadyBeen)
 //      System.out.println(s.getName());
+    gamePanel.getAButton().setEnabled(true);
+    gamePanel.getBButton().setEnabled(true);
+    gamePanel.getCButton().setEnabled(true);
     do
     {
       currentCountry=countries[(int)(Math.random()*6)];

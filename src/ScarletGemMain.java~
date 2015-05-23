@@ -159,11 +159,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       {
         JOptionPane.showMessageDialog(null,"File could not be loaded.");
       }
-      catch (NumberFormatException e)
-      {
-        System.out.println (e);
-      }
-      System.out.println (currentQuestion);
       levelsRemaining=3;
       remove (mainMenuPanel);
       add(levelCounter);
@@ -285,7 +280,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       currentCountry=countries[(int)(Math.random()*6)];
     }
     while (alreadyBeen.contains(currentCountry));
-    System.out.println (alreadyBeen.contains(currentCountry));
     
     Country wrong1;
     Country wrong2;
@@ -294,7 +288,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       wrong1=countries[(int)(Math.random()*6)];
     }
     while (alreadyBeen.contains(wrong1)||wrong1.equals(currentCountry));
-    System.out.println (currentCountry.equals(wrong1));
     
     do
     {
@@ -302,30 +295,25 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     while (alreadyBeen.contains(wrong2)||wrong1.equals(wrong2)
              ||wrong2.equals(currentCountry));
-    System.out.println (currentCountry.equals(wrong2)||wrong1.equals(wrong2));
     
     gamePanel.setDestinations(new Country[]{currentCountry,wrong1,wrong2});
     gamePanel.switchToMap();
     
     //countries[(int)(Math.random()*
-    System.out.println (currentCountry.getName());
-    System.out.println (wrong1.getName());
-    System.out.println (wrong2.getName());
-    System.out.println ();
     
   }
-  private void checkDestination (int destination)
-  {
-    if (destination==gamePanel.getAnswer())
-    {
-      showCountryPanel();
-    }
-    else
-    {
-      gamePanel.removeWrongDestination(destination);
-    }
-    
-  }
+//  private void checkDestination (int destination)
+//  {
+//    if (destination==gamePanel.getAnswer())
+//    {
+//      showCountryPanel();
+//    }
+//    else
+//    {
+//      gamePanel.removeWrongDestination(destination);
+//    }
+//    
+//  }
   private void checkAnswer (char answer)
   {
     if (gamePanel.getStage())
@@ -334,6 +322,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       {
         if (currentQuestion==0)
         {
+          System.out.println ("More");
+          gamePanel.getAButton().setEnabled(true);
+          gamePanel.getBButton().setEnabled(true);
+          gamePanel.getCButton().setEnabled(true);
+          gamePanel.getDButton().setEnabled(true);
           Question temp=currentCountry.getRandQuestion(0);
           while (temp==gamePanel.getQuestion())
           {
@@ -349,11 +342,12 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
           alreadyBeen.add(currentCountry);
           showMapPanel();
         }
-        for (Country s:alreadyBeen)
-          System.out.println (s.getName());
       }
       else
+      {
+        System.out.println ("remove");
         gamePanel.removeWrongAnswer(answer);
+      }
     }
     else
     {
