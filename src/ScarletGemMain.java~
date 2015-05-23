@@ -266,7 +266,10 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     else
     {
+      //Question temp=
+      gamePanel.setQuestion(currentCountry.getRandQuestion(difficulty));
       gamePanel.switchToCountry();
+      //gamePanel.setQuestion(currentCountry.getRandQuestion(difficulty));
       gamePanel.getAButton().addActionListener(this);
       gamePanel.getBButton().addActionListener(this);
       gamePanel.getCButton().addActionListener(this);
@@ -301,7 +304,9 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
              ||wrong2.equals(currentCountry));
     System.out.println (currentCountry.equals(wrong2)||wrong1.equals(wrong2));
     
+    gamePanel.setDestinations(new Country[]{currentCountry,wrong1,wrong2});
     gamePanel.switchToMap();
+    
     //countries[(int)(Math.random()*
     System.out.println (currentCountry.getName());
     System.out.println (wrong1.getName());
@@ -323,30 +328,44 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   private void checkAnswer (char answer)
   {
-    if (gamePanel.getQuestion().getAnswer()==answer)
+    if (gamePanel.getStage())
     {
-      if (currentQuestion==0)
+      if (gamePanel.getQuestion().getAnswer()==answer)
       {
-        Question temp=currentCountry.getRandQuestion(0);
-        while (temp==gamePanel.getQuestion())
+        if (currentQuestion==0)
         {
-          temp=currentCountry.getRandQuestion(0);
+          Question temp=currentCountry.getRandQuestion(0);
+          while (temp==gamePanel.getQuestion())
+          {
+            temp=currentCountry.getRandQuestion(0);
+          }
+          gamePanel.setQuestion(temp);
+          currentQuestion++;
         }
-        gamePanel.setQuestion(temp);
-        currentQuestion++;
+        else
+        {
+          System.out.println ("Exec");
+          levelsRemaining--;
+          alreadyBeen.add(currentCountry);
+          showMapPanel();
+        }
+        for (Country s:alreadyBeen)
+          System.out.println (s.getName());
+      }
+      else
+        gamePanel.removeWrongAnswer(answer);
+    }
+    else
+    {
+      if (answer-65==gamePanel.getAnswer())
+      {
+        showCountryPanel();
       }
       else
       {
-        System.out.println ("Exec");
-        levelsRemaining--;
-        alreadyBeen.add(currentCountry);
-        showMapPanel();
+        gamePanel.removeWrongDestination(answer+65);
       }
-      for (Country s:alreadyBeen)
-        System.out.println (s.getName());
     }
-    else
-      gamePanel.removeWrongAnswer(answer);
   }
   private void endGame()
   {
