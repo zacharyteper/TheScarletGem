@@ -359,10 +359,10 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
           gamePanel.getBButton().setEnabled(true);
           gamePanel.getCButton().setEnabled(true);
           gamePanel.getDButton().setEnabled(true);
-          Question temp=currentCountry.getRandQuestion(0);
+          Question temp=currentCountry.getRandQuestion(difficulty);
           while (temp==gamePanel.getQuestion())
           {
-            temp=currentCountry.getRandQuestion(0);
+            temp=currentCountry.getRandQuestion(difficulty);
           }
           gamePanel.setQuestion(temp);
           currentQuestion++;
