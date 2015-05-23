@@ -143,14 +143,20 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
         difficulty=Integer.parseInt(in.readLine());
         in.readLine();
         String next=in.readLine();
-        while (!next.equals(""))
+        do
         {
-          alreadyBeen.add(getCountry(in.readLine()));
+          next=in.readLine();
+          alreadyBeen.add(getCountry(next));
         }
+        while (!next.equals(""));
+        currentCountry=getCountry(in.readLine());
         in.readLine();
         timeRemaining=Integer.parseInt(in.readLine());
         in.readLine();
         currentQuestion=Integer.parseInt(in.readLine());
+        System.out.println (currentCountry.getName());
+        showCountryPanel();
+        
       }
       catch (IOException e)
       {
@@ -219,6 +225,8 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       for (Country s:alreadyBeen)
         out.println(s.getName());
       out.println();
+      out.println (currentCountry.getName());
+      out.println ();
       out.println (timeRemaining);
       out.println ();
       out.println (currentQuestion);
@@ -233,7 +241,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   {
     currentQuestion=0;
    gamePanel.remove (mapPanel);
-      countryPanel=new CountryPanel (currentCountry,null,currentCountry.getRandQuestion(0));
+ 
     if (levelsRemaining==0)
     {
       JOptionPane.showMessageDialog(null,"You Win");
@@ -241,7 +249,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     else
     {
-      gamePanel.add (countryPanel);
       countryPanel.getAButton().addActionListener(this);
       countryPanel.getBButton().addActionListener(this);
       countryPanel.getCButton().addActionListener(this);
