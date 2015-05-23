@@ -150,24 +150,28 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
           alreadyBeen.add(getCountry(next));
         }
         //in.readLine();
-        currentCountry=getCountry(in.readLine());
 =======
         String next=in.readLine();
-        while (!next.equals(""))
+        do
         {
-          alreadyBeen.add(getCountry(in.readLine()));
+          next=in.readLine();
+          alreadyBeen.add(getCountry(next));
         }
+        while (!next.equals(""));
 >>>>>>> master
+        currentCountry=getCountry(in.readLine());
         in.readLine();
         timeRemaining=Integer.parseInt(in.readLine());
         in.readLine();
         currentQuestion=Integer.parseInt(in.readLine());
+        System.out.println (currentCountry.getName());
+        showCountryPanel();
+        
       }
       catch (IOException e)
       {
         JOptionPane.showMessageDialog(null,"File could not be loaded.");
       }
-<<<<<<< HEAD
       levelsRemaining=3;
       remove (mainMenuPanel);
       add(levelCounter);
@@ -176,10 +180,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       showCountryPanel();
     }
     else if (ae.getSource().equals(gamePanel.getAButton()))
-=======
-    }
-    else if (ae.getSource().equals(countryPanel.getAButton()))
->>>>>>> master
     {
       checkAnswer('A');
     }
@@ -252,49 +252,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
         out.println(s.getName());
       out.println();
       out.println (currentCountry.getName());
+<<<<<<< HEAD
       out.println();
-      out.println (timeRemaining);
+=======
       out.println ();
-      out.println (currentQuestion);
-      out.close();
-    }
-    catch (IOException e)
-    {
-      JOptionPane.showMessageDialog(null,"Progress could not be saved.");
-    }
-  }
-  private Country getCountry(String name)
-  {
-    return new Country (name);
-  }
-  private void closeWarning()
-  {
-    int option=JOptionPane.showConfirmDialog(this,
-                                  "Do you want to save your progress?",
-                                  "Save?",
-                                  JOptionPane.YES_NO_CANCEL_OPTION);
-    if (option==JOptionPane.YES_OPTION)
-    {
-      save();
-      System.exit(0);
-    }
-    else
-    {
-      if (option==JOptionPane.NO_OPTION)
-          System.exit(0);
-    }
-  }
-  private void save()
-  {
-    System.out.println ("save");
-    try
-    {
-      PrintWriter out=new PrintWriter(new FileWriter("progress.txt"));
-      out.println (difficulty);
-      out.println ();
-      for (Country s:alreadyBeen)
-        out.println(s.getName());
-      out.println();
+>>>>>>> master
       out.println (timeRemaining);
       out.println ();
       out.println (currentQuestion);
@@ -307,8 +269,25 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   private void showCountryPanel()
   {
+<<<<<<< HEAD
+    try
+    {
+      Thread.sleep(10);
+    }
+    catch (InterruptedException e)
+    {
+    }
+    gamePanel.getAButton().setEnabled(true);
+    gamePanel.getBButton().setEnabled(true);
+    gamePanel.getCButton().setEnabled(true);
+    gamePanel.getDButton().setEnabled(true);
     if (!alreadyBeen.contains(currentCountry))
       currentQuestion=0;
+=======
+    currentQuestion=0;
+   gamePanel.remove (mapPanel);
+ 
+>>>>>>> master
     if (levelsRemaining==0)
     {
       JOptionPane.showMessageDialog(null,"You Win");
@@ -316,6 +295,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     else
     {
+<<<<<<< HEAD
       //Question temp=
       gamePanel.setQuestion(currentCountry.getRandQuestion(difficulty));
       gamePanel.switchToCountry();
@@ -324,12 +304,21 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       gamePanel.getBButton().addActionListener(this);
       gamePanel.getCButton().addActionListener(this);
       gamePanel.getDButton().addActionListener(this); 
+=======
+      countryPanel.getAButton().addActionListener(this);
+      countryPanel.getBButton().addActionListener(this);
+      countryPanel.getCButton().addActionListener(this);
+      countryPanel.getDButton().addActionListener(this); 
+>>>>>>> master
     }
   }
   private void showMapPanel()
   {
 //    for (Country s:alreadyBeen)
 //      System.out.println(s.getName());
+    gamePanel.getAButton().setEnabled(true);
+    gamePanel.getBButton().setEnabled(true);
+    gamePanel.getCButton().setEnabled(true);
     do
     {
       currentCountry=countries[(int)(Math.random()*6)];

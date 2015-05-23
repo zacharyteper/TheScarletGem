@@ -12,7 +12,7 @@ public class Country {
   
   public Question getRandQuestion (int difficulty)
   {
-    int index= (int) (Math.random()*4);
+    int index= (int) (Math.random()*9);
     if (difficulty==0)
       return easy[index];
     else
@@ -55,7 +55,7 @@ public class Country {
   }
   public String getRandClue()
   {
-    return clues [(int)(Math.random()*4)];
+    return clues [(int)(Math.random()*9)];
   }
   public String getName ()
   {

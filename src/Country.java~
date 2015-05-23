@@ -44,14 +44,10 @@ public class Country {
       return 8;
     else if (name.equals("Japan"))
       return 9;
-    else if (name.equals("Brazil"))
+    else if (name.equals("France"))
       return 10;
-    else if (name.equals("Cuba"))
-      return 11;
-    else if (name.equals("South Africa"))
-      return 12;
-   
-      return 13;
+    //england
+    return 11;
   }
   public Image getBackground ()
   {
