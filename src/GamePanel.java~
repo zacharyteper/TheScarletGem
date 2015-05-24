@@ -40,22 +40,22 @@ public class GamePanel extends JPanel implements Runnable {
   public void removeWrongAnswer (char button)
   {
     if (button=='A')
-      remove(A);
+      A.setEnabled(false);
     else if (button=='B')
-      remove(B);
+      B.setEnabled(false);
     else if (button=='C')
-      remove(C);
+      C.setEnabled(false);
     else
-      remove(D);
+      D.setEnabled(false);
   }
   public void removeWrongDestination (int button)
   {
     if (button==0)
-      remove(A);
+      A.setEnabled(false);
     else if (button==1)
-      remove(B);
+      B.setEnabled(false);
     else
-      remove(C);
+      C.setEnabled(false);
   }
   public void setQuestion(Question q)
   {
@@ -66,6 +66,10 @@ public class GamePanel extends JPanel implements Runnable {
   {
     questionLabel.setText(currentQuestion.getQuestion());
     add(D);
+    atQuestionStage=true;
+    A.setText("A");
+    B.setText("B");
+    C.setText("C");
     revalidate();
   }
   public void switchToMap()
@@ -75,6 +79,7 @@ public class GamePanel extends JPanel implements Runnable {
     B.setText(destinations[1].getName());
     C.setText(destinations[2].getName());
     questionLabel.setText(destinations[0].getRandClue());
+    atQuestionStage=false;
     revalidate();
   }
   

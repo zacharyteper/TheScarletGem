@@ -124,7 +124,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     else if (ae.getSource().equals(mainMenuPanel.getEasyButton()))
     {
-      levelsRemaining=3;
+      levelsRemaining=2;
       difficulty=0;
       
       remove(mainMenuPanel);
@@ -135,8 +135,19 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     else if (ae.getSource().equals(mainMenuPanel.getMediumButton()))
     {
-      levelsRemaining=6;
+      levelsRemaining=5;
       difficulty=1;
+      
+      remove(mainMenuPanel);
+      add(levelCounter);
+      
+      add(gamePanel);
+      showCountryPanel();      
+    }
+    else if (ae.getSource().equals(mainMenuPanel.getHardButton()))
+    {
+      levelsRemaining=7;
+      difficulty=2;
       
       remove(mainMenuPanel);
       add(levelCounter);
@@ -316,11 +327,19 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   {
 //    for (Country s:alreadyBeen)
 //      System.out.println(s.getName());
+    try
+    {
+      Thread.sleep(10);
+    }
+    catch (InterruptedException e)
+    {
+    }
     gamePanel.getAButton().setEnabled(true);
     gamePanel.getBButton().setEnabled(true);
     gamePanel.getCButton().setEnabled(true);
     do
     {
+      System.out.println ("search");
       currentCountry=countries[(int)(Math.random()*10)];
     }
     while (alreadyBeen.contains(currentCountry));
@@ -329,17 +348,19 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     Country wrong2;
     do
     {
+      System.out.println ("search2");
       wrong1=countries[(int)(Math.random()*10)];
     }
     while (alreadyBeen.contains(wrong1)||wrong1.equals(currentCountry));
     
     do
     {
+      System.out.println ("search3");
       wrong2=countries[(int)(Math.random()*10)];
     }
     while (alreadyBeen.contains(wrong2)||wrong1.equals(wrong2)
              ||wrong2.equals(currentCountry));
-    
+    System.out.println ("worng: "+wrong2.getName());
     gamePanel.setDestinations(new Country[]{currentCountry,wrong1,wrong2});
     gamePanel.switchToMap();
     
@@ -383,6 +404,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
         {
           System.out.println ("Exec");
           levelsRemaining--;
+          System.out.println (levelsRemaining);
           alreadyBeen.add(currentCountry);
           showMapPanel();
         }
@@ -609,9 +631,42 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "\n D. French & English"
                       ,'D')
     };
+    Question[] canadaHard=
+    {new Question ("CanadaHard1"+
+                   "\n A. Toronto"+
+                   "\n B. Montreal"+
+                   "\n C. Ottawa"+
+                   "\n D. Portugal"
+                     ,'C'),
+      new Question ("CanadaHard2"+
+                    "\n A. North"+
+                    "\n B. West"+
+                    "\n C. South"+
+                    "\n D. East"
+                      ,'D'),
+      new Question ("CanadaHard3"+
+                    "\n A. North"+
+                    "\n B. West"+
+                    "\n C. South"+
+                    "\n D. East"
+                      ,'A'),
+      new Question ("CanadaHard4"+
+                    "\n A. Europe"+
+                    "\n B. North America"+
+                    "\n C. Africa"+
+                    "\n D. Asia"
+                      ,'B'),
+      new Question ("CanadaHard5"+
+                    "\n A. Spanish & French"+
+                    "\n B. German & English"+
+                    "\n C. English & Spanish"+
+                    "\n D. French & English"
+                      ,'D')
+    };
     try
     {
-      Country canada =new Country ("Canada",canadaEasy, canadaMedium, null, ImageIO.read (new File ("canada.jpg")),
+      Country canada =new Country ("Canada",canadaEasy, canadaMedium,
+                                   canadaHard, ImageIO.read (new File ("canada.jpg")),
                                    null);
       countries [0]=canada;
     }
@@ -684,9 +739,42 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "\n D. Corn"
                       ,'B')
     };
+    Question[] chinaHard=
+    {new Question ("ChinaHard1"+
+                   "\n A. Beijing"+
+                   "\n B. Shanghai"+
+                   "\n C. Bangkok"+
+                   "\n D. Tokyo"
+                     ,'A'),
+      new Question ("chinaHard2"+
+                    "\n A. Atlantic"+
+                    "\n B. Indian"+
+                    "\n C. Pacific"+
+                    "\n D. Arctic"
+                      ,'C'),
+      new Question ("chinaHard3"+
+                    "\n A. North"+
+                    "\n B. West"+
+                    "\n C. South"+
+                    "\n D. East"
+                      ,'B'),
+      new Question ("chinaHard4"+
+                    "\n A. Europe"+
+                    "\n B. North America"+
+                    "\n C. Africa"+
+                    "\n D. Asia"
+                      ,'D'),
+      new Question ("chinaHard5"+
+                    "\n A. Tomatoes"+
+                    "\n B. Rice"+
+                    "\n C. Radishes"+
+                    "\n D. Corn"
+                      ,'B')
+    };
     try
     {
-      Country china =new Country ("China",chinaEasy, chinaMedium, null, ImageIO.read (new File ("china.jpg")),
+      Country china =new Country ("China",chinaEasy, chinaMedium,
+                                  chinaHard, ImageIO.read (new File ("china.jpg")),
                                   new String[]{"I am in the country with the largest population in the world."
         ,"I am in the counry whose capital is Beijing."
                                     ,"I am in the country where bamboo forests, pandas and the Asian Black Bear"+
@@ -766,9 +854,42 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "\n D. Chinese"
                       ,'A')
     };
+    Question[] usaHard=
+    {new Question ("USAHard1"+
+                   "\n A. Boston"+
+                   "\n B. New York"+
+                   "\n C. Texas"+
+                   "\n D. Washington D.C."
+                     ,'D'),
+      new Question ("USAHard2"+
+                    "\n A. North"+
+                    "\n B. West"+
+                    "\n C. East"+
+                    "\n D. South"
+                      ,'C'),
+      new Question ("USAHard3"+
+                    "\n A. Texas"+
+                    "\n B. California"+
+                    "\n C. Mexico"+
+                    "\n D. Florida"
+                      ,'B'),
+      new Question ("USAHard4"+
+                    "\n A. Europe"+
+                    "\n B. Asia"+
+                    "\n C. Africa"+
+                    "\n D. North America"
+                      ,'D'),
+      new Question ("USAHard5"+
+                    "\n A. English"+
+                    "\n B. Spanish"+
+                    "\n C. French"+
+                    "\n D. Chinese"
+                      ,'A')
+    };
     try
     {
-      Country usa =new Country ("USA",usaEasy, usaMedium, null, ImageIO.read (new File ("USA.jpg")),
+      Country usa =new Country ("USA",usaEasy, usaMedium,
+                                usaHard, ImageIO.read (new File ("USA.jpg")),
                                 new String[]
                                   {"I am in the country in which Chicago is located.",
         "I am in the country with the largest military in the world.",
@@ -847,9 +968,42 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "\n D. Spanish"
                       ,'D')
     };
+    Question[] mexicoHard=
+    {new Question ("mexicoHard1"+
+                   "\n A. Peru"+
+                   "\n B. Mexico City"+
+                   "\n C. Monterrey"+
+                   "\n D. Cancun"
+                     ,'B'),
+      new Question ("mexicoHard2"+
+                    "\n A. Inuit"+
+                    "\n B. Hindi"+
+                    "\n C. Portugal"+
+                    "\n D. Aztec"
+                      ,'D'),
+      new Question ("mexicoHard3"+
+                    "\n A. USA"+
+                    "\n B. Chile"+
+                    "\n C. Africa"+
+                    "\n D. Arctic"
+                      ,'A'),
+      new Question ("mexicoHard4"+
+                    "\n A. Europe"+
+                    "\n B. North America"+
+                    "\n C. Africa"+
+                    "\n D. Asia"
+                      ,'B'),
+      new Question ("mexicoHard5"+
+                    "\n A. French"+
+                    "\n B. German"+
+                    "\n C. English"+
+                    "\n D. Spanish"
+                      ,'D')
+    };
     try
     {
-      Country mexico =new Country ("Mexico",mexicoEasy, mexicoMedium, null, ImageIO.read (new File ("mexico.jpeg")),
+      Country mexico =new Country ("Mexico",mexicoEasy, mexicoMedium,
+                                   mexicoHard, ImageIO.read (new File ("mexico.jpeg")),
                                    new String[]{
         "I am in the country which was home to the Maya and Aztec people.",
           "I am in the country in which corn was first grown as a crop.",
@@ -928,9 +1082,42 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "\n D. Portuguese"
                       ,'D')
     };
+    Question[] portugalHard=
+    {new Question ("portugalHard1"+
+                   "\n A. Barcelona"+
+                   "\n B. Lisbon"+
+                   "\n C. Madrid"+
+                   "\n D. Madeira"
+                     ,'B'),
+      new Question ("PortugalHard2"+
+                    "\n A. Arctic"+
+                    "\n B. Pacific"+
+                    "\n C. Indian"+
+                    "\n D. Atlantic"
+                      ,'D'),
+      new Question ("portugalHard3"+
+                    "\n A. Spain"+
+                    "\n B. Chile"+
+                    "\n C. Africa"+
+                    "\n D. Arctic"
+                      ,'A'),
+      new Question ("portugalHard4"+
+                    "\n A. North America"+
+                    "\n B. Europe"+
+                    "\n C. Africa"+
+                    "\n D. Asia"
+                      ,'B'),
+      new Question ("portugalHard5"+
+                    "\n A. French"+
+                    "\n B. German"+
+                    "\n C. English"+
+                    "\n D. Portuguese"
+                      ,'D')
+    };
     try
     {
-      Country portugal =new Country ("Portugal",portugalEasy, portugalMedium, null, ImageIO.read (new File ("portugal.jpg")),
+      Country portugal =new Country ("Portugal",portugalEasy, portugalMedium,
+                                     portugalHard, ImageIO.read (new File ("portugal.jpg")),
                                      new String[]{
         "I am in the country which contains the Tagus River.",
           "I am in the country in which the Temple of Evora can be found.",
@@ -1009,9 +1196,42 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "\n D. Sydney"
                       ,'D')
     };
+    Question[] australiaHard=
+    {new Question ("australiaHard1"+
+                   "\n A. Sydney"+
+                   "\n B. Canberra"+
+                   "\n C. Brisbane"+
+                   "\n D. New Zealand"
+                     ,'B'),
+      new Question ("australiaHard2"+
+                    "\n A. Arctic"+
+                    "\n B. Pacific"+
+                    "\n C. Indian"+
+                    "\n D. Atlantic"
+                      ,'C'),
+      new Question ("australiaHard3"+
+                    "\n A. Indonesia"+
+                    "\n B. Russia"+
+                    "\n C. Africa"+
+                    "\n D. Mexico"
+                      ,'A'),
+      new Question ("australiaHard4"+
+                    "\n A. India"+
+                    "\n B. Australia"+
+                    "\n C. Africa"+
+                    "\n D. Asia"
+                      ,'B'),
+      new Question ("australiaHard5"+
+                    "\n A. New Zealand"+
+                    "\n B. Canberra"+
+                    "\n C. Melbourne"+
+                    "\n D. Sydney"
+                      ,'D')
+    };
     try
     {
-      Country australia =new Country ("Australia",australiaEasy, australiaMedium, null, ImageIO.read (new File ("australia.jpg")),
+      Country australia =new Country ("Australia",australiaEasy, australiaMedium,
+                                      australiaHard, ImageIO.read (new File ("australia.jpg")),
                                       new String[]{
         "I am in the country in which Ayers Rock can be found.",
           "I am in the country in which the Murray River can be found.",
@@ -1090,9 +1310,42 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "\n D. Sydney"
                       ,'D')
     };
+    Question[] egyptHard=
+    {new Question ("egyptHard1"+
+                   "\n A. Cairo"+
+                   "\n B. Memphis"+
+                   "\n C. Alexandria"+
+                   "\n D. Suez"
+                     ,'A'),
+      new Question ("EgyptHard2"+
+                    "\n A. Arctic"+
+                    "\n B. Pacific"+
+                    "\n C. Indian"+
+                    "\n D. Atlantic"
+                      ,'C'),
+      new Question ("EgyptHard3"+
+                    "\n A. Indonesia"+
+                    "\n B. Russia"+
+                    "\n C. Africa"+
+                    "\n D. Mexico"
+                      ,'A'),
+      new Question ("EgyptHard4"+
+                    "\n A. India"+
+                    "\n B. Australia"+
+                    "\n C. Africa"+
+                    "\n D. Asia"
+                      ,'B'),
+      new Question ("EgyptHard5"+
+                    "\n A. New Zealand"+
+                    "\n B. Canberra"+
+                    "\n C. Melbourne"+
+                    "\n D. Sydney"
+                      ,'D')
+    };
     try
     {
-      Country egypt =new Country ("Egypt",egyptEasy, egyptMedium, null, ImageIO.read (new File ("egypt.jpg")),
+      Country egypt =new Country ("Egypt",egyptEasy, egyptMedium,
+                                  egyptHard, ImageIO.read (new File ("egypt.jpg")),
                                   new String[]{
         "EgyptClue1.",
           "EgyptClue2.",
@@ -1171,9 +1424,42 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "\n D. Sydney"
                       ,'D')
     };
+    Question[] indiaHard=
+    {new Question ("indiaHard1"+
+                   "\n A. Mumbai"+
+                   "\n B. Bangalore"+
+                   "\n C. New Delhi"+
+                   "\n D. Hyderabad"
+                     ,'C'),
+      new Question ("IndiaHard2"+
+                    "\n A. Arctic"+
+                    "\n B. Pacific"+
+                    "\n C. Indian"+
+                    "\n D. Atlantic"
+                      ,'C'),
+      new Question ("IndiaHard3"+
+                    "\n A. Indonesia"+
+                    "\n B. Russia"+
+                    "\n C. Africa"+
+                    "\n D. Mexico"
+                      ,'A'),
+      new Question ("IndiaHard4"+
+                    "\n A. India"+
+                    "\n B. Australia"+
+                    "\n C. Africa"+
+                    "\n D. Asia"
+                      ,'B'),
+      new Question ("IndiaHard5"+
+                    "\n A. New Zealand"+
+                    "\n B. Canberra"+
+                    "\n C. Melbourne"+
+                    "\n D. Sydney"
+                      ,'D')
+    };
     try
     {
-      Country india =new Country ("India",indiaEasy, indiaMedium, null, ImageIO.read (new File ("india.jpg")),
+      Country india =new Country ("India",indiaEasy, indiaMedium,
+                                  indiaHard, ImageIO.read (new File ("india.jpg")),
                                   new String[]{
         "IndiaClue1.",
           "IndiaClue2.",
@@ -1252,9 +1538,42 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "\n D. Sydney"
                       ,'D')
     };
+    Question[] russiaHard=
+    {new Question ("russiaHard1"+
+                   "\n A. St. Petersburg"+
+                   "\n B. Kazan"+
+                   "\n C. Samara"+
+                   "\n D. Moscow"
+                     ,'A'),
+      new Question ("RussiaHard2"+
+                    "\n A. Arctic"+
+                    "\n B. Pacific"+
+                    "\n C. Indian"+
+                    "\n D. Atlantic"
+                      ,'C'),
+      new Question ("RussiaHard3"+
+                    "\n A. Indonesia"+
+                    "\n B. Russia"+
+                    "\n C. Africa"+
+                    "\n D. Mexico"
+                      ,'A'),
+      new Question ("RussiaHard4"+
+                    "\n A. India"+
+                    "\n B. Australia"+
+                    "\n C. Africa"+
+                    "\n D. Asia"
+                      ,'B'),
+      new Question ("RussiaHard5"+
+                    "\n A. New Zealand"+
+                    "\n B. Canberra"+
+                    "\n C. Melbourne"+
+                    "\n D. Sydney"
+                      ,'D')
+    };
     try
     {
-      Country russia =new Country ("Russia",russiaEasy, russiaMedium, null, ImageIO.read (new File ("russia.jpg")),
+      Country russia =new Country ("Russia",russiaEasy, russiaMedium,
+                                   russiaHard, ImageIO.read (new File ("russia.jpg")),
                                    new String[]{
         "RussiaClue1.",
           "RussiaClue2.",
@@ -1333,9 +1652,42 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "\n D. Sydney"
                       ,'D')
     };
+    Question[] japanHard=
+    {new Question ("japanHard1"+
+                   "\n A. Yokohama"+
+                   "\n B. Osaka"+
+                   "\n C. Tokyo"+
+                   "\n D. Nagoya"
+                     ,'C'),
+      new Question ("JapanHard2"+
+                    "\n A. Arctic"+
+                    "\n B. Pacific"+
+                    "\n C. Indian"+
+                    "\n D. Atlantic"
+                      ,'C'),
+      new Question ("JapanHard3"+
+                    "\n A. Indonesia"+
+                    "\n B. Russia"+
+                    "\n C. Africa"+
+                    "\n D. Mexico"
+                      ,'A'),
+      new Question ("JapanHard4"+
+                    "\n A. India"+
+                    "\n B. Australia"+
+                    "\n C. Africa"+
+                    "\n D. Asia"
+                      ,'B'),
+      new Question ("JapanHard5"+
+                    "\n A. New Zealand"+
+                    "\n B. Canberra"+
+                    "\n C. Melbourne"+
+                    "\n D. Sydney"
+                      ,'D')
+    };
     try
     {
-      Country japan =new Country ("Japan",japanEasy, japanMedium, null, ImageIO.read (new File ("japan.jpg")),
+      Country japan =new Country ("Japan",japanEasy, japanMedium,
+                                  japanHard, ImageIO.read (new File ("japan.jpg")),
                                   new String[]{
         "JapanClue1.",
           "JapanClue2.",
@@ -1414,9 +1766,42 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "\n D. Sydney"
                       ,'D')
     };
+    Question[] franceHard=
+    {new Question ("franceHard1"+
+                   "\n A. Marceille"+
+                   "\n B. Nice"+
+                   "\n C. Lille"+
+                   "\n D. Paris"
+                     ,'D'),
+      new Question ("FranceHard2"+
+                    "\n A. Arctic"+
+                    "\n B. Pacific"+
+                    "\n C. Indian"+
+                    "\n D. Atlantic"
+                      ,'C'),
+      new Question ("FranceHard3"+
+                    "\n A. Indonesia"+
+                    "\n B. Russia"+
+                    "\n C. Africa"+
+                    "\n D. Mexico"
+                      ,'A'),
+      new Question ("FranceHard4"+
+                    "\n A. India"+
+                    "\n B. Australia"+
+                    "\n C. Africa"+
+                    "\n D. Asia"
+                      ,'B'),
+      new Question ("FranceHard5"+
+                    "\n A. New Zealand"+
+                    "\n B. Canberra"+
+                    "\n C. Melbourne"+
+                    "\n D. Sydney"
+                      ,'D')
+    };
     try
     {
-      Country france =new Country ("France",franceEasy,franceMedium, null, ImageIO.read (new File ("france.jpeg")),
+      Country france =new Country ("France",franceEasy,franceMedium,
+                                   franceHard, ImageIO.read (new File ("france.jpeg")),
                                    new String[]{
         "FranceClue1.",
           "FranceClue2.",
@@ -1495,9 +1880,42 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "\n D. Sydney"
                       ,'D')
     };
+    Question[] englandHard=
+    {new Question ("englandHard1"+
+                   "\n A. London"+
+                   "\n B. Leeds"+
+                   "\n C. Birmingham"+
+                   "\n D. Bradford"
+                     ,'B'),
+      new Question ("EngalndHard2"+
+                    "\n A. Arctic"+
+                    "\n B. Pacific"+
+                    "\n C. Indian"+
+                    "\n D. Atlantic"
+                      ,'C'),
+      new Question ("EnglandHard3"+
+                    "\n A. Indonesia"+
+                    "\n B. Russia"+
+                    "\n C. Africa"+
+                    "\n D. Mexico"
+                      ,'A'),
+      new Question ("EnglandHard4"+
+                    "\n A. India"+
+                    "\n B. Australia"+
+                    "\n C. Africa"+
+                    "\n D. Asia"
+                      ,'B'),
+      new Question ("EnglandHard5"+
+                    "\n A. New Zealand"+
+                    "\n B. Canberra"+
+                    "\n C. Melbourne"+
+                    "\n D. Sydney"
+                      ,'D')
+    };
     try
     {
-      Country england =new Country ("England",englandEasy, englandMedium, null, ImageIO.read (new File ("england.jpg")),
+      Country england =new Country ("England",englandEasy, englandMedium,
+                                    englandHard, ImageIO.read (new File ("england.jpg")),
                                     new String[]{
         "EnglandClue1.",
           "EnglandClue2.",
