@@ -48,8 +48,9 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    * Holds the number of levels that the user has left. In easy mode, this is initialized to 3.
    * In medium mode, this is initialized to 5. In hard mode, this is initialized to 7. When <code>
    * difficulty</code> reaches 0, the game ends.
+   * It is initialized to -1 in order to check whether the user started the game or not.
    */
-  private int levelsRemaining;
+  private int levelsRemaining = -1;
   /**
    * Holds the time remaining in the game, in seconds. This value will be regularly decremented 
    * throughout the game, and displayed at the top of the game screen. When this value reaches 0, 
@@ -59,7 +60,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   private boolean paused;
   private ArrayList <Country> alreadyBeen;
   public static final Country[] countries=new Country[12];
-  private GamePanel gamePanel=new GamePanel();
+  private GamePanel gamePanel;
   private JLabel levelCounter=new JLabel();
   private MainMenuPanel mainMenuPanel;
   private HighScoresViewer highScoresViewer;
@@ -126,6 +127,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       levelsRemaining=3;
       difficulty=0;
+      gamePanel = new GamePanel (difficulty);
       
       remove(mainMenuPanel);
       add(levelCounter);
@@ -137,6 +139,19 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       levelsRemaining=6;
       difficulty=1;
+      gamePanel = new GamePanel (difficulty);
+      
+      remove(mainMenuPanel);
+      add(levelCounter);
+      
+      add(gamePanel);
+      showCountryPanel();      
+    }
+    else if (ae.getSource().equals(mainMenuPanel.getHardButton()))
+    {
+      levelsRemaining=9;
+      difficulty=2;
+      gamePanel = new GamePanel (difficulty);
       
       remove(mainMenuPanel);
       add(levelCounter);
@@ -230,19 +245,26 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   private void closeWarning()
   {
-    int option=JOptionPane.showConfirmDialog(this,
-                                             "Do you want to save your progress?",
-                                             "Save?",
-                                             JOptionPane.YES_NO_CANCEL_OPTION);
-    if (option==JOptionPane.YES_OPTION)
+    if (levelsRemaining != -1)
     {
-      save();
-      System.exit(0);
+      int option=JOptionPane.showConfirmDialog(this,
+                                               "Do you want to save your progress?",
+                                               "Save?",
+                                               JOptionPane.YES_NO_CANCEL_OPTION);
+      if (option==JOptionPane.YES_OPTION)
+      {
+        save();
+        System.exit(0);
+      }
+      else
+      {
+        if (option==JOptionPane.NO_OPTION)
+          System.exit(0);
+      }
     }
     else
     {
-      if (option==JOptionPane.NO_OPTION)
-        System.exit(0);
+      System.exit (0);
     }
   }
   private void save()
@@ -412,6 +434,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     //remove(timer);
     //remove(pauseButton);
     add(mainMenuPanel);
+    levelsRemaining = -1;
     currentCountry=countries[0];
     alreadyBeen=new ArrayList<Country>();
     revalidate();
@@ -460,58 +483,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     catch (IOException e)
     {
     }
-    
-    //initialize menus
-    JMenuBar menuBar=new JMenuBar();
-    add (menuBar);
-    setJMenuBar (menuBar);
-    JMenu helpMenu=new JMenu ("Help");
-    JMenu fileMenu =new JMenu ("File");
-    menuBar.add(fileMenu);
-    menuBar.add(helpMenu);
-    
-    
-    fileMenu.add(saveItem);
-    fileMenu.add(printItem);
-    fileMenu.add(highScoresItem);
-    fileMenu.add(exitItem);
-    
-    helpMenu.add(howToPlayItem);
-    helpMenu.add(helpItem);
-    helpMenu.add(aboutItem);
-    
-    howToPlayItem.addActionListener(this);
-    printItem.addActionListener(this);
-    saveItem.addActionListener(this);
-    exitItem.addActionListener(this);
-    highScoresItem.addActionListener(this);
-    
-    helpItem.addActionListener(this);
-    aboutItem.addActionListener(this);
-    
-    //load main menu
-    mainMenuPanel=new MainMenuPanel();
-    add(mainMenuPanel);
-    mainMenuPanel.getEasyButton().addActionListener(this);
-    mainMenuPanel.getMediumButton().addActionListener(this);
-    mainMenuPanel.getHardButton().addActionListener(this);
-    mainMenuPanel.getLoadButton().addActionListener(this);
-    
-    saveItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,
-                                                   Event.CTRL_MASK));
-    exitItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q,
-                                                   Event.CTRL_MASK));
-    howToPlayItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R,
-                                                        Event.CTRL_MASK));
-    printItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P,
-                                                    Event.CTRL_MASK));
-    aboutItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U,
-                                                    Event.CTRL_MASK));
-    helpItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H,
-                                                   Event.CTRL_MASK));
-    highScoresItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E,
-                                                         Event.CTRL_MASK));
-    revalidate();
     
     //setup countries
     /* currentCountry index:
@@ -1515,6 +1486,60 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     alreadyBeen=new ArrayList<Country>();
     currentCountry=countries[0];
     //alreadyBeen.add(countries[0]);
+    
+    //initialize menus
+    JMenuBar menuBar=new JMenuBar();
+    add (menuBar);
+    setJMenuBar (menuBar);
+    JMenu helpMenu=new JMenu ("Help");
+    JMenu fileMenu =new JMenu ("File");
+    menuBar.add(fileMenu);
+    menuBar.add(helpMenu);
+    
+    
+    fileMenu.add(saveItem);
+    fileMenu.add(printItem);
+    fileMenu.add(highScoresItem);
+    fileMenu.add(exitItem);
+    
+    helpMenu.add(howToPlayItem);
+    helpMenu.add(helpItem);
+    helpMenu.add(aboutItem);
+    
+    howToPlayItem.addActionListener(this);
+    printItem.addActionListener(this);
+    saveItem.addActionListener(this);
+    exitItem.addActionListener(this);
+    highScoresItem.addActionListener(this);
+    
+    helpItem.addActionListener(this);
+    aboutItem.addActionListener(this);
+    
+    //load main menu
+    mainMenuPanel=new MainMenuPanel();
+    add(mainMenuPanel);
+    mainMenuPanel.getEasyButton().addActionListener(this);
+    mainMenuPanel.getMediumButton().addActionListener(this);
+    mainMenuPanel.getHardButton().addActionListener(this);
+    mainMenuPanel.getLoadButton().addActionListener(this);
+    
+    saveItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,
+                                                   Event.CTRL_MASK));
+    exitItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q,
+                                                   Event.CTRL_MASK));
+    howToPlayItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R,
+                                                        Event.CTRL_MASK));
+    printItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P,
+                                                    Event.CTRL_MASK));
+    aboutItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U,
+                                                    Event.CTRL_MASK));
+    helpItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H,
+                                                   Event.CTRL_MASK));
+    highScoresItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E,
+                                                         Event.CTRL_MASK));
+    revalidate();
+    
+    
     levelCounter=new JLabel(levelsRemaining+"");
     addWindowListener(this);
     System.out.println ("ready");

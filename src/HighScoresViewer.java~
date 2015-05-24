@@ -16,5 +16,11 @@ public class HighScoresViewer extends JFrame
     screen=g;
   }
   /* ADD YOUR CODE HERE */
-  
+  public HighScoresViewer ()
+  {
+    super ("High Scores");
+    setVisible(true);
+    setSize(400,400);
+    setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+  }
 }

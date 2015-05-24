@@ -3,7 +3,8 @@
  */
 import javax.swing.*;
 import java.awt.*;
-public class GamePanel extends JPanel implements Runnable {
+public class GamePanel extends JPanel 
+{
   private Country country;
   private JButton A;
   private JButton B;
@@ -13,13 +14,14 @@ public class GamePanel extends JPanel implements Runnable {
   private Question currentQuestion;
   private JLabel questionCounter;
   private JButton pauseButton;
-  private JLabel timeLabel;
+  private JLabel timeLabel = new JLabel ("start");
   private JLabel feedbackLabel;
   private boolean atQuestionStage=true;
   private JLabel levelCounter;
   private int currentQuestionNumber;
   private Country[] destinations;
   private int answer;
+  private GameTimer timer;
   
   public Question getQuestion()
   {
@@ -127,9 +129,10 @@ public class GamePanel extends JPanel implements Runnable {
   }
     
   //The first element in c MUST be the correct answer!
-  public GamePanel ()
+  public GamePanel (int difficulty)
   {
-
+    timer = new GameTimer (difficulty, timeLabel, this);
+    timer.start ();
     A=new JButton ("A");
     B=new JButton ("B");
     C=new JButton ("C");
@@ -140,9 +143,5 @@ public class GamePanel extends JPanel implements Runnable {
     add(C);
     add(D);
     add(questionLabel);
-  }
-  /* ADD YOUR CODE HERE */
-  public void run()
-  {
   }
 }

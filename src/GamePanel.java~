@@ -3,22 +3,34 @@
  */
 import javax.swing.*;
 import java.awt.*;
-public class GamePanel extends JPanel implements Runnable {
+public class GamePanel extends JPanel
+{
   private Country country;
   private JButton A;
   private JButton B;
   private JButton C;
   private JButton D;
+  //displays question
   private JLabel questionLabel;
+  //the current question
   private Question currentQuestion;
+  //question x out of x
   private JLabel questionCounter;
+  //the pause button
   private JButton pauseButton;
+  //time left xx:xx
   private JLabel timeLabel;
+  //you got the question wrong! etc.
   private JLabel feedbackLabel;
+  //at question page (false if at country page)
   private boolean atQuestionStage=true;
-  private JLabel levelCounter;
+  //what level you at?
+  //private JLabel levelCounter;
+  //current question number...
   private int currentQuestionNumber;
+  //countries for the user to choose
   private Country[] destinations;
+  //the answer to the question
   private int answer;
   
   public Question getQuestion()
@@ -40,22 +52,22 @@ public class GamePanel extends JPanel implements Runnable {
   public void removeWrongAnswer (char button)
   {
     if (button=='A')
-      remove(A);
+      A.setEnabled(false);
     else if (button=='B')
-      remove(B);
+      B.setEnabled(false);
     else if (button=='C')
-      remove(C);
+      C.setEnabled(false);
     else
-      remove(D);
+      D.setEnabled(false);
   }
   public void removeWrongDestination (int button)
   {
     if (button==0)
-      remove(A);
+      A.setEnabled(false);
     else if (button==1)
-      remove(B);
+      B.setEnabled(false);
     else
-      remove(C);
+      C.setEnabled(false);
   }
   public void setQuestion(Question q)
   {
@@ -66,6 +78,10 @@ public class GamePanel extends JPanel implements Runnable {
   {
     questionLabel.setText(currentQuestion.getQuestion());
     add(D);
+    atQuestionStage=true;
+    A.setText("A");
+    B.setText("B");
+    C.setText("C");
     revalidate();
   }
   public void switchToMap()
@@ -75,6 +91,7 @@ public class GamePanel extends JPanel implements Runnable {
     B.setText(destinations[1].getName());
     C.setText(destinations[2].getName());
     questionLabel.setText(destinations[0].getRandClue());
+    atQuestionStage=false;
     revalidate();
   }
   
@@ -124,7 +141,6 @@ public class GamePanel extends JPanel implements Runnable {
   //The first element in c MUST be the correct answer!
   public GamePanel ()
   {
-
     A=new JButton ("A");
     B=new JButton ("B");
     C=new JButton ("C");
@@ -135,9 +151,5 @@ public class GamePanel extends JPanel implements Runnable {
     add(C);
     add(D);
     add(questionLabel);
-  }
-  /* ADD YOUR CODE HERE */
-  public void run()
-  {
   }
 }
