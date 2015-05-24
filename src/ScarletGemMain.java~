@@ -46,7 +46,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   private int difficulty;
   /**
    * Holds the number of levels that the user has left. In easy mode, this is initialized to 3.
-   * In medium mode, this is initialized to 5. In hard mode, this is initialized to 7. When <code>
+   * In medium mode, this is initialized to 6. In hard mode, this is initialized to 9. When <code>
    * difficulty</code> reaches 0, the game ends.
    * It is initialized to -1 in order to check whether the user started the game or not.
    */
