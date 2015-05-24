@@ -1,5 +1,4 @@
 /**
- * Auto Generated Java Class.
  */
 public class Question {
   private final char answer;

@@ -78,28 +78,74 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    * <li>5 - Australia
    * <li>6 - Egypt
    * <li>7 - India
-   * <li>8 - Japan
-   * <li>9 - Russia
+   * <li>8 - Russia
+   * <li>9 - Japan
    * <li>10 - France
    * <li>11 - England
    * </ul>
    */
   public static final Country[] countries=new Country[12];
+  /**
+   * Holds the instance of the GamePanel class. This is initialized only once per game, and contains the buttons
+   * and menus used in the game.
+   */
   private GamePanel gamePanel;
+  /**
+   * Displays the number of levels that the user still has to complete in order to win the game.
+   * Will be refreshed every time the user travels to a new country.
+   */
   private JLabel levelCounter=new JLabel();
+  /**
+   * Holds the instance of the MainMenuPanel, which contains the buttons at the start of the game.
+   * This is only initialized once, and reappears every time the user completes a level.
+   */
   private MainMenuPanel mainMenuPanel;
+  /**
+   * Holds the instance of the HighScoresViewer which the user can see at any time
+   * using the menu option or by pressing Ctrl+E. This is only initialized once.
+   */
   private HighScoresViewer highScoresViewer;
+  /**
+   * Holds the instance of the InstructionsViewer which the user can see at any time
+   * using the menu option or by pressing Ctrl+R. This is only initialized once.
+   */
   private InstructionsViewer instructionsViewer;
+  /**
+   * Holds the instance of the GameTimer class, which is used to time the game.
+   */
   private GameTimer gameTimer;
+  /**
+   * Holds the number 1 or 0, depending on which question the user is currently on.
+   */
   private int currentQuestion=0;
-  private JMenuItem howToPlayItem =new JMenuItem ("How To Play Ctrl+R");
-  private JMenuItem printItem=new JMenuItem ("Print Ctrl+P");
-  private JMenuItem saveItem=new JMenuItem ("Save Ctrl+S");
-  private JMenuItem exitItem=new JMenuItem ("Exit Ctrl+Q");
-  private JMenuItem highScoresItem=new JMenuItem ("View High Scores Ctrl+E");
-  
-  private JMenuItem helpItem=new JMenuItem ("Help Ctrl+H");
-  private JMenuItem aboutItem=new JMenuItem ("About Ctrl+A");
+  /**
+   * Opens the Instructions viewer when the user selects this menu choice.
+   */
+  private JMenuItem howToPlayItem =new JMenuItem ("How To Play");
+  /**
+   * Opens the Print dialog when the user selects this menu choice.
+   */
+  private JMenuItem printItem=new JMenuItem ("Print");
+  /**
+   * Saves the user's progress when the user selects this menu choice.
+   */
+  private JMenuItem saveItem=new JMenuItem ("Save");
+  /**
+   * Closes the game window when the user selects this menu choice.
+   */
+  private JMenuItem exitItem=new JMenuItem ("Exit");
+  /**
+   * Opens the High Scores viewer when the user selects this menu choice.
+   */
+  private JMenuItem highScoresItem=new JMenuItem ("View High Scores");
+  /**
+   * Opens the .chm help file when the user selects this menu choice.
+   */
+  private JMenuItem helpItem=new JMenuItem ("Help");
+  /**
+   * Opens the About dialog when the user selects this menu choice.
+   */
+  private JMenuItem aboutItem=new JMenuItem ("About");
   
   public void windowDeactivated(WindowEvent e)
   {
@@ -123,6 +169,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   public void windowClosed (WindowEvent e)
   {
   }
+  /**
+   * Processes action events from all of the Buttons and Menus throughout the game.
+   * Called by the JVM when a Button or Menu is pressed.
+   * If statements control which block of code will be executed based on <code> ae</code>
+   * 
+   * @param ae ActionEvent
+   */
   public void actionPerformed(ActionEvent ae)
   {
     if (ae.getSource().equals(exitItem))
@@ -365,6 +418,10 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       
     }
   }
+  /**
+   * Creates the 3 destination options for the Map screen and displays it.
+   * While loops search for countries that have not been visited in the game.
+   */ 
   private void showMapPanel()
   {
 //    for (Country s:alreadyBeen)
@@ -409,18 +466,12 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     //countries[(int)(Math.random()*
     
   }
-//  private void checkDestination (int destination)
-//  {
-//    if (destination==gamePanel.getAnswer())
-//    {
-//      showCountryPanel();
-//    }
-//    else
-//    {
-//      gamePanel.removeWrongDestination(destination);
-//    }
-//    
-//  }
+  /**
+   * Checks if the answer selected by the user is correct. If it is, the next screen is displayed.
+   * If not, the choice is eliminated time is deducted from the user's score.
+   * 
+   * @param answer char the answer that the user selected
+   */
   private void checkAnswer (char answer)
   {
     if (gamePanel.getStage())
@@ -509,7 +560,10 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   {
     return PAGE_EXISTS;
   }
-  /* ADD YOUR CODE HERE */
+  /**
+   * Displays the splash screen, initializes the game variables and displays the main menu.
+   * Adds ActionListeners and KeyListeners to game Objects.
+   */
   public ScarletGemMain()
   {
     super ("The Scarlet Gem");
@@ -525,38 +579,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     catch (IOException e)
     {
     }
-    
-    //setup countries
-    /* currentCountry index:
-     * 0 - Canada
-     * 1 - China
-     * 2 - USA
-     * 3 - Mexico
-     * 4 - Portugal
-     * 5 - Australia
-     * 6 - Egypt
-     * 7 - India
-     * 8 - Russia
-     * 9 - Japan
-     * 10 - Brazil
-     * 11 - Cuba
-     * 12 - South Africa
-     * 13 - Switzerland
-     */
-//    countries[0]=new Country("Canada");
-//    countries[1]=new Country("China");
-//    countries[2]=new Country("USA");
-//    countries[3]=new Country("Mexico");
-//    countries[4]=new Country("Portugal");
-//    countries[5]=new Country("Australia");
-//    countries[6]=new Country("Egypt");
-//    countries[7]=new Country("India");
-//    countries[8]=new Country("Russia");
-//    countries[9]=new Country("Japan");
-//    countries[10]=new Country("Brazil");
-//    countries[11]=new Country("Cuba");
-//    countries[12]=new Country("South Africa");
-//    countries[13]=new Country("Switzerland");
     
     Question[] canadaEasy=
     {new Question ("What is the capital of Canada?"+
