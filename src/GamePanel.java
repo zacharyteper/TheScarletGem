@@ -76,6 +76,7 @@ public class GamePanel extends JPanel
   }
   public void switchToMap()
   {
+    System.out.println ("map");
     remove(D);
     A.setText(destinations[0].getName());
     B.setText(destinations[1].getName());
