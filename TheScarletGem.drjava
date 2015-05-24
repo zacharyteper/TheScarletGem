@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <drjava version="drjava-20140826-r5761">
-  <project autorefresh="false" build="bin/" main="ScarletGemRunner" root="src/" work="">
+  <project autorefresh="false" build="../bin/" main="ScarletGemRunner" root="src/" work="">
     <createjar file=""/>
     <source>
+<<<<<<< HEAD
       <file active="true" name="ScarletGemRunner.java" package="" timestamp="21-May-2015 18:43:15">
         <select from="34" to="34"/>
         <scroll column="0" row="0"/>
@@ -42,6 +43,55 @@
       <file name="ScarletGemMain.java" package="" timestamp="23-May-2015 23:35:25">
         <select from="34" to="34"/>
         <scroll column="0" row="0"/>
+=======
+      <file active="true" name="ScarletGemMain.java" package="" timestamp="24-May-2015 13:37:07">
+        <select from="5304" to="5304"/>
+        <scroll column="2939" row="0"/>
+      </file>
+      <file name="GameTimer.java" package="" timestamp="24-May-2015 09:33:51">
+        <select from="5304" to="5304"/>
+        <scroll column="2939" row="0"/>
+      </file>
+      <file name="Country.java" package="" timestamp="20-May-2015 15:40:24">
+        <select from="5304" to="5304"/>
+        <scroll column="2939" row="0"/>
+      </file>
+      <file name="CountryPanel.java" package="" timestamp="20-May-2015 21:21:30">
+        <select from="5304" to="5304"/>
+        <scroll column="2939" row="0"/>
+      </file>
+      <file name="GamePanel.java" package="" timestamp="24-May-2015 09:01:38">
+        <select from="5304" to="5304"/>
+        <scroll column="2939" row="0"/>
+      </file>
+      <file name="HighScoresViewer.java" package="" timestamp="18-May-2015 13:46:42">
+        <select from="5304" to="5304"/>
+        <scroll column="2939" row="0"/>
+      </file>
+      <file name="InstructionsPanel.java" package="" timestamp="20-May-2015 15:40:24">
+        <select from="5304" to="5304"/>
+        <scroll column="2939" row="0"/>
+      </file>
+      <file name="InstructionsViewer.java" package="" timestamp="15-May-2015 16:46:12">
+        <select from="5304" to="5304"/>
+        <scroll column="2939" row="0"/>
+      </file>
+      <file name="MainMenuPanel.java" package="" timestamp="15-May-2015 16:46:12">
+        <select from="5304" to="5304"/>
+        <scroll column="2939" row="0"/>
+      </file>
+      <file name="MapPanel.java" package="" timestamp="18-May-2015 13:46:42">
+        <select from="5304" to="5304"/>
+        <scroll column="2939" row="0"/>
+      </file>
+      <file name="Question.java" package="" timestamp="15-May-2015 16:46:12">
+        <select from="5304" to="5304"/>
+        <scroll column="2939" row="0"/>
+      </file>
+      <file name="ScarletGemRunner.java" package="" timestamp="20-May-2015 15:40:24">
+        <select from="5304" to="5304"/>
+        <scroll column="2939" row="0"/>
+>>>>>>> temp
       </file>
     </source>
     <included/>

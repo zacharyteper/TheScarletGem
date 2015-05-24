@@ -10,6 +10,7 @@ public class GameTimer extends Thread
   private JLabel time;
   private Tester tester;
   
+<<<<<<< HEAD
   public GameTimer (int difficulty, JLabel label, Tester tester)
   {
     timeRemaining = startingTime;
@@ -53,6 +54,9 @@ public class GameTimer extends Thread
   {
     return timeRemaining / 60;
   }
+=======
+  /* ADD YOUR CODE HERE */
+>>>>>>> temp
   
   public String seconds ()
   {

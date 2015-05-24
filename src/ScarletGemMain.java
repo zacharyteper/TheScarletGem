@@ -185,18 +185,24 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
         in.readLine();
         currentQuestion=Integer.parseInt(in.readLine());
         System.out.println (currentCountry.getName());
-        showCountryPanel();
         
       }
       catch (IOException e)
       {
         JOptionPane.showMessageDialog(null,"File could not be loaded.");
       }
-      levelsRemaining=3;
+      int total;
+      if (difficulty==0)
+        total=4;
+      else if (difficulty==1)
+        total=7;
+      else
+        total=10;
       remove (mainMenuPanel);
       add(levelCounter);
       add(gamePanel);
-      levelsRemaining=3-alreadyBeen.size();
+      levelsRemaining=total-alreadyBeen.size();
+      System.out.println (levelsRemaining);
       showCountryPanel();
     }
     else if (ae.getSource().equals(gamePanel.getAButton()))
@@ -625,8 +631,14 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     };
     try
     {
+<<<<<<< HEAD
       Country canada =new Country ("Canada",canadaEasy, canadaMedium, null, ImageIO.read (new File ("canada.jpg")),
                                    null);
+=======
+      Country canada =new Country ("Canada",canadaEasy, canadaMedium,
+                                   canadaHard, ImageIO.read (new File ("canada.jpg")),
+                                   new String[]{"","",""});
+>>>>>>> temp
       countries [0]=canada;
     }
     catch (IOException e)
@@ -732,7 +744,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     };
     try
     {
+<<<<<<< HEAD
       Country china =new Country ("China",chinaEasy, chinaMedium, null, ImageIO.read (new File ("china.jpg")),
+=======
+      Country china =new Country ("China",chinaEasy, chinaMedium, chinaHard, ImageIO.read (new File ("china.jpg")),
+>>>>>>> temp
                                   new String[]{"I am in the country with the largest population in the world."
         ,"I am in the counry whose capital is Beijing."
                                     ,"I am in the country where bamboo forests, pandas and the Asian Black Bear"+
@@ -846,7 +862,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     };
     try
     {
+<<<<<<< HEAD
       Country usa =new Country ("USA",usaEasy, usaMedium, null, ImageIO.read (new File ("USA.jpg")),
+=======
+      Country usa =new Country ("USA",usaEasy, usaMedium, usaHard, ImageIO.read (new File ("USA.jpg")),
+>>>>>>> temp
                                 new String[]
                                   {"I am in the country in which Chicago is located.",
         "I am in the country with the largest military in the world.",
@@ -959,7 +979,12 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     };
     try
     {
+<<<<<<< HEAD
       Country mexico =new Country ("Mexico",mexicoEasy, mexicoMedium, null, ImageIO.read (new File ("mexico.jpeg")),
+=======
+      Country mexico =new Country ("Mexico",mexicoEasy, mexicoMedium,
+                                   mexicoHard, ImageIO.read (new File ("mexico.jpeg")),
+>>>>>>> temp
                                    new String[]{
         "I am in the country which was home to the Maya and Aztec people.",
           "I am in the country in which corn was first grown as a crop.",
@@ -1072,7 +1097,12 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     };
     try
     {
+<<<<<<< HEAD
       Country portugal =new Country ("Portugal",portugalEasy, portugalMedium, null, ImageIO.read (new File ("portugal.jpg")),
+=======
+      Country portugal =new Country ("Portugal",portugalEasy, portugalMedium,
+                                     portugalHard, ImageIO.read (new File ("portugal.jpg")),
+>>>>>>> temp
                                      new String[]{
         "I am in the country which contains the Tagus River.",
           "I am in the country in which the Temple of Evora can be found.",
@@ -1185,7 +1215,12 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     };
     try
     {
+<<<<<<< HEAD
       Country australia =new Country ("Australia",australiaEasy, australiaMedium, null, ImageIO.read (new File ("australia.jpg")),
+=======
+      Country australia =new Country ("Australia",australiaEasy, australiaMedium,
+                                      australiaHard, ImageIO.read (new File ("australia.jpg")),
+>>>>>>> temp
                                       new String[]{
         "I am in the country in which Ayers Rock can be found.",
           "I am in the country in which the Murray River can be found.",
@@ -1298,7 +1333,12 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     };
     try
     {
+<<<<<<< HEAD
       Country egypt =new Country ("Egypt",egyptEasy, egyptMedium, null, ImageIO.read (new File ("egypt.jpg")),
+=======
+      Country egypt =new Country ("Egypt",egyptEasy, egyptMedium,
+                                  egyptHard, ImageIO.read (new File ("egypt.jpg")),
+>>>>>>> temp
                                   new String[]{
         "EgyptClue1.",
           "EgyptClue2.",
@@ -1411,7 +1451,12 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     };
     try
     {
+<<<<<<< HEAD
       Country india =new Country ("India",indiaEasy, indiaMedium, null, ImageIO.read (new File ("india.jpg")),
+=======
+      Country india =new Country ("India",indiaEasy, indiaMedium,
+                                  indiaHard, ImageIO.read (new File ("india.jpg")),
+>>>>>>> temp
                                   new String[]{
         "IndiaClue1.",
           "IndiaClue2.",
@@ -1524,7 +1569,12 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     };
     try
     {
+<<<<<<< HEAD
       Country russia =new Country ("Russia",russiaEasy, russiaMedium, null, ImageIO.read (new File ("russia.jpg")),
+=======
+      Country russia =new Country ("Russia",russiaEasy, russiaMedium,
+                                   russiaHard, ImageIO.read (new File ("russia.jpg")),
+>>>>>>> temp
                                    new String[]{
         "RussiaClue1.",
           "RussiaClue2.",
@@ -1637,7 +1687,12 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     };
     try
     {
+<<<<<<< HEAD
       Country japan =new Country ("Japan",japanEasy, japanMedium, null, ImageIO.read (new File ("japan.jpg")),
+=======
+      Country japan =new Country ("Japan",japanEasy, japanMedium,
+                                  japanHard, ImageIO.read (new File ("japan.jpg")),
+>>>>>>> temp
                                   new String[]{
         "JapanClue1.",
           "JapanClue2.",
