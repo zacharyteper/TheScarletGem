@@ -3,6 +3,7 @@
   <project autorefresh="false" build="bin/" main="ScarletGemRunner" root="src/" work="">
     <createjar file=""/>
     <source>
+<<<<<<< HEAD
       <file active="true" name="ScarletGemMain.java" package="" timestamp="23-May-2015 22:49:07">
         <select from="4375" to="4375"/>
         <scroll column="2129" row="0"/>
@@ -42,6 +43,47 @@
       <file name="GamePanel.java" package="" timestamp="23-May-2015 22:29:10">
         <select from="4375" to="4375"/>
         <scroll column="2129" row="0"/>
+=======
+      <file active="true" name="ScarletGemMain.java" package="" timestamp="23-May-2015 16:46:53">
+        <select from="54049" to="54049"/>
+        <scroll column="27633" row="0"/>
+      </file>
+      <file name="Country.java" package="" timestamp="23-May-2015 13:33:21">
+        <select from="54049" to="54049"/>
+        <scroll column="27633" row="0"/>
+      </file>
+      <file name="HighScoresViewer.java" package="" timestamp="16-May-2015 10:47:32">
+        <select from="54049" to="54049"/>
+        <scroll column="27633" row="0"/>
+      </file>
+      <file name="InstructionsPanel.java" package="" timestamp="23-May-2015 12:48:00">
+        <select from="54049" to="54049"/>
+        <scroll column="27633" row="0"/>
+      </file>
+      <file name="InstructionsViewer.java" package="" timestamp="15-May-2015 18:21:59">
+        <select from="54049" to="54049"/>
+        <scroll column="27633" row="0"/>
+      </file>
+      <file name="MainMenuPanel.java" package="" timestamp="15-May-2015 18:21:59">
+        <select from="54049" to="54049"/>
+        <scroll column="27633" row="0"/>
+      </file>
+      <file name="Question.java" package="" timestamp="15-May-2015 18:21:59">
+        <select from="54049" to="54049"/>
+        <scroll column="27633" row="0"/>
+      </file>
+      <file name="ScarletGemRunner.java" package="" timestamp="15-May-2015 18:21:59">
+        <select from="54049" to="54049"/>
+        <scroll column="27633" row="0"/>
+      </file>
+      <file name="GameTimer.java" package="" timestamp="23-May-2015 12:48:00">
+        <select from="54049" to="54049"/>
+        <scroll column="27633" row="0"/>
+      </file>
+      <file name="GamePanel.java" package="" timestamp="23-May-2015 13:10:32">
+        <select from="54049" to="54049"/>
+        <scroll column="27633" row="0"/>
+>>>>>>> 18c848f51314a3885d3053f7283432deb9c09149
       </file>
     </source>
     <included/>
