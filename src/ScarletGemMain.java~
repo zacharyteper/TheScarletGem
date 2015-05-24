@@ -48,8 +48,9 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    * Holds the number of levels that the user has left. In easy mode, this is initialized to 3.
    * In medium mode, this is initialized to 5. In hard mode, this is initialized to 7. When <code>
    * difficulty</code> reaches 0, the game ends.
+   * It is initialized to -1 in order to check whether the user started the game or not.
    */
-  private int levelsRemaining;
+  private int levelsRemaining = -1;
   /**
    * Holds the time remaining in the game, in seconds. This value will be regularly decremented 
    * throughout the game, and displayed at the top of the game screen. When this value reaches 0, 
@@ -59,7 +60,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   private boolean paused;
   private ArrayList <Country> alreadyBeen;
   public static final Country[] countries=new Country[12];
-  private GamePanel gamePanel=new GamePanel();
+  private GamePanel gamePanel;
   private JLabel levelCounter=new JLabel();
   private MainMenuPanel mainMenuPanel;
   private HighScoresViewer highScoresViewer;
@@ -126,6 +127,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       levelsRemaining=3;
       difficulty=0;
+      gamePanel = new GamePanel (difficulty);
       
       remove(mainMenuPanel);
       add(levelCounter);
@@ -137,6 +139,19 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       levelsRemaining=6;
       difficulty=1;
+      gamePanel = new GamePanel (difficulty);
+      
+      remove(mainMenuPanel);
+      add(levelCounter);
+      
+      add(gamePanel);
+      showCountryPanel();      
+    }
+    else if (ae.getSource().equals(mainMenuPanel.getHardButton()))
+    {
+      levelsRemaining=9;
+      difficulty=2;
+      gamePanel = new GamePanel (difficulty);
       
       remove(mainMenuPanel);
       add(levelCounter);
@@ -230,19 +245,26 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   private void closeWarning()
   {
-    int option=JOptionPane.showConfirmDialog(this,
-                                             "Do you want to save your progress?",
-                                             "Save?",
-                                             JOptionPane.YES_NO_CANCEL_OPTION);
-    if (option==JOptionPane.YES_OPTION)
+    if (levelsRemaining != -1)
     {
-      save();
-      System.exit(0);
+      int option=JOptionPane.showConfirmDialog(this,
+                                               "Do you want to save your progress?",
+                                               "Save?",
+                                               JOptionPane.YES_NO_CANCEL_OPTION);
+      if (option==JOptionPane.YES_OPTION)
+      {
+        save();
+        System.exit(0);
+      }
+      else
+      {
+        if (option==JOptionPane.NO_OPTION)
+          System.exit(0);
+      }
     }
     else
     {
-      if (option==JOptionPane.NO_OPTION)
-        System.exit(0);
+      System.exit (0);
     }
   }
   private void save()
@@ -412,6 +434,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     //remove(timer);
     //remove(pauseButton);
     add(mainMenuPanel);
+    levelsRemaining = -1;
     currentCountry=countries[0];
     alreadyBeen=new ArrayList<Country>();
     revalidate();
@@ -461,7 +484,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
     }
     
-        //setup countries
+    //setup countries
     /* currentCountry index:
      * 0 - Canada
      * 1 - China
@@ -1516,7 +1539,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                                                          Event.CTRL_MASK));
     revalidate();
     
-
+    
     levelCounter=new JLabel(levelsRemaining+"");
     addWindowListener(this);
     System.out.println ("ready");
