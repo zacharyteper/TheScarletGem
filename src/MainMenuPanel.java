@@ -1,45 +1,67 @@
 /**
- * Auto Generated Java Class.
+ * Contains the main menu buttons that appear at the start of the game.
+ * 
+ * @author Zachary Teper and Angela Zhu
+ * @version 1.0 05.24.2015
  */
 import javax.swing.*;
 public class MainMenuPanel extends JPanel
 {
+  /**
+   * Starts a game in "easy mode".
+   */
   private JButton easy;
+  /**
+   * Starts a game in "medium mode".
+   */
   private JButton medium;
+  /**
+   * Starts a game in "hard mode".
+   */
   private JButton hard;
+  /**
+   * Loads the game stored in the progress file if possible.
+   */
   private JButton loadGame;
+  /**
+   * Returns the button to start the game in easy mode.
+   * 
+   * @return easy JButton the button to start easy mode.
+   */
   public JButton getEasyButton()
   {
     return easy;
   }
-  public void setEasyButton(JButton b)
-  {
-    easy=b;
-  }
+  /**
+   * Returns the button to start the game in medium mode.
+   * 
+   * @return medium JButton the button to start medium mode.
+   */
   public JButton getMediumButton()
   {
     return medium;
   }
-  public void setMediumButton(JButton b)
-  {
-    medium=b;
-  }
+  /**
+   * Returns the button to start the game in hard mode.
+   * 
+   * @return hard JButton the button to start hard mode.
+   */
   public JButton getHardButton()
   {
     return hard;
   }
-  public void setHardButton(JButton b)
-  {
-    hard=b;
-  }
+  /**
+   * Return the button to load a saved game.
+   * 
+   * @return load JButton the button to load a game.
+   */
   public JButton getLoadButton()
   {
     return loadGame;
   }
-  public void setLoadButton(JButton b)
-  {
-    loadGame=b;
-  }
+  /**
+   * Initializes the buttons and the graphics.
+   */
   public MainMenuPanel ()
   {
     easy=new JButton ("Easy");
