@@ -3,35 +3,25 @@
  */
 import javax.swing.*;
 import java.awt.*;
-public class GamePanel extends JPanel
+public class GamePanel extends JPanel 
 {
   private Country country;
   private JButton A;
   private JButton B;
   private JButton C;
   private JButton D;
-  //displays question
   private JLabel questionLabel;
-  //the current question
   private Question currentQuestion;
-  //question x out of x
   private JLabel questionCounter;
-  //the pause button
   private JButton pauseButton;
-  //time left xx:xx
-  private JLabel timeLabel;
-  //you got the question wrong! etc.
+  private JLabel timeLabel = new JLabel ("start");
   private JLabel feedbackLabel;
-  //at question page (false if at country page)
   private boolean atQuestionStage=true;
-  //what level you at?
-  //private JLabel levelCounter;
-  //current question number...
+  private JLabel levelCounter;
   private int currentQuestionNumber;
-  //countries for the user to choose
   private Country[] destinations;
-  //the answer to the question
   private int answer;
+  private GameTimer timer;
   
   public Question getQuestion()
   {
@@ -86,6 +76,7 @@ public class GamePanel extends JPanel
   }
   public void switchToMap()
   {
+    System.out.println ("map");
     remove(D);
     A.setText(destinations[0].getName());
     B.setText(destinations[1].getName());
@@ -139,8 +130,10 @@ public class GamePanel extends JPanel
   }
     
   //The first element in c MUST be the correct answer!
-  public GamePanel ()
+  public GamePanel (int difficulty)
   {
+    timer = new GameTimer (difficulty, timeLabel, this);
+    timer.start ();
     A=new JButton ("A");
     B=new JButton ("B");
     C=new JButton ("C");

@@ -4,18 +4,17 @@ import javax.swing.*;
  */
 public class GameTimer extends Thread
 {
-  private int startingTime;
+  private int startingTime = 300;
   private int timeRemaining;
   private boolean paused = false;
   private JLabel time;
-  private Tester tester;
+  private GamePanel panel;
   
-<<<<<<< HEAD
-  public GameTimer (int difficulty, JLabel label, Tester tester)
+  public GameTimer (int difficulty, JLabel label, GamePanel panel)
   {
     timeRemaining = startingTime;
     time = label;
-    this.tester = tester;
+    this.panel = panel;
   }
   
   public int getTimeRemaining ()
@@ -35,10 +34,10 @@ public class GameTimer extends Thread
   
   public void timer ()
   {
-    while (!gameWon && timeRemaining != 0)
+    while (timeRemaining != 0)
     {
       time.setText (minutes()+":"+seconds());
-      tester.getContentPane().add (time);
+      panel.add (time);
       try
       {
         sleep (1000);
@@ -54,9 +53,6 @@ public class GameTimer extends Thread
   {
     return timeRemaining / 60;
   }
-=======
-  /* ADD YOUR CODE HERE */
->>>>>>> temp
   
   public String seconds ()
   {
