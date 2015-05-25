@@ -1,0 +1,22 @@
+High score:
+
+Zachary		134		Hard
+
+
+
+
+
+
+
+Angela		133		Medium
+
+
+
+
+
+
+David		1000		Easy
+
+
+
+Score=  # of countries*200 + time left (seconds) - # of wrong answers*10
