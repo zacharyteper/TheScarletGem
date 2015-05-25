@@ -574,17 +574,34 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     super ("The Scarlet Gem");
     setVisible (true);
     setSize (640,500);
+    setResizable(false);
     setDefaultCloseOperation (JFrame.DO_NOTHING_ON_CLOSE);
+    requestFocusInWindow();
     
-    //set the JFrame icon
+    //set the JFrame icon and read splashImage
+    ImageIcon splashImage=null;
     try
     {
       setIconImage (ImageIO.read (new File ("scarlet-gem.png")));
+      splashImage=new ImageIcon("scarlet-gem.png");
     }
     catch (IOException e)
     {
+      System.out.println ("Image IO");
     }
+    //show splashscreen
+    JLabel imageLabel=new JLabel();
+    JLabel infoLabel=new JLabel();
+    JPanel splashScreen=new JPanel();
     
+    infoLabel.setText("The Scarlet Gem is Loading...");
+    imageLabel.setIcon(splashImage);
+    splashScreen.add(imageLabel);
+    splashScreen.add(infoLabel);
+    add(splashScreen);
+    revalidate();
+    
+    //initialize countries
     Question[] canadaEasy=
     {new Question ("What is the capital of Canada?"+
                    "\n A. Toronto"+
@@ -1943,6 +1960,9 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       System.out.println ("IO");
     }
+    
+    
+    remove (splashScreen);
     
     alreadyBeen=new ArrayList<Country>();
     currentCountry=countries[0];

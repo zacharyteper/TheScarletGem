@@ -378,25 +378,21 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       JOptionPane.showMessageDialog(null,"Progress could not be saved.");
     }
   }
+  
   private void showCountryPanel()
   {
     System.out.println (currentCountry.getName());
     try
     {
-      Thread.sleep(10);
+      Thread.sleep(500);
     }
     catch (InterruptedException e)
     {
     }
-    gamePanel.getAButton().setEnabled(true);
-    gamePanel.getBButton().setEnabled(true);
-    gamePanel.getCButton().setEnabled(true);
-    gamePanel.getDButton().setEnabled(true);
     if (!alreadyBeen.contains(currentCountry))
       currentQuestion=0;
     
     currentQuestion=0;
-    
     
     if (levelsRemaining==0)
     {
@@ -405,17 +401,22 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     else
     {
-      
       //Question temp=
       gamePanel.setQuestion(currentCountry.getRandQuestion(difficulty));
       gamePanel.switchToCountry();
       //gamePanel.setQuestion(currentCountry.getRandQuestion(difficulty));
-      gamePanel.getAButton().addActionListener(this);
-      gamePanel.getBButton().addActionListener(this);
-      gamePanel.getCButton().addActionListener(this);
-      gamePanel.getDButton().addActionListener(this); 
-      
-      
+      if (difficulty == 0 && levelsRemaining == 3 || difficulty == 1 && levelsRemaining == 6 || difficulty == 2 && levelsRemaining == 9)
+      {
+        gamePanel.getAButton().addActionListener(this);
+        gamePanel.getBButton().addActionListener(this);
+        gamePanel.getCButton().addActionListener(this);
+        gamePanel.getDButton().addActionListener(this);
+      }
+      gamePanel.getAButton().setEnabled(true);
+      gamePanel.getBButton().setEnabled(true);
+      gamePanel.getCButton().setEnabled(true);
+      gamePanel.getDButton().setEnabled(true);
+      revalidate();
     }
   }
   /**
@@ -428,14 +429,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
 //      System.out.println(s.getName());
     try
     {
-      Thread.sleep(10);
+      Thread.sleep(500);
     }
     catch (InterruptedException e)
     {
     }
-    gamePanel.getAButton().setEnabled(true);
-    gamePanel.getBButton().setEnabled(true);
-    gamePanel.getCButton().setEnabled(true);
     do
     {
       System.out.println ("search");
@@ -459,9 +457,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     while (alreadyBeen.contains(wrong2)||wrong1.equals(wrong2)
              ||wrong2.equals(currentCountry));
-    System.out.println ("worng: "+wrong2.getName());
+    //System.out.println ("worng: "+wrong2.getName());
     gamePanel.setDestinations(new Country[]{currentCountry,wrong1,wrong2});
     gamePanel.switchToMap();
+    gamePanel.getAButton().setEnabled(true);
+    gamePanel.getBButton().setEnabled(true);
+    gamePanel.getCButton().setEnabled(true);
+    revalidate();
     
     //countries[(int)(Math.random()*
     
@@ -516,14 +518,17 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       }
       else
       {
-        gamePanel.removeWrongDestination(answer+65);
+        gamePanel.removeWrongDestination(answer-65);
+        System.out.println ("remove country " + (answer-65));
       }
     }
   }
   private void endGame()
   {
+    gamePanel.timer.setGameWon (true);
     remove(gamePanel);
     remove(levelCounter);
+    revalidate ();
     //remove(timer);
     //remove(pauseButton);
     add(mainMenuPanel);
