@@ -1,8 +1,15 @@
 Instructions:
 
+
 #1: inroduction/storyline
+
 #2: basic game rules: questions
+
 #3: basic game rules: map/travelling
+
 #4: saving progress
+
 #5: highscores/printing
-#6: contact/version info
+
+#6: menus/key shortcuts
+#7: contact/version info

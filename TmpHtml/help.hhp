@@ -1,0 +1,37 @@
+[OPTIONS]
+Language=0x1009
+Default Font=Arial,8,0
+TITLE=Untitled
+Full-text search=Yes
+Display compile notes=YES
+Display compile progress=YES
+Compatibility=1.1
+Auto Index=No
+Default Window=Main
+Compiled file=help.chm
+Error Log file=help.log
+Contents file=help.hhc
+Index File=help.hhk
+[FILES]
+introduction1.html
+basicgamerulescountries.html
+basicgamerulestravelling.html
+savingprogress.html
+highscores.html
+keyshortcuts0.html
+contactinfo.html
+help.png
+nexttopic.png
+prevtopic.png
+[WINDOWS]
+Main=,"help.hhc","help.hhk","","",,,,,0x061520,200,0x00304E,[50,50,850,450],0x307e,,,,,,,,0
+[ALIAS]
+introduction1=introduction1.html
+basicgamerulescountries=basicgamerulescountries.html
+basicgamerulestravelling=basicgamerulestravelling.html
+savingprogress=savingprogress.html
+highscores=highscores.html
+keyshortcuts0=keyshortcuts0.html
+contactinfo=contactinfo.html
+[MAP]
+#include help.h
