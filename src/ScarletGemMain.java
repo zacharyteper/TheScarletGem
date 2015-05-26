@@ -194,6 +194,14 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     else if (ae.getSource().equals(helpItem))
     {
+      File file = new File("TmpHtml/help.chm");
+      try
+      {
+        Runtime.getRuntime().exec("HH.EXE ms-its:" + file.getAbsolutePath() + "::/TOPIC_ID.html");
+      } catch (IOException e1)
+      {
+        e1.printStackTrace();
+      }
     }
     else if (ae.getSource().equals(aboutItem))
     {
