@@ -197,6 +197,31 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     else if (ae.getSource().equals(aboutItem))
     {
+      JFrame about=new JFrame("About");
+      JPanel aboutPanel=new JPanel();
+      JLabel name=new JLabel ("Game: The Scarlet Gem");
+      JLabel author1=new JLabel("Project Lead: Zachary Teper");
+      JLabel author2=new JLabel("Project Representative: Angela Zhu");
+      JLabel version=new JLabel("Version: 1.0 06.09.2015");
+      JLabel email=new JLabel("Email: zacharyblacktail@gmail.com");
+      JLabel phone=new JLabel("Phone: 416-223-6075");
+      ImageIcon logo=new ImageIcon ("CakeSoft Inc.png");
+      JLabel logoLabel=new JLabel();
+      
+      about.setSize(400,200);
+      about.add(aboutPanel);
+      about.setResizable(false);
+      about.setVisible(true);
+      about.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+      aboutPanel.setLayout(new FlowLayout());
+      logoLabel.setIcon(logo);
+      aboutPanel.add(logoLabel);
+      aboutPanel.add(name);
+      aboutPanel.add(author1);
+      aboutPanel.add(author2);
+      aboutPanel.add(version);
+      aboutPanel.add(email);
+      aboutPanel.add(phone);
     }
     else if (ae.getSource().equals(highScoresItem))
     {
@@ -574,17 +599,34 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     super ("The Scarlet Gem");
     setVisible (true);
     setSize (640,500);
+    setResizable(false);
     setDefaultCloseOperation (JFrame.DO_NOTHING_ON_CLOSE);
+    requestFocusInWindow();
     
-    //set the JFrame icon
+    //set the JFrame icon and read splashImage
+    ImageIcon splashImage=null;
     try
     {
       setIconImage (ImageIO.read (new File ("scarlet-gem.png")));
+      splashImage=new ImageIcon("scarlet-gem.png");
     }
     catch (IOException e)
     {
+      System.out.println ("Image IO");
     }
+    //show splashscreen
+    JLabel imageLabel=new JLabel();
+    JLabel infoLabel=new JLabel();
+    JPanel splashScreen=new JPanel();
     
+    infoLabel.setText("The Scarlet Gem is Loading...");
+    imageLabel.setIcon(splashImage);
+    splashScreen.add(imageLabel);
+    splashScreen.add(infoLabel);
+    add(splashScreen);
+    revalidate();
+    
+    //initialize countries
     Question[] canadaEasy=
     {new Question ("What is the capital of Canada?"+
                    "\n A. Toronto"+
@@ -1943,6 +1985,9 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       System.out.println ("IO");
     }
+    
+    
+    remove (splashScreen);
     
     alreadyBeen=new ArrayList<Country>();
     currentCountry=countries[0];
