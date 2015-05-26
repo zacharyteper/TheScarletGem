@@ -6,10 +6,10 @@ import java.awt.*;
 public class GamePanel extends JPanel 
 {
   private Country country;
-  private JButton A;
-  private JButton B;
-  private JButton C;
-  private JButton D;
+  private JButton a;
+  private JButton b;
+  private JButton c;
+  private JButton d;
   private JLabel questionLabel;
   private Question currentQuestion;
   private JLabel questionCounter;
@@ -21,7 +21,7 @@ public class GamePanel extends JPanel
   private int currentQuestionNumber;
   private Country[] destinations;
   private int answer;
-  private GameTimer timer;
+  public GameTimer timer;
   
   public Question getQuestion()
   {
@@ -42,22 +42,22 @@ public class GamePanel extends JPanel
   public void removeWrongAnswer (char button)
   {
     if (button=='A')
-      A.setEnabled(false);
+      a.setEnabled(false);
     else if (button=='B')
-      B.setEnabled(false);
+      b.setEnabled(false);
     else if (button=='C')
-      C.setEnabled(false);
+      c.setEnabled(false);
     else
-      D.setEnabled(false);
+      d.setEnabled(false);
   }
   public void removeWrongDestination (int button)
   {
     if (button==0)
-      A.setEnabled(false);
+      a.setEnabled(false);
     else if (button==1)
-      B.setEnabled(false);
+      b.setEnabled(false);
     else
-      C.setEnabled(false);
+      c.setEnabled(false);
   }
   public void setQuestion(Question q)
   {
@@ -67,20 +67,20 @@ public class GamePanel extends JPanel
   public void switchToCountry()
   {
     questionLabel.setText(currentQuestion.getQuestion());
-    add(D);
+    add(d);
     atQuestionStage=true;
-    A.setText("A");
-    B.setText("B");
-    C.setText("C");
+    a.setText("A");
+    b.setText("B");
+    c.setText("C");
     revalidate();
   }
   public void switchToMap()
   {
     System.out.println ("map");
-    remove(D);
-    A.setText(destinations[0].getName());
-    B.setText(destinations[1].getName());
-    C.setText(destinations[2].getName());
+    remove(d);
+    a.setText(destinations[0].getName());
+    b.setText(destinations[1].getName());
+    c.setText(destinations[2].getName());
     questionLabel.setText(destinations[0].getRandClue());
     atQuestionStage=false;
     revalidate();
@@ -88,19 +88,19 @@ public class GamePanel extends JPanel
   
   public JButton getAButton()
   {
-    return A;
+    return a;
   }
   public JButton getBButton()
   {
-    return B;
+    return b;
   }
   public JButton getCButton()
   {
-    return C;
+    return c;
   }
   public JButton getDButton()
   {
-    return D;
+    return d;
   }
   
   public Country getCountry()
@@ -124,25 +124,22 @@ public class GamePanel extends JPanel
   {
     answer=ans;
   }
-  private void refresh()
-  {
-    revalidate();
-  }
     
   //The first element in c MUST be the correct answer!
   public GamePanel (int difficulty)
   {
     timer = new GameTimer (difficulty, timeLabel, this);
     timer.start ();
-    A=new JButton ("A");
-    B=new JButton ("B");
-    C=new JButton ("C");
-    D=new JButton ("D");
+    a=new JButton ("A");
+    b=new JButton ("B");
+    c=new JButton ("C");
+    d=new JButton ("D");
     questionLabel=new JLabel();
-    add(A);
-    add(B);
-    add(C);
-    add(D);
+    add(a);
+    add(b);
+    add(c);
+    add(d);
     add(questionLabel);
+    revalidate ();
   }
 }

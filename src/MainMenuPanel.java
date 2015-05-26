@@ -64,6 +64,7 @@ public class MainMenuPanel extends JPanel
    */
   public MainMenuPanel ()
   {
+    
     easy=new JButton ("Easy");
     medium=new JButton ("Medium");
     hard=new JButton ("Hard");
@@ -71,11 +72,13 @@ public class MainMenuPanel extends JPanel
     
 //    SpringLayout layout=new SpringLayout();
 //    setLayout (layout);
-    
     add(easy);
     add(medium);
     add(hard);
     add(loadGame);
+    
+    
+    revalidate();
     
   }
   /* ADD YOUR CODE HERE */
