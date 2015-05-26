@@ -606,10 +606,12 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   {
     super ("The Scarlet Gem");
     setVisible (true);
-    setSize (640,500);
+    setSize (700,600);
     setResizable(false);
     setDefaultCloseOperation (JFrame.DO_NOTHING_ON_CLOSE);
     requestFocusInWindow();
+    
+    setLayout(new SpringLayout());
     
     //set the JFrame icon and read splashImage
     ImageIcon splashImage=null;
