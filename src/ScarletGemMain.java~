@@ -411,6 +411,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   
   private void showCountryPanel()
   {
+    gamePanel.setBackground(currentCountry.getBackground());
     System.out.println (currentCountry.getName());
     try
     {
@@ -660,67 +661,67 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'D')
     };
     Question[] canadaMedium=
-    {new Question ("CanadaMedium1"+
+    {new Question ("<html>CanadaMedium1"+
                    "<br> A. Toronto"+
                    "<br> B. Montreal"+
                    "<br> C. Ottawa"+
-                   "<br> D. Portugal"
+                   "<br> D. Portugal</html>"
                      ,'C'),
-      new Question ("CanadaMedium2"+
+      new Question ("<html>CanadaMedium2"+
                     "<br> A. North"+
                     "<br> B. West"+
                     "<br> C. South"+
-                    "<br> D. East"
+                    "<br> D. East</html>"
                       ,'D'),
-      new Question ("CanadaMedium3"+
+      new Question ("<html>CanadaMedium3"+
                     "<br> A. North"+
                     "<br> B. West"+
                     "<br> C. South"+
-                    "<br> D. East"
+                    "<br> D. East</html>"
                       ,'A'),
-      new Question ("CanadaMedium4"+
+      new Question ("<html>CanadaMedium4"+
                     "<br> A. Europe"+
                     "<br> B. North America"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("CanadaMedium5"+
+      new Question ("<html>CanadaMedium5"+
                     "<br> A. Spanish & French"+
                     "<br> B. German & English"+
                     "<br> C. English & Spanish"+
-                    "<br> D. French & English"
+                    "<br> D. French & English</html>"
                       ,'D')
     };
     Question[] canadaHard=
-    {new Question ("CanadaHard1"+
+    {new Question ("<html>CanadaHard1"+
                    "<br> A. Toronto"+
                    "<br> B. Montreal"+
                    "<br> C. Ottawa"+
-                   "<br> D. Portugal"
+                   "<br> D. Portugal</html>"
                      ,'C'),
-      new Question ("CanadaHard2"+
+      new Question ("<html>CanadaHard2"+
                     "<br> A. North"+
                     "<br> B. West"+
                     "<br> C. South"+
-                    "<br> D. East"
+                    "<br> D. East</html>"
                       ,'D'),
-      new Question ("CanadaHard3"+
+      new Question ("<html>CanadaHard3"+
                     "<br> A. North"+
                     "<br> B. West"+
                     "<br> C. South"+
-                    "<br> D. East"
+                    "<br> D. East</html>"
                       ,'A'),
-      new Question ("CanadaHard4"+
+      new Question ("<html>CanadaHard4"+
                     "<br> A. Europe"+
                     "<br> B. North America"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("CanadaHard5"+
+      new Question ("<html>CanadaHard5"+
                     "<br> A. Spanish & French"+
                     "<br> B. German & English"+
                     "<br> C. English & Spanish"+
-                    "<br> D. French & English"
+                    "<br> D. French & English</html>"
                       ,'D')
     };
     try
@@ -736,99 +737,99 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     //initialize China
     Question[] chinaEasy=
-    {new Question ("What is the capital of China?"+
+    {new Question ("<html>What is the capital of China?"+
                    "<br> A. Beijing"+
                    "<br> B. Shanghai"+
                    "<br> C. Bangkok"+
-                   "<br> D. Tokyo"
+                   "<br> D. Tokyo</html>"
                      ,'A'),
-      new Question ("Which ocean is off the coast of China?"+
+      new Question ("<html>Which ocean is off the coast of China?"+
                     "<br> A. Atlantic"+
                     "<br> B. Indian"+
                     "<br> C. Pacific"+
-                    "<br> D. Arctic"
+                    "<br> D. Arctic</html>"
                       ,'C'),
-      new Question ("In what part of China are the Himalaya Mountains?"+
+      new Question ("<html>In what part of China are the Himalaya Mountains?"+
                     "<br> A. North"+
                     "<br> B. West"+
                     "<br> C. South"+
-                    "<br> D. East"
+                    "<br> D. East</html>"
                       ,'B'),
-      new Question ("What continent is China part of?"+
+      new Question ("<html>What continent is China part of?"+
                     "<br> A. Europe"+
                     "<br> B. North America"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'D'),
-      new Question ("What is the main agricultural crop of China?"+
+      new Question ("<html>What is the main agricultural crop of China?"+
                     "<br> A. Tomatoes"+
                     "<br> B. Rice"+
                     "<br> C. Radishes"+
-                    "<br> D. Corn"
+                    "<br> D. Corn</html>"
                       ,'B')
     };
     Question[] chinaMedium=
-    {new Question ("ChinaMedium1"+
+    {new Question ("<html>ChinaMedium1"+
                    "<br> A. Beijing"+
                    "<br> B. Shanghai"+
                    "<br> C. Bangkok"+
-                   "<br> D. Tokyo"
+                   "<br> D. Tokyo</html>"
                      ,'A'),
-      new Question ("chinaMedium2"+
+      new Question ("<html>chinaMedium2"+
                     "<br> A. Atlantic"+
                     "<br> B. Indian"+
                     "<br> C. Pacific"+
-                    "<br> D. Arctic"
+                    "<br> D. Arctic</html>"
                       ,'C'),
-      new Question ("chinaMedium3"+
+      new Question ("<html>chinaMedium3"+
                     "<br> A. North"+
                     "<br> B. West"+
                     "<br> C. South"+
-                    "<br> D. East"
+                    "<br> D. East</html>"
                       ,'B'),
-      new Question ("chinaMedium4"+
+      new Question ("<html>chinaMedium4"+
                     "<br> A. Europe"+
                     "<br> B. North America"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'D'),
-      new Question ("chinaMedium5"+
+      new Question ("<html>chinaMedium5"+
                     "<br> A. Tomatoes"+
                     "<br> B. Rice"+
                     "<br> C. Radishes"+
-                    "<br> D. Corn"
+                    "<br> D. Corn</html>"
                       ,'B')
     };
     Question[] chinaHard=
-    {new Question ("ChinaHard1"+
+    {new Question ("<html>ChinaHard1"+
                    "<br> A. Beijing"+
                    "<br> B. Shanghai"+
                    "<br> C. Bangkok"+
-                   "<br> D. Tokyo"
+                   "<br> D. Tokyo</html>"
                      ,'A'),
-      new Question ("chinaHard2"+
+      new Question ("<html>chinaHard2"+
                     "<br> A. Atlantic"+
                     "<br> B. Indian"+
                     "<br> C. Pacific"+
-                    "<br> D. Arctic"
+                    "<br> D. Arctic</html>"
                       ,'C'),
-      new Question ("chinaHard3"+
+      new Question ("<html>chinaHard3"+
                     "<br> A. North"+
                     "<br> B. West"+
                     "<br> C. South"+
-                    "<br> D. East"
+                    "<br> D. East</html>"
                       ,'B'),
-      new Question ("chinaHard4"+
+      new Question ("<html>chinaHard4"+
                     "<br> A. Europe"+
                     "<br> B. North America"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'D'),
-      new Question ("chinaHard5"+
+      new Question ("<html>chinaHard5"+
                     "<br> A. Tomatoes"+
                     "<br> B. Rice"+
                     "<br> C. Radishes"+
-                    "<br> D. Corn"
+                    "<br> D. Corn</html>"
                       ,'B')
     };
     try
@@ -850,99 +851,99 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     //initialize USA
     Question[] usaEasy=
-    {new Question ("What is the capital of the USA?"+
+    {new Question ("<html>What is the capital of the USA?"+
                    "<br> A. Boston"+
                    "<br> B. New York"+
                    "<br> C. Texas"+
-                   "<br> D. Washington D.C."
+                   "<br> D. Washington D.C.</html>"
                      ,'D'),
-      new Question ("In what part of the USA is New Jersey located?"+
+      new Question ("<html>In what part of the USA is New Jersey located?"+
                     "<br> A. North"+
                     "<br> B. West"+
                     "<br> C. East"+
-                    "<br> D. South"
+                    "<br> D. South</html>"
                       ,'C'),
-      new Question ("In which state is San Fransisco located?"+
+      new Question ("<html>In which state is San Fransisco located?"+
                     "<br> A. Texas"+
                     "<br> B. California"+
                     "<br> C. Mexico"+
-                    "<br> D. Florida"
+                    "<br> D. Florida</html>"
                       ,'B'),
-      new Question ("What continent is the USA part of?"+
+      new Question ("<html>What continent is the USA part of?"+
                     "<br> A. Europe"+
                     "<br> B. Asia"+
                     "<br> C. Africa"+
-                    "<br> D. North America"
+                    "<br> D. North America</html>"
                       ,'D'),
-      new Question ("What is the official language of the USA?"+
+      new Question ("<html>What is the official language of the USA?"+
                     "<br> A. English"+
                     "<br> B. Spanish"+
                     "<br> C. French"+
-                    "<br> D. Chinese"
+                    "<br> D. Chinese</html>"
                       ,'A')
     };
     Question[] usaMedium=
-    {new Question ("USAMedium1"+
+    {new Question ("<html>USAMedium1"+
                    "<br> A. Boston"+
                    "<br> B. New York"+
                    "<br> C. Texas"+
-                   "<br> D. Washington D.C."
+                   "<br> D. Washington D.C.</html>"
                      ,'D'),
-      new Question ("USAMedium2"+
+      new Question ("<html>USAMedium2"+
                     "<br> A. North"+
                     "<br> B. West"+
                     "<br> C. East"+
-                    "<br> D. South"
+                    "<br> D. South</html>"
                       ,'C'),
-      new Question ("USAMedium3"+
+      new Question ("<html>USAMedium3"+
                     "<br> A. Texas"+
                     "<br> B. California"+
                     "<br> C. Mexico"+
-                    "<br> D. Florida"
+                    "<br> D. Florida</html>"
                       ,'B'),
-      new Question ("USAMedium4"+
+      new Question ("<html>USAMedium4"+
                     "<br> A. Europe"+
                     "<br> B. Asia"+
                     "<br> C. Africa"+
-                    "<br> D. North America"
+                    "<br> D. North America</html>"
                       ,'D'),
-      new Question ("USAMedium5"+
+      new Question ("<html>USAMedium5"+
                     "<br> A. English"+
                     "<br> B. Spanish"+
                     "<br> C. French"+
-                    "<br> D. Chinese"
+                    "<br> D. Chinese</html>"
                       ,'A')
     };
     Question[] usaHard=
-    {new Question ("USAHard1"+
+    {new Question ("<html>USAHard1"+
                    "<br> A. Boston"+
                    "<br> B. New York"+
                    "<br> C. Texas"+
-                   "<br> D. Washington D.C."
+                   "<br> D. Washington D.C.</html>"
                      ,'D'),
-      new Question ("USAHard2"+
+      new Question ("<html>USAHard2"+
                     "<br> A. North"+
                     "<br> B. West"+
                     "<br> C. East"+
-                    "<br> D. South"
+                    "<br> D. South</html>"
                       ,'C'),
-      new Question ("USAHard3"+
+      new Question ("<html>USAHard3"+
                     "<br> A. Texas"+
                     "<br> B. California"+
                     "<br> C. Mexico"+
-                    "<br> D. Florida"
+                    "<br> D. Florida</html>"
                       ,'B'),
-      new Question ("USAHard4"+
+      new Question ("<html>USAHard4"+
                     "<br> A. Europe"+
                     "<br> B. Asia"+
                     "<br> C. Africa"+
-                    "<br> D. North America"
+                    "<br> D. North America</html>"
                       ,'D'),
-      new Question ("USAHard5"+
+      new Question ("<html>USAHard5"+
                     "<br> A. English"+
                     "<br> B. Spanish"+
                     "<br> C. French"+
-                    "<br> D. Chinese"
+                    "<br> D. Chinese</html>"
                       ,'A')
     };
     try
@@ -963,99 +964,99 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     //initialize mexico
     Question[] mexicoEasy=
-    {new Question ("What is the capital of Mexico?"+
+    {new Question ("<html>What is the capital of Mexico?"+
                    "<br> A. Peru"+
                    "<br> B. Mexico City"+
                    "<br> C. Monterrey"+
-                   "<br> D. Cancun"
+                   "<br> D. Cancun</html>"
                      ,'B'),
-      new Question ("Which tribal group is indigenous to Mexico?"+
+      new Question ("<html>Which tribal group is indigenous to Mexico?"+
                     "<br> A. Inuit"+
                     "<br> B. Hindi"+
                     "<br> C. Portugal"+
-                    "<br> D. Aztec"
+                    "<br> D. Aztec</html>"
                       ,'D'),
-      new Question ("Which country is directly north of Mexico?"+
+      new Question ("<html>Which country is directly north of Mexico?"+
                     "<br> A. USA"+
                     "<br> B. Chile"+
                     "<br> C. Africa"+
-                    "<br> D. Arctic"
+                    "<br> D. Arctic</html>"
                       ,'A'),
-      new Question ("What continent is Mexico part of?"+
+      new Question ("<html>What continent is Mexico part of?"+
                     "<br> A. Europe"+
                     "<br> B. North America"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("What is the official language of Mexico?"+
+      new Question ("<html>What is the official language of Mexico?"+
                     "<br> A. French"+
                     "<br> B. German"+
                     "<br> C. English"+
-                    "<br> D. Spanish"
+                    "<br> D. Spanish</html>"
                       ,'D')
     };
     Question[] mexicoMedium=
-    {new Question ("mexicoMedium1"+
+    {new Question ("<html>mexicoMedium1"+
                    "<br> A. Peru"+
                    "<br> B. Mexico City"+
                    "<br> C. Monterrey"+
-                   "<br> D. Cancun"
+                   "<br> D. Cancun</html>"
                      ,'B'),
-      new Question ("mexicoMedium2"+
+      new Question ("<html>mexicoMedium2"+
                     "<br> A. Inuit"+
                     "<br> B. Hindi"+
                     "<br> C. Portugal"+
-                    "<br> D. Aztec"
+                    "<br> D. Aztec</html>"
                       ,'D'),
-      new Question ("mexicoMedium3"+
+      new Question ("<html>mexicoMedium3"+
                     "<br> A. USA"+
                     "<br> B. Chile"+
                     "<br> C. Africa"+
-                    "<br> D. Arctic"
+                    "<br> D. Arctic</html>"
                       ,'A'),
-      new Question ("mexicoMedium4"+
+      new Question ("<html>mexicoMedium4"+
                     "<br> A. Europe"+
                     "<br> B. North America"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("mexicoMedium5"+
+      new Question ("<html>mexicoMedium5"+
                     "<br> A. French"+
                     "<br> B. German"+
                     "<br> C. English"+
-                    "<br> D. Spanish"
+                    "<br> D. Spanish</html>"
                       ,'D')
     };
     Question[] mexicoHard=
-    {new Question ("mexicoHard1"+
+    {new Question ("<html>mexicoHard1"+
                    "<br> A. Peru"+
                    "<br> B. Mexico City"+
                    "<br> C. Monterrey"+
-                   "<br> D. Cancun"
+                   "<br> D. Cancun</html>"
                      ,'B'),
-      new Question ("mexicoHard2"+
+      new Question ("<html>mexicoHard2"+
                     "<br> A. Inuit"+
                     "<br> B. Hindi"+
                     "<br> C. Portugal"+
-                    "<br> D. Aztec"
+                    "<br> D. Aztec</html>"
                       ,'D'),
-      new Question ("mexicoHard3"+
+      new Question ("<html>mexicoHard3"+
                     "<br> A. USA"+
                     "<br> B. Chile"+
                     "<br> C. Africa"+
-                    "<br> D. Arctic"
+                    "<br> D. Arctic</html>"
                       ,'A'),
-      new Question ("mexicoHard4"+
+      new Question ("<html>mexicoHard4"+
                     "<br> A. Europe"+
                     "<br> B. North America"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("mexicoHard5"+
+      new Question ("<html>mexicoHard5"+
                     "<br> A. French"+
                     "<br> B. German"+
                     "<br> C. English"+
-                    "<br> D. Spanish"
+                    "<br> D. Spanish</html>"
                       ,'D')
     };
     try
@@ -1077,99 +1078,99 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     //initialize Portugal
     Question[] portugalEasy=
-    {new Question ("What is the capital of Portugal?"+
+    {new Question ("<html>What is the capital of Portugal?"+
                    "<br> A. Barcelona"+
                    "<br> B. Lisbon"+
                    "<br> C. Madrid"+
-                   "<br> D. Madeira"
+                   "<br> D. Madeira</html>"
                      ,'B'),
-      new Question ("Which ocean is off the coast of Portugal?"+
+      new Question ("<html>Which ocean is off the coast of Portugal?"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'D'),
-      new Question ("Which country is directly east of Portugal?"+
+      new Question ("<html>Which country is directly east of Portugal?"+
                     "<br> A. Spain"+
                     "<br> B. Chile"+
                     "<br> C. Africa"+
-                    "<br> D. Arctic"
+                    "<br> D. Arctic</html>"
                       ,'A'),
-      new Question ("What continent is Portugal part of?"+
+      new Question ("<html>What continent is Portugal part of?"+
                     "<br> A. North America"+
                     "<br> B. Europe"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("What is the official language of Portugal?"+
+      new Question ("<html>What is the official language of Portugal?"+
                     "<br> A. French"+
                     "<br> B. German"+
                     "<br> C. English"+
-                    "<br> D. Portuguese"
+                    "<br> D. Portuguese</html>"
                       ,'D')
     };
     Question[] portugalMedium=
-    {new Question ("portugalMedium1"+
+    {new Question ("<html>portugalMedium1"+
                    "<br> A. Barcelona"+
                    "<br> B. Lisbon"+
                    "<br> C. Madrid"+
-                   "<br> D. Madeira"
+                   "<br> D. Madeira</html>"
                      ,'B'),
-      new Question ("PortugalMedium2"+
+      new Question ("<html>PortugalMedium2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'D'),
-      new Question ("portugalMedium3"+
+      new Question ("<html>portugalMedium3"+
                     "<br> A. Spain"+
                     "<br> B. Chile"+
                     "<br> C. Africa"+
-                    "<br> D. Arctic"
+                    "<br> D. Arctic</html>"
                       ,'A'),
-      new Question ("portugalMedium4"+
+      new Question ("<html>portugalMedium4"+
                     "<br> A. North America"+
                     "<br> B. Europe"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("portugalMedium5"+
+      new Question ("<html>portugalMedium5"+
                     "<br> A. French"+
                     "<br> B. German"+
                     "<br> C. English"+
-                    "<br> D. Portuguese"
+                    "<br> D. Portuguese</html>"
                       ,'D')
     };
     Question[] portugalHard=
-    {new Question ("portugalHard1"+
+    {new Question ("<html>portugalHard1"+
                    "<br> A. Barcelona"+
                    "<br> B. Lisbon"+
                    "<br> C. Madrid"+
-                   "<br> D. Madeira"
+                   "<br> D. Madeira</html>"
                      ,'B'),
-      new Question ("PortugalHard2"+
+      new Question ("<html>PortugalHard2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'D'),
-      new Question ("portugalHard3"+
+      new Question ("<html>portugalHard3"+
                     "<br> A. Spain"+
                     "<br> B. Chile"+
                     "<br> C. Africa"+
-                    "<br> D. Arctic"
+                    "<br> D. Arctic</html>"
                       ,'A'),
-      new Question ("portugalHard4"+
+      new Question ("<html>portugalHard4"+
                     "<br> A. North America"+
                     "<br> B. Europe"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("portugalHard5"+
+      new Question ("<html>portugalHard5"+
                     "<br> A. French"+
                     "<br> B. German"+
                     "<br> C. English"+
-                    "<br> D. Portuguese"
+                    "<br> D. Portuguese</html>"
                       ,'D')
     };
     try
@@ -1191,99 +1192,99 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     //initialize Australia
     Question[] australiaEasy=
-    {new Question ("What is the capital of Australia?"+
+    {new Question ("<html>What is the capital of Australia?"+
                    "<br> A. Sydney"+
                    "<br> B. Canberra"+
                    "<br> C. Brisbane"+
-                   "<br> D. New Zealand"
+                   "<br> D. New Zealand</html>"
                      ,'B'),
-      new Question ("Which ocean is off the west coast of Australia?"+
+      new Question ("<html>Which ocean is off the west coast of Australia?"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("Which country is directly north of Australia?"+
+      new Question ("<html>Which country is directly north of Australia?"+
                     "<br> A. Indonesia"+
                     "<br> B. Russia"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico"
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("What continent is Australia part of?"+
+      new Question ("<html>What continent is Australia part of?"+
                     "<br> A. India"+
                     "<br> B. Australia"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("What is the largest city in Australia?"+
+      new Question ("<html>What is the largest city in Australia?"+
                     "<br> A. New Zealand"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
-                    "<br> D. Sydney"
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     Question[] australiaMedium=
-    {new Question ("australiaMedium1"+
+    {new Question ("<html>australiaMedium1"+
                    "<br> A. Sydney"+
                    "<br> B. Canberra"+
                    "<br> C. Brisbane"+
-                   "<br> D. New Zealand"
+                   "<br> D. New Zealand</html>"
                      ,'B'),
-      new Question ("australiaMedium2"+
+      new Question ("<html>australiaMedium2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("australiaMedium3"+
+      new Question ("<html>australiaMedium3"+
                     "<br> A. Indonesia"+
                     "<br> B. Russia"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico"
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("australiaMedium4"+
+      new Question ("<html>australiaMedium4"+
                     "<br> A. India"+
                     "<br> B. Australia"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("australiaMedium5"+
+      new Question ("<html>australiaMedium5"+
                     "<br> A. New Zealand"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
-                    "<br> D. Sydney"
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     Question[] australiaHard=
-    {new Question ("australiaHard1"+
+    {new Question ("<html>australiaHard1"+
                    "<br> A. Sydney"+
                    "<br> B. Canberra"+
                    "<br> C. Brisbane"+
-                   "<br> D. New Zealand"
+                   "<br> D. New Zealand</html>"
                      ,'B'),
-      new Question ("australiaHard2"+
+      new Question ("<html>australiaHard2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("australiaHard3"+
+      new Question ("<html>australiaHard3"+
                     "<br> A. Indonesia"+
                     "<br> B. Russia"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico"
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("australiaHard4"+
+      new Question ("<html>australiaHard4"+
                     "<br> A. India"+
                     "<br> B. Australia"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("australiaHard5"+
+      new Question ("<html>australiaHard5"+
                     "<br> A. New Zealand"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
-                    "<br> D. Sydney"
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     try
@@ -1305,99 +1306,99 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     //initialize Egypt
     Question[] egyptEasy=
-    {new Question ("What is the capital of Egypt?"+
+    {new Question ("<html>What is the capital of Egypt?"+
                    "<br> A. Cairo"+
                    "<br> B. Memphis"+
                    "<br> C. Alexandria"+
-                   "<br> D. Suez"
+                   "<br> D. Suez</html>"
                      ,'A'),
-      new Question ("EgyptEasy2"+
+      new Question ("<html>EgyptEasy2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("EgyptEasy3"+
+      new Question ("<html>EgyptEasy3"+
                     "<br> A. Indonesia"+
                     "<br> B. Russia"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico"
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("EgyptEasy4"+
+      new Question ("<html>EgyptEasy4"+
                     "<br> A. India"+
                     "<br> B. Australia"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("EgyptEasy5"+
+      new Question ("<html>EgyptEasy5"+
                     "<br> A. New Zealand"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
-                    "<br> D. Sydney"
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     Question[] egyptMedium=
-    {new Question ("egyptMedium1"+
+    {new Question ("<html>egyptMedium1"+
                    "<br> A. Cairo"+
                    "<br> B. Memphis"+
                    "<br> C. Alexandria"+
-                   "<br> D. Suez"
+                   "<br> D. Suez</html>"
                      ,'A'),
-      new Question ("EgyptMedium2"+
+      new Question ("<html>EgyptMedium2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("EgyptMedium3"+
+      new Question ("<html>EgyptMedium3"+
                     "<br> A. Indonesia"+
                     "<br> B. Russia"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico"
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("EgyptMedium4"+
+      new Question ("<html>EgyptMedium4"+
                     "<br> A. India"+
                     "<br> B. Australia"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("EgyptMedium5"+
+      new Question ("<html>EgyptMedium5"+
                     "<br> A. New Zealand"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
-                    "<br> D. Sydney"
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     Question[] egyptHard=
-    {new Question ("egyptHard1"+
+    {new Question ("<html>egyptHard1"+
                    "<br> A. Cairo"+
                    "<br> B. Memphis"+
                    "<br> C. Alexandria"+
-                   "<br> D. Suez"
+                   "<br> D. Suez</html>"
                      ,'A'),
-      new Question ("EgyptHard2"+
+      new Question ("<html>EgyptHard2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("EgyptHard3"+
+      new Question ("<html>EgyptHard3"+
                     "<br> A. Indonesia"+
                     "<br> B. Russia"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico"
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("EgyptHard4"+
+      new Question ("<html>EgyptHard4"+
                     "<br> A. India"+
                     "<br> B. Australia"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("EgyptHard5"+
+      new Question ("<html>EgyptHard5"+
                     "<br> A. New Zealand"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
-                    "<br> D. Sydney"
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     try
@@ -1419,99 +1420,99 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     //initialize India
     Question[] indiaEasy=
-    {new Question ("What is the capital of India?"+
+    {new Question ("<html>What is the capital of India?"+
                    "<br> A. Mumbai"+
                    "<br> B. Bangalore"+
                    "<br> C. New Delhi"+
-                   "<br> D. Hyderabad"
+                   "<br> D. Hyderabad</html>"
                      ,'C'),
-      new Question ("IndiaEasy2"+
+      new Question ("<html>IndiaEasy2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("IndiaEasy3"+
+      new Question ("<html>IndiaEasy3"+
                     "<br> A. Indonesia"+
                     "<br> B. Russia"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico"
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("IndiaEasy4"+
+      new Question ("<html>IndiaEasy4"+
                     "<br> A. India"+
                     "<br> B. Australia"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("IndiaEasy5"+
+      new Question ("<html>IndiaEasy5"+
                     "<br> A. New Zealand"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
-                    "<br> D. Sydney"
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     Question[] indiaMedium=
-    {new Question ("indiaMedium1"+
+    {new Question ("<html>indiaMedium1"+
                    "<br> A. Mumbai"+
                    "<br> B. Bangalore"+
                    "<br> C. New Delhi"+
-                   "<br> D. Hyderabad"
+                   "<br> D. Hyderabad</html>"
                      ,'C'),
-      new Question ("IndiaMedium2"+
+      new Question ("<html>IndiaMedium2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("IndiaMedium3"+
+      new Question ("<html>IndiaMedium3"+
                     "<br> A. Indonesia"+
                     "<br> B. Russia"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico"
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("IndiaMedium4"+
+      new Question ("<html>IndiaMedium4"+
                     "<br> A. India"+
                     "<br> B. Australia"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("IndiaMedium5"+
+      new Question ("<html>IndiaMedium5"+
                     "<br> A. New Zealand"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
-                    "<br> D. Sydney"
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     Question[] indiaHard=
-    {new Question ("indiaHard1"+
+    {new Question ("<html>indiaHard1"+
                    "<br> A. Mumbai"+
                    "<br> B. Bangalore"+
                    "<br> C. New Delhi"+
-                   "<br> D. Hyderabad"
+                   "<br> D. Hyderabad</html>"
                      ,'C'),
-      new Question ("IndiaHard2"+
+      new Question ("<html>IndiaHard2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("IndiaHard3"+
+      new Question ("<html>IndiaHard3"+
                     "<br> A. Indonesia"+
                     "<br> B. Russia"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico"
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("IndiaHard4"+
+      new Question ("<html>IndiaHard4"+
                     "<br> A. India"+
                     "<br> B. Australia"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("IndiaHard5"+
+      new Question ("<html>IndiaHard5"+
                     "<br> A. New Zealand"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
-                    "<br> D. Sydney"
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     try
@@ -1533,99 +1534,99 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     //initialize Russia
     Question[] russiaEasy=
-    {new Question ("What is the capital of Russia?"+
+    {new Question ("<html>What is the capital of Russia?"+
                    "<br> A. St. Petersburg"+
                    "<br> B. Kazan"+
                    "<br> C. Samara"+
-                   "<br> D. Moscow"
+                   "<br> D. Moscow</html>"
                      ,'A'),
-      new Question ("RussiaEasy2"+
+      new Question ("<html>RussiaEasy2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("RussiaEasy3"+
+      new Question ("<html>RussiaEasy3"+
                     "<br> A. Indonesia"+
                     "<br> B. Russia"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico"
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("RussiaEasy4"+
+      new Question ("<html>RussiaEasy4"+
                     "<br> A. India"+
                     "<br> B. Australia"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("RussiaEasy5"+
+      new Question ("<html>RussiaEasy5"+
                     "<br> A. New Zealand"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
-                    "<br> D. Sydney"
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     Question[] russiaMedium=
-    {new Question ("russiaMedium1"+
+    {new Question ("<html>russiaMedium1"+
                    "<br> A. St. Petersburg"+
                    "<br> B. Kazan"+
                    "<br> C. Samara"+
-                   "<br> D. Moscow"
+                   "<br> D. Moscow</html>"
                      ,'A'),
-      new Question ("RussiaMedium2"+
+      new Question ("<html>RussiaMedium2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("RussiaMedium3"+
+      new Question ("<html>RussiaMedium3"+
                     "<br> A. Indonesia"+
                     "<br> B. Russia"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico"
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("RussiaMedium4"+
+      new Question ("<html>RussiaMedium4"+
                     "<br> A. India"+
                     "<br> B. Australia"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("RussiaMedium5"+
+      new Question ("<html>RussiaMedium5"+
                     "<br> A. New Zealand"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
-                    "<br> D. Sydney"
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     Question[] russiaHard=
-    {new Question ("russiaHard1"+
+    {new Question ("<html>russiaHard1"+
                    "<br> A. St. Petersburg"+
                    "<br> B. Kazan"+
                    "<br> C. Samara"+
-                   "<br> D. Moscow"
+                   "<br> D. Moscow</html>"
                      ,'A'),
-      new Question ("RussiaHard2"+
+      new Question ("<html>RussiaHard2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("RussiaHard3"+
+      new Question ("<html>RussiaHard3"+
                     "<br> A. Indonesia"+
                     "<br> B. Russia"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico"
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("RussiaHard4"+
+      new Question ("<html>RussiaHard4"+
                     "<br> A. India"+
                     "<br> B. Australia"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("RussiaHard5"+
+      new Question ("<html>RussiaHard5"+
                     "<br> A. New Zealand"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
-                    "<br> D. Sydney"
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     try
@@ -1647,99 +1648,99 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     //initialize Japan
     Question[] japanEasy=
-    {new Question ("What is the capital of Japan?"+
+    {new Question ("<html>What is the capital of Japan?"+
                    "<br> A. Yokohama"+
                    "<br> B. Osaka"+
                    "<br> C. Tokyo"+
-                   "<br> D. Nagoya"
+                   "<br> D. Nagoya</html>"
                      ,'C'),
-      new Question ("JapanEasy2"+
+      new Question ("<html>JapanEasy2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("JapanEasy3"+
+      new Question ("<html>JapanEasy3"+
                     "<br> A. Indonesia"+
                     "<br> B. Russia"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico"
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("JapanEasy4"+
+      new Question ("<html>JapanEasy4"+
                     "<br> A. India"+
                     "<br> B. Australia"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("JapanEasy5"+
+      new Question ("<html>JapanEasy5"+
                     "<br> A. New Zealand"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
-                    "<br> D. Sydney"
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     Question[] japanMedium=
-    {new Question ("japanMedium1"+
+    {new Question ("<html>japanMedium1"+
                    "<br> A. Yokohama"+
                    "<br> B. Osaka"+
                    "<br> C. Tokyo"+
-                   "<br> D. Nagoya"
+                   "<br> D. Nagoya</html>"
                      ,'C'),
-      new Question ("JapanMedium2"+
+      new Question ("<html>JapanMedium2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("JapanMedium3"+
+      new Question ("<html>JapanMedium3"+
                     "<br> A. Indonesia"+
                     "<br> B. Russia"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico"
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("JapanMedium4"+
+      new Question ("<html>JapanMedium4"+
                     "<br> A. India"+
                     "<br> B. Australia"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("JapanMedium5"+
+      new Question ("<html>JapanMedium5"+
                     "<br> A. New Zealand"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
-                    "<br> D. Sydney"
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     Question[] japanHard=
-    {new Question ("japanHard1"+
+    {new Question ("<html>japanHard1"+
                    "<br> A. Yokohama"+
                    "<br> B. Osaka"+
                    "<br> C. Tokyo"+
-                   "<br> D. Nagoya"
+                   "<br> D. Nagoya</html>"
                      ,'C'),
-      new Question ("JapanHard2"+
+      new Question ("<html>JapanHard2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("JapanHard3"+
+      new Question ("<html>JapanHard3"+
                     "<br> A. Indonesia"+
                     "<br> B. Russia"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico"
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("JapanHard4"+
+      new Question ("<html>JapanHard4"+
                     "<br> A. India"+
                     "<br> B. Australia"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("JapanHard5"+
+      new Question ("<html>JapanHard5"+
                     "<br> A. New Zealand"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
-                    "<br> D. Sydney"
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     try
@@ -1761,99 +1762,99 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     //initialize France
     Question[] franceEasy=
-    {new Question ("What is the capital of France?"+
+    {new Question ("<html>What is the capital of France?"+
                    "<br> A. Marceille"+
                    "<br> B. Nice"+
                    "<br> C. Lille"+
-                   "<br> D. Paris"
+                   "<br> D. Paris</html>"
                      ,'D'),
-      new Question ("FranceEasy2"+
+      new Question ("<html>FranceEasy2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("FranceEasy3"+
+      new Question ("<html>FranceEasy3"+
                     "<br> A. Indonesia"+
                     "<br> B. Russia"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico"
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("FranceEasy4"+
+      new Question ("<html>FranceEasy4"+
                     "<br> A. India"+
                     "<br> B. Australia"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("FranceEasy5"+
+      new Question ("<html>FranceEasy5"+
                     "<br> A. New Zealand"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
-                    "<br> D. Sydney"
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     Question[] franceMedium=
-    {new Question ("franceMedium1"+
+    {new Question ("<html>franceMedium1"+
                    "<br> A. Marceille"+
                    "<br> B. Nice"+
                    "<br> C. Lille"+
-                   "<br> D. Paris"
+                   "<br> D. Paris</html>"
                      ,'D'),
-      new Question ("FranceMedium2"+
+      new Question ("<html>FranceMedium2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("FranceMedium3"+
+      new Question ("<html>FranceMedium3"+
                     "<br> A. Indonesia"+
                     "<br> B. Russia"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico"
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("FranceMedium4"+
+      new Question ("<html>FranceMedium4"+
                     "<br> A. India"+
                     "<br> B. Australia"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("FranceMedium5"+
+      new Question ("<html>FranceMedium5"+
                     "<br> A. New Zealand"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
-                    "<br> D. Sydney"
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     Question[] franceHard=
-    {new Question ("franceHard1"+
+    {new Question ("<html>franceHard1"+
                    "<br> A. Marceille"+
                    "<br> B. Nice"+
                    "<br> C. Lille"+
-                   "<br> D. Paris"
+                   "<br> D. Paris</html>"
                      ,'D'),
-      new Question ("FranceHard2"+
+      new Question ("<html>FranceHard2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("FranceHard3"+
+      new Question ("<html>FranceHard3"+
                     "<br> A. Indonesia"+
                     "<br> B. Russia"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico"
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("FranceHard4"+
+      new Question ("<html>FranceHard4"+
                     "<br> A. India"+
                     "<br> B. Australia"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("FranceHard5"+
+      new Question ("<html>FranceHard5"+
                     "<br> A. New Zealand"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
-                    "<br> D. Sydney"
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     try
@@ -1874,99 +1875,99 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     //initialize England
     Question[] englandEasy=
-    {new Question ("What is the capital of England?"+
+    {new Question ("<html>What is the capital of England?"+
                    "<br> A. London"+
                    "<br> B. Leeds"+
                    "<br> C. Birmingham"+
-                   "<br> D. Bradford"
+                   "<br> D. Bradford</html>"
                      ,'B'),
-      new Question ("EngalndEasy2"+
+      new Question ("<html>EngalndEasy2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("EnglandEasy3"+
+      new Question ("<html>EnglandEasy3"+
                     "<br> A. Indonesia"+
                     "<br> B. Russia"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico"
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("EnglandEasy4"+
+      new Question ("<html>EnglandEasy4"+
                     "<br> A. India"+
                     "<br> B. Australia"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("EnglandEasy5"+
+      new Question ("<html>EnglandEasy5"+
                     "<br> A. New Zealand"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
-                    "<br> D. Sydney"
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     Question[] englandMedium=
-    {new Question ("englandMedium1"+
+    {new Question ("<html>englandMedium1"+
                    "<br> A. London"+
                    "<br> B. Leeds"+
                    "<br> C. Birmingham"+
-                   "<br> D. Bradford"
+                   "<br> D. Bradford</html>"
                      ,'B'),
-      new Question ("EngalndMedium2"+
+      new Question ("<html>EngalndMedium2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("EnglandMedium3"+
+      new Question ("<html>EnglandMedium3"+
                     "<br> A. Indonesia"+
                     "<br> B. Russia"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico"
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("EnglandMedium4"+
+      new Question ("<html>EnglandMedium4"+
                     "<br> A. India"+
                     "<br> B. Australia"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("EnglandMedium5"+
+      new Question ("<html>EnglandMedium5"+
                     "<br> A. New Zealand"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
-                    "<br> D. Sydney"
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     Question[] englandHard=
-    {new Question ("englandHard1"+
+    {new Question ("<html>englandHard1"+
                    "<br> A. London"+
                    "<br> B. Leeds"+
                    "<br> C. Birmingham"+
-                   "<br> D. Bradford"
+                   "<br> D. Bradford</html>"
                      ,'B'),
-      new Question ("EngalndHard2"+
+      new Question ("<html>EngalndHard2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
-                    "<br> D. Atlantic"
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("EnglandHard3"+
+      new Question ("<html>EnglandHard3"+
                     "<br> A. Indonesia"+
                     "<br> B. Russia"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico"
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("EnglandHard4"+
+      new Question ("<html>EnglandHard4"+
                     "<br> A. India"+
                     "<br> B. Australia"+
                     "<br> C. Africa"+
-                    "<br> D. Asia"
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("EnglandHard5"+
+      new Question ("<html>EnglandHard5"+
                     "<br> A. New Zealand"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
-                    "<br> D. Sydney"
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     try

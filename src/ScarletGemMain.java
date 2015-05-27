@@ -411,7 +411,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   
   private void showCountryPanel()
   {
-    gamePanel.setBackground(currentCountry.getBackground());
+    
     System.out.println (currentCountry.getName());
     try
     {
@@ -420,6 +420,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     catch (InterruptedException e)
     {
     }
+    gamePanel.setBackground(currentCountry.getBackground());
     if (!alreadyBeen.contains(currentCountry))
       currentQuestion=0;
     
@@ -539,6 +540,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       if (answer-65==gamePanel.getAnswer())
       {
         showCountryPanel();
+        System.out.println ("show country");
       }
       else
       {
@@ -559,6 +561,8 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     levelsRemaining = -1;
     currentCountry=countries[0];
     alreadyBeen=new ArrayList<Country>();
+    revalidate();
+    revalidate();
     revalidate();
   }
   public void keyReleased (KeyEvent e)
