@@ -140,9 +140,7 @@ public class GamePanel extends JPanel
     c=new JButton ("C");
     d=new JButton ("D");
     questionLabel=new JLabel();
-<<<<<<< HEAD
     pauseButton = new JButton ("PAUSE");
-=======
     
     setLayout(null);
     Insets insets = this.getInsets ();
@@ -152,8 +150,6 @@ public class GamePanel extends JPanel
     d.setBounds(550,300,d.getPreferredSize().height+20,d.getPreferredSize().width);
     questionLabel.setBounds(450,100,300,100);
     
-    
->>>>>>> dd9093bdbe7501667dd4d2bfe806dd6c5620fdf0
     add(a);
     add(b);
     add(c);
