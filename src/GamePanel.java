@@ -108,6 +108,12 @@ public class GamePanel extends JPanel
     return d;
   }
   
+  public JButton getPauseButton ()
+  {
+    return pauseButton;
+  }
+  
+  
   public Country[] getDestinations ()
   {
     return destinations;
@@ -135,6 +141,7 @@ public class GamePanel extends JPanel
     c=new JButton ("C");
     d=new JButton ("D");
     questionLabel=new JLabel();
+    pauseButton = new JButton ("PAUSE");
     
     setLayout(null);
     Insets insets = this.getInsets ();
@@ -144,12 +151,12 @@ public class GamePanel extends JPanel
     d.setBounds(500,300,d.getPreferredSize().height+20,d.getPreferredSize().width);
     questionLabel.setBounds(400,100,300,100);
     
-    
     add(a);
     add(b);
     add(c);
     add(d);
     add(questionLabel);
+    add(pauseButton);
     revalidate ();
   }
 }

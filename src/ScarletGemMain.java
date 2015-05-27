@@ -238,37 +238,19 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       levelsRemaining=3;
       difficulty=0;
-      gamePanel = new GamePanel (difficulty);
-      
-      remove(mainMenuPanel);
-      add(levelCounter);
-      
-      add(gamePanel);
-      showCountryPanel();      
+      initializeGame();     
     }
     else if (ae.getSource().equals(mainMenuPanel.getMediumButton()))
     {
       levelsRemaining=6;
       difficulty=1;
-      gamePanel = new GamePanel (difficulty);
-      
-      remove(mainMenuPanel);
-      add(levelCounter);
-      
-      add(gamePanel);
-      showCountryPanel();      
+      initializeGame();
     }
     else if (ae.getSource().equals(mainMenuPanel.getHardButton()))
     {
       levelsRemaining=9;
       difficulty=2;
-      gamePanel = new GamePanel (difficulty);
-      
-      remove(mainMenuPanel);
-      add(levelCounter);
-      
-      add(gamePanel);
-      showCountryPanel();      
+      initializeGame();     
     }
     else if (ae.getSource().equals(mainMenuPanel.getLoadButton()))
     {
@@ -412,6 +394,21 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
   }
   
+  private void initializeGame ()
+  {
+    remove(mainMenuPanel);
+    add(levelCounter);
+    gamePanel = new GamePanel (difficulty);
+    add (gamePanel);
+    gamePanel.getPauseButton ().addActionListener (this);
+    gamePanel.getAButton().addActionListener(this);
+    gamePanel.getBButton().addActionListener(this);
+    gamePanel.getCButton().addActionListener(this);
+    gamePanel.getDButton().addActionListener(this);
+    gamePanel.getPauseButton().setEnabled (true);
+    showCountryPanel();    
+  }
+  
   private void showCountryPanel()
   {
     System.out.println (currentCountry.getName());
@@ -438,13 +435,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       gamePanel.setQuestion(currentCountry.getRandQuestion(difficulty));
       gamePanel.switchToCountry();
       //gamePanel.setQuestion(currentCountry.getRandQuestion(difficulty));
-      if (difficulty == 0 && levelsRemaining == 3 || difficulty == 1 && levelsRemaining == 6 || difficulty == 2 && levelsRemaining == 9)
-      {
-        gamePanel.getAButton().addActionListener(this);
-        gamePanel.getBButton().addActionListener(this);
-        gamePanel.getCButton().addActionListener(this);
-        gamePanel.getDButton().addActionListener(this);
-      }
       gamePanel.getAButton().setEnabled(true);
       gamePanel.getBButton().setEnabled(true);
       gamePanel.getCButton().setEnabled(true);
