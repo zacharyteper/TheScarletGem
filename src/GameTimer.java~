@@ -7,6 +7,7 @@ public class GameTimer extends Thread
   private int startingTime = 300;
   private int timeRemaining;
   private boolean paused = false;
+  private boolean gameWon = false;
   private JLabel time;
   private GamePanel panel;
   
@@ -22,19 +23,19 @@ public class GameTimer extends Thread
     return timeRemaining;
   }
   
-  public boolean getPaused ()
-  {
-    return paused;
-  }
-  
   public void setPaused (boolean pause)
   {
     paused = pause;
   }
   
+  public void setGameWon (boolean won)
+  {
+    gameWon = won;
+  }
+  
   public void timer ()
   {
-    while (timeRemaining != 0)
+    while (timeRemaining >= 0 && !gameWon)
     {
       time.setText (minutes()+":"+seconds());
       panel.add (time);
@@ -45,7 +46,15 @@ public class GameTimer extends Thread
       catch (InterruptedException e)
       {
       }
-      timeRemaining--;
+      if (!paused)
+      {
+        timeRemaining--;
+      }
+    }
+    if (gameWon)
+    {
+      panel.remove (time);
+      gameWon = false;
     }
   }
   
@@ -56,8 +65,8 @@ public class GameTimer extends Thread
   
   public String seconds ()
   {
-    if (timeRemaining % 60 == 0)
-      return "00";
+    if (timeRemaining % 60 < 10)
+      return "0" + timeRemaining % 60;
     return Integer.toString (timeRemaining % 60);
   }
   

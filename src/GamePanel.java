@@ -5,7 +5,6 @@ import javax.swing.*;
 import java.awt.*;
 public class GamePanel extends JPanel 
 {
-  private Country country;
   private JButton a;
   private JButton b;
   private JButton c;
@@ -22,6 +21,12 @@ public class GamePanel extends JPanel
   private Country[] destinations;
   private int answer;
   public GameTimer timer;
+  private Image background;
+  
+  public void setBackground(Image i)
+  {
+    
+  }
   
   public Question getQuestion()
   {
@@ -103,11 +108,6 @@ public class GamePanel extends JPanel
     return d;
   }
   
-  public Country getCountry()
-  {
-    return country;
-  }
-  
   public Country[] getDestinations ()
   {
     return destinations;
@@ -138,11 +138,11 @@ public class GamePanel extends JPanel
     
     setLayout(null);
     Insets insets = this.getInsets ();
-    a.setBounds(450,220,a.getPreferredSize().height+20,a.getPreferredSize().width);
-    b.setBounds(550,220,b.getPreferredSize().height+20,b.getPreferredSize().width);
-    c.setBounds(450,300,c.getPreferredSize().height+20,c.getPreferredSize().width);
-    d.setBounds(550,300,d.getPreferredSize().height+20,d.getPreferredSize().width);
-    questionLabel.setBounds(450,100,300,100);
+    a.setBounds(400,220,a.getPreferredSize().height+20,a.getPreferredSize().width);
+    b.setBounds(500,220,b.getPreferredSize().height+20,b.getPreferredSize().width);
+    c.setBounds(400,300,c.getPreferredSize().height+20,c.getPreferredSize().width);
+    d.setBounds(500,300,d.getPreferredSize().height+20,d.getPreferredSize().width);
+    questionLabel.setBounds(400,100,300,100);
     
     
     add(a);
