@@ -645,6 +645,10 @@ span.rvts137 /* Normal text */
  font-family: 'Courier New', 'Courier', monospace;
  color: #474747;
 }
+span.rvts138 /* Normal text */
+{
+ font-style: italic;
+}
 /* ========== Para Styles ========== */
 p,ul,ol /* left align */
 {

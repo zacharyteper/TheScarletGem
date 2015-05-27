@@ -1,17 +1,18 @@
 [OPTIONS]
 Language=0x1009
 Default Font=Arial,8,0
-TITLE=Untitled
+TITLE=The Scarlet Gem Help
 Full-text search=Yes
 Display compile notes=YES
 Display compile progress=YES
 Compatibility=1.1
-Auto Index=No
+Auto Index=Yes
 Default Window=Main
 Compiled file=help.chm
 Error Log file=help.log
 Contents file=help.hhc
 Index File=help.hhk
+Default Topic=introduction1.html
 [FILES]
 introduction1.html
 basicgamerulescountries.html
@@ -24,7 +25,7 @@ help.png
 nexttopic.png
 prevtopic.png
 [WINDOWS]
-Main=,"help.hhc","help.hhk","","",,,,,0x061520,200,0x00304E,[50,50,850,450],0x307e,,,,,,,,0
+Main=,"help.hhc","help.hhk","introduction1.html","introduction1.html",,,,,0x061520,200,0x00304E,[50,50,850,450],0x307e,,,,,,,,0
 [ALIAS]
 introduction1=introduction1.html
 basicgamerulescountries=basicgamerulescountries.html
