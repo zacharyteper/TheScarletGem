@@ -103,6 +103,11 @@ public class GamePanel extends JPanel
     return d;
   }
   
+  public JButton getPauseButton ()
+  {
+    return pauseButton;
+  }
+  
   public Country getCountry()
   {
     return country;
@@ -135,11 +140,13 @@ public class GamePanel extends JPanel
     c=new JButton ("C");
     d=new JButton ("D");
     questionLabel=new JLabel();
+    pauseButton = new JButton ("PAUSE");
     add(a);
     add(b);
     add(c);
     add(d);
     add(questionLabel);
+    add(pauseButton);
     revalidate ();
   }
 }
