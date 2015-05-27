@@ -146,10 +146,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    * Opens the About dialog when the user selects this menu choice.
    */
   private JMenuItem aboutItem=new JMenuItem ("About");
-  /**
-   * Organizes the components in the game.
-   */
-  private SpringLayout springLayout=new SpringLayout();
   
   public void windowDeactivated(WindowEvent e)
   {
@@ -615,7 +611,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     setDefaultCloseOperation (JFrame.DO_NOTHING_ON_CLOSE);
     requestFocusInWindow();
     
-    setLayout(springLayout);
+    //setLayout(null);
     
     //set the JFrame icon and read splashImage
     ImageIcon splashImage=null;

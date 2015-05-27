@@ -62,7 +62,7 @@ public class GamePanel extends JPanel
   public void setQuestion(Question q)
   {
     currentQuestion=q;
-    questionLabel.setText(q.getQuestion());
+    questionLabel.setText("test");
   }
   public void switchToCountry()
   {
@@ -135,6 +135,16 @@ public class GamePanel extends JPanel
     c=new JButton ("C");
     d=new JButton ("D");
     questionLabel=new JLabel();
+    
+    setLayout(null);
+    Insets insets = this.getInsets ();
+    a.setBounds(450,220,a.getPreferredSize().height+20,a.getPreferredSize().width);
+    b.setBounds(550,220,b.getPreferredSize().height+20,b.getPreferredSize().width);
+    c.setBounds(450,300,c.getPreferredSize().height+20,c.getPreferredSize().width);
+    d.setBounds(550,300,d.getPreferredSize().height+20,d.getPreferredSize().width);
+    questionLabel.setBounds(450,100,300,100);
+    
+    
     add(a);
     add(b);
     add(c);
