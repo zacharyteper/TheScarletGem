@@ -37,8 +37,9 @@ public class GameTimer extends Thread
   {
     while (timeRemaining >= 0 && !gameWon)
     {
-      time.setText (minutes()+":"+seconds());
+      time.setText ("Time: "+minutes()+":"+seconds());
       panel.add (time);
+      time.setBounds(550,50,80,20);
       try
       {
         sleep (1000);

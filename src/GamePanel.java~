@@ -108,19 +108,12 @@ public class GamePanel extends JPanel
     return d;
   }
   
-<<<<<<< HEAD
-=======
   public JButton getPauseButton ()
   {
     return pauseButton;
   }
   
-  public Country getCountry()
-  {
-    return country;
-  }
   
->>>>>>> a441ce3766c6901e59e321d624b1aa4251bdfa76
   public Country[] getDestinations ()
   {
     return destinations;

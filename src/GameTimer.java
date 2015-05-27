@@ -40,6 +40,7 @@ public class GameTimer extends Thread
       time.setText ("Time: "+minutes()+":"+seconds());
       panel.add (time);
       time.setBounds(550,50,80,20);
+      panel.revalidate();
       try
       {
         sleep (1000);
@@ -51,9 +52,11 @@ public class GameTimer extends Thread
       {
         timeRemaining--;
       }
+      System.out.println (timeRemaining);
     }
     if (gameWon)
     {
+      System.out.println ("game over");
       panel.remove (time);
       gameWon = false;
     }

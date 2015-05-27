@@ -25,7 +25,11 @@ public class GamePanel extends JPanel
   
   public void setBackground(Image i)
   {
-    
+    background=i;
+    JLabel label=new JLabel();
+    label.setIcon(new ImageIcon(i));
+    label.setBounds(0,0,700,600);
+    add(label);
   }
   
   public Question getQuestion()
@@ -67,7 +71,7 @@ public class GamePanel extends JPanel
   public void setQuestion(Question q)
   {
     currentQuestion=q;
-    questionLabel.setText("test");
+    questionLabel.setText(q.getQuestion());
   }
   public void switchToCountry()
   {
