@@ -77,6 +77,7 @@ public class GamePanel extends JPanel
   public void switchToCountry()
   {
     questionLabel.setText(currentQuestion.getQuestion());
+    d.setBounds(500,300,d.getPreferredSize().height+20,30);
     add(d);
     atQuestionStage=true;
     a.setText("A");
@@ -144,7 +145,10 @@ public class GamePanel extends JPanel
   {
     answer=ans;
   }
-    
+  public GameTimer getTimer()
+  {
+    return timer;
+  }
   //The first element in c MUST be the correct answer!
   public GamePanel (int difficulty, ScarletGemMain source)
   {

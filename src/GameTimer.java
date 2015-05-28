@@ -6,7 +6,7 @@ import java.awt.event.*;
 public class GameTimer extends Thread
 {
   private int startingTime = 30;
-  private int timeRemaining;
+  public static int timeRemaining;
   private boolean paused = false;
   private boolean gameWon = false;
   private JLabel time;
@@ -16,17 +16,18 @@ public class GameTimer extends Thread
   public GameTimer (int difficulty, JLabel label, GamePanel panel,
   ScarletGemMain game)
   {
+    if (difficulty==0)
+      startingTime=60;
+    else if (difficulty==1)
+      startingTime=90;
+    else
+      startingTime=120;
     timeRemaining = startingTime;
     time = label;
     this.panel = panel;
     source=game;
   }
-  
-  public int getTimeRemaining ()
-  {
-    return timeRemaining;
-  }
-  
+
   public void setPaused (boolean pause)
   {
     paused = pause;
@@ -64,7 +65,7 @@ public class GameTimer extends Thread
                                                 , ActionEvent.ACTION_PERFORMED,"loss"));
       }
       
-      System.out.println (timeRemaining);
+      //System.out.println (timeRemaining);
     }
     if (gameWon)
     {

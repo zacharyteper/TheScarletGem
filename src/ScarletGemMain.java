@@ -51,12 +51,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    */
   private int levelsRemaining = -1;
   /**
-   * Holds the time remaining in the game, in seconds. This value will be regularly decremented 
-   * throughout the game, and displayed at the top of the game screen. When this value reaches 0, 
-   * the game will end.
-   */
-  private int timeRemaining;
-  /**
    * Flag which will determine if the game is "paused". The can be changed by pressing the pause button
    * at the top of each game screen.
    */
@@ -110,10 +104,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    * using the menu option or by pressing Ctrl+R. This is only initialized once.
    */
   private InstructionsViewer instructionsViewer;
-  /**
-   * Holds the instance of the GameTimer class, which is used to time the game.
-   */
-  private GameTimer gameTimer;
   /**
    * Holds the number 1 or 0, depending on which question the user is currently on.
    */
@@ -191,6 +181,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     else if (ae.getSource().equals(howToPlayItem))
     {
+      new InstructionsViewer();
     }
     else if (ae.getSource().equals(helpItem))
     {
@@ -274,7 +265,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
         
         currentCountry=getCountry(in.readLine());
         in.readLine();
-        timeRemaining=Integer.parseInt(in.readLine());
+        GameTimer.timeRemaining=(Integer.parseInt(in.readLine()));
         in.readLine();
         currentQuestion=Integer.parseInt(in.readLine());
         System.out.println (currentCountry.getName());
@@ -291,12 +282,8 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
         total=7;
       else
         total=10;
-      remove (mainMenuPanel);
-      add(levelCounter);
-      add(gamePanel);
       levelsRemaining=total-alreadyBeen.size();
-      System.out.println (levelsRemaining);
-      showCountryPanel();
+      initializeGame();
     }
     else if (ae.getSource().equals(gamePanel.getAButton()))
     {
@@ -385,10 +372,8 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       out.println (currentCountry.getName());
       
       out.println();
-      
-      out.println ();
-      
-      out.println (timeRemaining);
+            
+      out.println (GameTimer.timeRemaining);
       out.println ();
       out.println (currentQuestion);
       out.close();

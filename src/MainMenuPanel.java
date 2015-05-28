@@ -5,6 +5,7 @@
  * @version 1.0 05.24.2015
  */
 import javax.swing.*;
+import java.awt.*;
 public class MainMenuPanel extends JPanel
 {
   /**
@@ -23,6 +24,8 @@ public class MainMenuPanel extends JPanel
    * Loads the game stored in the progress file if possible.
    */
   private JButton loadGame;
+  
+  private JLabel background=new JLabel();
   /**
    * Returns the button to start the game in easy mode.
    * 
@@ -76,6 +79,7 @@ public class MainMenuPanel extends JPanel
     add(medium);
     add(hard);
     add(loadGame);
+    add(background);
     
     
     revalidate();
