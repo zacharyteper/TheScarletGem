@@ -8,7 +8,7 @@ public class InstructionsViewer extends JFrame
 {
   private JTabbedPane tabs=new JTabbedPane();
   private JPanel intro=new JPanel();
-  private JPanel country=new JPanel();
+  private JPanel countries=new JPanel();
   private JPanel map=new JPanel();
   private JPanel saving=new JPanel();
   private JPanel scores=new JPanel();
@@ -26,7 +26,7 @@ public class InstructionsViewer extends JFrame
     setLayout (new CardLayout());
     
     tabs.add("Introduction",intro);
-    tabs.add("Countries",country);
+    tabs.add("Countries",countries);
     tabs.add("Travelling",map);
     tabs.add("Saving",saving);
     tabs.add("High Scores",scores);
@@ -35,10 +35,10 @@ public class InstructionsViewer extends JFrame
     add(tabs);
     
     intro.setLayout(null);
-    country.setLayout(null);
+    countries.setLayout(null);
     map.setLayout(null);
     saving.setLayout(null);
-    score.setLayout(null);
+    scores.setLayout(null);
     keys.setLayout(null);
     contact.setLayout(null);
     
@@ -72,6 +72,45 @@ public class InstructionsViewer extends JFrame
     introLabel.setBounds(0,0,700,400);
     intro.add(introLabel);
     
+    JLabel countriesLabel=new JLabel
+      ("<html>At each country, you must answer two multiple-choice questions."+
+       "This is known as the Country Stage. "+
+       "<br>When you start the game, you will find yourself in Canada. "+
+       "On the right side of the screen, there will be a multiple-choice question, "+
+       "with four possible answers to the question, labeled A, B, C and D. "+
+       "Answer the question to the best of your ability by clicking one of the four buttons."+
+       "If you get a question wrong, the choice will be disabled, "+
+       "and ten points will be deducted from your score!"+
+       "<br>If you get the question right, another question will be displayed. "+
+       "Answer the same way you did the first question. "+
+       "<br>After you have answered both questions correctly, "+
+       "you will move onto the Map stage (see next page)."+
+       "<br>On the left side, there will be a picture of a person who "+
+       "is dressed in the style of the country you are in. "+
+       "He/she will give you a clue about the location of the Scarlet Gem, "+
+       "once you answer the questions correctly."+
+       "<br>After you have completed all of the levels, "+
+       "you will find the Scarlet Gem in the next Country that you travel to.</html>"
+    );
+    countriesLabel.setBounds(0,0,700,400);
+    countries.add(countriesLabel);
+    
+    JLabel mapLabel=new JLabel
+      ("<html>After you answer both questions correctly, a map will appear. "+
+       "On top of the map, there will be a clue, which will decide where the "+
+       "next part of the game will be located. Below the map, "+
+       "there will be three buttons displaying the names of various countries. "+
+       "These countries are your Destinations. The Clue displayed above will give you "+
+       "a hint about which Destination you should go to. "+
+       "Click on the Destination that most closely matches the Clue given. "+
+       "Be careful - if you choose the wrong Destination, ten points will be deducted from your score!"+
+       "<br>Once you have chosen the correct Destination from the choices given, "+
+       "you will asked two questions, just like in the previous screen. "+
+       "The game continues in this fashion until the level counter "+
+       "(found at the top of the screen) reaches 0.</html>"
+       );
+    mapLabel.setBounds(0,0,700,400);
+    map.add(mapLabel);
   }
   
 }
