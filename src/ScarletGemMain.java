@@ -314,6 +314,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       checkAnswer ('D');
     }
+    else if (ae.getActionCommand().equals("loss"))
+    {
+      JOptionPane.showMessageDialog(null,"Sorry, yoiu ran out of time!");
+      endGame();
+    }
     revalidate();
   }
   private Country getCountry(String name)
@@ -398,7 +403,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   {
     remove(mainMenuPanel);
     add(levelCounter);
-    gamePanel = new GamePanel (difficulty);
+    gamePanel = new GamePanel (difficulty,this);
     add (gamePanel);
     gamePanel.getPauseButton ().addActionListener (this);
     gamePanel.getAButton().addActionListener(this);

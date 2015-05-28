@@ -4,7 +4,7 @@ import javax.swing.*;
  */
 public class GameTimer extends Thread
 {
-  private int startingTime = 300;
+  private int startingTime = 30;
   private int timeRemaining;
   private boolean paused = false;
   private boolean gameWon = false;
@@ -35,10 +35,11 @@ public class GameTimer extends Thread
   
   public void timer ()
   {
+    panel.add (time);
     while (timeRemaining >= 0 && !gameWon)
     {
       time.setText ("Time: "+minutes()+":"+seconds());
-      panel.add (time);
+
       time.setBounds(550,50,80,20);
       panel.revalidate();
       try
@@ -52,6 +53,12 @@ public class GameTimer extends Thread
       {
         timeRemaining--;
       }
+      if (timeRemaining==0)
+      {
+        setPaused(true);
+        //ScarletGemMain.triggerLoss();
+      }
+      
       System.out.println (timeRemaining);
     }
     if (gameWon)

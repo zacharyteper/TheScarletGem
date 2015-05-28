@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.event.*;
 /**
  * Auto Generated Java Class.
  */
@@ -10,12 +11,15 @@ public class GameTimer extends Thread
   private boolean gameWon = false;
   private JLabel time;
   private GamePanel panel;
+  private ScarletGemMain source;
   
-  public GameTimer (int difficulty, JLabel label, GamePanel panel)
+  public GameTimer (int difficulty, JLabel label, GamePanel panel,
+  ScarletGemMain game)
   {
     timeRemaining = startingTime;
     time = label;
     this.panel = panel;
+    source=game;
   }
   
   public int getTimeRemaining ()
@@ -56,7 +60,8 @@ public class GameTimer extends Thread
       if (timeRemaining==0)
       {
         setPaused(true);
-        //ScarletGemMain.triggerLoss();
+        source.actionPerformed(new ActionEvent (this
+                                                , ActionEvent.ACTION_PERFORMED,"loss"));
       }
       
       System.out.println (timeRemaining);
@@ -68,7 +73,6 @@ public class GameTimer extends Thread
       gameWon = false;
     }
   }
-  
   public int minutes ()
   {
     return timeRemaining / 60;

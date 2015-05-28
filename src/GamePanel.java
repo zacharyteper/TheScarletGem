@@ -146,9 +146,9 @@ public class GamePanel extends JPanel
   }
     
   //The first element in c MUST be the correct answer!
-  public GamePanel (int difficulty)
+  public GamePanel (int difficulty, ScarletGemMain source)
   {
-    timer = new GameTimer (difficulty, timeLabel, this);
+    timer = new GameTimer (difficulty, timeLabel, this, source);
     timer.start ();
     a=new JButton ("A");
     b=new JButton ("B");

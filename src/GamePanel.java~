@@ -22,14 +22,15 @@ public class GamePanel extends JPanel
   private int answer;
   public GameTimer timer;
   private Image background;
+  private JLabel imageLabel=new JLabel();
   
   public void setBackground(Image i)
   {
+    System.out.println ("image");
     background=i;
-    JLabel label=new JLabel();
-    label.setIcon(new ImageIcon(i));
-    label.setBounds(0,0,700,600);
-    add(label);
+    imageLabel.setIcon(new ImageIcon(i));
+    imageLabel.setBounds(0,0,700,600);
+    add(imageLabel);
   }
   
   public Question getQuestion()
@@ -81,6 +82,11 @@ public class GamePanel extends JPanel
     a.setText("A");
     b.setText("B");
     c.setText("C");
+    a.setBounds(400,220,a.getPreferredSize().height+20,30);
+    b.setBounds(500,220,b.getPreferredSize().height+20,30);
+    c.setBounds(400,300,c.getPreferredSize().height+20,30);
+    d.setBounds(500,300,d.getPreferredSize().height+20,30);
+    questionLabel.setBounds(400,100,300,100);
     revalidate();
   }
   public void switchToMap()
@@ -92,6 +98,10 @@ public class GamePanel extends JPanel
     c.setText(destinations[2].getName());
     questionLabel.setText(destinations[0].getRandClue());
     atQuestionStage=false;
+    a.setBounds(200,500,a.getPreferredSize().height+80,30);
+    b.setBounds(350,500,b.getPreferredSize().height+80,30);
+    c.setBounds(500,500,c.getPreferredSize().height+80,30);
+    questionLabel.setBounds(10,100,500,30);
     revalidate();
   }
   
@@ -148,7 +158,7 @@ public class GamePanel extends JPanel
     pauseButton = new JButton ("PAUSE");
     
     setLayout(null);
-    Insets insets = this.getInsets ();
+    //Insets insets = this.getInsets ();
     a.setBounds(400,220,a.getPreferredSize().height+20,a.getPreferredSize().width);
     b.setBounds(500,220,b.getPreferredSize().height+20,b.getPreferredSize().width);
     c.setBounds(400,300,c.getPreferredSize().height+20,c.getPreferredSize().width);
