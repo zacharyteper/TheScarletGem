@@ -549,20 +549,15 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       }
     }
   }
-  private void endGame()
+  public void endGame()
   {
     gamePanel.timer.setGameWon (true);
     remove(gamePanel);
     remove(levelCounter);
-    revalidate ();
-    //remove(timer);
-    //remove(pauseButton);
     add(mainMenuPanel);
     levelsRemaining = -1;
     currentCountry=countries[0];
     alreadyBeen=new ArrayList<Country>();
-    revalidate();
-    revalidate();
     revalidate();
   }
   public void keyReleased (KeyEvent e)
