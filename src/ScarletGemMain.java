@@ -130,6 +130,8 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    * Opens the About dialog when the user selects this menu choice.
    */
   private JMenuItem aboutItem=new JMenuItem ("About");
+  
+  private int score=0;
   /**
    * Called by the JVM when the window is Deactivated.
    * 
@@ -206,6 +208,19 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     else if (ae.getSource().equals(printItem))
     {
+      PrinterJob job = PrinterJob.getPrinterJob();
+      job.setPrintable(this);
+      boolean ok=job.printDialog();
+      if (ok)
+      {
+        try
+        {
+          job.print();
+        }
+        catch (PrinterException e)
+        {
+        }
+      }
     }
     else if (ae.getSource().equals(howToPlayItem))
     {
@@ -219,7 +234,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
         Runtime.getRuntime().exec("HH.EXE ms-its:" + file.getAbsolutePath() + "::/TOPIC_ID.html");
       } catch (IOException e1)
       {
-        e1.printStackTrace();
       }
     }
     else if (ae.getSource().equals(aboutItem))
@@ -611,12 +625,15 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    * 
    * @param page Graphics the page to be printed
    * @param format PageFormat the format of the page to be printed
-   * @param copies int the number of copies to be printed
+   * @param index int the page index to be printed
    * 
    * @return int Returns Printable.PAGE_EXISTS or Printable.NO_SUCH_PAGE
    */
-  public int print(Graphics page, PageFormat format, int copies)
+  public int print(Graphics page, PageFormat format, int index)
   {
+    if (index>0)
+      return NO_SUCH_PAGE;
+    
     return PAGE_EXISTS;
   }
   /**
@@ -691,74 +708,76 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'D')
     };
     Question[] canadaMedium=
-    {new Question ("<html>CanadaMedium1"+
-                   "<br> A. Toronto"+
-                   "<br> B. Montreal"+
-                   "<br> C. Ottawa"+
-                   "<br> D. Portugal</html>"
+    {new Question ("<html>When was Canada created?"+
+                   "<br> A. 1919"+
+                   "<br> B. 1407"+
+                   "<br> C. 1867"+
+                   "<br> D. 1776</html>"
                      ,'C'),
-      new Question ("<html>CanadaMedium2"+
-                    "<br> A. North"+
-                    "<br> B. West"+
-                    "<br> C. South"+
-                    "<br> D. East</html>"
+      new Question ("<html>How many countries share a border with Canada?"+
+                    "<br> A. 3"+
+                    "<br> B. 5"+
+                    "<br> C. 2"+
+                    "<br> D. 1</html>"
                       ,'D'),
-      new Question ("<html>CanadaMedium3"+
-                    "<br> A. North"+
-                    "<br> B. West"+
-                    "<br> C. South"+
-                    "<br> D. East</html>"
+      new Question ("<html>Which metal is most commonly mined in Canada?"+
+                    "<br> A. Iron"+
+                    "<br> B. Lead"+
+                    "<br> C. Gold"+
+                    "<br> D. Nickel</html>"
                       ,'A'),
-      new Question ("<html>CanadaMedium4"+
-                    "<br> A. Europe"+
-                    "<br> B. North America"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>Which is closest to the population of Canada?"+
+                    "<br> A. 30 million"+
+                    "<br> B. 35 million"+
+                    "<br> C. 20 million"+
+                    "<br> D. 50 million</html>"
                       ,'B'),
-      new Question ("<html>CanadaMedium5"+
-                    "<br> A. Spanish & French"+
-                    "<br> B. German & English"+
-                    "<br> C. English & Spanish"+
-                    "<br> D. French & English</html>"
+      new Question ("<html>Which is the largest city in Canada"+
+                    "<br> A. Montreal"+
+                    "<br> B. Vancouver"+
+                    "<br> C. St. John's"+
+                    "<br> D. Toronto</html>"
                       ,'D')
     };
     Question[] canadaHard=
-    {new Question ("<html>CanadaHard1"+
-                   "<br> A. Toronto"+
-                   "<br> B. Montreal"+
-                   "<br> C. Ottawa"+
-                   "<br> D. Portugal</html>"
+    {new Question ("<html>Which is closest to the population of Toronto?"+
+                   "<br> A. 3 million"+
+                   "<br> B. 10 million"+
+                   "<br> C. 6 million"+
+                   "<br> D. 8 million</html>"
                      ,'C'),
-      new Question ("<html>CanadaHard2"+
-                    "<br> A. North"+
-                    "<br> B. West"+
-                    "<br> C. South"+
-                    "<br> D. East</html>"
+      new Question ("<html>Which is the closest to the length of Yonge St?"+
+                    "<br> A. 1000 km"+
+                    "<br> B. 1500 km"+
+                    "<br> C. 2500 km"+
+                    "<br> D. 2000 km</html>"
                       ,'D'),
-      new Question ("<html>CanadaHard3"+
-                    "<br> A. North"+
-                    "<br> B. West"+
-                    "<br> C. South"+
-                    "<br> D. East</html>"
+      new Question ("<html>What is the infant mortality rate of Canada"+
+                    "<br> A. 0.47%"+
+                    "<br> B. 0.22%"+
+                    "<br> C. 0.39%"+
+                    "<br> D. 0.62%</html>"
                       ,'A'),
-      new Question ("<html>CanadaHard4"+
-                    "<br> A. Europe"+
-                    "<br> B. North America"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>How many Canadian provinces start with the letter N?"+
+                    "<br> A. 1"+
+                    "<br> B. 3"+
+                    "<br> C. 4"+
+                    "<br> D. 2</html>"
                       ,'B'),
-      new Question ("<html>CanadaHard5"+
-                    "<br> A. Spanish & French"+
-                    "<br> B. German & English"+
-                    "<br> C. English & Spanish"+
-                    "<br> D. French & English</html>"
+      new Question ("<html>What proportion of Canada's labour force is in manufacturing?"+
+                    "<br> A. 40%"+
+                    "<br> B. 31%"+
+                    "<br> C. 67%"+
+                    "<br> D. 13%</html>"
                       ,'D')
     };
     try
     {
       Country canada =new Country ("Canada",canadaEasy, canadaMedium,
                                    canadaHard, ImageIO.read (new File ("pics/canada.jpg")),
-                                   new String[]{"","",""});
+                                   new String[]
+                                     {""}
+      );
       COUNTRIES [0]=canada;
     }
     catch (IOException e)
@@ -799,67 +818,67 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'B')
     };
     Question[] chinaMedium=
-    {new Question ("<html>ChinaMedium1"+
-                   "<br> A. Beijing"+
-                   "<br> B. Shanghai"+
-                   "<br> C. Bangkok"+
-                   "<br> D. Tokyo</html>"
+    {new Question ("<html>What is the highest point in China?"+
+                   "<br> A. Mount Everest"+
+                   "<br> B. K2"+
+                   "<br> C. Mont Blanc"+
+                   "<br> D. Red Mountain</html>"
                      ,'A'),
-      new Question ("<html>chinaMedium2"+
-                    "<br> A. Atlantic"+
-                    "<br> B. Indian"+
-                    "<br> C. Pacific"+
-                    "<br> D. Arctic</html>"
+      new Question ("<html>Which country does NOT border China?"+
+                    "<br> A. Mongolia"+
+                    "<br> B. Kazakhstan"+
+                    "<br> C. Afghanistan"+
+                    "<br> D. Georgia</html>"
                       ,'C'),
-      new Question ("<html>chinaMedium3"+
-                    "<br> A. North"+
-                    "<br> B. West"+
-                    "<br> C. South"+
-                    "<br> D. East</html>"
+      new Question ("<html>Which river does NOT flow through China?"+
+                    "<br> A. Heilong"+
+                    "<br> B. Jordan"+
+                    "<br> C. Yellow"+
+                    "<br> D. Mekong</html>"
                       ,'B'),
-      new Question ("<html>chinaMedium4"+
-                    "<br> A. Europe"+
-                    "<br> B. North America"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>What is the second largest mountain range in China?"+
+                    "<br> A. Himalayas"+
+                    "<br> B. Tien Shan"+
+                    "<br> C. Qilian"+
+                    "<br> D. Kunlun</html>"
                       ,'D'),
-      new Question ("<html>chinaMedium5"+
-                    "<br> A. Tomatoes"+
-                    "<br> B. Rice"+
-                    "<br> C. Radishes"+
-                    "<br> D. Corn</html>"
+      new Question ("<html>What is the longest river in China?"+
+                    "<br> A. Huang He"+
+                    "<br> B. Yangtze"+
+                    "<br> C. Songhua"+
+                    "<br> D. Huai</html>"
                       ,'B')
     };
     Question[] chinaHard=
-    {new Question ("<html>ChinaHard1"+
-                   "<br> A. Beijing"+
-                   "<br> B. Shanghai"+
-                   "<br> C. Bangkok"+
-                   "<br> D. Tokyo</html>"
+    {new Question ("<html>What is the lowest point in China?"+
+                   "<br> A. Turpan Pendi"+
+                   "<br> B. Hong Kong"+
+                   "<br> C. Xi depression"+
+                   "<br> D. Bodelle Depression</html>"
                      ,'A'),
-      new Question ("<html>chinaHard2"+
-                    "<br> A. Atlantic"+
-                    "<br> B. Indian"+
-                    "<br> C. Pacific"+
-                    "<br> D. Arctic</html>"
+      new Question ("<html>What portion of China's population is Buddhist?"+
+                    "<br> A. 50%"+
+                    "<br> B. 41%"+
+                    "<br> C. 18%"+
+                    "<br> D. 23%</html>"
                       ,'C'),
-      new Question ("<html>chinaHard3"+
-                    "<br> A. North"+
-                    "<br> B. West"+
-                    "<br> C. South"+
-                    "<br> D. East</html>"
+      new Question ("<html>What percentage of Chinese export is with Hong Kong?"+
+                    "<br> A. 30%"+
+                    "<br> B. 17%"+
+                    "<br> C. 21%"+
+                    "<br> D. 49%</html>"
                       ,'B'),
-      new Question ("<html>chinaHard4"+
-                    "<br> A. Europe"+
-                    "<br> B. North America"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>What year was the People's Republic of China established?"+
+                    "<br> A. 1963"+
+                    "<br> B. 1412"+
+                    "<br> C. 1749"+
+                    "<br> D. 1949</html>"
                       ,'D'),
-      new Question ("<html>chinaHard5"+
-                    "<br> A. Tomatoes"+
-                    "<br> B. Rice"+
-                    "<br> C. Radishes"+
-                    "<br> D. Corn</html>"
+      new Question ("<html>How many provinces does China contain?"+
+                    "<br> A. 15"+
+                    "<br> B. 23"+
+                    "<br> C. 31"+
+                    "<br> D. 12</html>"
                       ,'B')
     };
     try
@@ -913,7 +932,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'A')
     };
     Question[] usaMedium=
-    {new Question ("<html>USAMedium1"+
+    {new Question ("What year did the American Civil War begin?"+
                    "<br> A. Boston"+
                    "<br> B. New York"+
                    "<br> C. Texas"+
