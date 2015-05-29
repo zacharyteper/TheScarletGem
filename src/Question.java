@@ -7,12 +7,12 @@ public class Question {
    * Holds the answer to the question. Should only be equal to 'A', 'B',
    * 'C', 'D'
    */
-  private final char answer;
+  private final char ANSWER;
   /**
    * Holds the question text. Should contain the 
    * values for the answers A, B, C and D.
    */
-  private final String question;
+  private final String QUESTION;
   /**
    * Returns the answer for each question. Should be A, B, C and D.
    * 
@@ -20,7 +20,7 @@ public class Question {
    */
   public char getAnswer()
   {
-    return answer;
+    return ANSWER;
   }
   /**
    * Returns the text associated with the question.
@@ -29,7 +29,7 @@ public class Question {
    */
   public String getQuestion ()
   {
-    return question;
+    return QUESTION;
   }
   /**
    * Assigns values to the question text and answer char.
@@ -40,8 +40,8 @@ public class Question {
    */
   public Question (String q,char ans)
   {
-    answer=ans;
-    question=q;
+    ANSWER=ans;
+    QUESTION=q;
   }
   /* ADD YOUR CODE HERE */
   

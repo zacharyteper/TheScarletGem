@@ -50,11 +50,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    */
   private int levelsRemaining = -1;
   /**
-   * Flag which will determine if the game is "paused". The can be changed by pressing the pause button
-   * at the top of each game screen.
-   */
-  private boolean paused;
-  /**
    * Holds the instances of each country that the player visited. This makes sure that the player will
    * not visit the same country twice.
    */
@@ -77,7 +72,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    * <li>11 - England
    * </ul>
    */
-  public static final Country[] countries=new Country[12];
+  public static final Country[] COUNTRIES=new Country[12];
   /**
    * Holds the instance of the GamePanel class. This is initialized only once per game, and contains the buttons
    * and menus used in the game.
@@ -345,33 +340,33 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     * 
     * @param name String the name of the Country
     * @return Country the instance of the country associated with name
-    * @See "ScarletGemMain.countries"
+    * @See "ScarletGemMain.COUNTRIES"
     */
   private Country getCountry(String name)
   {
     if (name.equals("Canada"))
-      return countries[0];
+      return COUNTRIES[0];
     else if (name.equals("China"))
-      return countries[1];
+      return COUNTRIES[1];
     else if (name.equals("USA"))
-      return countries[2];
+      return COUNTRIES[2];
     else if (name.equals("Mexico"))
-      return countries[3];
+      return COUNTRIES[3];
     else if (name.equals("Portugal"))
-      return countries[4];
+      return COUNTRIES[4];
     else if (name.equals("Australia"))
-      return countries[5];
+      return COUNTRIES[5];
     else if (name.equals("Egypt"))
-      return countries[6];
+      return COUNTRIES[6];
     else if (name.equals("India"))
-      return countries[7];
+      return COUNTRIES[7];
     else if (name.equals("Russia"))
-      return countries[8];
+      return COUNTRIES[8];
     else if (name.equals("Japan"))
-      return countries[9];
+      return COUNTRIES[9];
     else if (name.equals("France"))
-      return countries[10];
-    return countries[11];
+      return COUNTRIES[10];
+    return COUNTRIES[11];
   }
   /**
    * Asks the users if they want to save before closing the program. 
@@ -448,6 +443,12 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     gamePanel.getPauseButton().setEnabled (true);
     showCountryPanel();    
   }
+  
+  private void pause ()
+  {
+    gamePanel.switchToPause ();
+  }
+  
   /**
    * displays a random multiple-choice question to the user,
    * and waits for an answer.
@@ -489,7 +490,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   /**
    * Creates the 3 destination options for the Map screen and displays it.
-   * While loops search for countries that have not been visited in the game.
+   * While loops search for COUNTRIES that have not been visited in the game.
    */ 
   private void showMapPanel()
   {
@@ -503,7 +504,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     do
     {
       System.out.println ("search");
-      currentCountry=countries[(int)(Math.random()*10)];
+      currentCountry=COUNTRIES[(int)(Math.random()*10)];
     }
     while (alreadyBeen.contains(currentCountry));
     
@@ -512,14 +513,14 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     do
     {
       System.out.println ("search2");
-      wrong1=countries[(int)(Math.random()*10)];
+      wrong1=COUNTRIES[(int)(Math.random()*10)];
     }
     while (alreadyBeen.contains(wrong1)||wrong1.equals(currentCountry));
     
     do
     {
       System.out.println ("search3");
-      wrong2=countries[(int)(Math.random()*10)];
+      wrong2=COUNTRIES[(int)(Math.random()*10)];
     }
     while (alreadyBeen.contains(wrong2)||wrong1.equals(wrong2)
              ||wrong2.equals(currentCountry));
@@ -531,7 +532,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     gamePanel.getCButton().setEnabled(true);
     revalidate();
     
-    //countries[(int)(Math.random()*
+    //COUNTRIES[(int)(Math.random()*
     
   }
   /**
@@ -601,7 +602,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     remove(levelCounter);
     add(mainMenuPanel);
     levelsRemaining = -1;
-    currentCountry=countries[0];
+    currentCountry=COUNTRIES[0];
     alreadyBeen=new ArrayList<Country>();
     revalidate();
   }
@@ -656,7 +657,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     add(splashScreen);
     revalidate();
     
-    //initialize countries
+    //initialize COUNTRIES
     Question[] canadaEasy=
     {new Question ("<html>What is the capital of Canada?"+
                    "<br> A. Toronto"+
@@ -758,7 +759,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       Country canada =new Country ("Canada",canadaEasy, canadaMedium,
                                    canadaHard, ImageIO.read (new File ("pics/canada.jpg")),
                                    new String[]{"","",""});
-      countries [0]=canada;
+      COUNTRIES [0]=canada;
     }
     catch (IOException e)
     {
@@ -872,7 +873,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                                     "course of 5000 years.",
                                     "I am in the country in which the city of Shanghai is located."
       });
-      countries [1]=china;
+      COUNTRIES [1]=china;
     }
     catch (IOException e)
     {
@@ -985,7 +986,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                                     "I am in the country whose flag contains stars and stripes.",
                                     "I am in the country which contains 50 states."
       });
-      countries [2]=usa;
+      COUNTRIES [2]=usa;
     }
     catch (IOException e)
     {
@@ -1099,7 +1100,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
           "I am in the southernmost country in North America.",
           "I am in the country whose states include Tabasco, Oaxaca and Morelos."
       });
-      countries [3]=mexico;
+      COUNTRIES [3]=mexico;
     }
     catch (IOException e)
     {
@@ -1213,7 +1214,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
           "I am in the westernmost country in Europe.",
           "I am in the country whose districts include Beja, Aveiro and Madeira."
       });
-      countries [4]=portugal;
+      COUNTRIES [4]=portugal;
     }
     catch (IOException e)
     {
@@ -1327,7 +1328,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
           "I am in the country whose name is the same as its continent's name.",
           "I am in the country whose states include New South Wales, Queensland and Victoria."
       });
-      countries [5]=australia;
+      COUNTRIES [5]=australia;
     }
     catch (IOException e)
     {
@@ -1441,7 +1442,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
           "EgyptClue4.",
           "EgyptClue5."
       });
-      countries [6]=egypt;
+      COUNTRIES [6]=egypt;
     }
     catch (IOException e)
     {
@@ -1555,7 +1556,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
           "IndiaClue4.",
           "IndiaClue5."
       });
-      countries [7]=india;
+      COUNTRIES [7]=india;
     }
     catch (IOException e)
     {
@@ -1669,7 +1670,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
           "RussiaClue4.",
           "RussiaClue5."
       });
-      countries [8]=russia;
+      COUNTRIES [8]=russia;
     }
     catch (IOException e)
     {
@@ -1783,7 +1784,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
           "JapanClue4.",
           "JapanClue5."
       });
-      countries [9]=japan;
+      COUNTRIES [9]=japan;
     }
     catch (IOException e)
     {
@@ -1896,7 +1897,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
           "FranceClue4.",
           "FranceClue5."
       });
-      countries [10]=france;
+      COUNTRIES [10]=france;
     }
     catch (IOException e)
     {
@@ -2009,7 +2010,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
           "EnglandClue4.",
           "EnglandClue5."
       });
-      countries [11]=england;
+      COUNTRIES [11]=england;
     }
     catch (IOException e)
     {
@@ -2020,8 +2021,8 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     remove (splashScreen);
     
     alreadyBeen=new ArrayList<Country>();
-    currentCountry=countries[0];
-    //alreadyBeen.add(countries[0]);
+    currentCountry=COUNTRIES[0];
+    //alreadyBeen.add(COUNTRIES[0]);
     
     //initialize menus
     JMenuBar menuBar=new JMenuBar();

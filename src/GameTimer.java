@@ -5,7 +5,7 @@ import java.awt.event.*;
  */
 public class GameTimer extends Thread
 {
-  private int startingTime = 30;
+  private int startingTime;
   public static int timeRemaining;
   private boolean paused = false;
   private boolean gameWon = false;
