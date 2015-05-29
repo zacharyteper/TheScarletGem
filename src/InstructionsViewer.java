@@ -68,7 +68,7 @@ public class InstructionsViewer extends JFrame
        "<ul><li>Age group: 9-15 years "+
        "<li>Theme: World Geography, Educational "+
        "<li>System Requirements: Java Runtime Environment 8.0 or higher. </ul></html>"
-         );
+      );
     introLabel.setBounds(0,0,700,400);
     intro.add(introLabel);
     
@@ -91,7 +91,7 @@ public class InstructionsViewer extends JFrame
        "once you answer the questions correctly."+
        "<br>After you have completed all of the levels, "+
        "you will find the Scarlet Gem in the next Country that you travel to.</html>"
-    );
+      );
     countriesLabel.setBounds(0,0,700,400);
     countries.add(countriesLabel);
     
@@ -108,9 +108,67 @@ public class InstructionsViewer extends JFrame
        "you will asked two questions, just like in the previous screen. "+
        "The game continues in this fashion until the level counter "+
        "(found at the top of the screen) reaches 0.</html>"
-       );
+      );
     mapLabel.setBounds(0,0,700,400);
     map.add(mapLabel);
+    
+    JLabel savingLabel=new JLabel
+      ("<html>This game allows you to save your progress when you are at the Country stage. "+
+       "(Sorry, you cannot save while travelling!) "+
+       "You can save by selecting the \"save\" item from the menu, or by pressing Ctrl+S. "+
+       "When you are in the main menu, press Load Game to resume from where you last saved."+
+       "<br>Note: you can only have one save file. "+
+       "That means that if you save twice, your first save will be deleted."+
+       "<br>The file that you save also contains the time remaining in the game. "+
+       "That means that when you load your saved game, "+
+       "you will start with the amount of time left when you saved.</html>"
+      );
+    savingLabel.setBounds(0,0,700,400);
+    saving.add(savingLabel);
+    
+    JLabel scoresLabel=new JLabel
+      ("<html>When you win the game, your score will be displayed to you, "+
+       "and you will be asked to enter your user name. "+
+       "<br>The game automatically records the scores and names of "+
+       "the top 10 players in each category: Easy, Medium and Hard. "+
+       "You can view these scores at any time by pressing Ctrl+E or by "+
+       "selecting the \"view high scores\" item from the menu. "+
+       "You can print these scores at any time by pressing"+
+       "Ctrl+P or by selecting the \"print\" menu item."+
+       "<br><br>This formula is used to compute your score: score = 200x +s -10y"+
+       "<br>,where x is the number of countries visited, "+
+       "s is the number of seconds remaining at the end of the game, "+
+       "and y is the number of incorrect answers.</html>"
+      );
+    scoresLabel.setBounds(0,0,700,400);
+    scores.add(scoresLabel);
+    
+    JLabel keysLabel=new JLabel 
+      ("<html>Here is a complete list of keyboard shortcuts within the game:"+
+       "<br><br><ul><li>p - pause/unpause "+
+       "<li>Ctrl+P - print "+
+       "<li>Ctrl+E - view high scores "+
+       "<li>Ctrl+S - save "+
+       "<li>Ctrl+A - view About dialog "+
+       "<li>Ctrl+H - view Help dialog "+
+       "<li>Ctrl+Q - quit/exit "+
+       "<li>Ctrl+R - how to play/view instructions</ul></html>"
+      );
+    keysLabel.setBounds(0,0,700,400);
+    keys.add(keysLabel);
+    
+    JLabel contactLabel=new JLabel
+      ("<html>Contact Info:"+
+       "<br><br>Game: The Scarlet Gem"+
+       "<br><br>Company: CakeSoft Inc."+
+       "<br><br>Project Lead: Zachary Teper"+
+       "<br><br>Project Representative: Angela Zhu"+
+       "<br><br>Email: zacharyblacktail@gmail.com"+
+       "<br><br>Phone: 416-223-6075"+
+       "<br><br>Version: 1.0 06.09.2015</html>"
+    );
+    contactLabel.setBounds(0,0,700,400);
+    contact.add(contactLabel);
   }
   
 }

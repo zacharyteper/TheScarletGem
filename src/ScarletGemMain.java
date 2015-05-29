@@ -15,8 +15,7 @@ import java.util.*;
  * @author Zachary Teper and Angela Zhu
  * @version 1.0 17.05.15
  */
-public class ScarletGemMain extends JFrame implements ActionListener, Printable, KeyListener, MouseListener,
-  WindowListener
+public class ScarletGemMain extends JFrame implements ActionListener, Printable,WindowListener
 {
   /* currentCountry index:
    * 0 - Canada
@@ -136,26 +135,60 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    * Opens the About dialog when the user selects this menu choice.
    */
   private JMenuItem aboutItem=new JMenuItem ("About");
-  
+  /**
+   * Called by the JVM when the window is Deactivated.
+   * 
+   * @param e WindowEvent the event that occured on the window
+   */
   public void windowDeactivated(WindowEvent e)
   {
   }
+  /**
+   * Called by the JVM when the window is Opened.
+   * 
+   * @param e WindowEvent the event that occured on the window
+   */
   public void windowOpened (WindowEvent e)
   {
   }
+  /**
+   * Called by the JVM when the window is Closing.
+   * 
+   * @param e WindowEvent the event that occured on the window
+   */
   public void windowClosing (WindowEvent e)
   {
     closeWarning();
   }
+  /**
+   * Called by the JVM when the window is Activated.
+   * 
+   * @param e WindowEvent the event that occured on the window
+   */
   public void windowActivated (WindowEvent e)
   {
   }
+  /**
+   * Called by the JVM when the window is Deiconified.
+   * 
+   * @param e WindowEvent the event that occured on the window
+   */
   public void windowDeiconified (WindowEvent e)
   {
   }
+  /**
+   * Called by the JVM when the window is Iconified.
+   * 
+   * @param e WindowEvent the event that occured on the window
+   */
   public void windowIconified(WindowEvent e)
   {
   }
+  /**
+   * Called by the JVM when the window is Closed.
+   * 
+   * @param e WindowEvent the event that occured on the window
+   */
   public void windowClosed (WindowEvent e)
   {
   }
@@ -308,6 +341,12 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     revalidate();
   }
+  /** Returns the country associated with a name
+    * 
+    * @param name String the name of the Country
+    * @return Country the instance of the country associated with name
+    * @See "ScarletGemMain.countries"
+    */
   private Country getCountry(String name)
   {
     if (name.equals("Canada"))
@@ -334,6 +373,12 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       return countries[10];
     return countries[11];
   }
+  /**
+   * Asks the users if they want to save before closing the program. 
+   * YES==save and close
+   * NO==close without saving
+   * CANCEL/ESCAPE==resume game without saving
+   */
   private void closeWarning()
   {
     if (levelsRemaining != -1)
@@ -358,6 +403,9 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       System.exit (0);
     }
   }
+  /**
+   * saves the user's current progress to the file "progress.txt"
+   */
   private void save()
   {
     System.out.println ("save");
@@ -383,7 +431,9 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       JOptionPane.showMessageDialog(null,"Progress could not be saved.");
     }
   }
-  
+  /**
+   * sets up the game components and starts the timer.
+   */
   private void initializeGame ()
   {
     remove(mainMenuPanel);
@@ -398,7 +448,10 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     gamePanel.getPauseButton().setEnabled (true);
     showCountryPanel();    
   }
-  
+  /**
+   * displays a random multiple-choice question to the user,
+   * and waits for an answer.
+   */
   private void showCountryPanel()
   {
     
@@ -440,8 +493,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    */ 
   private void showMapPanel()
   {
-//    for (Country s:alreadyBeen)
-//      System.out.println(s.getName());
     try
     {
       Thread.sleep(500);
@@ -539,6 +590,10 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       }
     }
   }
+  /**
+   * resets game variables, closes the game screen, 
+   * and returns to the main menu.
+   */
   public void endGame()
   {
     gamePanel.timer.setGameWon (true);
@@ -550,30 +605,15 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     alreadyBeen=new ArrayList<Country>();
     revalidate();
   }
-  public void keyReleased (KeyEvent e)
-  {
-  }
-  public void keyTyped (KeyEvent e)
-  {
-  }
-  public void keyPressed (KeyEvent e)
-  {
-  }
-  public void mouseExited (MouseEvent e)
-  {
-  }
-  public void mouseEntered (MouseEvent e)
-  {
-  }
-  public void mouseClicked (MouseEvent e)
-  {
-  }
-  public void mousePressed (MouseEvent e)
-  {
-  }
-  public void mouseReleased (MouseEvent e)
-  {
-  }
+  /**
+   * Sends a print command to the printer specified in the dialog box.
+   * 
+   * @param page Graphics the page to be printed
+   * @param format PageFormat the format of the page to be printed
+   * @param copies int the number of copies to be printed
+   * 
+   * @return int Returns Printable.PAGE_EXISTS or Printable.NO_SUCH_PAGE
+   */
   public int print(Graphics page, PageFormat format, int copies)
   {
     return PAGE_EXISTS;
