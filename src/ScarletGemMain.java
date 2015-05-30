@@ -345,7 +345,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     else if (ae.getActionCommand().equals("loss"))
     {
-      JOptionPane.showMessageDialog(null,"Sorry, yoiu ran out of time!");
+      JOptionPane.showMessageDialog(null,"Sorry, you ran out of time!");
       endGame();
     }
     revalidate();

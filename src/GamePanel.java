@@ -88,6 +88,7 @@ public class GamePanel extends JPanel
     c.setBounds(400,300,c.getPreferredSize().height+20,30);
     d.setBounds(500,300,d.getPreferredSize().height+20,30);
     questionLabel.setBounds(400,100,300,100);
+    d.revalidate();
     revalidate();
   }
   public void switchToMap()

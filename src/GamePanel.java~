@@ -106,6 +106,10 @@ public class GamePanel extends JPanel
     revalidate();
   }
   
+  public void switchToPause ()
+  {
+  }
+  
   public JButton getAButton()
   {
     return a;
