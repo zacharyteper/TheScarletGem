@@ -932,67 +932,67 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'A')
     };
     Question[] usaMedium=
-    {new Question ("What year did the American Civil War begin?"+
-                   "<br> A. Boston"+
-                   "<br> B. New York"+
-                   "<br> C. Texas"+
-                   "<br> D. Washington D.C.</html>"
-                     ,'D'),
-      new Question ("<html>USAMedium2"+
-                    "<br> A. North"+
-                    "<br> B. West"+
-                    "<br> C. East"+
-                    "<br> D. South</html>"
-                      ,'C'),
-      new Question ("<html>USAMedium3"+
-                    "<br> A. Texas"+
-                    "<br> B. California"+
-                    "<br> C. Mexico"+
-                    "<br> D. Florida</html>"
+    {new Question ("How many geographical regions is the USA composed of?"+
+                   "<br> A. 2"+
+                   "<br> B. 3"+
+                   "<br> C. 4"+
+                   "<br> D. 5</html>"
+                     ,'C'),
+      new Question ("<html>Which of the following is NOT a region of the USA?"+
+                    "<br> A. South"+
+                    "<br> B. North"+
+                    "<br> C. West"+
+                    "<br> D. Midwest</html>"
                       ,'B'),
-      new Question ("<html>USAMedium4"+
-                    "<br> A. Europe"+
-                    "<br> B. Asia"+
-                    "<br> C. Africa"+
-                    "<br> D. North America</html>"
+      new Question ("<html>Which of the following is NOT a mountain range in the USA?"+
+                    "<br> A. Rockies"+
+                    "<br> B. Himalayas"+
+                    "<br> C. Appalachians"+
+                    "<br> D. Cascade</html>"
+                      ,'B'),
+      new Question ("<html>What is the highest mountain in the USA?"+
+                    "<br> A. Mt. St. Elias"+
+                    "<br> B. Mt. Sanford"+
+                    "<br> C. Mt. Rainier"+
+                    "<br> D. Mt. McKinley</html>"
                       ,'D'),
-      new Question ("<html>USAMedium5"+
-                    "<br> A. English"+
-                    "<br> B. Spanish"+
-                    "<br> C. French"+
-                    "<br> D. Chinese</html>"
+      new Question ("<html>Which river system drains the American Midwest?"+
+                    "<br> A. Mississippi"+
+                    "<br> B. Colarado"+
+                    "<br> C. Red"+
+                    "<br> D. Rio Grande</html>"
                       ,'A')
     };
     Question[] usaHard=
-    {new Question ("<html>USAHard1"+
-                   "<br> A. Boston"+
-                   "<br> B. New York"+
-                   "<br> C. Texas"+
-                   "<br> D. Washington D.C.</html>"
-                     ,'D'),
-      new Question ("<html>USAHard2"+
-                    "<br> A. North"+
-                    "<br> B. West"+
-                    "<br> C. East"+
+    {new Question ("<html>How long is the Mississippi River system?"+
+                   "<br> A. 5300 km"+
+                   "<br> B. 6853 km"+
+                   "<br> C. 5970 km"+
+                   "<br> D. 6437 km</html>"
+                     ,'C'),
+      new Question ("<html>Which is closest to the area of the USA (in square kilometers)?"+
+                    "<br> A. 1 Billion"+
+                    "<br> B. 9.8 million"+
+                    "<br> C. 9.5 million"+
+                    "<br> D. 9.7 million</html>"
+                      ,'B'),
+      new Question ("<html>How tall is Mt. McKinley?"+
+                    "<br> A. 4,421 m"+
+                    "<br> B. 6,244 m"+
+                    "<br> C. 5,489 m"+
+                    "<br> D. 6,149 m</html>"
+                      ,'D'),
+      new Question ("<html>Which is the largest geographical region in the USA?"+
+                    "<br> A. Northeast"+
+                    "<br> B. Midwest"+
+                    "<br> C. West"+
                     "<br> D. South</html>"
                       ,'C'),
-      new Question ("<html>USAHard3"+
-                    "<br> A. Texas"+
-                    "<br> B. California"+
-                    "<br> C. Mexico"+
-                    "<br> D. Florida</html>"
-                      ,'B'),
-      new Question ("<html>USAHard4"+
-                    "<br> A. Europe"+
-                    "<br> B. Asia"+
-                    "<br> C. Africa"+
-                    "<br> D. North America</html>"
-                      ,'D'),
-      new Question ("<html>USAHard5"+
-                    "<br> A. English"+
-                    "<br> B. Spanish"+
-                    "<br> C. French"+
-                    "<br> D. Chinese</html>"
+      new Question ("<html>What climate is found in the American Midwest?"+
+                    "<br> A. Humid continental"+
+                    "<br> B. Steppe"+
+                    "<br> C. Subtropical"+
+                    "<br> D. Marine west coast</html>"
                       ,'A')
     };
     try
@@ -1045,67 +1045,67 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'D')
     };
     Question[] mexicoMedium=
-    {new Question ("<html>mexicoMedium1"+
-                   "<br> A. Peru"+
-                   "<br> B. Mexico City"+
-                   "<br> C. Monterrey"+
-                   "<br> D. Cancun</html>"
+    {new Question ("<html>How many countries does Mexico share a border with?"+
+                   "<br> A. 4"+
+                   "<br> B. 3"+
+                   "<br> C. 6"+
+                   "<br> D. 2</html>"
                      ,'B'),
-      new Question ("<html>mexicoMedium2"+
-                    "<br> A. Inuit"+
-                    "<br> B. Hindi"+
-                    "<br> C. Portugal"+
-                    "<br> D. Aztec</html>"
-                      ,'D'),
-      new Question ("<html>mexicoMedium3"+
-                    "<br> A. USA"+
-                    "<br> B. Chile"+
-                    "<br> C. Africa"+
-                    "<br> D. Arctic</html>"
+      new Question ("<html>Which is the tallest mountain in Mexico?"+
+                    "<br> A. Pico de Orizaba"+
+                    "<br> B. Socorro"+
+                    "<br> C. El Chichon"+
+                    "<br> D. Ceburoco</html>"
                       ,'A'),
-      new Question ("<html>mexicoMedium4"+
-                    "<br> A. Europe"+
-                    "<br> B. North America"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>Which is closest to the population of Mexico City?"+
+                    "<br> A. 20 million"+
+                    "<br> B. 13 million"+
+                    "<br> C. 5 million"+
+                    "<br> D. 18 million</html>"
+                      ,'A'),
+      new Question ("<html>What percentage of Mexico's landmass is water?"+
+                    "<br> A. 13.1%"+
+                    "<br> B. 2.5%"+
+                    "<br> C. 0.3%"+
+                    "<br> D. 5.4%</html>"
                       ,'B'),
-      new Question ("<html>mexicoMedium5"+
-                    "<br> A. French"+
-                    "<br> B. German"+
-                    "<br> C. English"+
-                    "<br> D. Spanish</html>"
+      new Question ("<html>Which city is not in Mexico?"+
+                    "<br> A. Veracruz"+
+                    "<br> B. La Paz"+
+                    "<br> C. Guadalajara"+
+                    "<br> D. Montevideo</html>"
                       ,'D')
     };
     Question[] mexicoHard=
-    {new Question ("<html>mexicoHard1"+
-                   "<br> A. Peru"+
-                   "<br> B. Mexico City"+
-                   "<br> C. Monterrey"+
+    {new Question ("<html>Approximately how many rivers are in Mexico?"+
+                   "<br> A. 30"+
+                   "<br> B. 150"+
+                   "<br> C. 110"+
                    "<br> D. Cancun</html>"
                      ,'B'),
-      new Question ("<html>mexicoHard2"+
-                    "<br> A. Inuit"+
-                    "<br> B. Hindi"+
-                    "<br> C. Portugal"+
-                    "<br> D. Aztec</html>"
+      new Question ("<html>How long is the Mexican border with the United States?"+
+                    "<br> A. 3000 km"+
+                    "<br> B. 6000 km"+
+                    "<br> C. 3000 km"+
+                    "<br> D. 5000 km</html>"
                       ,'D'),
-      new Question ("<html>mexicoHard3"+
-                    "<br> A. USA"+
-                    "<br> B. Chile"+
-                    "<br> C. Africa"+
-                    "<br> D. Arctic</html>"
+      new Question ("<html>Which is NOT a resource found in Mexico?"+
+                    "<br> A. Iron"+
+                    "<br> B. Gold"+
+                    "<br> C. Silver"+
+                    "<br> D. Copper</html>"
                       ,'A'),
-      new Question ("<html>mexicoHard4"+
-                    "<br> A. Europe"+
-                    "<br> B. North America"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>Which is the most active volacno in Mexico?"+
+                    "<br> A. Popocatepetl"+
+                    "<br> B. Colima"+
+                    "<br> C. Barcena"+
+                    "<br> D. Tacana</html>"
                       ,'B'),
-      new Question ("<html>mexicoHard5"+
-                    "<br> A. French"+
-                    "<br> B. German"+
-                    "<br> C. English"+
-                    "<br> D. Spanish</html>"
+      new Question ("<html>What year did Europeans first discover Mexico?"+
+                    "<br> A. 1431"+
+                    "<br> B. 1513"+
+                    "<br> C. 1597"+
+                    "<br> D. 1521</html>"
                       ,'D')
     };
     try
