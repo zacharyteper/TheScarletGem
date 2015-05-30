@@ -1159,67 +1159,67 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'D')
     };
     Question[] portugalMedium=
-    {new Question ("<html>portugalMedium1"+
-                   "<br> A. Barcelona"+
-                   "<br> B. Lisbon"+
-                   "<br> C. Madrid"+
-                   "<br> D. Madeira</html>"
+    {new Question ("<html>What is the second largest city in Portugal?"+
+                   "<br> A. Lisbon"+
+                   "<br> B. Porto"+
+                   "<br> C. Aveiro"+
+                   "<br> D. Santarem</html>"
                      ,'B'),
-      new Question ("<html>PortugalMedium2"+
-                    "<br> A. Arctic"+
-                    "<br> B. Pacific"+
-                    "<br> C. Indian"+
-                    "<br> D. Atlantic</html>"
+      new Question ("<html>What year was the Portuguese Republic established?"+
+                    "<br> A. 1944"+
+                    "<br> B. 1837"+
+                    "<br> C. 1907"+
+                    "<br> D. 1910</html>"
                       ,'D'),
-      new Question ("<html>portugalMedium3"+
-                    "<br> A. Spain"+
-                    "<br> B. Chile"+
-                    "<br> C. Africa"+
-                    "<br> D. Arctic</html>"
+      new Question ("<html>What is the main goods-based industryin Portugal?"+
+                    "<br> A. Textiles"+
+                    "<br> B. Lumber"+
+                    "<br> C. Auto parts"+
+                    "<br> D. Glassware</html>"
                       ,'A'),
-      new Question ("<html>portugalMedium4"+
-                    "<br> A. North America"+
-                    "<br> B. Europe"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>What percentage of the Portuguese labour-force is agriculture-based?"+
+                    "<br> A. 5%"+
+                    "<br> B. 10%"+
+                    "<br> C. 15%"+
+                    "<br> D. 2%</html>"
                       ,'B'),
-      new Question ("<html>portugalMedium5"+
-                    "<br> A. French"+
-                    "<br> B. German"+
-                    "<br> C. English"+
-                    "<br> D. Portuguese</html>"
+      new Question ("<html>What is the unemployment rate in Portugal?"+
+                    "<br> A. 4%"+
+                    "<br> B. 10%"+
+                    "<br> C. 29%"+
+                    "<br> D. 14%</html>"
                       ,'D')
     };
     Question[] portugalHard=
-    {new Question ("<html>portugalHard1"+
-                   "<br> A. Barcelona"+
-                   "<br> B. Lisbon"+
-                   "<br> C. Madrid"+
-                   "<br> D. Madeira</html>"
+    {new Question ("<html>What is Portugal's main export?"+
+                   "<br> A. Wine"+
+                   "<br> B. Agricultural products"+
+                   "<br> C. Leather"+
+                   "<br> D. Pulp and paper</html>"
                      ,'B'),
-      new Question ("<html>PortugalHard2"+
-                    "<br> A. Arctic"+
-                    "<br> B. Pacific"+
-                    "<br> C. Indian"+
-                    "<br> D. Atlantic</html>"
+      new Question ("<html>Which is closest to the size of Madeira (in square kilometers)?"+
+                    "<br> A. 300"+
+                    "<br> B. 400"+
+                    "<br> C. 200"+
+                    "<br> D. 800</html>"
                       ,'D'),
-      new Question ("<html>portugalHard3"+
-                    "<br> A. Spain"+
-                    "<br> B. Chile"+
-                    "<br> C. Africa"+
-                    "<br> D. Arctic</html>"
+      new Question ("<html>Which is the best description of Northern Portugal?"+
+                    "<br> A. Mountainous"+
+                    "<br> B. Rolling Plains"+
+                    "<br> C. Marshy Wetlands"+
+                    "<br> D. Flat Desert</html>"
                       ,'A'),
-      new Question ("<html>portugalHard4"+
-                    "<br> A. North America"+
-                    "<br> B. Europe"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>How many UNESCO heritage sites are in Portugal?"+
+                    "<br> A. 23"+
+                    "<br> B. 15"+
+                    "<br> C. 9"+
+                    "<br> D. 11</html>"
                       ,'B'),
-      new Question ("<html>portugalHard5"+
-                    "<br> A. French"+
-                    "<br> B. German"+
-                    "<br> C. English"+
-                    "<br> D. Portuguese</html>"
+      new Question ("<html>In which Portuguese city is the Casa da Musica found?"+
+                    "<br> A. Lisbon"+
+                    "<br> B. Aveiro"+
+                    "<br> C. Amadora"+
+                    "<br> D. Porto</html>"
                       ,'D')
     };
     try
