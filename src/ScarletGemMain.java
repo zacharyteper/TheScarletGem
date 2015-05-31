@@ -281,7 +281,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     else if (ae.getSource().equals(mainMenuPanel.getHardButton()))
     {
-      levelsRemaining=9;
+      levelsRemaining=8;
       difficulty=2;
       initializeGame();     
     }
@@ -764,7 +764,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. 4"+
                     "<br> D. 2</html>"
                       ,'B'),
-      new Question ("<html>What proportion of Canada's labour force is in manufacturing?"+
+      new Question ("<html>What proportion of Canada's labour-force <br>is in manufacturing?"+
                     "<br> A. 40%"+
                     "<br> B. 31%"+
                     "<br> C. 67%"+
@@ -970,7 +970,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> C. 5970 km"+
                    "<br> D. 6437 km</html>"
                      ,'C'),
-      new Question ("<html>Which is closest to the area of the USA (in square kilometers)?"+
+      new Question ("<html>Which is closest to the area of <br>the USA (in square kilometers)?"+
                     "<br> A. 1 Billion"+
                     "<br> B. 9.8 million"+
                     "<br> C. 9.5 million"+
@@ -1083,7 +1083,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> C. 110"+
                    "<br> D. Cancun</html>"
                      ,'B'),
-      new Question ("<html>How long is the Mexican border with the United States?"+
+      new Question ("<html>How long is the Mexican border with <br>the United States?"+
                     "<br> A. 3000 km"+
                     "<br> B. 6000 km"+
                     "<br> C. 3000 km"+
@@ -1171,13 +1171,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. 1907"+
                     "<br> D. 1910</html>"
                       ,'D'),
-      new Question ("<html>What is the main goods-based industryin Portugal?"+
+      new Question ("<html>What is the main goods-based industry in Portugal?"+
                     "<br> A. Textiles"+
                     "<br> B. Lumber"+
                     "<br> C. Auto parts"+
                     "<br> D. Glassware</html>"
                       ,'A'),
-      new Question ("<html>What percentage of the Portuguese labour-force is agriculture-based?"+
+      new Question ("<html>What percentage of the Portuguese <br>labour-force is agriculture-based?"+
                     "<br> A. 5%"+
                     "<br> B. 10%"+
                     "<br> C. 15%"+
@@ -1273,35 +1273,35 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'D')
     };
     Question[] australiaMedium=
-    {new Question ("<html>australiaMedium1"+
-                   "<br> A. Sydney"+
-                   "<br> B. Canberra"+
-                   "<br> C. Brisbane"+
-                   "<br> D. New Zealand</html>"
+    {new Question ("<html>What is Australias most commonly mined substance?"+
+                   "<br> A. Silver"+
+                   "<br> B. Bauxite"+
+                   "<br> C. Tin"+
+                   "<br> D. Coal</html>"
                      ,'B'),
-      new Question ("<html>australiaMedium2"+
-                    "<br> A. Arctic"+
-                    "<br> B. Pacific"+
-                    "<br> C. Indian"+
-                    "<br> D. Atlantic</html>"
-                      ,'C'),
-      new Question ("<html>australiaMedium3"+
-                    "<br> A. Indonesia"+
-                    "<br> B. Russia"+
-                    "<br> C. Africa"+
-                    "<br> D. Mexico</html>"
-                      ,'A'),
-      new Question ("<html>australiaMedium4"+
-                    "<br> A. India"+
-                    "<br> B. Australia"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
-                      ,'B'),
-      new Question ("<html>australiaMedium5"+
-                    "<br> A. New Zealand"+
+      new Question ("<html>What is the second largest city in Australia?"+
+                    "<br> A. Sydney"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
-                    "<br> D. Sydney</html>"
+                    "<br> D. Adelaide</html>"
+                      ,'C'),
+      new Question ("<html>How many states are in Australia?"+
+                    "<br> A. 6"+
+                    "<br> B. 4"+
+                    "<br> C. 3"+
+                    "<br> D. 5</html>"
+                      ,'A'),
+      new Question ("<html>What year did Australia gain independence?"+
+                    "<br> A. 1913"+
+                    "<br> B. 1901"+
+                    "<br> C. 1934"+
+                    "<br> D. 1852</html>"
+                      ,'B'),
+      new Question ("<html>Which constellation is featured on the Australian flag?"+
+                    "<br> A. Cygnus"+
+                    "<br> B. Ares"+
+                    "<br> C. Libra"+
+                    "<br> D. Southern Cross</html>"
                       ,'D')
     };
     Question[] australiaHard=
@@ -1311,29 +1311,29 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> C. Brisbane"+
                    "<br> D. New Zealand</html>"
                      ,'B'),
-      new Question ("<html>australiaHard2"+
-                    "<br> A. Arctic"+
-                    "<br> B. Pacific"+
-                    "<br> C. Indian"+
-                    "<br> D. Atlantic</html>"
-                      ,'C'),
-      new Question ("<html>australiaHard3"+
-                    "<br> A. Indonesia"+
-                    "<br> B. Russia"+
-                    "<br> C. Africa"+
-                    "<br> D. Mexico</html>"
+      new Question ("<html>What is Australia's main export?"+
+                    "<br> A. Wheat"+
+                    "<br> B. Meat"+
+                    "<br> C. Metal"+
+                    "<br> D. Coal</html>"
+                      ,'D'),
+      new Question ("<html>What is Australia's main climate type?"+
+                    "<br> A. Semi-arid"+
+                    "<br> B. Tropical"+
+                    "<br> C. Tundra"+
+                    "<br> D. Steppe</html>"
                       ,'A'),
-      new Question ("<html>australiaHard4"+
-                    "<br> A. India"+
-                    "<br> B. Australia"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>Which is the closest to Australia's <br>Marine Territory (in square kilometers)?"+
+                    "<br> A. 1 million"+
+                    "<br> B. 8 million"+
+                    "<br> C. 7 million"+
+                    "<br> D. 3 million</html>"
                       ,'B'),
-      new Question ("<html>australiaHard5"+
-                    "<br> A. New Zealand"+
-                    "<br> B. Canberra"+
-                    "<br> C. Melbourne"+
-                    "<br> D. Sydney</html>"
+      new Question ("<html>Which is the longest river in Australia?"+
+                    "<br> A. Murchison"+
+                    "<br> B. Ashburton"+
+                    "<br> C. Victoria"+
+                    "<br> D. Murray</html>"
                       ,'D')
     };
     try
@@ -1361,93 +1361,93 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> C. Alexandria"+
                    "<br> D. Suez</html>"
                      ,'A'),
-      new Question ("<html>EgyptEasy2"+
-                    "<br> A. Arctic"+
-                    "<br> B. Pacific"+
-                    "<br> C. Indian"+
-                    "<br> D. Atlantic</html>"
+      new Question ("<html>What is the main river in Egypt?"+
+                    "<br> A. Congo"+
+                    "<br> B. Niger"+
+                    "<br> C. Nile"+
+                    "<br> D. Jordan</html>"
                       ,'C'),
-      new Question ("<html>EgyptEasy3"+
-                    "<br> A. Indonesia"+
-                    "<br> B. Russia"+
-                    "<br> C. Africa"+
-                    "<br> D. Mexico</html>"
+      new Question ("<html>What is the main terrain type of Egypt?"+
+                    "<br> A. Desert"+
+                    "<br> B. Tropical"+
+                    "<br> C. Arctic"+
+                    "<br> D. </html>"
                       ,'A'),
-      new Question ("<html>EgyptEasy4"+
-                    "<br> A. India"+
-                    "<br> B. Australia"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>What continent is Egypt part of?"+
+                    "<br> A. Asia"+
+                    "<br> B. Africa"+
+                    "<br> C. North America"+
+                    "<br> D. Europe</html>"
                       ,'B'),
-      new Question ("<html>EgyptEasy5"+
-                    "<br> A. New Zealand"+
-                    "<br> B. Canberra"+
-                    "<br> C. Melbourne"+
-                    "<br> D. Sydney</html>"
+      new Question ("<html>What is the official language of Egypt?"+
+                    "<br> A. English"+
+                    "<br> B. French"+
+                    "<br> C. German"+
+                    "<br> D. Arabic</html>"
                       ,'D')
     };
     Question[] egyptMedium=
-    {new Question ("<html>egyptMedium1"+
-                   "<br> A. Cairo"+
-                   "<br> B. Memphis"+
-                   "<br> C. Alexandria"+
-                   "<br> D. Suez</html>"
+    {new Question ("<html>What is the predominant religion in Egypt?"+
+                   "<br> A. Muslim"+
+                   "<br> B. Catholic"+
+                   "<br> C. Buddhist"+
+                   "<br> D. Lutheran</html>"
                      ,'A'),
-      new Question ("<html>EgyptMedium2"+
-                    "<br> A. Arctic"+
-                    "<br> B. Pacific"+
-                    "<br> C. Indian"+
-                    "<br> D. Atlantic</html>"
+      new Question ("<html>Which is closest to the population of Egypt"+
+                    "<br> A. 54 million"+
+                    "<br> B. 96 million"+
+                    "<br> C. 86 million"+
+                    "<br> D. 47 million</html>"
                       ,'C'),
-      new Question ("<html>EgyptMedium3"+
-                    "<br> A. Indonesia"+
-                    "<br> B. Russia"+
-                    "<br> C. Africa"+
-                    "<br> D. Mexico</html>"
+      new Question ("<html>How many regions are in Egypt?"+
+                    "<br> A. 27"+
+                    "<br> B. 12"+
+                    "<br> C. 17"+
+                    "<br> D. 31</html>"
                       ,'A'),
-      new Question ("<html>EgyptMedium4"+
-                    "<br> A. India"+
-                    "<br> B. Australia"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>What is the main agricultural export of Egypt?"+
+                    "<br> A. Rice"+
+                    "<br> B. Cotton"+
+                    "<br> C. Wheat"+
+                    "<br> D. Beans</html>"
                       ,'B'),
-      new Question ("<html>EgyptMedium5"+
-                    "<br> A. New Zealand"+
-                    "<br> B. Canberra"+
-                    "<br> C. Melbourne"+
-                    "<br> D. Sydney</html>"
+      new Question ("<html>What is Egypt's main trading partner?"+
+                    "<br> A. India"+
+                    "<br> B. Saudi Arabia"+
+                    "<br> C. Turkey"+
+                    "<br> D. Italy</html>"
                       ,'D')
     };
     Question[] egyptHard=
-    {new Question ("<html>egyptHard1"+
-                   "<br> A. Cairo"+
-                   "<br> B. Memphis"+
-                   "<br> C. Alexandria"+
-                   "<br> D. Suez</html>"
+    {new Question ("<html>What is the length of the Nile River within Egypt?"+
+                   "<br> A. 1600 km"+
+                   "<br> B. 2400 km"+
+                   "<br> C. 1200 km"+
+                   "<br> D. 2000 km</html>"
                      ,'A'),
-      new Question ("<html>EgyptHard2"+
-                    "<br> A. Arctic"+
-                    "<br> B. Pacific"+
-                    "<br> C. Indian"+
-                    "<br> D. Atlantic</html>"
+      new Question ("<html>Which oasis is NOT in Egypt?"+
+                    "<br> A. Siwah"+
+                    "<br> B. Faiyum"+
+                    "<br> C. Safsaf"+
+                    "<br> D. Baharia</html>"
                       ,'C'),
-      new Question ("<html>EgyptHard3"+
-                    "<br> A. Indonesia"+
-                    "<br> B. Russia"+
-                    "<br> C. Africa"+
-                    "<br> D. Mexico</html>"
+      new Question ("<html>How many branches does the Nile make at its delta?"+
+                    "<br> A. 2"+
+                    "<br> B. 6"+
+                    "<br> C. 3"+
+                    "<br> D. 4</html>"
                       ,'A'),
-      new Question ("<html>EgyptHard4"+
-                    "<br> A. India"+
-                    "<br> B. Australia"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>Which Egyptian town contains the Temple of Amun?"+
+                    "<br> A. Cairo"+
+                    "<br> B. Siwah"+
+                    "<br> C. Giza"+
+                    "<br> D. Luxor</html>"
                       ,'B'),
-      new Question ("<html>EgyptHard5"+
-                    "<br> A. New Zealand"+
-                    "<br> B. Canberra"+
-                    "<br> C. Melbourne"+
-                    "<br> D. Sydney</html>"
+      new Question ("<html>Approximately how large is the Nile delta (in square kilometers)?"+
+                    "<br> A. 22000"+
+                    "<br> B. 42000"+
+                    "<br> C. 15000"+
+                    "<br> D. 31000</html>"
                       ,'D')
     };
     try
@@ -1455,11 +1455,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       Country egypt =new Country ("Egypt",egyptEasy, egyptMedium,
                                   egyptHard, ImageIO.read (new File ("pics/egypt.jpg")),
                                   new String[]{
-        "EgyptClue1.",
-          "EgyptClue2.",
-          "EgyptClue3.",
-          "EgyptClue4.",
-          "EgyptClue5."
+        "I am in the country which contains the Nile River.",
+          "I am in the country which contains the Pyramids of Giza.",
+          "I am in the country in which the Sinai penninsula is located.",
+          "I am in the country which contains the Valley of Kings and Queens.",
+          "I am in the country in which the Great Sphinx van be found."
       });
       COUNTRIES [6]=egypt;
     }
