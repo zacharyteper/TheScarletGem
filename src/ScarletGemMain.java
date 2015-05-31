@@ -1932,23 +1932,23 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> C. Birmingham"+
                    "<br> D. Bradford</html>"
                      ,'B'),
-      new Question ("<html>EngalndEasy2"+
+      new Question ("<html>Which ocean is off the coast of England?"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
                     "<br> D. Atlantic</html>"
-                      ,'C'),
-      new Question ("<html>EnglandEasy3"+
-                    "<br> A. Indonesia"+
-                    "<br> B. Russia"+
+                      ,'D'),
+      new Question ("<html>Which continent is England  a part of?"+
+                    "<br> A. Europe"+
+                    "<br> B. Asia"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico</html>"
+                    "<br> D. South America</html>"
                       ,'A'),
-      new Question ("<html>EnglandEasy4"+
-                    "<br> A. India"+
-                    "<br> B. Australia"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>What is the name of the river that flows through London?"+
+                    "<br> A. Ply"+
+                    "<br> B. Thames"+
+                    "<br> C. Danube"+
+                    "<br> D. Dee</html>"
                       ,'B'),
       new Question ("<html>EnglandEasy5"+
                     "<br> A. New Zealand"+

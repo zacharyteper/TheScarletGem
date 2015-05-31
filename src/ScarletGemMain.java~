@@ -1476,55 +1476,56 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> C. New Delhi"+
                    "<br> D. Hyderabad</html>"
                      ,'C'),
-      new Question ("<html>IndiaEasy2"+
-                    "<br> A. Arctic"+
-                    "<br> B. Pacific"+
-                    "<br> C. Indian"+
-                    "<br> D. Atlantic</html>"
-                      ,'C'),
-      new Question ("<html>IndiaEasy3"+
-                    "<br> A. Indonesia"+
-                    "<br> B. Russia"+
-                    "<br> C. Africa"+
-                    "<br> D. Mexico</html>"
+      
+      new Question ("<html>What is the national currency of India"+
+                    "<br> A. India Dollar"+
+                    "<br> B. Yuan"+
+                    "<br> C. Euro"+
+                    "<br> D. Rupee</html>"
+                      ,'D'),
+      new Question ("<html>Which colour is NOT featured on the Indian flag?"+
+                    "<br> A. Orange (saffron)"+
+                    "<br> B. White"+
+                    "<br> C. Green"+
+                    "<br> D. Yellow</html>"
+                      ,'D'),
+      new Question ("<html>Which ocean is off the coast of India?"+
+                    "<br> A. Indian"+
+                    "<br> B. Atlantic"+
+                    "<br> C. Pacific"+
+                    "<br> D. Arctic</html>"
                       ,'A'),
-      new Question ("<html>IndiaEasy4"+
-                    "<br> A. India"+
-                    "<br> B. Australia"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>What is the longest river in India?"+
+                    "<br> A. Brahmaputra"+
+                    "<br> B. Ganges"+
+                    "<br> C. Krishna"+
+                    "<br> D. Jamuna</html>"
                       ,'B'),
-      new Question ("<html>IndiaEasy5"+
-                    "<br> A. New Zealand"+
-                    "<br> B. Canberra"+
-                    "<br> C. Melbourne"+
-                    "<br> D. Sydney</html>"
-                      ,'D')
     };
     Question[] indiaMedium=
-    {new Question ("<html>indiaMedium1"+
-                   "<br> A. Mumbai"+
-                   "<br> B. Bangalore"+
-                   "<br> C. New Delhi"+
-                   "<br> D. Hyderabad</html>"
+    {new Question ("<html>What is the national animal of India"+
+                   "<br> A. Asian lion"+
+                   "<br> B. Diamond-back python"+
+                   "<br> C. Bengal tiger"+
+                   "<br> D. Lamprey Eel</html>"
                      ,'C'),
-      new Question ("<html>IndiaMedium2"+
-                    "<br> A. Arctic"+
-                    "<br> B. Pacific"+
-                    "<br> C. Indian"+
-                    "<br> D. Atlantic</html>"
+      new Question ("<html>Which country does not directly border India?"+
+                    "<br> A. Bangladesh"+
+                    "<br> B. Bhutan"+
+                    "<br> C. Nepal"+
+                    "<br> D. Afghanistan</html>"
                       ,'C'),
-      new Question ("<html>IndiaMedium3"+
-                    "<br> A. Indonesia"+
-                    "<br> B. Russia"+
-                    "<br> C. Africa"+
-                    "<br> D. Mexico</html>"
+      new Question ("<html>How many official languages does India have?"+
+                    "<br> A. 16"+
+                    "<br> B. 12"+
+                    "<br> C. 25"+
+                    "<br> D. 8</html>"
                       ,'A'),
-      new Question ("<html>IndiaMedium4"+
-                    "<br> A. India"+
-                    "<br> B. Australia"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>What year did India gain independence?"+
+                    "<br> A. 1951"+
+                    "<br> B. 1947"+
+                    "<br> C. 1932"+
+                    "<br> D. 1956</html>"
                       ,'B'),
       new Question ("<html>IndiaMedium5"+
                     "<br> A. New Zealand"+
@@ -1534,35 +1535,35 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'D')
     };
     Question[] indiaHard=
-    {new Question ("<html>indiaHard1"+
-                   "<br> A. Mumbai"+
-                   "<br> B. Bangalore"+
-                   "<br> C. New Delhi"+
-                   "<br> D. Hyderabad</html>"
+    {new Question ("<html>When is the Indian monsoon season?"+
+                   "<br> A. May to July"+
+                   "<br> B. October to January"+
+                   "<br> C. June to September"+
+                   "<br> D. February to April</html>"
                      ,'C'),
-      new Question ("<html>IndiaHard2"+
-                    "<br> A. Arctic"+
-                    "<br> B. Pacific"+
-                    "<br> C. Indian"+
-                    "<br> D. Atlantic</html>"
+      new Question ("<html>What is India's climate type?"+
+                    "<br> A. Tundra"+
+                    "<br> B. Desert"+
+                    "<br> C. Tropical"+
+                    "<br> D. Steppe</html>"
                       ,'C'),
-      new Question ("<html>IndiaHard3"+
-                    "<br> A. Indonesia"+
-                    "<br> B. Russia"+
-                    "<br> C. Africa"+
-                    "<br> D. Mexico</html>"
+      new Question ("<html>How many officially recognized wetlands are in India?"+
+                    "<br> A. 71"+
+                    "<br> B. 34"+
+                    "<br> C. 65"+
+                    "<br> D. 93</html>"
                       ,'A'),
-      new Question ("<html>IndiaHard4"+
-                    "<br> A. India"+
-                    "<br> B. Australia"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>What is the main mineral export of India?"+
+                    "<br> A. Iron"+
+                    "<br> B. Coal"+
+                    "<br> C. Jade"+
+                    "<br> D. Silver</html>"
                       ,'B'),
-      new Question ("<html>IndiaHard5"+
-                    "<br> A. New Zealand"+
-                    "<br> B. Canberra"+
-                    "<br> C. Melbourne"+
-                    "<br> D. Sydney</html>"
+      new Question ("<html>What type of tree is founds at Sundarbans in India?"+
+                    "<br> A. Cherry"+
+                    "<br> B. Almond"+
+                    "<br> C. Copperpod"+
+                    "<br> D. Mangrove</html>"
                       ,'D')
     };
     try
@@ -1570,11 +1571,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       Country india =new Country ("India",indiaEasy, indiaMedium,
                                   indiaHard, ImageIO.read (new File ("pics/india.jpg")),
                                   new String[]{
-        "IndiaClue1.",
-          "IndiaClue2.",
-          "IndiaClue3.",
-          "IndiaClue4.",
-          "IndiaClue5."
+        "I am in the country which contains the Ganges river.",
+          "I am in the country in which the Ghats mountain range is found.",
+          "I am in the world's third largest producer of coal.",
+          "I am in the country in which the Thar desert can be found.",
+          "I am in the country in which borders Pakistan and Bangladesh."
       });
       COUNTRIES [7]=india;
     }
@@ -1590,61 +1591,61 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> C. Samara"+
                    "<br> D. Moscow</html>"
                      ,'D'),
-      new Question ("<html>RussiaEasy2"+
+      new Question ("<html>What continents is Russia part of?"+
+                    "<br> A. Africa & Asia"+
+                    "<br> B. Europe & Africa"+
+                    "<br> C. Europe & Asia"+
+                    "<br> D. Asia & Australia</html>"
+                      ,'C'),
+      new Question ("<html>Which ocean is off the Northern shore of Russia?"+
+                    "<br> A. Arctic"+
+                    "<br> B. Atlantic"+
+                    "<br> C. Pacific"+
+                    "<br> D. Indian</html>"
+                      ,'A'),
+      new Question ("<html>Which ocean is off the Southeastern shore of Russia?"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
-                    "<br> C. Indian"+
-                    "<br> D. Atlantic</html>"
-                      ,'C'),
-      new Question ("<html>RussiaEasy3"+
-                    "<br> A. Indonesia"+
-                    "<br> B. Russia"+
-                    "<br> C. Africa"+
-                    "<br> D. Mexico</html>"
-                      ,'A'),
-      new Question ("<html>RussiaEasy4"+
-                    "<br> A. India"+
-                    "<br> B. Australia"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+                    "<br> C. Atlantic"+
+                    "<br> D. Indian</html>"
                       ,'B'),
-      new Question ("<html>RussiaEasy5"+
-                    "<br> A. New Zealand"+
-                    "<br> B. Canberra"+
-                    "<br> C. Melbourne"+
-                    "<br> D. Sydney</html>"
+      new Question ("<html>Which country does not have a border with Russia?"+
+                    "<br> A. China"+
+                    "<br> B. Lativa"+
+                    "<br> C. Norway"+
+                    "<br> D. Syria</html>"
                       ,'D')
     };
     Question[] russiaMedium=
-    {new Question ("<html>russiaMedium1"+
-                   "<br> A. St. Petersburg"+
-                   "<br> B. Kazan"+
-                   "<br> C. Samara"+
-                   "<br> D. Moscow</html>"
+    {new Question ("<html>How many different borders are there between Russia and China?"+
+                   "<br> A. 2"+
+                   "<br> B. 0"+
+                   "<br> C. 1"+
+                   "<br> D. 3</html>"
                      ,'A'),
-      new Question ("<html>RussiaMedium2"+
-                    "<br> A. Arctic"+
-                    "<br> B. Pacific"+
-                    "<br> C. Indian"+
-                    "<br> D. Atlantic</html>"
+      new Question ("<html>Approximately how large is Russia (in square kilometers)?"+
+                    "<br> A. 14 million"+
+                    "<br> B. 11 million"+
+                    "<br> C. 17 million"+
+                    "<br> D. 19 million</html>"
                       ,'C'),
-      new Question ("<html>RussiaMedium3"+
-                    "<br> A. Indonesia"+
-                    "<br> B. Russia"+
-                    "<br> C. Africa"+
-                    "<br> D. Mexico</html>"
+      new Question ("<html>What is Russia's main export?"+
+                    "<br> A. Petroleum"+
+                    "<br> B. Metals"+
+                    "<br> C. Lumber"+
+                    "<br> D. Cars</html>"
                       ,'A'),
-      new Question ("<html>RussiaMedium4"+
-                    "<br> A. India"+
-                    "<br> B. Australia"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>How many seas are on the shores of Russia?"+
+                    "<br> A. 5"+
+                    "<br> B. 13"+
+                    "<br> C. 9"+
+                    "<br> D. 16</html>"
                       ,'B'),
-      new Question ("<html>RussiaMedium5"+
-                    "<br> A. New Zealand"+
-                    "<br> B. Canberra"+
-                    "<br> C. Melbourne"+
-                    "<br> D. Sydney</html>"
+      new Question ("<html>In what part of Russia is Kaliningrad located?"+
+                    "<br> A. North"+
+                    "<br> B. South"+
+                    "<br> C. East"+
+                    "<br> D. West</html>"
                       ,'D')
     };
     Question[] russiaHard=
@@ -1654,29 +1655,29 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> C. Samara"+
                    "<br> D. Moscow</html>"
                      ,'A'),
-      new Question ("<html>RussiaHard2"+
-                    "<br> A. Arctic"+
-                    "<br> B. Pacific"+
-                    "<br> C. Indian"+
-                    "<br> D. Atlantic</html>"
+      new Question ("<html>What is the length of the Ural mountain range"+
+                    "<br> A. 1300 km"+
+                    "<br> B. 1900 km"+
+                    "<br> C. 2400 km"+
+                    "<br> D. 2900 km</html>"
                       ,'C'),
-      new Question ("<html>RussiaHard3"+
-                    "<br> A. Indonesia"+
-                    "<br> B. Russia"+
-                    "<br> C. Africa"+
-                    "<br> D. Mexico</html>"
+      new Question ("<html>Which is the longest river in Europe?"+
+                    "<br> A. Volga"+
+                    "<br> B. Danube"+
+                    "<br> C. Rhine"+
+                    "<br> D. Dnieper</html>"
                       ,'A'),
-      new Question ("<html>RussiaHard4"+
-                    "<br> A. India"+
-                    "<br> B. Australia"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>What percentage or Russia is swampland?"+
+                    "<br> A. 23%"+
+                    "<br> B. 10%"+
+                    "<br> C. 15%"+
+                    "<br> D. 30%</html>"
                       ,'B'),
-      new Question ("<html>RussiaHard5"+
-                    "<br> A. New Zealand"+
-                    "<br> B. Canberra"+
-                    "<br> C. Melbourne"+
-                    "<br> D. Sydney</html>"
+      new Question ("<html>What is the average yearly temperature of Russia (in degrees Celsius)?"+
+                    "<br> A. 10"+
+                    "<br> B. -5"+
+                    "<br> C. 0"+
+                    "<br> D. 3</html>"
                       ,'D')
     };
     try
@@ -1684,11 +1685,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       Country russia =new Country ("Russia",russiaEasy, russiaMedium,
                                    russiaHard, ImageIO.read (new File ("pics/russia.jpg")),
                                    new String[]{
-        "RussiaClue1.",
-          "RussiaClue2.",
-          "RussiaClue3.",
-          "RussiaClue4.",
-          "RussiaClue5."
+        "I am in the largest country in the world.",
+          "I am in the country which borders 3 oceans.",
+          "I am in the ocuntry which was once ruled by the Romanov dynasty.",
+          "I am in the country which is in both Europe and Asia.",
+          "I am in the ocuntry in which the Ural mountains can be found."
       });
       COUNTRIES [8]=russia;
     }
@@ -1704,93 +1705,93 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> C. Tokyo"+
                    "<br> D. Nagoya</html>"
                      ,'C'),
-      new Question ("<html>JapanEasy2"+
-                    "<br> A. Arctic"+
-                    "<br> B. Pacific"+
-                    "<br> C. Indian"+
-                    "<br> D. Atlantic</html>"
+      new Question ("<html>What is the main religion of Japan?"+
+                    "<br> A. Buddhism"+
+                    "<br> B. Christianity"+
+                    "<br> C. Shintoism"+
+                    "<br> D. Islam</html>"
                       ,'C'),
-      new Question ("<html>JapanEasy3"+
-                    "<br> A. Indonesia"+
-                    "<br> B. Russia"+
-                    "<br> C. Africa"+
-                    "<br> D. Mexico</html>"
+      new Question ("<html>On which island is Tokyo located?"+
+                    "<br> A. Honshu"+
+                    "<br> B. Hokkaido"+
+                    "<br> C. Shikoku"+
+                    "<br> D. Kyushu</html>"
                       ,'A'),
-      new Question ("<html>JapanEasy4"+
-                    "<br> A. India"+
-                    "<br> B. Australia"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>What ocean is Japan located in"+
+                    "<br> A. Indian"+
+                    "<br> B. Pacific"+
+                    "<br> C. Atlantic"+
+                    "<br> D. Arctic</html>"
                       ,'B'),
-      new Question ("<html>JapanEasy5"+
-                    "<br> A. New Zealand"+
-                    "<br> B. Canberra"+
-                    "<br> C. Melbourne"+
-                    "<br> D. Sydney</html>"
+      new Question ("<html>What continent is Japan part of?"+
+                    "<br> A. Africa"+
+                    "<br> B. Europe"+
+                    "<br> C. North America"+
+                    "<br> D. Asia</html>"
                       ,'D')
     };
     Question[] japanMedium=
-    {new Question ("<html>japanMedium1"+
-                   "<br> A. Yokohama"+
-                   "<br> B. Osaka"+
-                   "<br> C. Tokyo"+
-                   "<br> D. Nagoya</html>"
+    {new Question ("<html>What percentage of Japan is mountainous?"+
+                   "<br> A. 40%"+
+                   "<br> B. 20%"+
+                   "<br> C. 70%"+
+                   "<br> D. 90%</html>"
                      ,'C'),
-      new Question ("<html>JapanMedium2"+
-                    "<br> A. Arctic"+
-                    "<br> B. Pacific"+
-                    "<br> C. Indian"+
-                    "<br> D. Atlantic</html>"
+      new Question ("<html>How many chains of mountains can be found in Japan?"+
+                    "<br> A. 5"+
+                    "<br> B. 1"+
+                    "<br> C. 3"+
+                    "<br> D. 2</html>"
                       ,'C'),
-      new Question ("<html>JapanMedium3"+
-                    "<br> A. Indonesia"+
-                    "<br> B. Russia"+
-                    "<br> C. Africa"+
-                    "<br> D. Mexico</html>"
+      new Question ("<html>When was the last eruption of Mt. Fuji?"+
+                    "<br> A. 1707"+
+                    "<br> B. 1832"+
+                    "<br> C. 1654"+
+                    "<br> D. 1953</html>"
                       ,'A'),
-      new Question ("<html>JapanMedium4"+
-                    "<br> A. India"+
-                    "<br> B. Australia"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>What is the name of the plain on which Tokyo is situated?"+
+                    "<br> A. Nobi"+
+                    "<br> B. Kanto"+
+                    "<br> C. Kinai"+
+                    "<br> D. Ishikari</html>"
                       ,'B'),
-      new Question ("<html>JapanMedium5"+
-                    "<br> A. New Zealand"+
-                    "<br> B. Canberra"+
-                    "<br> C. Melbourne"+
-                    "<br> D. Sydney</html>"
+      new Question ("<html>Which sea is directly West of Japan?"+
+                    "<br> A. Sea of Okhotsk"+
+                    "<br> B. Caspian Sea"+
+                    "<br> C. Yellow Sea"+
+                    "<br> D. Sea of Japan</html>"
                       ,'D')
     };
     Question[] japanHard=
-    {new Question ("<html>japanHard1"+
-                   "<br> A. Yokohama"+
-                   "<br> B. Osaka"+
-                   "<br> C. Tokyo"+
-                   "<br> D. Nagoya</html>"
+    {new Question ("<html>What direction does the Oyashio current flow?"+
+                   "<br> A. North"+
+                   "<br> B. West"+
+                   "<br> C. South"+
+                   "<br> D. East</html>"
                      ,'C'),
-      new Question ("<html>JapanHard2"+
-                    "<br> A. Arctic"+
-                    "<br> B. Pacific"+
-                    "<br> C. Indian"+
-                    "<br> D. Atlantic</html>"
+      new Question ("<html>When is the Japanese typhoon season?"+
+                    "<br> A. April to May"+
+                    "<br> B. November to December"+
+                    "<br> C. August to September"+
+                    "<br> D. February to March</html>"
                       ,'C'),
-      new Question ("<html>JapanHard3"+
-                    "<br> A. Indonesia"+
-                    "<br> B. Russia"+
-                    "<br> C. Africa"+
-                    "<br> D. Mexico</html>"
+      new Question ("<html>What is the hottest temperature <br>ever recorded in Japan (in degrees Celsius)?"+
+                    "<br> A. 41"+
+                    "<br> B. 38"+
+                    "<br> C. 45"+
+                    "<br> D. 36</html>"
                       ,'A'),
-      new Question ("<html>JapanHard4"+
-                    "<br> A. India"+
-                    "<br> B. Australia"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>What direction does the Kuroshio current flow?"+
+                    "<br> A. East"+
+                    "<br> B. North"+
+                    "<br> C. South"+
+                    "<br> D. West</html>"
                       ,'B'),
-      new Question ("<html>JapanHard5"+
-                    "<br> A. New Zealand"+
-                    "<br> B. Canberra"+
-                    "<br> C. Melbourne"+
-                    "<br> D. Sydney</html>"
+      new Question ("<html>What is the population of Osaka?"+
+                    "<br> A. 12 million"+
+                    "<br> B. 25 million"+
+                    "<br> C. 9 million"+
+                    "<br> D. 19 million</html>"
                       ,'D')
     };
     try
@@ -1798,11 +1799,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       Country japan =new Country ("Japan",japanEasy, japanMedium,
                                   japanHard, ImageIO.read (new File ("pics/japan.jpg")),
                                   new String[]{
-        "JapanClue1.",
-          "JapanClue2.",
-          "JapanClue3.",
-          "JapanClue4.",
-          "JapanClue5."
+        "I am in the country in which Mt. Fuji is located.",
+          "I am in the country in which Osaka is located.",
+          "I am in the country which is made up of four main islands.",
+          "I am in the country which was once ruled by a military shogunate.",
+          "I am in the country which is directly East of Korea."
       });
       COUNTRIES [9]=japan;
     }
@@ -1818,104 +1819,104 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> C. Lille"+
                    "<br> D. Paris</html>"
                      ,'D'),
-      new Question ("<html>FranceEasy2"+
-                    "<br> A. Arctic"+
-                    "<br> B. Pacific"+
-                    "<br> C. Indian"+
-                    "<br> D. Atlantic</html>"
-                      ,'C'),
-      new Question ("<html>FranceEasy3"+
-                    "<br> A. Indonesia"+
-                    "<br> B. Russia"+
-                    "<br> C. Africa"+
-                    "<br> D. Mexico</html>"
-                      ,'A'),
-      new Question ("<html>FranceEasy4"+
-                    "<br> A. India"+
-                    "<br> B. Australia"+
-                    "<br> C. Africa"+
+      new Question ("<html>Which continent is France part of?"+
+                    "<br> A. Africa"+
+                    "<br> B. South America"+
+                    "<br> C. Europe"+
                     "<br> D. Asia</html>"
+                      ,'C'),
+      new Question ("<html>Which river is NOT on the shore of France?"+
+                    "<br> A. Volga"+
+                    "<br> B. Rhone"+
+                    "<br> C. Seine"+
+                    "<br> D. Garronne</html>"
+                      ,'A'),
+      new Question ("<html>Which country does NOT have a border with France?"+
+                    "<br> A. Andorra"+
+                    "<br> B. England"+
+                    "<br> C. Italy"+
+                    "<br> D. Spain</html>"
                       ,'B'),
-      new Question ("<html>FranceEasy5"+
-                    "<br> A. New Zealand"+
-                    "<br> B. Canberra"+
-                    "<br> C. Melbourne"+
-                    "<br> D. Sydney</html>"
+      new Question ("<html>What is the name of the mountain range which seperates France from Spain?"+
+                    "<br> A. Alps"+
+                    "<br> B. Ural"+
+                    "<br> C. Himalayas"+
+                    "<br> D. Pyrenees</html>"
                       ,'D')
     };
     Question[] franceMedium=
-    {new Question ("<html>franceMedium1"+
-                   "<br> A. Marceille"+
-                   "<br> B. Nice"+
-                   "<br> C. Lille"+
-                   "<br> D. Paris</html>"
+    {new Question ("<html>Which country is NOT a part of France?"+
+                   "<br> A. French Guiana"+
+                   "<br> B. New Caledonia"+
+                   "<br> C. St. Pierre and Miquelon"+
+                   "<br> D. Brazil"
                      ,'D'),
-      new Question ("<html>FranceMedium2"+
-                    "<br> A. Arctic"+
-                    "<br> B. Pacific"+
-                    "<br> C. Indian"+
-                    "<br> D. Atlantic</html>"
+      new Question ("<html>What is the main religion of France?"+
+                    "<br> A. Islam"+
+                    "<br> B. Hindu"+
+                    "<br> C. Catholic"+
+                    "<br> D. Lutheran</html>"
                       ,'C'),
-      new Question ("<html>FranceMedium3"+
-                    "<br> A. Indonesia"+
-                    "<br> B. Russia"+
+      new Question ("<html>What continent is French Guiana part of?"+
+                    "<br> A. South America"+
+                    "<br> B. North America"+
                     "<br> C. Africa"+
-                    "<br> D. Mexico</html>"
+                    "<br> D. Europe</html>"
                       ,'A'),
-      new Question ("<html>FranceMedium4"+
-                    "<br> A. India"+
-                    "<br> B. Australia"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>How many countries share a border with mainland France?"+
+                    "<br> A. 5"+
+                    "<br> B. 8"+
+                    "<br> C. 10"+
+                    "<br> D. 6</html>"
                       ,'B'),
-      new Question ("<html>FranceMedium5"+
-                    "<br> A. New Zealand"+
-                    "<br> B. Canberra"+
-                    "<br> C. Melbourne"+
-                    "<br> D. Sydney</html>"
+      new Question ("<html>What continent is Mayotte part of"+
+                    "<br> A. Europe"+
+                    "<br> B. North America"+
+                    "<br> C. Asia"+
+                    "<br> D. Africa</html>"
                       ,'D')
     };
     Question[] franceHard=
-    {new Question ("<html>franceHard1"+
-                   "<br> A. Marceille"+
-                   "<br> B. Nice"+
-                   "<br> C. Lille"+
-                   "<br> D. Paris</html>"
+    {new Question ("<html>How many countries share a border with French Guiana?"+
+                   "<br> A. 5"+
+                   "<br> B. 3"+
+                   "<br> C. 4"+
+                   "<br> D. 2</html>"
                      ,'D'),
-      new Question ("<html>FranceHard2"+
-                    "<br> A. Arctic"+
-                    "<br> B. Pacific"+
-                    "<br> C. Indian"+
-                    "<br> D. Atlantic</html>"
+      new Question ("<html>What year was the first French republic established?"+
+                    "<br> A. 1785"+
+                    "<br> B. 1790"+
+                    "<br> C. 1792"+
+                    "<br> D. 1800</html>"
                       ,'C'),
-      new Question ("<html>FranceHard3"+
-                    "<br> A. Indonesia"+
-                    "<br> B. Russia"+
-                    "<br> C. Africa"+
-                    "<br> D. Mexico</html>"
+      new Question ("<html>What is the Easternmost point in France"+
+                    "<br> A. Lauterbourg"+
+                    "<br> B. Pairs"+
+                    "<br> C. Alsace"+
+                    "<br> D. Calais</html>"
                       ,'A'),
-      new Question ("<html>FranceHard4"+
-                    "<br> A. India"+
-                    "<br> B. Australia"+
-                    "<br> C. Africa"+
-                    "<br> D. Asia</html>"
+      new Question ("<html>How many non-EU countries share a border with France?"+
+                    "<br> A. 2"+
+                    "<br> B. 1"+
+                    "<br> C. 0"+
+                    "<br> D. 3</html>"
                       ,'B'),
-      new Question ("<html>FranceHard5"+
-                    "<br> A. New Zealand"+
-                    "<br> B. Canberra"+
-                    "<br> C. Melbourne"+
-                    "<br> D. Sydney</html>"
+      new Question ("<html>Which best describes the climate of la Reunion?"+
+                    "<br> A. Desert"+
+                    "<br> B. Tundra"+
+                    "<br> C. Steppe"+
+                    "<br> D. Tropical</html>"
                       ,'D')
     };
     try
     {
       Country france =new Country ("France",franceEasy,franceMedium, null, ImageIO.read (new File ("pics/france.jpeg")),
                                    new String[]{
-        "FranceClue1.",
-          "FranceClue2.",
-          "FranceClue3.",
-          "FranceClue4.",
-          "FranceClue5."
+        "I am in the largest country in Europe.",
+          "I am in the country which shares a border with Spain and Germany.",
+          "I am in the country in which the Loire river flows.",
+          "I am in the first European contry to establish a republic.",
+          "I am in the country in which Mont Blanc is located."
       });
       COUNTRIES [10]=france;
     }
