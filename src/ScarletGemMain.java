@@ -271,6 +271,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     else if (ae.getSource().equals(highScoresItem))
     {
+      HighScoresViewer h = new HighScoresViewer ();
     }
     else if (ae.getSource().equals(mainMenuPanel.getEasyButton()))
     {
@@ -434,7 +435,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       out.println (currentCountry.getName());
       
       out.println();
-            
+      
       out.println (GameTimer.timeRemaining);
       out.println ();
       out.println (currentQuestion);
@@ -492,7 +493,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     if (levelsRemaining==0)
     {
       gamePanel.timer.setGameWon (true);
-      JOptionPane.showMessageDialog(null,"You Win");
       endGame();
     }
     else
@@ -595,6 +595,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       {
         System.out.println ("remove");
         gamePanel.removeWrongAnswer(answer);
+        score -= 10;
       }
     }
     else
@@ -608,6 +609,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       {
         gamePanel.removeWrongDestination(answer-65);
         System.out.println ("remove country " + (answer-65));
+        score -= 10;
       }
     }
   }
@@ -617,14 +619,59 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    */
   public void endGame()
   {
-    remove(gamePanel);
-    remove(levelCounter);
-    add(mainMenuPanel);
-    levelsRemaining = -1;
-    currentCountry=COUNTRIES[0];
-    alreadyBeen=new ArrayList<Country>();
-    repaint();
-    revalidate();
+      remove(gamePanel);
+      remove(levelCounter);
+      levelsRemaining = -1;
+      currentCountry=COUNTRIES[0];
+      alreadyBeen=new ArrayList<Country>();
+    int next = 0;
+    if (gamePanel.timer.getGameWon())
+    {
+      score += GameTimer.timeRemaining;
+      System.out.println (score);
+      
+      try
+      {
+        userName = JOptionPane.showInputDialog (null, 
+                                                "Congratulations, you found the Scarlet Gem! Please enter your user name!", 
+                                                "You won!", JOptionPane.QUESTION_MESSAGE);
+      }
+      catch (NullPointerException e)
+      {
+        userName = "NO NAME";
+      }
+      
+      HighScoresViewer.sort (score, userName, difficulty);
+      
+      if (difficulty == 0 || difficulty == 1)
+        next = JOptionPane.showConfirmDialog(null, "Would you like to continue to the next level?", "Next?", JOptionPane.YES_NO_OPTION);
+      if (next == 0)
+      {
+        if (difficulty == 0)
+        {
+          levelsRemaining=5;
+          difficulty=1;
+        }
+        else
+        {
+          levelsRemaining=7;
+          difficulty=2;
+        }
+        initializeGame();  
+      }
+      else
+      {
+        add(mainMenuPanel);
+        repaint();
+        revalidate();
+      }
+    }
+    else
+    {
+      add(mainMenuPanel);
+      repaint();
+      revalidate();
+    }
   }
   /**
    * Sends a print command to the printer specified in the dialog box.
