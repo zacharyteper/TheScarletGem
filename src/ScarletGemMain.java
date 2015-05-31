@@ -487,6 +487,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     
     if (levelsRemaining==0)
     {
+      gamePanel.timer.setGameWon (true);
       JOptionPane.showMessageDialog(null,"You Win");
       endGame();
     }
@@ -612,7 +613,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    */
   public void endGame()
   {
-    gamePanel.timer.setGameWon (true);
     remove(gamePanel);
     remove(levelCounter);
     add(mainMenuPanel);

@@ -13,79 +13,49 @@ public class HighScoresViewer extends JFrame implements ActionListener
   private JButton hard = new JButton ("Hard");
   private JButton close = new JButton ("Close");
   private JButton clear = new JButton ("Clear");
-  private int[] easyScores = new int [11];
-  private int[] mediumScores = new int [11];
-  private int[] hardScores = new int [11];
-  private String[] easyNames = new String [11];
-  private String[] mediumNames = new String [11];
-  private String[] hardNames = new String [11];
+  public static int[] easyScores = new int [11];
+  public static int[] mediumScores = new int [11];
+  public static int[] hardScores = new int [11];
+  public static String[] easyNames = new String [11];
+  public static String[] mediumNames = new String [11];
+  public static String[] hardNames = new String [11];
   private JLabel difficulty = new JLabel ("High Scores --- Easy");
   private JLabel names;
   private JLabel scores;
   
-  public JButton getEasy ()
-  {
-    return easy;
-  }
-  public JButton getMedium ()
-  {
-    return medium;
-  }
-  public JButton getHard ()
-  {
-    return hard;
-  }
-  
-  public int[] getEasyScores ()
-  {
-    return easyScores;
-  }
-  public int[] getMediumScores ()
-  {
-    return mediumScores;
-  }
-  public int[] getHardScores ()
-  {
-    return hardScores;
-  }
-  
-  public String[] getEasyNames ()
-  {
-    return easyNames;
-  }
-  public String[] getMediumNames ()
-  {
-    return mediumNames;
-  }
-  public String[] getHardNames ()
-  {
-    return hardNames;
-  }
-  
-  public void addEasy (int score, String name)
-  {
-    easyScores [11] = score;
-    easyNames [11] = name;
-  }
-  public void addMedium (int score, String name)
-  {
-    mediumScores [11] = score;
-    mediumNames [11] = name;
-  }
-  public void addHard (int score, String name)
-  {
-    hardScores [11] = score;
-    hardNames [11] = name;
-  }
-  
   public void actionPerformed (ActionEvent ae)
   {
-    if (ae.getActionCommand().equals ("easy"))
+    if (ae.getActionCommand().equals ("Easy"))
     {
+      switchToLevel (0);
+    }
+    else if (ae.getActionCommand().equals ("Medium"))
+    {
+      switchToLevel (1);
+    }
+    else if (ae.getActionCommand().equals ("Hard"))
+    {
+      switchToLevel (2);
+    }
+    else if (ae.getActionCommand().equals ("Clear"))
+    {
+      try
+      {
+        PrintWriter out = new PrintWriter (new FileWriter ("High Scores.txt"));
+        out.println ("The Scarlet Gem");
+      }
+      catch (IOException i)
+      {
+        JOptionPane.showMessageDialog(null,"Unable to write to file.");
+      }
+    }
+    else
+    {
+      System.exit (0);
     }
   }
   
-  public void sort ()
+  public static void sort ()
   {
     boolean fileExist = false;
     
@@ -213,7 +183,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
     }
   }
   
-  public void output ()
+  private void output ()
   {    
     try
     {
@@ -259,20 +229,74 @@ public class HighScoresViewer extends JFrame implements ActionListener
     catch (NumberFormatException n)
     {
     }
-    
-  }
-  
-  public void switchToLevel (int difficulty)
-  {
-    if (difficulty == 0)
+    catch (NullPointerException e)
     {
     }
-    else if (difficulty == 1)
+    String name = "<html><b>User Name</b><br>";
+    String score = "<html><b>Scores</b><br>";
+    for (int x = 0; x < 10; x++)
     {
+      if (easyScores[x]==0)
+        break;
+      name += "<br>"+ easyNames[x] + "<br>";
+      score += "<br>" + easyScores[x] + "<br>";
+    }
+    name += "</html>";
+    score += "</html>";
+    names = new JLabel (name);
+    scores = new JLabel (score);
+  }
+  
+  private void switchToLevel (int level)
+  {
+    remove (difficulty);
+    remove (names);
+    remove (scores);
+    String name = "<html><b>User Name</b><br>";
+    String score = "<html><b>Scores</b><br>";
+    if (level == 0)
+    {
+      for (int x = 0; x < 10; x++)
+      {
+        if (easyScores[x]==0)
+          break;
+        name += "<br>"+ easyNames[x] + "<br>";
+        score += "<br>" + easyScores[x] + "<br>";
+      }
+      difficulty = new JLabel ("High Scores --- Easy");
+    }
+    else if (level == 1)
+    {
+      for (int x = 0; x < 10; x++)
+      {
+        if (mediumScores[x]==0)
+          break;
+        name += "<br>"+ mediumNames[x] + "<br>";
+        score += "<br>" + mediumScores[x] + "<br>";
+      }
+      difficulty = new JLabel ("High Scores --- Medium");
     }
     else
     {
+      for (int x = 0; x < 10; x++)
+      {
+        if (hardScores[x]==0)
+          break;
+        name += "<br>"+ hardNames[x] + "<br>";
+        score += "<br>" + hardScores[x] + "<br>";
+      }
+      difficulty = new JLabel ("High Scores --- Hard");
     }
+    name += "</html>";
+    score += "</html>";
+    names = new JLabel (name);
+    scores = new JLabel (score);
+    add (names);
+    add (scores);
+    add (difficulty);
+    names.setBounds (100, 100, names.getPreferredSize().width, names.getPreferredSize().height);
+    scores.setBounds (350, 100, scores.getPreferredSize().width, scores.getPreferredSize().height);
+    difficulty.setBounds(180,60, difficulty.getPreferredSize().width + 30, difficulty.getPreferredSize().height);
   }
   
   public Graphics getScreen ()
@@ -288,7 +312,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
   {
     super ("High Scores");
     setVisible(true);
-    setSize(400,400);
+    setSize(500,600);
     setResizable (false);
     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     easy.addActionListener (this);
@@ -298,12 +322,23 @@ public class HighScoresViewer extends JFrame implements ActionListener
     clear.addActionListener (this);
     setLayout (null);
     
+    output ();
+    
     add (easy);
     add (medium);
     add (hard);
     add (difficulty);
     add (close);
     add (clear);
-    easy.setBounds(100,50, easy.getPreferredSize().height, easy.getPreferredSize().width);
+    add (names);
+    add (scores);
+    easy.setBounds(50,20, easy.getPreferredSize().width, easy.getPreferredSize().height);
+    medium.setBounds(200,20, medium.getPreferredSize().width, medium.getPreferredSize().height);
+    hard.setBounds(350,20, hard.getPreferredSize().width, hard.getPreferredSize().height);
+    close.setBounds(300,500, close.getPreferredSize().width, close.getPreferredSize().height);
+    clear.setBounds(100,500, clear.getPreferredSize().width, clear.getPreferredSize().height);
+    difficulty.setBounds(180,60, difficulty.getPreferredSize().width + 30, difficulty.getPreferredSize().height);
+    names.setBounds (100, 100, names.getPreferredSize().width, names.getPreferredSize().height);
+    scores.setBounds (350, 100, scores.getPreferredSize().width, scores.getPreferredSize().height);
   }
 }

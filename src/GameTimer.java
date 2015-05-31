@@ -132,8 +132,6 @@ public class GameTimer extends Thread
         source.actionPerformed(new ActionEvent (this
                                                 , ActionEvent.ACTION_PERFORMED,"loss"));
       }
-      
-      //System.out.println (timeRemaining);
     }
     if (gameWon)
     {
