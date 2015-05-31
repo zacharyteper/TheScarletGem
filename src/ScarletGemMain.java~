@@ -203,10 +203,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       closeWarning();
     }
-    else if (ae.getSource().equals(highScoresItem))
-    {
-      new HighScoresViewer();
-    }
     else if (ae.getSource().equals(saveItem))
     {
       save();
@@ -1915,7 +1911,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     };
     try
     {
-      Country france =new Country ("France",franceEasy,franceMedium, franceHard, ImageIO.read (new File ("pics/france.jpeg")),
+      Country france =new Country ("France",franceEasy,franceMedium, null, ImageIO.read (new File ("pics/france.jpeg")),
                                    new String[]{
         "I am in the largest country in Europe.",
           "I am in the country which shares a border with Spain and Germany.",
@@ -1943,7 +1939,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. Indian"+
                     "<br> D. Atlantic</html>"
                       ,'D'),
-      new Question ("<html>Which continent is England a part of?"+
+      new Question ("<html>Which continent is England  a part of?"+
                     "<br> A. Europe"+
                     "<br> B. Asia"+
                     "<br> C. Africa"+
@@ -1955,86 +1951,86 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. Danube"+
                     "<br> D. Dee</html>"
                       ,'B'),
-      new Question ("<html>What is the Westernmost city in England"+
-                    "<br> A. London"+
-                    "<br> B. Manchester"+
-                    "<br> C. Sheffield"+
-                    "<br> D. Cornwall</html>"
+      new Question ("<html>EnglandEasy5"+
+                    "<br> A. New Zealand"+
+                    "<br> B. Canberra"+
+                    "<br> C. Melbourne"+
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     Question[] englandMedium=
-    {new Question ("<html>What is England's climate type?"+
-                   "<br> A. Desert"+
-                   "<br> B. Temperate"+
-                   "<br> C. Tundra"+
-                   "<br> D. Steppe</html>"
+    {new Question ("<html>englandMedium1"+
+                   "<br> A. London"+
+                   "<br> B. Leeds"+
+                   "<br> C. Birmingham"+
+                   "<br> D. Bradford</html>"
                      ,'B'),
-      new Question ("<html>Which English city is closest to France?"+
-                    "<br> A. London"+
-                    "<br> B. Cornwall"+
-                    "<br> C. Manchester"+
-                    "<br> D. Dover</html>"
+      new Question ("<html>EngalndMedium2"+
+                    "<br> A. Arctic"+
+                    "<br> B. Pacific"+
+                    "<br> C. Indian"+
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("<html>What is the longest river in the United Kingdom?"+
-                    "<br> A. Severn"+
-                    "<br> B. Thames"+
-                    "<br> C. Avon"+
-                    "<br> D. Wye</html>"
+      new Question ("<html>EnglandMedium3"+
+                    "<br> A. Indonesia"+
+                    "<br> B. Russia"+
+                    "<br> C. Africa"+
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("<html>Which is the largest of the English Isles?"+
-                    "<br> A. Mersea Island"+
-                    "<br> B. Isle of Wight"+
-                    "<br> C. Isle of Man"+
-                    "<br> D. Isle of Man</html>"
+      new Question ("<html>EnglandMedium4"+
+                    "<br> A. India"+
+                    "<br> B. Australia"+
+                    "<br> C. Africa"+
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("<html>What is the Northernmost city in England?"+
-                    "<br> A. London"+
-                    "<br> B. Manchester"+
-                    "<br> C. Worcester"+
-                    "<br> D. Marshall Meadows</html>"
+      new Question ("<html>EnglandMedium5"+
+                    "<br> A. New Zealand"+
+                    "<br> B. Canberra"+
+                    "<br> C. Melbourne"+
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     Question[] englandHard=
-    {new Question ("<html>Which two countries does Hadrian's Wall seperate?"+
-                   "<br> A. Scotland & Ireland"+
-                   "<br> B. Scotland & England"+
-                   "<br> C. France & England"+
-                   "<br> D. France & Ireland</html>"
+    {new Question ("<html>englandHard1"+
+                   "<br> A. London"+
+                   "<br> B. Leeds"+
+                   "<br> C. Birmingham"+
+                   "<br> D. Bradford</html>"
                      ,'B'),
-      new Question ("<html>Which are the heighest mountains in England?"+
-                    "<br> A. Mendip Hills"+
-                    "<br> B. Pennies"+
-                    "<br> C. Cumbrian Mountains"+
-                    "<br> D. Shropshire Hills</html>"
+      new Question ("<html>EngalndHard2"+
+                    "<br> A. Arctic"+
+                    "<br> B. Pacific"+
+                    "<br> C. Indian"+
+                    "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("<html>What percentage of the United Kingdom is used as grazing land?"+
-                    "<br> A. 46%"+
-                    "<br> B. 21%"+
-                    "<br> C. 63%"+
-                    "<br> D. 12%</html>"
+      new Question ("<html>EnglandHard3"+
+                    "<br> A. Indonesia"+
+                    "<br> B. Russia"+
+                    "<br> C. Africa"+
+                    "<br> D. Mexico</html>"
                       ,'A'),
-      new Question ("<html>Which is the most abundant mineral in England?"+
-                    "<br> A. Gold"+
-                    "<br> B. Coal"+
-                    "<br> C. Silver"+
-                    "<br> D. Iron</html>"
+      new Question ("<html>EnglandHard4"+
+                    "<br> A. India"+
+                    "<br> B. Australia"+
+                    "<br> C. Africa"+
+                    "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("<html>Which of the following islands is NOT a British territory?"+
-                    "<br> A. Gibraltar"+
-                    "<br> B. Montserrat"+
-                    "<br> C. Pitcairn Islands"+
-                    "<br> D. Corsica</html>"
+      new Question ("<html>EnglandHard5"+
+                    "<br> A. New Zealand"+
+                    "<br> B. Canberra"+
+                    "<br> C. Melbourne"+
+                    "<br> D. Sydney</html>"
                       ,'D')
     };
     try
     {
-      Country england =new Country ("England",englandEasy, englandMedium, englandHard, ImageIO.read (new File ("pics/england.jpg")),
+      Country england =new Country ("England",englandEasy, englandMedium, null, ImageIO.read (new File ("pics/england.jpg")),
                                     new String[]{
-        "I am in the country where London can be found.",
-          "I am in the country which was once ruled by Henry IV and Richard II.",
-          "I am in the country which controlls the Strait of Gibraltar.",
-          "I am in the largest country in the United Kingdom.",
-          "I am in the country on the North side of the English Channel."
+        "EnglandClue1.",
+          "EnglandClue2.",
+          "EnglandClue3.",
+          "EnglandClue4.",
+          "EnglandClue5."
       });
       COUNTRIES [11]=england;
     }
