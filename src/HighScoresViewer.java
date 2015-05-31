@@ -13,12 +13,12 @@ public class HighScoresViewer extends JFrame implements ActionListener
   private JButton hard = new JButton ("Hard");
   private JButton close = new JButton ("Close");
   private JButton clear = new JButton ("Clear");
-  public static int[] easyScores = new int [11];
-  public static int[] mediumScores = new int [11];
-  public static int[] hardScores = new int [11];
-  public static String[] easyNames = new String [11];
-  public static String[] mediumNames = new String [11];
-  public static String[] hardNames = new String [11];
+  public static int[] easyScores = new int [10];
+  public static int[] mediumScores = new int [10];
+  public static int[] hardScores = new int [10];
+  public static String[] easyNames = new String [10];
+  public static String[] mediumNames = new String [10];
+  public static String[] hardNames = new String [10];
   private JLabel difficulty = new JLabel ("High Scores --- Easy");
   private JLabel names;
   private JLabel scores;
@@ -27,15 +27,15 @@ public class HighScoresViewer extends JFrame implements ActionListener
   {
     if (ae.getActionCommand().equals ("Easy"))
     {
-      switchToLevel (0);
+      switchLevel (0);
     }
     else if (ae.getActionCommand().equals ("Medium"))
     {
-      switchToLevel (1);
+      switchLevel (1);
     }
     else if (ae.getActionCommand().equals ("Hard"))
     {
-      switchToLevel (2);
+      switchLevel (2);
     }
     else if (ae.getActionCommand().equals ("Clear"))
     {
@@ -55,7 +55,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
     }
   }
   
-  public static void sort ()
+  public static void fileCheck ()
   {
     boolean fileExist = false;
     
@@ -73,13 +73,17 @@ public class HighScoresViewer extends JFrame implements ActionListener
     {
       fileExist = false;
     }
-    
     if (fileExist == false)
     {
       try
       {
         PrintWriter out = new PrintWriter (new FileWriter ("High Scores.txt"));
         out.println ("The Scarlet Gem");
+        out.println ("easy");
+        out.println ();
+        out.println ("medium");
+        out.println ();
+        out.println ("hard");
         out.close ();
       }
       catch (IOException e)
@@ -87,7 +91,11 @@ public class HighScoresViewer extends JFrame implements ActionListener
         JOptionPane.showMessageDialog(null,"Unable to write to file.");
       }
     }
-    
+  }
+  
+  public static void sort (int score, String name, int level)
+  {
+    fileCheck ();
     try
     {
       BufferedReader in = new BufferedReader (new FileReader ("High Scores.txt"));
@@ -98,8 +106,11 @@ public class HighScoresViewer extends JFrame implements ActionListener
           for (int x = 0 ; x < 10 ; x++)
           {
             easyNames [x] = in.readLine ();
-            if (easyNames [x] == null)
+            if (easyNames [x].equals (""))
+            {
+              System.out.println ("break1");
               break;
+            }
             easyScores [x] = Integer.parseInt (in.readLine ());
           }
         }
@@ -108,8 +119,11 @@ public class HighScoresViewer extends JFrame implements ActionListener
           for (int x = 0 ; x < 10 ; x++)
           {
             mediumNames [x] = in.readLine ();
-            if (mediumNames [x] == null)
+            if (mediumNames [x].equals (""))
+            {
+              System.out.println ("break2");
               break;
+            }
             mediumScores [x] = Integer.parseInt (in.readLine ());
           }
         }
@@ -119,7 +133,10 @@ public class HighScoresViewer extends JFrame implements ActionListener
           {
             hardNames [x] = in.readLine ();
             if (hardNames [x] == null)
+            {
+              System.out.println ("break3");
               break;
+            }
             hardScores [x] = Integer.parseInt (in.readLine ());
           }
         }
@@ -128,14 +145,19 @@ public class HighScoresViewer extends JFrame implements ActionListener
       PrintWriter out = new PrintWriter (new FileWriter ("High Scores.txt"));
       out.println ("The Scarlet Gem");
       out.println ("easy");
+      System.out.println ("easy");
       int x;
-      for (x = 0; x < 10 && easyScores[x] > easyScores[10]; x++)
+      for (x = 0; x < 10 && easyScores[x] > score + 210; x++)
       {
         out.println (easyNames[x]);
         out.println (easyScores[x]);
       }
-      out.println (easyNames[10]);
-      out.println (easyScores[10]);
+      if (level == 0)
+      {
+        out.println (name);
+        out.println (score + 180);
+      }
+      
       for (x = x; x < 10 && easyScores[x]!=0; x++)
       {
         out.println (easyNames[x]);
@@ -144,13 +166,16 @@ public class HighScoresViewer extends JFrame implements ActionListener
       
       out.println ();
       out.println ("medium");
-      for (x = 0; x < 10 && mediumScores[x] > mediumScores[10]; x++)
+      for (x = 0; x < 10 && mediumScores[x] > score + 480; x++)
       {
         out.println (mediumNames[x]);
         out.println (mediumScores[x]);
       }
-      out.println (mediumNames[10]);
-      out.println (mediumScores[10]);
+      if (level == 1)
+      {
+        out.println (name);
+        out.println (score + 450);
+      }
       for (x = x; x < 10 && mediumScores[x]!=0; x++)
       {
         out.println (mediumNames[x]);
@@ -159,13 +184,16 @@ public class HighScoresViewer extends JFrame implements ActionListener
       
       out.println ();
       out.println ("hard");
-      for (x = 0; x < 10 && hardScores[x] > hardScores[10]; x++)
+      for (x = 0; x < 10 && hardScores[x] > score + 660; x++)
       {
         out.println (hardNames[x]);
         out.println (hardScores[x]);
       }
-      out.println (hardNames[10]);
-      out.println (hardScores[10]);
+      if (level == 2)
+      {
+        out.println (name);
+        out.println (score + 630);
+      }
       for (x = x; x < 10 && hardScores[x]!=0; x++)
       {
         out.println (hardNames[x]);
@@ -229,9 +257,6 @@ public class HighScoresViewer extends JFrame implements ActionListener
     catch (NumberFormatException n)
     {
     }
-    catch (NullPointerException e)
-    {
-    }
     String name = "<html><b>User Name</b><br>";
     String score = "<html><b>Scores</b><br>";
     for (int x = 0; x < 10; x++)
@@ -247,7 +272,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
     scores = new JLabel (score);
   }
   
-  private void switchToLevel (int level)
+  private void switchLevel (int level)
   {
     remove (difficulty);
     remove (names);
@@ -322,6 +347,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
     clear.addActionListener (this);
     setLayout (null);
     
+    fileCheck ();
     output ();
     
     add (easy);
