@@ -6,6 +6,22 @@ import java.awt.*;
 public class HighScoresViewer extends JFrame 
 {
   private Graphics screen;
+  private JButton easy = new JButton ("Easy");
+  private JButton medium = new JButton ("Medium");
+  private JButton hard = new JButton ("Hard");
+  
+  public JButton getEasy ()
+  {
+    return easy;
+  }
+  public JButton getMedium ()
+  {
+    return medium;
+  }
+  public JButton getHard ()
+  {
+    return hard;
+  }
   
   public Graphics getScreen ()
   {

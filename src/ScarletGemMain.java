@@ -132,6 +132,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   private JMenuItem aboutItem=new JMenuItem ("About");
   
   private int score=0;
+  private String userName;
   /**
    * Called by the JVM when the window is Deactivated.
    * 
