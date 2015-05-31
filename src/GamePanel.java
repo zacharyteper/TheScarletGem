@@ -23,6 +23,7 @@ public class GamePanel extends JPanel
   public GameTimer timer;
   private Image background;
   private JLabel imageLabel=new JLabel();
+  private JLabel mapImageLabel=new JLabel();
   
   public void setBackground(Image i)
   {
@@ -32,7 +33,10 @@ public class GamePanel extends JPanel
     imageLabel.setBounds(0,0,700,600);
     add(imageLabel);
   }
-  
+  public JLabel getMapImage()
+  {
+    return mapImageLabel;
+  }
   public Question getQuestion()
   {
     return currentQuestion;
@@ -74,12 +78,38 @@ public class GamePanel extends JPanel
     currentQuestion=q;
     questionLabel.setText(q.getQuestion());
   }
+  private void shuffleButtons()
+  {
+    int index=(int)(Math.random()*3);
+    System.out.println ("shuffle: "+index);
+    add(mapImageLabel);
+    if (index==1)
+    {
+      a.setBounds(350,500,a.getPreferredSize().height+80,30);
+      b.setBounds(200,500,b.getPreferredSize().height+80,30);
+      c.setBounds(500,500,c.getPreferredSize().height+80,30);
+    }
+    else if (index==2)
+    {
+      a.setBounds(500,500,a.getPreferredSize().height+80,30);
+      c.setBounds(200,500,c.getPreferredSize().height+80,30);
+      b.setBounds(350,500,b.getPreferredSize().height+80,30);
+    }
+    else
+    {
+      a.setBounds(200,500,a.getPreferredSize().height+80,30);
+      b.setBounds(350,500,b.getPreferredSize().height+80,30);
+      c.setBounds(500,500,c.getPreferredSize().height+80,30);
+    }
+  }
   public void switchToCountry()
   {
+    
     questionLabel.setText(currentQuestion.getQuestion());
     d.setBounds(500,300,d.getPreferredSize().height+20,30);
     add(d);
     atQuestionStage=true;
+    remove (mapImageLabel);
     a.setText("A");
     b.setText("B");
     c.setText("C");
@@ -99,10 +129,12 @@ public class GamePanel extends JPanel
     c.setText(destinations[2].getName());
     questionLabel.setText(destinations[0].getRandClue());
     atQuestionStage=false;
-    a.setBounds(200,500,a.getPreferredSize().height+80,30);
-    b.setBounds(350,500,b.getPreferredSize().height+80,30);
-    c.setBounds(500,500,c.getPreferredSize().height+80,30);
+    shuffleButtons();
     questionLabel.setBounds(10,100,500,30);
+    add(mapImageLabel);
+    add(mapImageLabel);
+    add(mapImageLabel);
+    mapImageLabel.repaint();
     revalidate();
   }
   
@@ -172,6 +204,9 @@ public class GamePanel extends JPanel
     c.setBounds(400,300,c.getPreferredSize().height+20,c.getPreferredSize().width);
     d.setBounds(500,300,d.getPreferredSize().height+20,d.getPreferredSize().width);
     questionLabel.setBounds(400,100,300,100);
+    
+    mapImageLabel.setIcon(new ImageIcon("pics/map.jpg"));
+    mapImageLabel.setBounds(200,200,500,280);
     
     add(a);
     add(b);

@@ -544,7 +544,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     gamePanel.getAButton().setEnabled(true);
     gamePanel.getBButton().setEnabled(true);
     gamePanel.getCButton().setEnabled(true);
-    revalidate();
+    repaint();
     
     //COUNTRIES[(int)(Math.random()*
     
