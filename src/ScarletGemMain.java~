@@ -269,19 +269,19 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     else if (ae.getSource().equals(mainMenuPanel.getEasyButton()))
     {
-      levelsRemaining=3;
+      levelsRemaining=2;
       difficulty=0;
       initializeGame();     
     }
     else if (ae.getSource().equals(mainMenuPanel.getMediumButton()))
     {
-      levelsRemaining=6;
+      levelsRemaining=5;
       difficulty=1;
       initializeGame();
     }
     else if (ae.getSource().equals(mainMenuPanel.getHardButton()))
     {
-      levelsRemaining=8;
+      levelsRemaining=7;
       difficulty=2;
       initializeGame();     
     }
@@ -544,7 +544,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     gamePanel.getAButton().setEnabled(true);
     gamePanel.getBButton().setEnabled(true);
     gamePanel.getCButton().setEnabled(true);
-    revalidate();
+    repaint();
     
     //COUNTRIES[(int)(Math.random()*
     
@@ -618,6 +618,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     levelsRemaining = -1;
     currentCountry=COUNTRIES[0];
     alreadyBeen=new ArrayList<Country>();
+    repaint();
     revalidate();
   }
   /**
@@ -1588,7 +1589,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> B. Kazan"+
                    "<br> C. Samara"+
                    "<br> D. Moscow</html>"
-                     ,'A'),
+                     ,'D'),
       new Question ("<html>RussiaEasy2"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
