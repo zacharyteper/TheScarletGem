@@ -1,10 +1,19 @@
 The Scarlet Gem
 easy
-hi
+easy1
 248
-hi
+easy2
 205
 
 medium
+medium1
+315
+medium2
+245
 
 hard
+hard1
+455
+hard2
+290
+
