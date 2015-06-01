@@ -1,20 +1,6 @@
 The Scarlet Gem
 easy
-easy1
-248
-zachary
-210
-easy2
-205
 
 medium
-medium1
-315
-medium2
-245
 
 hard
-hard1
-455
-hard2
-290

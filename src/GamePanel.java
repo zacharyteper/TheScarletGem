@@ -1,18 +1,40 @@
 /**
- * Auto Generated Java Class.
+ * Holds all of the components on the game screen. Components are controlled
+ * using the get/set methods included in this class.
+ * 
+ * @author Zachary Teper and Angela Zhu
+ * @version 1.0 06.01.2015
  */
 import javax.swing.*;
 import java.awt.*;
 public class GamePanel extends JPanel 
 {
+  /** Holds the button representing choice A.
+    */
   private JButton a;
+  /** Holds the button representing choice B.
+    */
   private JButton b;
+  /** Holds the button representing choice C.
+    */
   private JButton c;
+  /** Holds the button representing choice D.
+    */
   private JButton d;
+  /**Holds the Label which holds the question/clue.
+    */
   private JLabel questionLabel;
+  /**Holds the question which is currently being viewed (question stage only).
+   */
   private Question currentQuestion;
+  /**Displays the current question and the total number of questions to the user.
+    */
   private JLabel questionCounter;
+  /**Holds the button which is used to pause and unpause the game.
+    */
   private JButton pauseButton = new JButton ("PAUSE");
+  /**
+   */
   private JLabel timeLabel = new JLabel ("start");
   private JLabel feedbackLabel= new JLabel("INCORRECT. Please try again.");
   private boolean atQuestionStage=true;

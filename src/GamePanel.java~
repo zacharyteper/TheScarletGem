@@ -12,7 +12,7 @@ public class GamePanel extends JPanel
   private JLabel questionLabel;
   private Question currentQuestion;
   private JLabel questionCounter;
-  private JButton pauseButton;
+  private JButton pauseButton = new JButton ("PAUSE");
   private JLabel timeLabel = new JLabel ("start");
   private JLabel feedbackLabel= new JLabel("INCORRECT. Please try again.");
   private boolean atQuestionStage=true;
@@ -143,11 +143,10 @@ public class GamePanel extends JPanel
     questionLabel.setText ("<html>You have paused the game!"+
                            "<br>To continue, please press the pause button again!"+
                            "<br>~^_^~</html>");
-    remove (a);
-    remove (b);
-    remove (c);
-    if (atQuestionStage)
-      remove (d);
+    a.setVisible(false);
+    b.setVisible(false);
+    c.setVisible(false);
+    d.setVisible(false);
     repaint ();
     revalidate ();
   }
@@ -156,11 +155,11 @@ public class GamePanel extends JPanel
   {
     timer.setPaused (false);
     questionLabel.setText(currentQuestion.getQuestion());
-    add (a);
-    add (b);
-    add (c);
+    a.setVisible(true);
+    b.setVisible(true);
+    c.setVisible(true);
     if (atQuestionStage)
-      add (d);
+      d.setVisible(true);
     repaint ();
     revalidate ();
   }
@@ -221,7 +220,6 @@ public class GamePanel extends JPanel
     c=new JButton ("C");
     d=new JButton ("D");
     questionLabel=new JLabel();
-    pauseButton = new JButton ("PAUSE");
     
     setLayout(null);
     //Insets insets = this.getInsets ();
