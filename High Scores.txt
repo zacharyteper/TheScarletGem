@@ -1,6 +1,14 @@
 The Scarlet Gem
 easy
 zachary
+221
+null
+218
+null
+224
+null
+217
+zachary
 222
 null
 188
@@ -10,5 +18,9 @@ zachary
 227
 
 medium
+zachary
+466
 
 hard
+zachary
+663

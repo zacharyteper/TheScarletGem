@@ -367,10 +367,14 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       if (!gamePanel.getTimer().getPaused())
       {
+        fileMenu.setEnabled(true);
+        helpMenu.setEnabled(true);
         gamePanel.switchToPause();
       }
       else
       {
+        fileMenu.setEnabled(false);
+        helpMenu.setEnabled(false);
         gamePanel.unpause();
       }
       
@@ -493,29 +497,16 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     showCountryPanel();    
   }
   
-  private void pause ()
-  {
-    if (!gamePanel.timer.getPaused())
-    {
-      gamePanel.switchToPause ();
-      fileMenu.setEnabled (true);
-      helpMenu.setEnabled (true);
-    }
-    else
-    {
-      gamePanel.unpause ();
-      fileMenu.setEnabled (false);
-      helpMenu.setEnabled (false);
-    }
-  }
-  
   /**
    * displays a random multiple-choice question to the user,
    * and waits for an answer.
    */
   private void showCountryPanel()
   {
-    
+    currentQuestion=0;
+    gamePanel.getLevelCounter().setText("Level: "+alreadyBeen.size()+"/"+((difficulty+1)*3));
+    gamePanel.getQuestionCounter().setText("Question: "+(currentQuestion+1)+"/"+2);
+    gamePanel.getQuestionCounter().setVisible(true);
     System.out.println (currentCountry.getName());
     try
     {
@@ -525,10 +516,8 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
     }
     gamePanel.setBackground(currentCountry.getBackground());
-    if (!alreadyBeen.contains(currentCountry))
-      currentQuestion=0;
     
-    currentQuestion=0;
+
     
     if (levelsRemaining==0)
     {
@@ -554,6 +543,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    */ 
   private void showMapPanel()
   {
+    gamePanel.getQuestionCounter().setVisible(false);
     try
     {
       Thread.sleep(500);
@@ -620,8 +610,9 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
             temp=currentCountry.getRandQuestion(difficulty);
           }
           gamePanel.setQuestion(temp);
-          gamePanel.getQuestionCounter().setText("Question: "+(currentQuestion+1)+"/"+2);
           currentQuestion++;
+          gamePanel.getQuestionCounter().setText("Question: "+(currentQuestion+1)+"/"+2);
+
         }
         else
         {

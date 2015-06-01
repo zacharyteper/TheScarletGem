@@ -36,6 +36,7 @@ public class GamePanel extends JPanel
   /**
    */
   private JLabel timeLabel = new JLabel ("start");
+  private String currentClue;
   private JLabel feedbackLabel= new JLabel("INCORRECT. Please try again.");
   private boolean atQuestionStage=true;
   private JLabel levelCounter=new JLabel();
@@ -79,6 +80,10 @@ public class GamePanel extends JPanel
   {
     return questionCounter;
   }
+  public JLabel getLevelCounter()
+  {
+    return levelCounter;
+  }
   public void removeWrongAnswer (char button)
   {
     if (button=='A')
@@ -89,6 +94,7 @@ public class GamePanel extends JPanel
       c.setEnabled(false);
     else
       d.setEnabled(false);
+    feedbackLabel.setVisible(true);
   }
   public void removeWrongDestination (int button)
   {
@@ -104,6 +110,7 @@ public class GamePanel extends JPanel
   {
     currentQuestion=q;
     questionLabel.setText(q.getQuestion());
+    feedbackLabel.setVisible(false);
   }
   private void shuffleButtons()
   {
@@ -149,16 +156,17 @@ public class GamePanel extends JPanel
   public void switchToMap()
   {
     System.out.println ("map");
+    feedbackLabel.setVisible(false);
     d.setVisible(false);
     a.setText(destinations[0].getName());
     b.setText(destinations[1].getName());
     c.setText(destinations[2].getName());
-    questionLabel.setText(destinations[0].getRandClue());
+    currentClue=destinations[0].getRandClue();
+    questionLabel.setText(currentClue);
     atQuestionStage=false;
     shuffleButtons();
     questionLabel.setBounds(10,100,500,30);
     mapImageLabel.setVisible(true);
-    mapImageLabel.setBounds(200,200,500,280);
     //add(mapImageLabel);
     mapImageLabel.repaint();
     revalidate();
@@ -167,7 +175,7 @@ public class GamePanel extends JPanel
   public void switchToPause ()
   {
     timer.setPaused (true);
-    questionLabel.setText ("<html>You have paused the game!"+
+    questionLabel.setText ("<html><br>You have paused the game!"+
                            "<br>To continue, please press the pause button again!"+
                            "<br>~^_^~</html>");
     a.setVisible(false);
@@ -181,7 +189,10 @@ public class GamePanel extends JPanel
   public void unpause ()
   {
     timer.setPaused (false);
-    questionLabel.setText(currentQuestion.getQuestion());
+    if (atQuestionStage)
+      questionLabel.setText(currentQuestion.getQuestion());
+    else
+      questionLabel.setText(currentClue);
     a.setVisible(true);
     b.setVisible(true);
     c.setVisible(true);
@@ -258,13 +269,15 @@ public class GamePanel extends JPanel
     pauseButton.setBounds (450,50,pauseButton.getPreferredSize().width, pauseButton.getPreferredSize().height);
     
     mapImageLabel.setIcon(new ImageIcon("pics/map.jpg"));
-    mapImageLabel.setBounds(200,200,500,280);
+    mapImageLabel.setBounds(200,130,500,280);
     mapImageLabel.setVisible(false);
     
-    feedbackLabel.setBounds(450,550,90,30);
+    feedbackLabel.setBounds(250,450,200,30);
     pauseButton.setBounds(550,10,90,30);
     levelCounter.setBounds(200,50,90,30);
     questionCounter.setBounds(300,50,90,30);
+    
+    feedbackLabel.setVisible(false);
     
     add(feedbackLabel);
     add(mapImageLabel);
