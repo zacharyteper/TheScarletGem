@@ -72,9 +72,6 @@ public class MainMenuPanel extends JPanel
     medium=new JButton ("Medium");
     hard=new JButton ("Hard");
     loadGame=new JButton ("Load Game");
-    
-//    SpringLayout layout=new SpringLayout();
-//    setLayout (layout);
     add(easy);
     add(medium);
     add(hard);

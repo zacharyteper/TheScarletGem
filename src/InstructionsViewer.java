@@ -1,21 +1,50 @@
 /**
- * Auto Generated Java Class.
- */
+ * Displays instructions about gameplay to user using a JTabbedPane.
+ * 
+ * @author Zachary Teper and Angela Zhu
+ * @version 1.0 06.01.2015
+ */ 
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 public class InstructionsViewer extends JFrame
 {
+  /**
+   * Holds all of the JPanels, which represent different Help Topics.
+   */
   private JTabbedPane tabs=new JTabbedPane();
+  /**
+   * Holds the introductory Help Topic.
+   */
   private JPanel intro=new JPanel();
+  /**
+   * Holds the country (questions) Help Topic.
+   */
   private JPanel countries=new JPanel();
+  /**
+   * Holds the map (travelling) Help Topic.
+   */
   private JPanel map=new JPanel();
+  /**
+   * Holds the saving Help Topic.
+   */
   private JPanel saving=new JPanel();
+  /**
+   * Holds the high scores/printing Help Topic.
+   */
   private JPanel scores=new JPanel();
+  /**
+   * Holds the Key Shortcuts Help Topic.
+   */
   private JPanel keys=new JPanel();
+  /**
+   * Holds the contact info Help Topic.
+   */
   private JPanel contact=new JPanel();
   
-  /* ADD YOUR CODE HERE */
+  /**
+   * Initializes Panels, TabbedPane, and adds text with screenshots to the Panels.
+   */
   public InstructionsViewer ()
   {
     super ("Instructions");

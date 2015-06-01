@@ -102,8 +102,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    * Holds the number 1 or 0, depending on which question the user is currently on.
    */
   private int currentQuestion=0;
-  
+  /**
+   * Displays help .chm file.
+   */
   private JMenu helpMenu=new JMenu ("Help");
+  /**
+   * Menu which contains Save, Print, View High Scores and Exit items.
+   */
   private JMenu fileMenu =new JMenu ("File");
   /**
    * Opens the Instructions viewer when the user selects this menu choice.
@@ -133,8 +138,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    * Opens the About dialog when the user selects this menu choice.
    */
   private JMenuItem aboutItem=new JMenuItem ("About");
-  
+  /**
+   * Holds the user's current score
+   */
   private int score=0;
+  /**
+   * Holds the user's name (When he/she wins the game).
+   */
   private String userName;
   /**
    * Called by the JVM when the window is Deactivated.
