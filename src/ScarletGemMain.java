@@ -766,7 +766,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     for (int x=0;x<10;x++)
     {
       System.out.println (x);
-      if (HighScoresViewer.hardNames[x].equals(""))
+      if (HighScoresViewer.hardNames[x]==null)
         break;
       page.drawString(HighScoresViewer.hardNames[x],450,400+x*50);
       if (!HighScoresViewer.hardNames[x].equals(""))
