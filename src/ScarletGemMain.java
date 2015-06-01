@@ -567,6 +567,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       if (gamePanel.getQuestion().getAnswer()==answer)
       {
+        gamePanel.getFeedbackLabel().setVisible(false);
         if (currentQuestion==0)
         {
           System.out.println ("More");
@@ -596,6 +597,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
         System.out.println ("remove");
         gamePanel.removeWrongAnswer(answer);
         score -= 10;
+        gamePanel.getFeedbackLabel().setVisible(true);
       }
     }
     else

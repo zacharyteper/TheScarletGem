@@ -14,7 +14,7 @@ public class GamePanel extends JPanel
   private JLabel questionCounter;
   private JButton pauseButton;
   private JLabel timeLabel = new JLabel ("start");
-  private JLabel feedbackLabel;
+  private JLabel feedbackLabel= new JLabel("INCORRECT. Please try again.");
   private boolean atQuestionStage=true;
   private JLabel levelCounter;
   private int currentQuestionNumber;
@@ -107,9 +107,9 @@ public class GamePanel extends JPanel
     
     questionLabel.setText(currentQuestion.getQuestion());
     d.setBounds(500,300,d.getPreferredSize().height+20,30);
-    add(d);
+    d.setVisible(true);
     atQuestionStage=true;
-    remove (mapImageLabel);
+    mapImageLabel.setVisible(false);
     a.setText("A");
     b.setText("B");
     c.setText("C");
@@ -123,15 +123,18 @@ public class GamePanel extends JPanel
   public void switchToMap()
   {
     System.out.println ("map");
-    remove(d);
+    d.setVisible(false);
     a.setText(destinations[0].getName());
     b.setText(destinations[1].getName());
     c.setText(destinations[2].getName());
     questionLabel.setText(destinations[0].getRandClue());
     atQuestionStage=false;
     shuffleButtons();
-    //questionLabel.setBounds(10,100,500,30);
+    questionLabel.setBounds(10,100,500,30);
+    mapImageLabel.setVisible(true);
+    mapImageLabel.setBounds(200,200,500,280);
     add(mapImageLabel);
+    mapImageLabel.repaint();
     revalidate();
   }
   
@@ -160,7 +163,10 @@ public class GamePanel extends JPanel
   {
     return pauseButton;
   }
-  
+  public JLabel getFeedbackLabel()
+  {
+    return feedbackLabel;
+  }
   
   public Country[] getDestinations ()
   {
@@ -204,7 +210,13 @@ public class GamePanel extends JPanel
     
     mapImageLabel.setIcon(new ImageIcon("pics/map.jpg"));
     mapImageLabel.setBounds(200,200,500,280);
+    mapImageLabel.setVisible(false);
     
+    feedbackLabel.setBounds(450,550,90,30);
+    pauseButton.setBounds(550,10,90,30);
+    
+    
+    add(mapImageLabel);
     add(a);
     add(b);
     add(c);
