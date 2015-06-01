@@ -654,6 +654,8 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     levelsRemaining = -1;
     currentCountry=COUNTRIES[0];
     alreadyBeen=new ArrayList<Country>();
+    fileMenu.setEnabled (true);
+    helpMenu.setEnabled (true);
     int next = 0;
     if (gamePanel.timer.getGameWon())
     {

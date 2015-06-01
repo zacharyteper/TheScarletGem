@@ -158,7 +158,7 @@ public class GamePanel extends JPanel
     a.setVisible(true);
     b.setVisible(true);
     c.setVisible(true);
-    if (!atQuestionStage)
+    if (atQuestionStage)
       d.setVisible(true);
     repaint ();
     revalidate ();
