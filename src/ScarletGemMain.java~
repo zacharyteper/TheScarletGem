@@ -619,11 +619,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    */
   public void endGame()
   {
-      remove(gamePanel);
-      remove(levelCounter);
-      levelsRemaining = -1;
-      currentCountry=COUNTRIES[0];
-      alreadyBeen=new ArrayList<Country>();
+    remove(gamePanel);
+    remove(levelCounter);
+    levelsRemaining = -1;
+    currentCountry=COUNTRIES[0];
+    alreadyBeen=new ArrayList<Country>();
     int next = 0;
     if (gamePanel.timer.getGameWon())
     {
@@ -686,6 +686,51 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   {
     if (index>0)
       return NO_SUCH_PAGE;
+    page.drawString("The Scarlet Gem",100,100);
+    try
+    {
+      page.drawImage(ImageIO.read(new File("pics/CakeSoft Inc.png"))
+                       ,100,150,null);
+    }
+    catch (IOException e)
+    {
+    }
+    page.drawString("Easy",100,300);
+    page.drawString("Medium",300,300);
+    page.drawString("Hard",500,300);
+    page.drawString("Name",50,350);
+    page.drawString("Score",150,350);
+    page.drawString("Name",250,350);
+    page.drawString("Score",350,350);
+    page.drawString("Name",450,350);
+    page.drawString("Score",550,350);
+    for (int x=0;x<10;x++)
+    {
+      System.out.println ("easy"+x);
+      if (HighScoresViewer.easyNames[x].equals(""))
+        break;
+      page.drawString(HighScoresViewer.easyNames[x],50,400+x*50);
+      if (!HighScoresViewer.easyNames[x].equals(""))
+        page.drawString(HighScoresViewer.easyScores[x]+"",150,400+x*50);
+    }
+    for (int x=0;x<10;x++)
+    {
+      if (HighScoresViewer.mediumNames[x].equals(""))
+        break;
+      page.drawString(HighScoresViewer.mediumNames[x],250,400+x*50);
+      if (!HighScoresViewer.mediumNames[x].equals(""))
+        page.drawString(HighScoresViewer.mediumScores[x]+"",350,400+x*50);
+    }
+    for (int x=0;x<10;x++)
+    {
+      System.out.println (x);
+      if (HighScoresViewer.hardNames[x].equals(""))
+        break;
+      page.drawString(HighScoresViewer.hardNames[x],450,400+x*50);
+      if (!HighScoresViewer.hardNames[x].equals(""))
+        page.drawString(HighScoresViewer.hardScores[x]+"",550,400+x*50);
+    }
+    
     
     return PAGE_EXISTS;
   }
