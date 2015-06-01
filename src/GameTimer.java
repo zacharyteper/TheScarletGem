@@ -101,6 +101,11 @@ public class GameTimer extends Thread
     paused = pause;
   }
   
+  public boolean getPaused ()
+  {
+    return paused;
+  }
+  
   public void setGameWon (boolean won)
   {
     gameWon = won;

@@ -102,6 +102,9 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    * Holds the number 1 or 0, depending on which question the user is currently on.
    */
   private int currentQuestion=0;
+  
+  private JMenu helpMenu=new JMenu ("Help");
+  private JMenu fileMenu =new JMenu ("File");
   /**
    * Opens the Instructions viewer when the user selects this menu choice.
    */
@@ -349,6 +352,10 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       checkAnswer ('D');
     }
+    else if (ae.getSource().equals(gamePanel.getPauseButton()))
+    {
+      pause();
+    }
     else if (ae.getActionCommand().equals("loss"))
     {
       JOptionPane.showMessageDialog(null,"Sorry, you ran out of time!");
@@ -451,6 +458,8 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    */
   private void initializeGame ()
   {
+    fileMenu.setEnabled (false);
+    helpMenu.setEnabled (false);
     remove(mainMenuPanel);
     add(levelCounter);
     gamePanel = new GamePanel (difficulty,this);
@@ -466,7 +475,18 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   
   private void pause ()
   {
-    gamePanel.switchToPause ();
+    if (!gamePanel.timer.getPaused())
+    {
+      gamePanel.switchToPause ();
+      fileMenu.setEnabled (true);
+      helpMenu.setEnabled (true);
+    }
+    else
+    {
+      gamePanel.unpause ();
+      fileMenu.setEnabled (false);
+      helpMenu.setEnabled (false);
+    }
   }
   
   /**
@@ -2148,8 +2168,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     JMenuBar menuBar=new JMenuBar();
     add (menuBar);
     setJMenuBar (menuBar);
-    JMenu helpMenu=new JMenu ("Help");
-    JMenu fileMenu =new JMenu ("File");
     menuBar.add(fileMenu);
     menuBar.add(helpMenu);
     

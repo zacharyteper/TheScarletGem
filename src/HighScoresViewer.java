@@ -249,7 +249,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
           for (int x = 0 ; x < 10 ; x++)
           {
             hardNames [x] = in.readLine ();
-            if (hardNames [x].equals(""))
+            if (hardNames [x] == null)
               break;
             hardScores [x] = Integer.parseInt (in.readLine ());
           }
@@ -287,6 +287,8 @@ public class HighScoresViewer extends JFrame implements ActionListener
     remove (difficulty);
     remove (names);
     remove (scores);
+    revalidate ();
+    repaint ();
     String name = "<html><b>User Name</b><br>";
     String score = "<html><b>Scores</b><br>";
     if (level == 0)
@@ -308,7 +310,6 @@ public class HighScoresViewer extends JFrame implements ActionListener
           break;
         name += "<br>"+ mediumNames[x] + "<br>";
         score += "<br>" + mediumScores[x] + "<br>";
-        System.out.println ("med");
       }
       difficulty = new JLabel ("High Scores --- Medium");
     }
@@ -334,6 +335,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
     scores.setBounds (350, 100, scores.getPreferredSize().width, scores.getPreferredSize().height);
     difficulty.setBounds(180,60, difficulty.getPreferredSize().width + 30, difficulty.getPreferredSize().height);
     revalidate();
+    repaint ();
   }
   
   public Graphics getScreen ()

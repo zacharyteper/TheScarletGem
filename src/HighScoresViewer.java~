@@ -37,9 +37,11 @@ public class HighScoresViewer extends JFrame implements ActionListener
     {
       switchLevel (2);
     }
-    else if (ae.getActionCommand().equals ("Clear"))
+    else
     {
-      try
+      if (ae.getActionCommand().equals ("Clear"))
+        
+        try
       {
         PrintWriter out = new PrintWriter (new FileWriter ("High Scores.txt"));
         out.println ("The Scarlet Gem");
@@ -48,10 +50,8 @@ public class HighScoresViewer extends JFrame implements ActionListener
       {
         JOptionPane.showMessageDialog(null,"Unable to write to file.");
       }
-    }
-    else
-    {
-      System.exit (0);
+      if (ae.getActionCommand().equals("Close"))
+        dispose();
     }
   }
   
@@ -93,6 +93,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
     }
   }
   
+  //writes entry to file, puts it automatically in top 10 order.
   public static void sort (int score, String name, int level)
   {
     fileCheck ();
@@ -132,7 +133,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
           for (int x = 0 ; x < 10 ; x++)
           {
             hardNames [x] = in.readLine ();
-            if (hardNames [x] == null)
+            if (hardNames [x].equals(""))
             {
               System.out.println ("break3");
               break;
@@ -222,9 +223,14 @@ public class HighScoresViewer extends JFrame implements ActionListener
         {
           for (int x = 0 ; x < 10 ; x++)
           {
+            System.out.println ("Loop"+x);
             easyNames [x] = in.readLine ();
-            if (easyNames [x] == null)
+            System.out.println (easyNames[x]);
+            if (easyNames [x].equals(""))
+            {
+              System.out.println ("Break1");
               break;
+            }
             easyScores [x] = Integer.parseInt (in.readLine ());
           }
         }
@@ -233,7 +239,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
           for (int x = 0 ; x < 10 ; x++)
           {
             mediumNames [x] = in.readLine ();
-            if (mediumNames [x] == null)
+            if (mediumNames [x].equals(""))
               break;
             mediumScores [x] = Integer.parseInt (in.readLine ());
           }
@@ -243,7 +249,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
           for (int x = 0 ; x < 10 ; x++)
           {
             hardNames [x] = in.readLine ();
-            if (hardNames [x] == null)
+            if (hardNames [x].equals(""))
               break;
             hardScores [x] = Integer.parseInt (in.readLine ());
           }
@@ -256,6 +262,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
     }
     catch (NumberFormatException n)
     {
+      n.printStackTrace();
     }
     String name = "<html><b>User Name</b><br>";
     String score = "<html><b>Scores</b><br>";
@@ -270,6 +277,9 @@ public class HighScoresViewer extends JFrame implements ActionListener
     score += "</html>";
     names = new JLabel (name);
     scores = new JLabel (score);
+    System.out.println (easyNames.length);
+    for (String s:easyNames)
+      System.out.println (s);
   }
   
   private void switchLevel (int level)
@@ -298,6 +308,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
           break;
         name += "<br>"+ mediumNames[x] + "<br>";
         score += "<br>" + mediumScores[x] + "<br>";
+        System.out.println ("med");
       }
       difficulty = new JLabel ("High Scores --- Medium");
     }
@@ -322,6 +333,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
     names.setBounds (100, 100, names.getPreferredSize().width, names.getPreferredSize().height);
     scores.setBounds (350, 100, scores.getPreferredSize().width, scores.getPreferredSize().height);
     difficulty.setBounds(180,60, difficulty.getPreferredSize().width + 30, difficulty.getPreferredSize().height);
+    revalidate();
   }
   
   public Graphics getScreen ()

@@ -106,6 +106,11 @@ public class GameTimer extends Thread
     gameWon = won;
   }
   
+  public boolean getGameWon ()
+  {
+    return gameWon;
+  }
+  
   public void timer ()
   {
     panel.add (time);
