@@ -354,7 +354,15 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     else if (ae.getSource().equals(gamePanel.getPauseButton()))
     {
-      pause();
+      if (!gamePanel.getTimer().getPaused())
+      {
+        gamePanel.switchToPause();
+      }
+      else
+      {
+        gamePanel.unpause();
+      }
+      
     }
     else if (ae.getActionCommand().equals("loss"))
     {
