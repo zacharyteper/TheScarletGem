@@ -58,8 +58,9 @@ public class InstructionsViewer extends JFrame
        "<li>This game is based on speed, so, the faster you go, the higher your score will be. "+
        "<li>When the timer runs out, you lose! "+
        "<li>You can pause the game at any time by pressing the \"pause\" button "+
-       "(at the top of the screen), or by pressing 'p'. "+
-       "<li>Unpause the game by pressing 'p' again, or by pressing the \"unpause\" button "+
+       "(at the top of the screen). "+
+       "<li>Unpause the game by pressing the \"pause\" button again."+
+       "<li>You are unabled to click on the menus while playing the game, unless you pause the game."+
        "<li>The questions get harder with the Difficulty "+
        "(e.g. Easy mode will have easy questions, "+
        "Medium mode will have somewhat more challenging questions, "+
