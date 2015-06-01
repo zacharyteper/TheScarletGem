@@ -349,6 +349,10 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       checkAnswer ('D');
     }
+    else if (ae.getSource().equals(gamePanel.getPauseButton()))
+    {
+      pause();
+    }
     else if (ae.getActionCommand().equals("loss"))
     {
       JOptionPane.showMessageDialog(null,"Sorry, you ran out of time!");
@@ -466,7 +470,14 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   
   private void pause ()
   {
-    gamePanel.switchToPause ();
+    if (!gamePanel.timer.getPaused())
+    {
+      gamePanel.switchToPause ();
+    }
+    else
+    {
+      gamePanel.unpause ();
+    }
   }
   
   /**

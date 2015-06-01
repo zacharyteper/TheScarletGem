@@ -104,7 +104,6 @@ public class GamePanel extends JPanel
   }
   public void switchToCountry()
   {
-    
     questionLabel.setText(currentQuestion.getQuestion());
     d.setBounds(500,300,d.getPreferredSize().height+20,30);
     add(d);
@@ -117,7 +116,7 @@ public class GamePanel extends JPanel
     b.setBounds(500,220,b.getPreferredSize().height+20,30);
     c.setBounds(400,300,c.getPreferredSize().height+20,30);
     d.setBounds(500,300,d.getPreferredSize().height+20,30);
-    questionLabel.setBounds(400,100,300,100);
+    questionLabel.setBounds(400,100,400,100);
     revalidate();
   }
   public void switchToMap()
@@ -137,6 +136,30 @@ public class GamePanel extends JPanel
   
   public void switchToPause ()
   {
+    timer.setPaused (true);
+    questionLabel.setText ("<html>You have paused the game!"+
+                           "<br>To continue, please press the pause button again!"+
+                           "<br>~^_^~</html>");
+    remove (a);
+    remove (b);
+    remove (c);
+    if (atQuestionStage)
+      remove (d);
+    repaint ();
+    revalidate ();
+  }
+  
+  public void unpause ()
+  {
+    timer.setPaused (false);
+    questionLabel.setText(currentQuestion.getQuestion());
+    add (a);
+    add (b);
+    add (c);
+    if (atQuestionStage)
+      add (d);
+    repaint ();
+    revalidate ();
   }
   
   public JButton getAButton()
@@ -200,7 +223,8 @@ public class GamePanel extends JPanel
     b.setBounds(500,220,b.getPreferredSize().height+20,b.getPreferredSize().width);
     c.setBounds(400,300,c.getPreferredSize().height+20,c.getPreferredSize().width);
     d.setBounds(500,300,d.getPreferredSize().height+20,d.getPreferredSize().width);
-    questionLabel.setBounds(400,100,300,100);
+    questionLabel.setBounds(400,100,400,100);
+    pauseButton.setBounds (450,50,pauseButton.getPreferredSize().width, pauseButton.getPreferredSize().height);
     
     mapImageLabel.setIcon(new ImageIcon("pics/map.jpg"));
     mapImageLabel.setBounds(200,200,500,280);

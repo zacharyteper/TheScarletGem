@@ -130,11 +130,8 @@ public class GamePanel extends JPanel
     questionLabel.setText(destinations[0].getRandClue());
     atQuestionStage=false;
     shuffleButtons();
-    questionLabel.setBounds(10,100,500,30);
+    //questionLabel.setBounds(10,100,500,30);
     add(mapImageLabel);
-    add(mapImageLabel);
-    add(mapImageLabel);
-    mapImageLabel.repaint();
     revalidate();
   }
   
