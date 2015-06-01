@@ -203,6 +203,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   public void windowClosed (WindowEvent e)
   {
   }
+  
   /**
    * Processes action events from all of the Buttons and Menus throughout the game.
    * Called by the JVM when a Button or Menu is pressed.
@@ -488,6 +489,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     gamePanel.getCButton().addActionListener(this);
     gamePanel.getDButton().addActionListener(this);
     gamePanel.getPauseButton().setEnabled (true);
+    gamePanel.getQuestionCounter().setText("Question: "+(currentQuestion+1)+"/"+2);
     showCountryPanel();    
   }
   
@@ -605,7 +607,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       if (gamePanel.getQuestion().getAnswer()==answer)
       {
-        gamePanel.getFeedbackLabel().setVisible(false);
         if (currentQuestion==0)
         {
           System.out.println ("More");
@@ -619,6 +620,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
             temp=currentCountry.getRandQuestion(difficulty);
           }
           gamePanel.setQuestion(temp);
+          gamePanel.getQuestionCounter().setText("Question: "+(currentQuestion+1)+"/"+2);
           currentQuestion++;
         }
         else
@@ -635,7 +637,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
         System.out.println ("remove");
         gamePanel.removeWrongAnswer(answer);
         score -= 10;
-        gamePanel.getFeedbackLabel().setVisible(true);
       }
     }
     else
