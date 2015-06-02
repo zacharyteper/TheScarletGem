@@ -504,7 +504,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   private void showCountryPanel()
   {
     currentQuestion=0;
-    gamePanel.getLevelCounter().setText("Level: "+alreadyBeen.size()+"/"+((difficulty+1)*3));
+    gamePanel.getLevelCounter().setText("Level: "+alreadyBeen.size()+"/"+((difficulty+1)*3)+"     You are in: " + currentCountry.getName());
     gamePanel.getQuestionCounter().setText("Question: "+(currentQuestion+1)+"/"+2);
     gamePanel.getQuestionCounter().setVisible(true);
     System.out.println (currentCountry.getName());

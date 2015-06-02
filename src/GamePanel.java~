@@ -29,16 +29,17 @@ public class GamePanel extends JPanel
   private Question currentQuestion;
   /**Displays the current question and the total number of questions to the user.
     */
-  private JLabel questionCounter;
+  private JLabel questionCounter=new JLabel();
   /**Holds the button which is used to pause and unpause the game.
     */
   private JButton pauseButton = new JButton ("PAUSE");
   /**
    */
   private JLabel timeLabel = new JLabel ("start");
+  private String currentClue;
   private JLabel feedbackLabel= new JLabel("INCORRECT. Please try again.");
   private boolean atQuestionStage=true;
-  private JLabel levelCounter;
+  private JLabel levelCounter=new JLabel();
   private int currentQuestionNumber;
   private Country[] destinations;
   private int answer;
@@ -75,6 +76,14 @@ public class GamePanel extends JPanel
   {
     return currentQuestionNumber;
   }
+  public JLabel getQuestionCounter()
+  {
+    return questionCounter;
+  }
+  public JLabel getLevelCounter()
+  {
+    return levelCounter;
+  }
   public void removeWrongAnswer (char button)
   {
     if (button=='A')
@@ -85,6 +94,7 @@ public class GamePanel extends JPanel
       c.setEnabled(false);
     else
       d.setEnabled(false);
+    feedbackLabel.setVisible(true);
   }
   public void removeWrongDestination (int button)
   {
@@ -94,17 +104,19 @@ public class GamePanel extends JPanel
       b.setEnabled(false);
     else
       c.setEnabled(false);
+    feedbackLabel.setVisible(true);
   }
   public void setQuestion(Question q)
   {
     currentQuestion=q;
     questionLabel.setText(q.getQuestion());
+    feedbackLabel.setVisible(false);
   }
   private void shuffleButtons()
   {
     int index=(int)(Math.random()*3);
     System.out.println ("shuffle: "+index);
-    add(mapImageLabel);
+    //add(mapImageLabel);
     if (index==1)
     {
       a.setBounds(350,500,a.getPreferredSize().height+80,30);
@@ -127,34 +139,34 @@ public class GamePanel extends JPanel
   public void switchToCountry()
   {
     questionLabel.setText(currentQuestion.getQuestion());
-    d.setBounds(500,300,d.getPreferredSize().height+20,30);
     d.setVisible(true);
     atQuestionStage=true;
     mapImageLabel.setVisible(false);
     a.setText("A");
     b.setText("B");
     c.setText("C");
-    a.setBounds(400,220,a.getPreferredSize().height+20,30);
+    a.setBounds(380,220,a.getPreferredSize().height+20,30);
     b.setBounds(500,220,b.getPreferredSize().height+20,30);
-    c.setBounds(400,300,c.getPreferredSize().height+20,30);
-    d.setBounds(500,300,d.getPreferredSize().height+20,30);
-    questionLabel.setBounds(400,100,400,100);
+    c.setBounds(380,320,c.getPreferredSize().height+20,30);
+    d.setBounds(500,320,d.getPreferredSize().height+20,30);
+    questionLabel.setBounds(380,100,400,100);
     revalidate();
   }
   public void switchToMap()
   {
     System.out.println ("map");
+    feedbackLabel.setVisible(false);
     d.setVisible(false);
     a.setText(destinations[0].getName());
     b.setText(destinations[1].getName());
     c.setText(destinations[2].getName());
-    questionLabel.setText(destinations[0].getRandClue());
+    currentClue=destinations[0].getRandClue();
+    questionLabel.setText(currentClue);
     atQuestionStage=false;
     shuffleButtons();
-    questionLabel.setBounds(10,100,500,30);
+    questionLabel.setBounds(200,120,500,30);
     mapImageLabel.setVisible(true);
-    mapImageLabel.setBounds(200,200,500,280);
-    add(mapImageLabel);
+    //add(mapImageLabel);
     mapImageLabel.repaint();
     revalidate();
   }
@@ -162,7 +174,7 @@ public class GamePanel extends JPanel
   public void switchToPause ()
   {
     timer.setPaused (true);
-    questionLabel.setText ("<html>You have paused the game!"+
+    questionLabel.setText ("<html><br>You have paused the game!"+
                            "<br>To continue, please press the pause button again!"+
                            "<br>~^_^~</html>");
     a.setVisible(false);
@@ -176,11 +188,14 @@ public class GamePanel extends JPanel
   public void unpause ()
   {
     timer.setPaused (false);
-    questionLabel.setText(currentQuestion.getQuestion());
+    if (atQuestionStage)
+      questionLabel.setText(currentQuestion.getQuestion());
+    else
+      questionLabel.setText(currentClue);
     a.setVisible(true);
     b.setVisible(true);
     c.setVisible(true);
-    if (!atQuestionStage)
+    if (atQuestionStage)
       d.setVisible(true);
     repaint ();
     revalidate ();
@@ -245,21 +260,25 @@ public class GamePanel extends JPanel
     
     setLayout(null);
     //Insets insets = this.getInsets ();
-    a.setBounds(400,220,a.getPreferredSize().height+20,a.getPreferredSize().width);
+    a.setBounds(380,220,a.getPreferredSize().height+20,a.getPreferredSize().width);
     b.setBounds(500,220,b.getPreferredSize().height+20,b.getPreferredSize().width);
-    c.setBounds(400,300,c.getPreferredSize().height+20,c.getPreferredSize().width);
-    d.setBounds(500,300,d.getPreferredSize().height+20,d.getPreferredSize().width);
-    questionLabel.setBounds(400,100,400,100);
+    c.setBounds(308,320,c.getPreferredSize().height+20,c.getPreferredSize().width);
+    d.setBounds(500,320,d.getPreferredSize().height+20,d.getPreferredSize().width);
+    questionLabel.setBounds(380,100,400,100);
     pauseButton.setBounds (450,50,pauseButton.getPreferredSize().width, pauseButton.getPreferredSize().height);
     
     mapImageLabel.setIcon(new ImageIcon("pics/map.jpg"));
-    mapImageLabel.setBounds(200,200,500,280);
+    mapImageLabel.setBounds(200,130,500,280);
     mapImageLabel.setVisible(false);
     
-    feedbackLabel.setBounds(450,550,90,30);
+    feedbackLabel.setBounds(250,450,200,30);
     pauseButton.setBounds(550,10,90,30);
+    levelCounter.setBounds(50,50,250,30);
+    questionCounter.setBounds(300,50,90,30);
     
+    feedbackLabel.setVisible(false);
     
+    add(feedbackLabel);
     add(mapImageLabel);
     add(a);
     add(b);
@@ -267,6 +286,8 @@ public class GamePanel extends JPanel
     add(d);
     add(questionLabel);
     add(pauseButton);
+    add(questionCounter);
+    add(levelCounter);
     revalidate ();
   }
 }
