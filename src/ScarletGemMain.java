@@ -145,7 +145,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   /**
    * Holds the user's name (When he/she wins the game).
    */
-  private String userName;
+  private String userName="";
   /**
    * Called by the JVM when the window is Deactivated.
    * 
@@ -662,24 +662,19 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     if (gamePanel.timer.getGameWon())
     {
       score += GameTimer.timeRemaining;
+      score +=alreadyBeen.size()*3;
       System.out.println (score);
-      
-      try
-      {
         userName = JOptionPane.showInputDialog (null, 
-                                                "Congratulations, you found the Scarlet Gem! Please enter your user name!", 
+                                                "Congratulations, you found the Scarlet Gem! Your score is "+
+                                                score+" Please enter your user name!", 
                                                 "You won!", JOptionPane.QUESTION_MESSAGE);
-      }
-      catch (NullPointerException e)
-      {
-        userName = "NO NAME";
-      }
-      
-      HighScoresViewer.sort (score, userName, difficulty);
+      if (userName!=null)
+        HighScoresViewer.sort (score, userName, difficulty);
       
       if (difficulty == 0 || difficulty == 1)
-        next = JOptionPane.showConfirmDialog(null, "Would you like to continue to the next level?", "Next?", JOptionPane.YES_NO_OPTION);
-      if (next == 0)
+        next = JOptionPane.showConfirmDialog(null, "Would you like to continue to the next level?",
+                                             "Next?", JOptionPane.YES_NO_OPTION);
+      if (next == 0&&difficulty!=2)
       {
         if (difficulty == 0)
         {
@@ -814,7 +809,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> C. Ottawa"+
                    "<br> D. Portugal</html>"
                      ,'C'),
-      new Question ("<html>In what part of Canada is Newfoundland located?"+
+      new Question ("<html>In what part of Canada is <br>Newfoundland located?"+
                     "<br> A. North"+
                     "<br> B. West"+
                     "<br> C. South"+
@@ -832,7 +827,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. Africa"+
                     "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("<html>What are the two official languages of Canada?"+
+      new Question ("<html>What are the two official <br>languages of Canada?"+
                     "<br> A. Spanish & French"+
                     "<br> B. German & English"+
                     "<br> C. English & Spanish"+
@@ -846,19 +841,19 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> C. 1867"+
                    "<br> D. 1776</html>"
                      ,'C'),
-      new Question ("<html>How many countries share a border with Canada?"+
+      new Question ("<html>How many countries share <br>a border with Canada?"+
                     "<br> A. 3"+
                     "<br> B. 5"+
                     "<br> C. 2"+
                     "<br> D. 1</html>"
                       ,'D'),
-      new Question ("<html>Which metal is most commonly mined in Canada?"+
+      new Question ("<html>Which metal is most <br>commonly mined in Canada?"+
                     "<br> A. Iron"+
                     "<br> B. Lead"+
                     "<br> C. Gold"+
                     "<br> D. Nickel</html>"
                       ,'A'),
-      new Question ("<html>Which is closest to the population of Canada?"+
+      new Question ("<html>Which is closest to the <br>population of Canada?"+
                     "<br> A. 30 million"+
                     "<br> B. 35 million"+
                     "<br> C. 20 million"+
@@ -872,25 +867,25 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'D')
     };
     Question[] canadaHard=
-    {new Question ("<html>Which is closest to the population of Toronto?"+
+    {new Question ("<html>Which is closest to the <br>population of Toronto?"+
                    "<br> A. 3 million"+
                    "<br> B. 10 million"+
                    "<br> C. 6 million"+
                    "<br> D. 8 million</html>"
                      ,'C'),
-      new Question ("<html>Which is the closest to the length of Yonge St?"+
+      new Question ("<html>Which is the closest to the <br>length of Yonge St?"+
                     "<br> A. 1000 km"+
                     "<br> B. 1500 km"+
                     "<br> C. 2500 km"+
                     "<br> D. 2000 km</html>"
                       ,'D'),
-      new Question ("<html>What is the infant mortality rate of Canada"+
+      new Question ("<html>What is the infant mortality <br>rate of Canada"+
                     "<br> A. 0.47%"+
                     "<br> B. 0.22%"+
                     "<br> C. 0.39%"+
                     "<br> D. 0.62%</html>"
                       ,'A'),
-      new Question ("<html>How many Canadian provinces start with the letter N?"+
+      new Question ("<html>How many Canadian provinces <br>start with the letter N?"+
                     "<br> A. 1"+
                     "<br> B. 3"+
                     "<br> C. 4"+
@@ -924,13 +919,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> C. Bangkok"+
                    "<br> D. Tokyo</html>"
                      ,'A'),
-      new Question ("<html>Which ocean is off the coast of China?"+
+      new Question ("<html>Which ocean is off the <br>coast of China?"+
                     "<br> A. Atlantic"+
                     "<br> B. Indian"+
                     "<br> C. Pacific"+
                     "<br> D. Arctic</html>"
                       ,'C'),
-      new Question ("<html>In what part of China are the Himalaya Mountains?"+
+      new Question ("<html>In what part of China are the <br>Himalaya Mountains?"+
                     "<br> A. North"+
                     "<br> B. West"+
                     "<br> C. South"+
@@ -942,7 +937,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. Africa"+
                     "<br> D. Asia</html>"
                       ,'D'),
-      new Question ("<html>What is the main agricultural crop of China?"+
+      new Question ("<html>What is the main agricultural <br>crop of China?"+
                     "<br> A. Tomatoes"+
                     "<br> B. Rice"+
                     "<br> C. Radishes"+
@@ -956,19 +951,19 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> C. Mont Blanc"+
                    "<br> D. Red Mountain</html>"
                      ,'A'),
-      new Question ("<html>Which country does NOT border China?"+
+      new Question ("<html>Which country does NOT <br>border China?"+
                     "<br> A. Mongolia"+
                     "<br> B. Kazakhstan"+
                     "<br> C. Afghanistan"+
                     "<br> D. Georgia</html>"
                       ,'C'),
-      new Question ("<html>Which river does NOT flow through China?"+
+      new Question ("<html>Which river does NOT flow <br>through China?"+
                     "<br> A. Heilong"+
                     "<br> B. Jordan"+
                     "<br> C. Yellow"+
                     "<br> D. Mekong</html>"
                       ,'B'),
-      new Question ("<html>What is the second largest mountain range in China?"+
+      new Question ("<html>What is the second largest <br>mountain range in China?"+
                     "<br> A. Himalayas"+
                     "<br> B. Tien Shan"+
                     "<br> C. Qilian"+
@@ -988,25 +983,25 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> C. Xi depression"+
                    "<br> D. Bodelle Depression</html>"
                      ,'A'),
-      new Question ("<html>What portion of China's population is Buddhist?"+
+      new Question ("<html>What portion of China's <br>population is Buddhist?"+
                     "<br> A. 50%"+
                     "<br> B. 41%"+
                     "<br> C. 18%"+
                     "<br> D. 23%</html>"
                       ,'C'),
-      new Question ("<html>What percentage of Chinese export is with Hong Kong?"+
+      new Question ("<html>What percentage of Chinese <br>export is with Hong Kong?"+
                     "<br> A. 30%"+
                     "<br> B. 17%"+
                     "<br> C. 21%"+
                     "<br> D. 49%</html>"
                       ,'B'),
-      new Question ("<html>What year was the People's Republic of China established?"+
+      new Question ("<html>What year was the People's <br>Republic of China established?"+
                     "<br> A. 1963"+
                     "<br> B. 1412"+
                     "<br> C. 1749"+
                     "<br> D. 1949</html>"
                       ,'D'),
-      new Question ("<html>How many provinces does China contain?"+
+      new Question ("<html>How many provinces does <br>China contain?"+
                     "<br> A. 15"+
                     "<br> B. 23"+
                     "<br> C. 31"+
@@ -1016,13 +1011,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     try
     {
       Country china =new Country ("China",chinaEasy, chinaMedium, chinaHard, ImageIO.read (new File ("pics/china.jpg")),
-                                  new String[]{"I am in the country with the largest population in the world."
-        ,"I am in the counry whose capital is Beijing."
-                                    ,"I am in the country where bamboo forests, pandas and the Asian Black Bear"+
+                                  new String[]{"The Scarlet Gem is in the country with the largest population in the world."
+        ,"The Scarlet Gem is in the counry whose capital is Beijing."
+                                    ,"The Scarlet Gem is in the country where bamboo forests, pandas and the Asian Black Bear"+
                                     " can be found.",
-                                    "I am in the country which was ruled by over 15 different dynasties over the"+
-                                    "course of 5000 years.",
-                                    "I am in the country in which the city of Shanghai is located."
+                                    "The Scarlet Gem is in the country which was ruled by over 15 different dynasties over the"+
+                                    "<br>course of 5000 years.",
+                                    "The Scarlet Gem is in the country in which the city of Shanghai is located."
       });
       COUNTRIES [1]=china;
     }
@@ -1038,7 +1033,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> C. Texas"+
                    "<br> D. Washington D.C.</html>"
                      ,'D'),
-      new Question ("<html>In what part of the USA is New Jersey located?"+
+      new Question ("<html>In what part of the USA <br>is New Jersey located?"+
                     "<br> A. North"+
                     "<br> B. West"+
                     "<br> C. East"+
@@ -1056,7 +1051,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. Africa"+
                     "<br> D. North America</html>"
                       ,'D'),
-      new Question ("<html>What is the official language of the USA?"+
+      new Question ("<html>What is the official <br>language of the USA?"+
                     "<br> A. English"+
                     "<br> B. Spanish"+
                     "<br> C. French"+
@@ -1064,19 +1059,19 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'A')
     };
     Question[] usaMedium=
-    {new Question ("How many geographical regions is the USA composed of?"+
+    {new Question ("How many geographical regions is <br>the USA composed of?"+
                    "<br> A. 2"+
                    "<br> B. 3"+
                    "<br> C. 4"+
                    "<br> D. 5</html>"
                      ,'C'),
-      new Question ("<html>Which of the following is NOT a region of the USA?"+
+      new Question ("<html>Which of the following is NOT <br>a region of the USA?"+
                     "<br> A. South"+
                     "<br> B. North"+
                     "<br> C. West"+
                     "<br> D. Midwest</html>"
                       ,'B'),
-      new Question ("<html>Which of the following is NOT a mountain range in the USA?"+
+      new Question ("<html>Which of the following is NOT a <br>mountain range in the USA?"+
                     "<br> A. Rockies"+
                     "<br> B. Himalayas"+
                     "<br> C. Appalachians"+
@@ -1088,7 +1083,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. Mt. Rainier"+
                     "<br> D. Mt. McKinley</html>"
                       ,'D'),
-      new Question ("<html>Which river system drains the American Midwest?"+
+      new Question ("<html>Which river system drains the <br>American Midwest?"+
                     "<br> A. Mississippi"+
                     "<br> B. Colarado"+
                     "<br> C. Red"+
@@ -1114,13 +1109,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. 5,489 m"+
                     "<br> D. 6,149 m</html>"
                       ,'D'),
-      new Question ("<html>Which is the largest geographical region in the USA?"+
+      new Question ("<html>Which is the largest geographical <br>region in the USA?"+
                     "<br> A. Northeast"+
                     "<br> B. Midwest"+
                     "<br> C. West"+
                     "<br> D. South</html>"
                       ,'C'),
-      new Question ("<html>What climate is found in the American Midwest?"+
+      new Question ("<html>What climate is found in the <br>American Midwest?"+
                     "<br> A. Humid continental"+
                     "<br> B. Steppe"+
                     "<br> C. Subtropical"+
@@ -1131,11 +1126,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       Country usa =new Country ("USA",usaEasy, usaMedium, usaHard, ImageIO.read (new File ("pics/USA.jpg")),
                                 new String[]
-                                  {"I am in the country in which Chicago is located.",
-        "I am in the country with the largest military in the world.",
-                                    "I am in the country whose national flower is the Rose.",
-                                    "I am in the country whose flag contains stars and stripes.",
-                                    "I am in the country which contains 50 states."
+                                  {"The Scarlet Gem is in the country in which Chicago is located.",
+        "The Scarlet Gem is in the country with the largest military in the world.",
+                                    "The Scarlet Gem is in the country whose national flower is the Rose.",
+                                    "The Scarlet Gem is in the country whose flag contains stars and stripes.",
+                                    "The Scarlet Gem is in the country which contains 50 states."
       });
       COUNTRIES [2]=usa;
     }
@@ -1151,13 +1146,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> C. Monterrey"+
                    "<br> D. Cancun</html>"
                      ,'B'),
-      new Question ("<html>Which tribal group is indigenous to Mexico?"+
+      new Question ("<html>Which tribal group is <br>indigenous to Mexico?"+
                     "<br> A. Inuit"+
                     "<br> B. Hindi"+
                     "<br> C. Portugal"+
                     "<br> D. Aztec</html>"
                       ,'D'),
-      new Question ("<html>Which country is directly north of Mexico?"+
+      new Question ("<html>Which country is directly <br>north of Mexico?"+
                     "<br> A. USA"+
                     "<br> B. Chile"+
                     "<br> C. Africa"+
@@ -1177,7 +1172,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'D')
     };
     Question[] mexicoMedium=
-    {new Question ("<html>How many countries does Mexico share a border with?"+
+    {new Question ("<html>How many countries does Mexico <br>share a border with?"+
                    "<br> A. 4"+
                    "<br> B. 3"+
                    "<br> C. 6"+
@@ -1189,13 +1184,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. El Chichon"+
                     "<br> D. Ceburoco</html>"
                       ,'A'),
-      new Question ("<html>Which is closest to the population of Mexico City?"+
+      new Question ("<html>Which is closest to the <br>population of Mexico City?"+
                     "<br> A. 20 million"+
                     "<br> B. 13 million"+
                     "<br> C. 5 million"+
                     "<br> D. 18 million</html>"
                       ,'A'),
-      new Question ("<html>What percentage of Mexico's landmass is water?"+
+      new Question ("<html>What percentage of Mexico's <br>landmass is water?"+
                     "<br> A. 13.1%"+
                     "<br> B. 2.5%"+
                     "<br> C. 0.3%"+
@@ -1209,7 +1204,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'D')
     };
     Question[] mexicoHard=
-    {new Question ("<html>Approximately how many rivers are in Mexico?"+
+    {new Question ("<html>Approximately how many rivers <br>are in Mexico?"+
                    "<br> A. 30"+
                    "<br> B. 150"+
                    "<br> C. 110"+
@@ -1221,19 +1216,19 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. 3000 km"+
                     "<br> D. 5000 km</html>"
                       ,'D'),
-      new Question ("<html>Which is NOT a resource found in Mexico?"+
+      new Question ("<html>Which is NOT a resource <br>found in Mexico?"+
                     "<br> A. Iron"+
                     "<br> B. Gold"+
                     "<br> C. Silver"+
                     "<br> D. Copper</html>"
                       ,'A'),
-      new Question ("<html>Which is the most active volacno in Mexico?"+
+      new Question ("<html>Which is the most active volacno <br>in Mexico?"+
                     "<br> A. Popocatepetl"+
                     "<br> B. Colima"+
                     "<br> C. Barcena"+
                     "<br> D. Tacana</html>"
                       ,'B'),
-      new Question ("<html>What year did Europeans first discover Mexico?"+
+      new Question ("<html>What year did Europeans first <br>discover Mexico?"+
                     "<br> A. 1431"+
                     "<br> B. 1513"+
                     "<br> C. 1597"+
@@ -1245,11 +1240,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       Country mexico =new Country ("Mexico",mexicoEasy, mexicoMedium,
                                    mexicoHard, ImageIO.read (new File ("pics/mexico.jpeg")),
                                    new String[]{
-        "I am in the country which was home to the Maya and Aztec people.",
-          "I am in the country in which corn was first grown as a crop.",
-          "I am in the country whose national bird is the Golden Eagle.",
-          "I am in the southernmost country in North America.",
-          "I am in the country whose states include Tabasco, Oaxaca and Morelos."
+        "The Scarlet Gem is in the country which was home to the Maya and Aztec people.",
+          "The Scarlet Gem is in the country in which corn was first grown as a crop.",
+          "The Scarlet Gem is in the country whose national bird is the Golden Eagle.",
+          "The Scarlet Gem is in the southernmost country in North America.",
+          "The Scarlet Gem is in the country whose states include Tabasco, Oaxaca and Morelos."
       });
       COUNTRIES [3]=mexico;
     }
@@ -1265,13 +1260,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> C. Madrid"+
                    "<br> D. Madeira</html>"
                      ,'B'),
-      new Question ("<html>Which ocean is off the coast of Portugal?"+
+      new Question ("<html>Which ocean is off the coast <br>of Portugal?"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
                     "<br> D. Atlantic</html>"
                       ,'D'),
-      new Question ("<html>Which country is directly east of Portugal?"+
+      new Question ("<html>Which country is directly <br>east of Portugal?"+
                     "<br> A. Spain"+
                     "<br> B. Chile"+
                     "<br> C. Africa"+
@@ -1283,7 +1278,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. Africa"+
                     "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("<html>What is the official language of Portugal?"+
+      new Question ("<html>What is the official <br>language of Portugal?"+
                     "<br> A. French"+
                     "<br> B. German"+
                     "<br> C. English"+
@@ -1291,19 +1286,19 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'D')
     };
     Question[] portugalMedium=
-    {new Question ("<html>What is the second largest city in Portugal?"+
+    {new Question ("<html>What is the second largest <br>city in Portugal?"+
                    "<br> A. Lisbon"+
                    "<br> B. Porto"+
                    "<br> C. Aveiro"+
                    "<br> D. Santarem</html>"
                      ,'B'),
-      new Question ("<html>What year was the Portuguese Republic established?"+
+      new Question ("<html>What year was the Portuguese <br>Republic established?"+
                     "<br> A. 1944"+
                     "<br> B. 1837"+
                     "<br> C. 1907"+
                     "<br> D. 1910</html>"
                       ,'D'),
-      new Question ("<html>What is the main goods-based industry in Portugal?"+
+      new Question ("<html>What is the main goods-based <br>industry in Portugal?"+
                     "<br> A. Textiles"+
                     "<br> B. Lumber"+
                     "<br> C. Auto parts"+
@@ -1315,7 +1310,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. 15%"+
                     "<br> D. 2%</html>"
                       ,'B'),
-      new Question ("<html>What is the unemployment rate in Portugal?"+
+      new Question ("<html>What is the unemployment <br>rate in Portugal?"+
                     "<br> A. 4%"+
                     "<br> B. 10%"+
                     "<br> C. 29%"+
@@ -1329,7 +1324,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> C. Leather"+
                    "<br> D. Pulp and paper</html>"
                      ,'B'),
-      new Question ("<html>Which is closest to the size of Madeira (in square kilometers)?"+
+      new Question ("<html>Which is closest to the size <br>of Madeira (in square kilometers)?"+
                     "<br> A. 300"+
                     "<br> B. 400"+
                     "<br> C. 200"+
@@ -1341,13 +1336,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. Marshy Wetlands"+
                     "<br> D. Flat Desert</html>"
                       ,'A'),
-      new Question ("<html>How many UNESCO heritage sites are in Portugal?"+
+      new Question ("<html>How many UNESCO heritage <br>sites are in Portugal?"+
                     "<br> A. 23"+
                     "<br> B. 15"+
                     "<br> C. 9"+
                     "<br> D. 11</html>"
                       ,'B'),
-      new Question ("<html>In which Portuguese city is the Casa da Musica found?"+
+      new Question ("<html>In which Portuguese city is the <br>Casa da Musica found?"+
                     "<br> A. Lisbon"+
                     "<br> B. Aveiro"+
                     "<br> C. Amadora"+
@@ -1359,11 +1354,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       Country portugal =new Country ("Portugal",portugalEasy, portugalMedium,
                                      portugalHard, ImageIO.read (new File ("pics/portugal.jpg")),
                                      new String[]{
-        "I am in the country which contains the Tagus River.",
-          "I am in the country in which the Temple of Evora can be found.",
-          "I am in the country whose national symbol is the Armillary Sphere.",
-          "I am in the westernmost country in Europe.",
-          "I am in the country whose districts include Beja, Aveiro and Madeira."
+        "The Scarlet Gem is in the country which contains the Tagus River.",
+          "The Scarlet Gem is in the country in which the Temple of Evora can be found.",
+          "The Scarlet Gem is in the country whose national symbol is the Armillary Sphere.",
+          "The Scarlet Gem is in the westernmost country in Europe.",
+          "The Scarlet Gem is in the country whose districts include Beja, Aveiro and Madeira."
       });
       COUNTRIES [4]=portugal;
     }
@@ -1379,13 +1374,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> C. Brisbane"+
                    "<br> D. New Zealand</html>"
                      ,'B'),
-      new Question ("<html>Which ocean is off the west coast of Australia?"+
+      new Question ("<html>Which ocean is off the west <br>coast of Australia?"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Indian"+
                     "<br> D. Atlantic</html>"
                       ,'C'),
-      new Question ("<html>Which country is directly north of Australia?"+
+      new Question ("<html>Which country is directly<br> north of Australia?"+
                     "<br> A. Indonesia"+
                     "<br> B. Russia"+
                     "<br> C. Africa"+
@@ -1397,7 +1392,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. Africa"+
                     "<br> D. Asia</html>"
                       ,'B'),
-      new Question ("<html>What is the largest city in Australia?"+
+      new Question ("<html>What is the largest city <br>in Australia?"+
                     "<br> A. New Zealand"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
@@ -1405,13 +1400,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'D')
     };
     Question[] australiaMedium=
-    {new Question ("<html>What is Australias most commonly mined substance?"+
+    {new Question ("<html>What is Australia's most commonly <br>mined substance?"+
                    "<br> A. Silver"+
                    "<br> B. Bauxite"+
                    "<br> C. Tin"+
                    "<br> D. Coal</html>"
                      ,'B'),
-      new Question ("<html>What is the second largest city in Australia?"+
+      new Question ("<html>What is the second largest <br>city in Australia?"+
                     "<br> A. Sydney"+
                     "<br> B. Canberra"+
                     "<br> C. Melbourne"+
@@ -1423,13 +1418,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. 3"+
                     "<br> D. 5</html>"
                       ,'A'),
-      new Question ("<html>What year did Australia gain independence?"+
+      new Question ("<html>What year did Australia <br>gain independence?"+
                     "<br> A. 1913"+
                     "<br> B. 1901"+
                     "<br> C. 1934"+
                     "<br> D. 1852</html>"
                       ,'B'),
-      new Question ("<html>Which constellation is featured on the Australian flag?"+
+      new Question ("<html>Which constellation is <br>featured on the Australian flag?"+
                     "<br> A. Cygnus"+
                     "<br> B. Ares"+
                     "<br> C. Libra"+
@@ -1437,11 +1432,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'D')
     };
     Question[] australiaHard=
-    {new Question ("<html>australiaHard1"+
-                   "<br> A. Sydney"+
-                   "<br> B. Canberra"+
-                   "<br> C. Brisbane"+
-                   "<br> D. New Zealand</html>"
+    {new Question ("<html>Where is Tasmania in relation <br>to Australia?"+
+                   "<br> A. North"+
+                   "<br> B. South"+
+                   "<br> C. East"+
+                   "<br> D. West</html>"
                      ,'B'),
       new Question ("<html>What is Australia's main export?"+
                     "<br> A. Wheat"+
@@ -1461,7 +1456,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. 7 million"+
                     "<br> D. 3 million</html>"
                       ,'B'),
-      new Question ("<html>Which is the longest river in Australia?"+
+      new Question ("<html>Which is the longest river <br>in Australia?"+
                     "<br> A. Murchison"+
                     "<br> B. Ashburton"+
                     "<br> C. Victoria"+
@@ -1473,11 +1468,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       Country australia =new Country ("Australia",australiaEasy, australiaMedium,
                                       australiaHard, ImageIO.read (new File ("pics/australia.jpg")),
                                       new String[]{
-        "I am in the country in which Ayers Rock can be found.",
-          "I am in the country in which the Murray River can be found.",
-          "I am in the country which is the world's fourth largest producer of wine.",
-          "I am in the country whose name is the same as its continent's name.",
-          "I am in the country whose states include New South Wales, Queensland and Victoria."
+        "The Scarlet Gem is in the country in which Ayers Rock can be found.",
+          "The Scarlet Gem is in the country in which the Murray River can be found.",
+          "The Scarlet Gem is in the country which is the world's fourth largest producer of wine.",
+          "The Scarlet Gem is in the country whose name is the same as its continent's name.",
+          "The Scarlet Gem is in the country whose states include New South Wales, Queensland and Victoria."
       });
       COUNTRIES [5]=australia;
     }
@@ -1499,7 +1494,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. Nile"+
                     "<br> D. Jordan</html>"
                       ,'C'),
-      new Question ("<html>What is the main terrain type of Egypt?"+
+      new Question ("<html>What is the main terrain <br>type of Egypt?"+
                     "<br> A. Desert"+
                     "<br> B. Tropical"+
                     "<br> C. Arctic"+
@@ -1511,7 +1506,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. North America"+
                     "<br> D. Europe</html>"
                       ,'B'),
-      new Question ("<html>What is the official language of Egypt?"+
+      new Question ("<html>What is the official <br>language of Egypt?"+
                     "<br> A. English"+
                     "<br> B. French"+
                     "<br> C. German"+
@@ -1519,13 +1514,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'D')
     };
     Question[] egyptMedium=
-    {new Question ("<html>What is the predominant religion in Egypt?"+
+    {new Question ("<html>What is the predominant <br>religion in Egypt?"+
                    "<br> A. Muslim"+
                    "<br> B. Catholic"+
                    "<br> C. Buddhist"+
                    "<br> D. Lutheran</html>"
                      ,'A'),
-      new Question ("<html>Which is closest to the population of Egypt"+
+      new Question ("<html>Which is closest to the <br>population of Egypt"+
                     "<br> A. 54 million"+
                     "<br> B. 96 million"+
                     "<br> C. 86 million"+
@@ -1537,13 +1532,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. 17"+
                     "<br> D. 31</html>"
                       ,'A'),
-      new Question ("<html>What is the main agricultural export of Egypt?"+
+      new Question ("<html>What is the main agricultural <br>export of Egypt?"+
                     "<br> A. Rice"+
                     "<br> B. Cotton"+
                     "<br> C. Wheat"+
                     "<br> D. Beans</html>"
                       ,'B'),
-      new Question ("<html>What is Egypt's main trading partner?"+
+      new Question ("<html>What is Egypt's main trading <br>partner?"+
                     "<br> A. India"+
                     "<br> B. Saudi Arabia"+
                     "<br> C. Turkey"+
@@ -1551,7 +1546,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'D')
     };
     Question[] egyptHard=
-    {new Question ("<html>What is the length of the Nile River within Egypt?"+
+    {new Question ("<html>What is the length of the Nile River <br>within Egypt?"+
                    "<br> A. 1600 km"+
                    "<br> B. 2400 km"+
                    "<br> C. 1200 km"+
@@ -1563,19 +1558,19 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. Safsaf"+
                     "<br> D. Baharia</html>"
                       ,'C'),
-      new Question ("<html>How many branches does the Nile make at its delta?"+
+      new Question ("<html>How many branches does the Nile <br>make at its delta?"+
                     "<br> A. 2"+
                     "<br> B. 6"+
                     "<br> C. 3"+
                     "<br> D. 4</html>"
                       ,'A'),
-      new Question ("<html>Which Egyptian town contains the Temple of Amun?"+
+      new Question ("<html>Which Egyptian town contains <br>the Temple of Amun?"+
                     "<br> A. Cairo"+
                     "<br> B. Siwah"+
                     "<br> C. Giza"+
                     "<br> D. Luxor</html>"
                       ,'B'),
-      new Question ("<html>Approximately how large is the Nile delta (in square kilometers)?"+
+      new Question ("<html>Approximately how large is the <br>Nile delta (in square kilometers)?"+
                     "<br> A. 22000"+
                     "<br> B. 42000"+
                     "<br> C. 15000"+
@@ -1587,11 +1582,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       Country egypt =new Country ("Egypt",egyptEasy, egyptMedium,
                                   egyptHard, ImageIO.read (new File ("pics/egypt.jpg")),
                                   new String[]{
-        "I am in the country which contains the Nile River.",
-          "I am in the country which contains the Pyramids of Giza.",
-          "I am in the country in which the Sinai penninsula is located.",
-          "I am in the country which contains the Valley of Kings and Queens.",
-          "I am in the country in which the Great Sphinx van be found."
+        "The Scarlet Gem is in the country which contains the Nile River.",
+          "The Scarlet Gem is in the country which contains the Pyramids of Giza.",
+          "The Scarlet Gem is in the country in which the Sinai penninsula is located.",
+          "The Scarlet Gem is in the country which contains the Valley of Kings and Queens.",
+          "The Scarlet Gem is in the country in which the Great Sphinx van be found."
       });
       COUNTRIES [6]=egypt;
     }
@@ -1608,25 +1603,25 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> D. Hyderabad</html>"
                      ,'C'),
       
-      new Question ("<html>What is the national currency of India"+
+      new Question ("<html>What is the national currency <br>of India"+
                     "<br> A. India Dollar"+
                     "<br> B. Yuan"+
                     "<br> C. Euro"+
                     "<br> D. Rupee</html>"
                       ,'D'),
-      new Question ("<html>Which colour is NOT featured on the Indian flag?"+
+      new Question ("<html>Which colour is NOT featured <br>on the Indian flag?"+
                     "<br> A. Orange (saffron)"+
                     "<br> B. White"+
                     "<br> C. Green"+
                     "<br> D. Yellow</html>"
                       ,'D'),
-      new Question ("<html>Which ocean is off the coast of India?"+
+      new Question ("<html>Which ocean is off the coast <br>of India?"+
                     "<br> A. Indian"+
                     "<br> B. Atlantic"+
                     "<br> C. Pacific"+
                     "<br> D. Arctic</html>"
                       ,'A'),
-      new Question ("<html>What is the longest river in India?"+
+      new Question ("<html>What is the longest river <br>in India?"+
                     "<br> A. Brahmaputra"+
                     "<br> B. Ganges"+
                     "<br> C. Krishna"+
@@ -1634,35 +1629,35 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'B'),
     };
     Question[] indiaMedium=
-    {new Question ("<html>What is the national animal of India"+
+    {new Question ("<html>What is the national animal <br>of India"+
                    "<br> A. Asian lion"+
                    "<br> B. Diamond-back python"+
                    "<br> C. Bengal tiger"+
                    "<br> D. Lamprey Eel</html>"
                      ,'C'),
-      new Question ("<html>Which country does not directly border India?"+
+      new Question ("<html>Which country does not <br>directly border India?"+
                     "<br> A. Bangladesh"+
                     "<br> B. Bhutan"+
                     "<br> C. Nepal"+
                     "<br> D. Afghanistan</html>"
                       ,'C'),
-      new Question ("<html>How many official languages does India have?"+
+      new Question ("<html>How many official <br>languages does India have?"+
                     "<br> A. 16"+
                     "<br> B. 12"+
                     "<br> C. 25"+
                     "<br> D. 8</html>"
                       ,'A'),
-      new Question ("<html>What year did India gain independence?"+
+      new Question ("<html>What year did India <br>gain independence?"+
                     "<br> A. 1951"+
                     "<br> B. 1947"+
                     "<br> C. 1932"+
                     "<br> D. 1956</html>"
                       ,'B'),
-      new Question ("<html>IndiaMedium5"+
-                    "<br> A. New Zealand"+
-                    "<br> B. Canberra"+
-                    "<br> C. Melbourne"+
-                    "<br> D. Sydney</html>"
+      new Question ("<html>What is the name of the sea directly <br>south of India?"+
+                    "<br> A. Arabian Sea"+
+                    "<br> B. Caspian Sea"+
+                    "<br> C. Timor Sea"+
+                    "<br> D. Laccadive Sea</html>"
                       ,'D')
     };
     Question[] indiaHard=
@@ -1678,7 +1673,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. Tropical"+
                     "<br> D. Steppe</html>"
                       ,'C'),
-      new Question ("<html>How many officially recognized wetlands are in India?"+
+      new Question ("<html>How many officially recognized <br>wetlands are in India?"+
                     "<br> A. 71"+
                     "<br> B. 34"+
                     "<br> C. 65"+
@@ -1690,7 +1685,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. Jade"+
                     "<br> D. Silver</html>"
                       ,'B'),
-      new Question ("<html>What type of tree is founds at Sundarbans in India?"+
+      new Question ("<html>What type of tree is founds at <br>Sundarbans in India?"+
                     "<br> A. Cherry"+
                     "<br> B. Almond"+
                     "<br> C. Copperpod"+
@@ -1702,11 +1697,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       Country india =new Country ("India",indiaEasy, indiaMedium,
                                   indiaHard, ImageIO.read (new File ("pics/india.jpg")),
                                   new String[]{
-        "I am in the country which contains the Ganges river.",
-          "I am in the country in which the Ghats mountain range is found.",
-          "I am in the world's third largest producer of coal.",
-          "I am in the country in which the Thar desert can be found.",
-          "I am in the country in which borders Pakistan and Bangladesh."
+        "The Scarlet Gem is in the country which contains the Ganges river.",
+          "The Scarlet Gem is in the country in which the Ghats mountain range is found.",
+          "The Scarlet Gem is in the world's third largest producer of coal.",
+          "The Scarlet Gem is in the country in which the Thar desert can be found.",
+          "The Scarlet Gem is in the country in which borders Pakistan and Bangladesh."
       });
       COUNTRIES [7]=india;
     }
@@ -1728,19 +1723,19 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. Europe & Asia"+
                     "<br> D. Asia & Australia</html>"
                       ,'C'),
-      new Question ("<html>Which ocean is off the Northern shore of Russia?"+
+      new Question ("<html>Which ocean is off the <br>Northern shore of Russia?"+
                     "<br> A. Arctic"+
                     "<br> B. Atlantic"+
                     "<br> C. Pacific"+
                     "<br> D. Indian</html>"
                       ,'A'),
-      new Question ("<html>Which ocean is off the Southeastern shore of Russia?"+
+      new Question ("<html>Which ocean is off the <br>Southeastern shore of Russia?"+
                     "<br> A. Arctic"+
                     "<br> B. Pacific"+
                     "<br> C. Atlantic"+
                     "<br> D. Indian</html>"
                       ,'B'),
-      new Question ("<html>Which country does not have a border with Russia?"+
+      new Question ("<html>Which country does not <br>have a border with Russia?"+
                     "<br> A. China"+
                     "<br> B. Lativa"+
                     "<br> C. Norway"+
@@ -1748,13 +1743,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'D')
     };
     Question[] russiaMedium=
-    {new Question ("<html>How many different borders are there between Russia and China?"+
+    {new Question ("<html>How many different borders are <br>there between Russia and China?"+
                    "<br> A. 2"+
                    "<br> B. 0"+
                    "<br> C. 1"+
                    "<br> D. 3</html>"
                      ,'A'),
-      new Question ("<html>Approximately how large is Russia (in square kilometers)?"+
+      new Question ("<html>Approximately how large is <br>Russia (in square kilometers)?"+
                     "<br> A. 14 million"+
                     "<br> B. 11 million"+
                     "<br> C. 17 million"+
@@ -1766,13 +1761,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. Lumber"+
                     "<br> D. Cars</html>"
                       ,'A'),
-      new Question ("<html>How many seas are on the shores of Russia?"+
+      new Question ("<html>How many seas are on the <br>shores of Russia?"+
                     "<br> A. 5"+
                     "<br> B. 13"+
                     "<br> C. 9"+
                     "<br> D. 16</html>"
                       ,'B'),
-      new Question ("<html>In what part of Russia is Kaliningrad located?"+
+      new Question ("<html>In what part of Russia is <br>Kaliningrad located?"+
                     "<br> A. North"+
                     "<br> B. South"+
                     "<br> C. East"+
@@ -1780,31 +1775,31 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'D')
     };
     Question[] russiaHard=
-    {new Question ("<html>russiaHard1"+
-                   "<br> A. St. Petersburg"+
-                   "<br> B. Kazan"+
-                   "<br> C. Samara"+
-                   "<br> D. Moscow</html>"
+    {new Question ("<html>What another name for Central Russia?"+
+                   "<br> A. Siberia"+
+                   "<br> B. Moscovia"+
+                   "<br> C. Asania"+
+                   "<br> D. Centeria</html>"
                      ,'A'),
-      new Question ("<html>What is the length of the Ural mountain range"+
+      new Question ("<html>What is the length of the <br>Ural mountain range"+
                     "<br> A. 1300 km"+
                     "<br> B. 1900 km"+
                     "<br> C. 2400 km"+
                     "<br> D. 2900 km</html>"
                       ,'C'),
-      new Question ("<html>Which is the longest river in Europe?"+
+      new Question ("<html>Which is the longest <br>river in Europe?"+
                     "<br> A. Volga"+
                     "<br> B. Danube"+
                     "<br> C. Rhine"+
                     "<br> D. Dnieper</html>"
                       ,'A'),
-      new Question ("<html>What percentage or Russia is swampland?"+
+      new Question ("<html>What percentage or Russia is <br>swampland?"+
                     "<br> A. 23%"+
                     "<br> B. 10%"+
                     "<br> C. 15%"+
                     "<br> D. 30%</html>"
                       ,'B'),
-      new Question ("<html>What is the average yearly temperature of Russia (in degrees Celsius)?"+
+      new Question ("<html>What is the average yearly <br>temperature of Russia (in degrees Celsius)?"+
                     "<br> A. 10"+
                     "<br> B. -5"+
                     "<br> C. 0"+
@@ -1816,11 +1811,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       Country russia =new Country ("Russia",russiaEasy, russiaMedium,
                                    russiaHard, ImageIO.read (new File ("pics/russia.jpg")),
                                    new String[]{
-        "I am in the largest country in the world.",
-          "I am in the country which borders 3 oceans.",
-          "I am in the ocuntry which was once ruled by the Romanov dynasty.",
-          "I am in the country which is in both Europe and Asia.",
-          "I am in the ocuntry in which the Ural mountains can be found."
+        "The Scarlet Gem is in the largest country in the world.",
+          "The Scarlet Gem is in the country which borders 3 oceans.",
+          "The Scarlet Gem is in the ocuntry which was once ruled by the Romanov dynasty.",
+          "The Scarlet Gem is in the country which is in both Europe and Asia.",
+          "The Scarlet Gem is in the ocuntry in which the Ural mountains can be found."
       });
       COUNTRIES [8]=russia;
     }
@@ -1868,7 +1863,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> C. 70%"+
                    "<br> D. 90%</html>"
                      ,'C'),
-      new Question ("<html>How many chains of mountains can be found in Japan?"+
+      new Question ("<html>How many chains of mountains <br>can be found in Japan?"+
                     "<br> A. 5"+
                     "<br> B. 1"+
                     "<br> C. 3"+
@@ -1880,7 +1875,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. 1654"+
                     "<br> D. 1953</html>"
                       ,'A'),
-      new Question ("<html>What is the name of the plain on which Tokyo is situated?"+
+      new Question ("<html>What is the name of the plain <br>on which Tokyo is situated?"+
                     "<br> A. Nobi"+
                     "<br> B. Kanto"+
                     "<br> C. Kinai"+
@@ -1894,7 +1889,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'D')
     };
     Question[] japanHard=
-    {new Question ("<html>What direction does the Oyashio current flow?"+
+    {new Question ("<html>What direction does the <br>Oyashio current flow?"+
                    "<br> A. North"+
                    "<br> B. West"+
                    "<br> C. South"+
@@ -1930,11 +1925,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       Country japan =new Country ("Japan",japanEasy, japanMedium,
                                   japanHard, ImageIO.read (new File ("pics/japan.jpg")),
                                   new String[]{
-        "I am in the country in which Mt. Fuji is located.",
-          "I am in the country in which Osaka is located.",
-          "I am in the country which is made up of four main islands.",
-          "I am in the country which was once ruled by a military shogunate.",
-          "I am in the country which is directly East of Korea."
+        "The Scarlet Gem is in the country in which Mt. Fuji is located.",
+          "The Scarlet Gem is in the country in which Osaka is located.",
+          "The Scarlet Gem is in the country which is made up of four main islands.",
+          "The Scarlet Gem is in the country which was once ruled by a military shogunate.",
+          "The Scarlet Gem is in the country which is directly East of Korea."
       });
       COUNTRIES [9]=japan;
     }
@@ -1962,13 +1957,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. Seine"+
                     "<br> D. Garronne</html>"
                       ,'A'),
-      new Question ("<html>Which country does NOT have a border with France?"+
+      new Question ("<html>Which country does NOT <br>have a border with France?"+
                     "<br> A. Andorra"+
                     "<br> B. England"+
                     "<br> C. Italy"+
                     "<br> D. Spain</html>"
                       ,'B'),
-      new Question ("<html>What is the name of the mountain range which seperates France from Spain?"+
+      new Question ("<html>What is the name of the mountain <br>range which seperates France from Spain?"+
                     "<br> A. Alps"+
                     "<br> B. Ural"+
                     "<br> C. Himalayas"+
@@ -1994,7 +1989,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. Africa"+
                     "<br> D. Europe</html>"
                       ,'A'),
-      new Question ("<html>How many countries share a border with mainland France?"+
+      new Question ("<html>How many countries share a <br>border with mainland France?"+
                     "<br> A. 5"+
                     "<br> B. 8"+
                     "<br> C. 10"+
@@ -2008,13 +2003,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'D')
     };
     Question[] franceHard=
-    {new Question ("<html>How many countries share a border with French Guiana?"+
+    {new Question ("<html>How many countries share a <br>border with French Guiana?"+
                    "<br> A. 5"+
                    "<br> B. 3"+
                    "<br> C. 4"+
                    "<br> D. 2</html>"
                      ,'D'),
-      new Question ("<html>What year was the first French republic established?"+
+      new Question ("<html>What year was the first <br>French republic established?"+
                     "<br> A. 1785"+
                     "<br> B. 1790"+
                     "<br> C. 1792"+
@@ -2026,13 +2021,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. Alsace"+
                     "<br> D. Calais</html>"
                       ,'A'),
-      new Question ("<html>How many non-EU countries share a border with France?"+
+      new Question ("<html>How many non-EU countries <br>share a border with France?"+
                     "<br> A. 2"+
                     "<br> B. 1"+
                     "<br> C. 0"+
                     "<br> D. 3</html>"
                       ,'B'),
-      new Question ("<html>Which best describes the climate of la Reunion?"+
+      new Question ("<html>Which best describes the <br>climate of la Reunion?"+
                     "<br> A. Desert"+
                     "<br> B. Tundra"+
                     "<br> C. Steppe"+
@@ -2043,11 +2038,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       Country france =new Country ("France",franceEasy,franceMedium, franceHard, ImageIO.read (new File ("pics/france.jpeg")),
                                    new String[]{
-        "I am in the largest country in Europe.",
-          "I am in the country which shares a border with Spain and Germany.",
-          "I am in the country in which the Loire river flows.",
-          "I am in the first European contry to establish a republic.",
-          "I am in the country in which Mont Blanc is located."
+        "The Scarlet Gem is in the largest country in Europe.",
+          "The Scarlet Gem is in the country which shares a border with Spain and Germany.",
+          "The Scarlet Gem is in the country in which the Loire river flows.",
+          "The Scarlet Gem is in the first European contry to establish a republic.",
+          "The Scarlet Gem is in the country in which Mont Blanc is located."
       });
       COUNTRIES [10]=france;
     }
@@ -2075,7 +2070,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> C. Africa"+
                     "<br> D. South America</html>"
                       ,'A'),
-      new Question ("<html>What is the name of the river that flows through London?"+
+      new Question ("<html>What is the name of the river <br>that flows through London?"+
                     "<br> A. Ply"+
                     "<br> B. Thames"+
                     "<br> C. Danube"+
@@ -2095,25 +2090,25 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> C. Tundra"+
                    "<br> D. Steppe</html>"
                      ,'B'),
-      new Question ("<html>Which English city is closest to France?"+
+      new Question ("<html>Which English city is closest <br>to France?"+
                     "<br> A. London"+
                     "<br> B. Cornwall"+
                     "<br> C. Manchester"+
                     "<br> D. Dover</html>"
                       ,'C'),
-      new Question ("<html>What is the longest river in the United Kingdom?"+
+      new Question ("<html>What is the longest river <br>in the United Kingdom?"+
                     "<br> A. Severn"+
                     "<br> B. Thames"+
                     "<br> C. Avon"+
                     "<br> D. Wye</html>"
                       ,'A'),
-      new Question ("<html>Which is the largest of the English Isles?"+
+      new Question ("<html>Which is the largest of the <br>English Isles?"+
                     "<br> A. Mersea Island"+
                     "<br> B. Isle of Wight"+
                     "<br> C. Isle of Man"+
                     "<br> D. Isle of Man</html>"
                       ,'B'),
-      new Question ("<html>What is the Northernmost city in England?"+
+      new Question ("<html>What is the Northernmost <br>city in England?"+
                     "<br> A. London"+
                     "<br> B. Manchester"+
                     "<br> C. Worcester"+
@@ -2121,31 +2116,31 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'D')
     };
     Question[] englandHard=
-    {new Question ("<html>Which two countries does Hadrian's Wall seperate?"+
+    {new Question ("<html>Which two countries does <br>Hadrian's Wall seperate?"+
                    "<br> A. Scotland & Ireland"+
                    "<br> B. Scotland & England"+
                    "<br> C. France & England"+
                    "<br> D. France & Ireland</html>"
                      ,'B'),
-      new Question ("<html>Which are the heighest mountains in England?"+
+      new Question ("<html>Which are the heighest <br>mountains in England?"+
                     "<br> A. Mendip Hills"+
                     "<br> B. Pennies"+
                     "<br> C. Cumbrian Mountains"+
                     "<br> D. Shropshire Hills</html>"
                       ,'C'),
-      new Question ("<html>What percentage of the United Kingdom is used as grazing land?"+
+      new Question ("<html>What percentage of the United <br>Kingdom is used as grazing land?"+
                     "<br> A. 46%"+
                     "<br> B. 21%"+
                     "<br> C. 63%"+
                     "<br> D. 12%</html>"
                       ,'A'),
-      new Question ("<html>Which is the most abundant mineral in England?"+
+      new Question ("<html>Which is the most abundant <br>mineral in England?"+
                     "<br> A. Gold"+
                     "<br> B. Coal"+
                     "<br> C. Silver"+
                     "<br> D. Iron</html>"
                       ,'B'),
-      new Question ("<html>Which of the following islands is NOT a British territory?"+
+      new Question ("<html>Which of the following islands <br>is NOT a British territory?"+
                     "<br> A. Gibraltar"+
                     "<br> B. Montserrat"+
                     "<br> C. Pitcairn Islands"+
@@ -2156,11 +2151,11 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       Country england =new Country ("England",englandEasy, englandMedium, englandHard, ImageIO.read (new File ("pics/england.jpg")),
                                     new String[]{
-        "I am in the country where London can be found.",
-          "I am in the country which was once ruled by Henry IV and Richard II.",
-          "I am in the country which controlls the Strait of Gibraltar.",
-          "I am in the largest country in the United Kingdom.",
-          "I am in the country on the North side of the English Channel."
+        "The Scarlet Gem is in the country where London can be found.",
+          "The Scarlet Gem is in the country which was once ruled by Henry IV and Richard II.",
+          "The Scarlet Gem is in the country which controlls the Strait of Gibraltar.",
+          "The Scarlet Gem is in the largest country in the United Kingdom.",
+          "The Scarlet Gem is in the country on the North side of the English Channel."
       });
       COUNTRIES [11]=england;
     }
