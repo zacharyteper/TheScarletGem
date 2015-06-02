@@ -1059,7 +1059,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       ,'A')
     };
     Question[] usaMedium=
-    {new Question ("How many geographical regions is <br>the USA composed of?"+
+    {new Question ("<html>How many geographical regions is <br>the USA composed of?"+
                    "<br> A. 2"+
                    "<br> B. 3"+
                    "<br> C. 4"+

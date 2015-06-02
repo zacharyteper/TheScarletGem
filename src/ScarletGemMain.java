@@ -597,6 +597,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       if (gamePanel.getQuestion().getAnswer()==answer)
       {
+        score+=30;
         if (currentQuestion==0)
         {
           System.out.println ("More");
@@ -634,6 +635,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       if (answer-65==gamePanel.getAnswer())
       {
+        score+=30;
         showCountryPanel();
         System.out.println ("show country");
       }
@@ -662,7 +664,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     if (gamePanel.timer.getGameWon())
     {
       score += GameTimer.timeRemaining;
-      score +=alreadyBeen.size()*3;
       System.out.println (score);
         userName = JOptionPane.showInputDialog (null, 
                                                 "Congratulations, you found the Scarlet Gem! Your score is "+
@@ -1498,7 +1499,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                     "<br> A. Desert"+
                     "<br> B. Tropical"+
                     "<br> C. Arctic"+
-                    "<br> D. </html>"
+                    "<br> D. Mountainous</html>"
                       ,'A'),
       new Question ("<html>What continent is Egypt part of?"+
                     "<br> A. Asia"+
