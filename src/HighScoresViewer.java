@@ -170,11 +170,8 @@ public class HighScoresViewer extends JFrame implements ActionListener
       out.println ("easy");
       System.out.println ("easy");
       int x;
-<<<<<<< HEAD
       for (x = 0; x < 10 && easyScores[x] > score; x++)
-=======
       for (x = 0; x < 10 && easyScores[x] > score + 180; x++)
->>>>>>> 2d91e6436cadec77b4e18fb5604eddd9ac12397c
       {
         out.println (easyNames[x]);
         out.println (easyScores[x]);
@@ -193,11 +190,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
       
       out.println ();
       out.println ("medium");
-<<<<<<< HEAD
       for (x = 0; x < 10 && mediumScores[x] > score; x++)
-=======
-      for (x = 0; x < 10 && mediumScores[x] > score + 450; x++)
->>>>>>> 2d91e6436cadec77b4e18fb5604eddd9ac12397c
       {
         out.println (mediumNames[x]);
         out.println (mediumScores[x]);
@@ -215,11 +208,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
       
       out.println ();
       out.println ("hard");
-<<<<<<< HEAD
       for (x = 0; x < 10 && hardScores[x] > score; x++)
-=======
-      for (x = 0; x < 10 && hardScores[x] > score + 630; x++)
->>>>>>> 2d91e6436cadec77b4e18fb5604eddd9ac12397c
       {
         out.println (hardNames[x]);
         out.println (hardScores[x]);
