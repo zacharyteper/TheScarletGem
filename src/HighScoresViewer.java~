@@ -37,22 +37,35 @@ public class HighScoresViewer extends JFrame implements ActionListener
     {
       switchLevel (2);
     }
-    else
-    {
-      if (ae.getActionCommand().equals ("Clear"))
-        
-        try
+    else if (ae.getActionCommand().equals ("Clear"))
+    { 
+      try
       {
         PrintWriter out = new PrintWriter (new FileWriter ("High Scores.txt"));
         out.println ("The Scarlet Gem");
+        out.println ("easy");
+        out.println ();
+        out.println ("medium");
+        out.println ();
+        out.println ("hard");
+        out.close ();
       }
       catch (IOException i)
       {
         JOptionPane.showMessageDialog(null,"Unable to write to file.");
       }
-      if (ae.getActionCommand().equals("Close"))
-        dispose();
+      for (int x = 0; x < 10; x++)
+      {
+        easyScores [x] = 0;
+        easyNames [x] = "";
+        mediumScores [x] = 0;
+        mediumNames [x] = "";
+        hardScores [x] = 0;
+        hardNames [x] = "";
+      }
     }
+    else
+      dispose();
   }
   
   public static void fileCheck ()
@@ -89,6 +102,15 @@ public class HighScoresViewer extends JFrame implements ActionListener
       catch (IOException e)
       {
         JOptionPane.showMessageDialog(null,"Unable to write to file.");
+      }
+      for (int x = 0; x < 10; x++)
+      {
+        easyScores [x] = 0;
+        easyNames [x] = "";
+        mediumScores [x] = 0;
+        mediumNames [x] = "";
+        hardScores [x] = 0;
+        hardNames [x] = "";
       }
     }
   }
@@ -133,7 +155,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
           for (int x = 0 ; x < 10 ; x++)
           {
             hardNames [x] = in.readLine ();
-            if (hardNames [x].equals(""))
+            if (hardNames [x] == null)
             {
               System.out.println ("break3");
               break;

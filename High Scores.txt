@@ -1,21 +1,23 @@
 The Scarlet Gem
 easy
 zachary
+227
+null
+224
+zachary
+222
+hi
+221
+zachary
 221
 null
 218
-null
-224
-null
-217
-zachary
-222
-null
-188
 zcahary
 217
-zachary
-227
+null
+217
+null
+188
 
 medium
 zachary
