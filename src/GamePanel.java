@@ -164,7 +164,7 @@ public class GamePanel extends JPanel
     questionLabel.setText(currentClue);
     atQuestionStage=false;
     shuffleButtons();
-    questionLabel.setBounds(200,120,500,30);
+    questionLabel.setBounds(650-questionLabel.getPreferredSize().width,120,500,30);
     mapImageLabel.setVisible(true);
     //add(mapImageLabel);
     mapImageLabel.repaint();
@@ -268,7 +268,7 @@ public class GamePanel extends JPanel
     pauseButton.setBounds (450,50,pauseButton.getPreferredSize().width, pauseButton.getPreferredSize().height);
     
     mapImageLabel.setIcon(new ImageIcon("pics/map.jpg"));
-    mapImageLabel.setBounds(200,130,500,280);
+    mapImageLabel.setBounds(200,170,500,280);
     mapImageLabel.setVisible(false);
     
     feedbackLabel.setBounds(250,450,200,30);

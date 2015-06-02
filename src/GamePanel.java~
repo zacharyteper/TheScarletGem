@@ -139,18 +139,17 @@ public class GamePanel extends JPanel
   public void switchToCountry()
   {
     questionLabel.setText(currentQuestion.getQuestion());
-    d.setBounds(500,300,d.getPreferredSize().height+20,30);
     d.setVisible(true);
     atQuestionStage=true;
     mapImageLabel.setVisible(false);
     a.setText("A");
     b.setText("B");
     c.setText("C");
-    a.setBounds(400,220,a.getPreferredSize().height+20,30);
+    a.setBounds(380,220,a.getPreferredSize().height+20,30);
     b.setBounds(500,220,b.getPreferredSize().height+20,30);
-    c.setBounds(400,300,c.getPreferredSize().height+20,30);
-    d.setBounds(500,300,d.getPreferredSize().height+20,30);
-    questionLabel.setBounds(400,100,400,100);
+    c.setBounds(380,320,c.getPreferredSize().height+20,30);
+    d.setBounds(500,320,d.getPreferredSize().height+20,30);
+    questionLabel.setBounds(380,100,400,100);
     revalidate();
   }
   public void switchToMap()
@@ -165,7 +164,7 @@ public class GamePanel extends JPanel
     questionLabel.setText(currentClue);
     atQuestionStage=false;
     shuffleButtons();
-    questionLabel.setBounds(10,100,500,30);
+    questionLabel.setBounds(200,120,500,30);
     mapImageLabel.setVisible(true);
     //add(mapImageLabel);
     mapImageLabel.repaint();
@@ -261,11 +260,11 @@ public class GamePanel extends JPanel
     
     setLayout(null);
     //Insets insets = this.getInsets ();
-    a.setBounds(400,220,a.getPreferredSize().height+20,a.getPreferredSize().width);
+    a.setBounds(380,220,a.getPreferredSize().height+20,a.getPreferredSize().width);
     b.setBounds(500,220,b.getPreferredSize().height+20,b.getPreferredSize().width);
-    c.setBounds(400,300,c.getPreferredSize().height+20,c.getPreferredSize().width);
-    d.setBounds(500,300,d.getPreferredSize().height+20,d.getPreferredSize().width);
-    questionLabel.setBounds(400,100,400,100);
+    c.setBounds(308,320,c.getPreferredSize().height+20,c.getPreferredSize().width);
+    d.setBounds(500,320,d.getPreferredSize().height+20,d.getPreferredSize().width);
+    questionLabel.setBounds(380,100,400,100);
     pauseButton.setBounds (450,50,pauseButton.getPreferredSize().width, pauseButton.getPreferredSize().height);
     
     mapImageLabel.setIcon(new ImageIcon("pics/map.jpg"));
@@ -274,7 +273,7 @@ public class GamePanel extends JPanel
     
     feedbackLabel.setBounds(250,450,200,30);
     pauseButton.setBounds(550,10,90,30);
-    levelCounter.setBounds(200,50,90,30);
+    levelCounter.setBounds(50,50,250,30);
     questionCounter.setBounds(300,50,90,30);
     
     feedbackLabel.setVisible(false);
