@@ -122,7 +122,7 @@ public class InstructionsViewer extends JFrame
        "<br>After you have completed all of the levels, "+
        "you will find the Scarlet Gem in the next Country that you travel to.</html>"
       );
-    countriesLabel.setBounds(0,0,700,400);
+    countriesLabel.setBounds(0,-200,700,400);
     countries.add(countriesLabel);
     
     JLabel mapLabel=new JLabel
@@ -139,7 +139,7 @@ public class InstructionsViewer extends JFrame
        "The game continues in this fashion until the level counter "+
        "(found at the top of the screen) reaches 0.</html>"
       );
-    mapLabel.setBounds(0,0,700,400);
+    mapLabel.setBounds(0,-140,700,400);
     map.add(mapLabel);
     
     JLabel savingLabel=new JLabel
@@ -153,7 +153,7 @@ public class InstructionsViewer extends JFrame
        "That means that when you load your saved game, "+
        "you will start with the amount of time left when you saved.</html>"
       );
-    savingLabel.setBounds(0,0,700,400);
+    savingLabel.setBounds(0,-150,700,400);
     saving.add(savingLabel);
     
     JLabel scoresLabel=new JLabel
@@ -170,7 +170,7 @@ public class InstructionsViewer extends JFrame
        "s is the number of seconds remaining at the end of the game, "+
        "and y is the number of incorrect answers.</html>"
       );
-    scoresLabel.setBounds(0,0,700,400);
+    scoresLabel.setBounds(0,-130,700,400);
     scores.add(scoresLabel);
     
     JLabel keysLabel=new JLabel 
@@ -184,7 +184,7 @@ public class InstructionsViewer extends JFrame
        "<li>Ctrl+Q - quit/exit "+
        "<li>Ctrl+R - how to play/view instructions</ul></html>"
       );
-    keysLabel.setBounds(0,0,700,400);
+    keysLabel.setBounds(0,-100,700,400);
     keys.add(keysLabel);
     
     JLabel contactLabel=new JLabel
@@ -197,7 +197,7 @@ public class InstructionsViewer extends JFrame
        "<br><br>Phone: 416-223-6075"+
        "<br><br>Version: 1.0 06.09.2015</html>"
     );
-    contactLabel.setBounds(0,0,700,400);
+    contactLabel.setBounds(0,-60,700,400);
     contact.add(contactLabel);
   }
   

@@ -5,6 +5,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import javax.imageio.*;
+import java.io.*;
 public class HighScoresViewer extends JFrame implements ActionListener
 {
   private Graphics screen;
@@ -13,6 +15,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
   private JButton hard = new JButton ("Hard");
   private JButton close = new JButton ("Close");
   private JButton clear = new JButton ("Clear");
+  private JLabel background=new JLabel();
   public static int[] easyScores = new int [10];
   public static int[] mediumScores = new int [10];
   public static int[] hardScores = new int [10];
@@ -307,9 +310,9 @@ public class HighScoresViewer extends JFrame implements ActionListener
   
   private void switchLevel (int level)
   {
-    remove (difficulty);
-    remove (names);
-    remove (scores);
+    difficulty.setVisible(false);
+    names.setVisible(false);
+    scores.setVisible(false);
     revalidate ();
     repaint ();
     String name = "<html><b>User Name</b><br>";
@@ -323,7 +326,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
         name += "<br>"+ easyNames[x] + "<br>";
         score += "<br>" + easyScores[x] + "<br>";
       }
-      difficulty = new JLabel ("High Scores --- Easy");
+      difficulty.setText("High Scores --- Easy");
     }
     else if (level == 1)
     {
@@ -334,7 +337,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
         name += "<br>"+ mediumNames[x] + "<br>";
         score += "<br>" + mediumScores[x] + "<br>";
       }
-      difficulty = new JLabel ("High Scores --- Medium");
+      difficulty.setText("High Scores --- Medium");
     }
     else
     {
@@ -345,15 +348,17 @@ public class HighScoresViewer extends JFrame implements ActionListener
         name += "<br>"+ hardNames[x] + "<br>";
         score += "<br>" + hardScores[x] + "<br>";
       }
-      difficulty = new JLabel ("High Scores --- Hard");
+      difficulty.setText("High Scores --- Hard");
     }
     name += "</html>";
     score += "</html>";
-    names = new JLabel (name);
-    scores = new JLabel (score);
-    add (names);
-    add (scores);
-    add (difficulty);
+    names.setText(name);
+    scores.setText(score);
+
+    System.out.println ("show");
+    names.setVisible(true);
+    scores.setVisible(true);
+    difficulty.setVisible(true);
     names.setBounds (100, 100, names.getPreferredSize().width, names.getPreferredSize().height);
     scores.setBounds (350, 100, scores.getPreferredSize().width, scores.getPreferredSize().height);
     difficulty.setBounds(180,60, difficulty.getPreferredSize().width + 30, difficulty.getPreferredSize().height);
@@ -395,6 +400,16 @@ public class HighScoresViewer extends JFrame implements ActionListener
     add (clear);
     add (names);
     add (scores);
+    add(background);
+    try
+    {
+      background.setIcon(new ImageIcon(ImageIO.read(new File("pics/scarlet-gem3.png"))));
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
+    background.setBounds(0,0,500,600);
     easy.setBounds(50,20, easy.getPreferredSize().width, easy.getPreferredSize().height);
     medium.setBounds(200,20, medium.getPreferredSize().width, medium.getPreferredSize().height);
     hard.setBounds(350,20, hard.getPreferredSize().width, hard.getPreferredSize().height);
