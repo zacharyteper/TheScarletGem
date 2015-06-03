@@ -1217,7 +1217,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> A. 30"+
                    "<br> B. 150"+
                    "<br> C. 110"+
-                   "<br> D. Cancun</html>"
+                   "<br> D. 70</html>"
                      ,'B'),
       new Question ("<html>How long is the Mexican border with <br>the United States?"+
                     "<br> A. 3000 km"+
@@ -1612,7 +1612,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                    "<br> D. Hyderabad</html>"
                      ,'C'),
       
-      new Question ("<html>What is the national currency <br>of India"+
+      new Question ("<html>What is the national currency <br>of India?"+
                     "<br> A. India Dollar"+
                     "<br> B. Yuan"+
                     "<br> C. Euro"+

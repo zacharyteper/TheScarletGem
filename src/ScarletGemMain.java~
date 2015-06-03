@@ -496,7 +496,14 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     gamePanel.getQuestionCounter().setText("Question: "+(currentQuestion+1)+"/"+2);
     showCountryPanel();    
   }
-  
+  public String difficultyString()
+  {
+    if (difficulty==0)
+      return "Easy";
+    else if (difficulty==1)
+      return "Medium";
+    return "Hard";
+  }
   /**
    * displays a random multiple-choice question to the user,
    * and waits for an answer.
@@ -504,7 +511,9 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   private void showCountryPanel()
   {
     currentQuestion=0;
-    gamePanel.getLevelCounter().setText("Level: "+alreadyBeen.size()+"/"+((difficulty+1)*3)+"     You are in: " + currentCountry.getName());
+    gamePanel.getLevelCounter().setText("Level: "+alreadyBeen.size()+"/"+((difficulty+1)*3)+
+                                        "     You are in: " + currentCountry.getName()+
+                                        "     Difficulty: "+difficultyString());
     gamePanel.getQuestionCounter().setText("Question: "+(currentQuestion+1)+"/"+2);
     gamePanel.getQuestionCounter().setVisible(true);
     System.out.println (currentCountry.getName());
@@ -517,7 +526,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     gamePanel.setBackground(currentCountry.getBackground());
     
-
+    
     
     if (levelsRemaining==0)
     {
@@ -613,7 +622,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
           gamePanel.setQuestion(temp);
           currentQuestion++;
           gamePanel.getQuestionCounter().setText("Question: "+(currentQuestion+1)+"/"+2);
-
         }
         else
         {
@@ -665,10 +673,10 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       score += GameTimer.timeRemaining;
       System.out.println (score);
-        userName = JOptionPane.showInputDialog (null, 
-                                                "Congratulations, you found the Scarlet Gem! Your score is "+
-                                                score+" Please enter your user name!", 
-                                                "You won!", JOptionPane.QUESTION_MESSAGE);
+      userName = JOptionPane.showInputDialog (null, 
+                                              "Congratulations, you found the Scarlet Gem! Your score is "+
+                                              score+" Please enter your user name!", 
+                                              "You won!", JOptionPane.QUESTION_MESSAGE);
       if (userName!=null)
         HighScoresViewer.sort (score, userName, difficulty);
       
