@@ -1,10 +1,8 @@
 The Scarlet Gem
 easy
-zachary
-50
-Kingfish
-35
 
 medium
+zachary
+467
 
 hard

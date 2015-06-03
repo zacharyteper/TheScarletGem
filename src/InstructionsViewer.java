@@ -7,6 +7,8 @@
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
+import java.io.*;
+import javax.imageio.*;
 public class InstructionsViewer extends JFrame
 {
   /**
@@ -42,6 +44,8 @@ public class InstructionsViewer extends JFrame
    */
   private JPanel contact=new JPanel();
   
+  private JLabel[] backgrounds=new JLabel[7];
+  
   /**
    * Initializes Panels, TabbedPane, and adds text with screenshots to the Panels.
    */
@@ -70,6 +74,19 @@ public class InstructionsViewer extends JFrame
     scores.setLayout(null);
     keys.setLayout(null);
     contact.setLayout(null);
+    
+    for (int x=0;x<backgrounds.length;x++)
+    {
+      backgrounds[x]=new JLabel();
+      backgrounds[x].setBounds(0,0,800,500);
+      try
+      {
+        backgrounds[x].setIcon(new ImageIcon (ImageIO.read( new File("pics/scarlet-gem5.png"))));
+      }
+      catch (IOException e)
+      {
+      }
+    }
     
     JLabel introLabel=new JLabel
       ("<html>Welcome to The Scarlet Gem! <br>"+
@@ -101,6 +118,7 @@ public class InstructionsViewer extends JFrame
       );
     introLabel.setBounds(0,0,700,400);
     intro.add(introLabel);
+    intro.add(backgrounds[0]);
     
     JLabel countriesLabel=new JLabel
       ("<html>At each country, you must answer two multiple-choice questions."+
@@ -124,6 +142,7 @@ public class InstructionsViewer extends JFrame
       );
     countriesLabel.setBounds(0,-200,700,400);
     countries.add(countriesLabel);
+    countries.add(backgrounds[1]);
     
     JLabel mapLabel=new JLabel
       ("<html>After you answer both questions correctly, a map will appear. "+
@@ -141,6 +160,7 @@ public class InstructionsViewer extends JFrame
       );
     mapLabel.setBounds(0,-140,700,400);
     map.add(mapLabel);
+    map.add(backgrounds[2]);
     
     JLabel savingLabel=new JLabel
       ("<html>This game allows you to save your progress when you are at the Country stage. "+
@@ -155,7 +175,8 @@ public class InstructionsViewer extends JFrame
       );
     savingLabel.setBounds(0,-150,700,400);
     saving.add(savingLabel);
-    
+    saving.add(backgrounds[3]);
+            
     JLabel scoresLabel=new JLabel
       ("<html>When you win the game, your score will be displayed to you, "+
        "and you will be asked to enter your user name. "+
@@ -172,6 +193,7 @@ public class InstructionsViewer extends JFrame
       );
     scoresLabel.setBounds(0,-130,700,400);
     scores.add(scoresLabel);
+    scores.add(backgrounds[4]);
     
     JLabel keysLabel=new JLabel 
       ("<html>Here is a complete list of keyboard shortcuts within the game:"+
@@ -179,13 +201,14 @@ public class InstructionsViewer extends JFrame
        "<li>Ctrl+P - print "+
        "<li>Ctrl+E - view high scores "+
        "<li>Ctrl+S - save "+
-       "<li>Ctrl+A - view About dialog "+
+       "<li>Ctrl+U - view About dialog "+
        "<li>Ctrl+H - view Help dialog "+
        "<li>Ctrl+Q - quit/exit "+
        "<li>Ctrl+R - how to play/view instructions</ul></html>"
       );
     keysLabel.setBounds(0,-100,700,400);
     keys.add(keysLabel);
+    keys.add(backgrounds[5]);
     
     JLabel contactLabel=new JLabel
       ("<html>Contact Info:"+
@@ -199,6 +222,7 @@ public class InstructionsViewer extends JFrame
     );
     contactLabel.setBounds(0,-60,700,400);
     contact.add(contactLabel);
+    contact.add(backgrounds[6]);
   }
   
 }
