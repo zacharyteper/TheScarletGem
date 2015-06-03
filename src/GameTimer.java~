@@ -148,6 +148,7 @@ public class GameTimer extends Thread
         setPaused(true);
         source.actionPerformed(new ActionEvent (this
                                                 , ActionEvent.ACTION_PERFORMED,"loss"));
+        break;
       }
     }
     if (gameWon)

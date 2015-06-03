@@ -259,29 +259,36 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       JFrame about=new JFrame("About");
       JPanel aboutPanel=new JPanel();
-      JLabel name=new JLabel ("Game: The Scarlet Gem");
-      JLabel author1=new JLabel("Project Lead: Zachary Teper");
-      JLabel author2=new JLabel("Project Representative: Angela Zhu");
-      JLabel version=new JLabel("Version: 1.0 06.09.2015");
-      JLabel email=new JLabel("Email: zacharyblacktail@gmail.com");
-      JLabel phone=new JLabel("Phone: 416-223-6075");
+      JLabel infoLabel=new JLabel("<html>Game: The Scarlet Gem"+
+                                  "<br><br>Project Lead: Zachary Teper"+
+                                  "<br><br>Project Representative: Angela Zhu"+
+                                  "<br><br>Version: 1.0 06.09.2015"+
+                                  "<br><br>Email: zacharyblacktail@gmail.com"+
+                                  "<br><br>Phone: 416-223-6075</html>");
+      JLabel background=new JLabel();
       ImageIcon logo=new ImageIcon ("pics/CakeSoft Inc.png");
       JLabel logoLabel=new JLabel();
       
-      about.setSize(400,200);
+      about.setSize(400,500);
       about.add(aboutPanel);
       about.setResizable(false);
       about.setVisible(true);
       about.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-      aboutPanel.setLayout(new FlowLayout());
+      aboutPanel.setLayout(null);
       logoLabel.setIcon(logo);
+      try
+      {
+        background.setIcon(new ImageIcon(ImageIO.read(new File("pics/scarlet-gem4.png"))));
+      }
+      catch (IOException e)
+      {
+      }
+      background.setBounds(0,0,400,500);
+      logoLabel.setBounds(50,50,300,100);
+      infoLabel.setBounds(100,50,300,400);
       aboutPanel.add(logoLabel);
-      aboutPanel.add(name);
-      aboutPanel.add(author1);
-      aboutPanel.add(author2);
-      aboutPanel.add(version);
-      aboutPanel.add(email);
-      aboutPanel.add(phone);
+      aboutPanel.add(infoLabel);
+      aboutPanel.add(background);
     }
     else if (ae.getSource().equals(highScoresItem))
     {
@@ -792,7 +799,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     try
     {
       setIconImage (ImageIO.read (new File ("pics/scarlet-gem.png")));
-      splashImage=new ImageIcon("pics/scarlet-gem.png");
+      splashImage=new ImageIcon("pics/scarlet-gem2.png");
     }
     catch (IOException e)
     {
@@ -803,10 +810,20 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     JLabel infoLabel=new JLabel();
     JPanel splashScreen=new JPanel();
     
-    infoLabel.setText("The Scarlet Gem is Loading...");
+    splashScreen.setLayout(null);
+    
+    infoLabel.setText("<html>Game: The Scarlet Gem"+
+                      "<br><br>Project Lead: Zachary Teper"+
+                      "<br><br>Project Representative: Angela Zhu"+
+                      "<br><br>Version: 1.0 06.09.2015"+
+                      "<br><br>Email: zacharyblacktail@gmail.com"+
+                      "<br><br>Phone: 416-223-6075"+
+                      "<br><br>The Scarlet Gem is Loading...</html>");
     imageLabel.setIcon(splashImage);
-    splashScreen.add(imageLabel);
+    imageLabel.setBounds(0,0,700,600);
+    infoLabel.setBounds(250,50,500,500);
     splashScreen.add(infoLabel);
+    splashScreen.add(imageLabel);
     add(splashScreen);
     revalidate();
     
@@ -2172,7 +2189,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     {
       System.out.println ("IO");
     }
-    
+    try
+    {
+      Thread.sleep(2000);
+    }
+    catch (InterruptedException e)
+    {
+    }
     
     remove (splashScreen);
     
