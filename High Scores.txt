@@ -1,5 +1,7 @@
 The Scarlet Gem
 easy
+Teper
+280
 
 medium
 zachary

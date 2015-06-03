@@ -518,9 +518,8 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   private void showCountryPanel()
   {
     currentQuestion=0;
-    gamePanel.getLevelCounter().setText("Level: "+alreadyBeen.size()+"/"+((difficulty+1)*3)+
-                                        "     You are in: " + currentCountry.getName()+
-                                        "     Difficulty: "+difficultyString());
+    gamePanel.getLevelCounter().setText("     You are in: " + currentCountry.getName()+
+                                        "                       Difficulty: "+difficultyString());
     gamePanel.getQuestionCounter().setText("Question: "+(currentQuestion+1)+"/"+2);
     gamePanel.getQuestionCounter().setVisible(true);
     System.out.println (currentCountry.getName());
@@ -927,7 +926,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     try
     {
       Country canada =new Country ("Canada",canadaEasy, canadaMedium,
-                                   canadaHard, ImageIO.read (new File ("pics/canada.jpg")),
+                                   canadaHard, ImageIO.read (new File ("pics/canada.png")),
                                    new String[]
                                      {""}
       );
@@ -1036,7 +1035,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     };
     try
     {
-      Country china =new Country ("China",chinaEasy, chinaMedium, chinaHard, ImageIO.read (new File ("pics/china.jpg")),
+      Country china =new Country ("China",chinaEasy, chinaMedium, chinaHard, ImageIO.read (new File ("pics/china.png")),
                                   new String[]{"The Scarlet Gem is in the country with the largest population in the world."
         ,"The Scarlet Gem is in the counry whose capital is Beijing."
                                     ,"The Scarlet Gem is in the country where bamboo forests, pandas and the Asian Black Bear"+
@@ -1150,7 +1149,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     };
     try
     {
-      Country usa =new Country ("USA",usaEasy, usaMedium, usaHard, ImageIO.read (new File ("pics/USA.jpg")),
+      Country usa =new Country ("USA",usaEasy, usaMedium, usaHard, ImageIO.read (new File ("pics/USA.png")),
                                 new String[]
                                   {"The Scarlet Gem is in the country in which Chicago is located.",
         "The Scarlet Gem is in the country with the largest military in the world.",
@@ -1264,7 +1263,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     try
     {
       Country mexico =new Country ("Mexico",mexicoEasy, mexicoMedium,
-                                   mexicoHard, ImageIO.read (new File ("pics/mexico.jpeg")),
+                                   mexicoHard, ImageIO.read (new File ("pics/mexico.png")),
                                    new String[]{
         "The Scarlet Gem is in the country which was home to the Maya and Aztec people.",
           "The Scarlet Gem is in the country in which corn was first grown as a crop.",
@@ -1378,7 +1377,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     try
     {
       Country portugal =new Country ("Portugal",portugalEasy, portugalMedium,
-                                     portugalHard, ImageIO.read (new File ("pics/portugal.jpg")),
+                                     portugalHard, ImageIO.read (new File ("pics/portugal.png")),
                                      new String[]{
         "The Scarlet Gem is in the country which contains the Tagus River.",
           "The Scarlet Gem is in the country in which the Temple of Evora can be found.",
@@ -1492,7 +1491,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     try
     {
       Country australia =new Country ("Australia",australiaEasy, australiaMedium,
-                                      australiaHard, ImageIO.read (new File ("pics/australia.jpg")),
+                                      australiaHard, ImageIO.read (new File ("pics/australia.png")),
                                       new String[]{
         "The Scarlet Gem is in the country in which Ayers Rock can be found.",
           "The Scarlet Gem is in the country in which the Murray River can be found.",
@@ -1606,7 +1605,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     try
     {
       Country egypt =new Country ("Egypt",egyptEasy, egyptMedium,
-                                  egyptHard, ImageIO.read (new File ("pics/egypt.jpg")),
+                                  egyptHard, ImageIO.read (new File ("pics/egypt.png")),
                                   new String[]{
         "The Scarlet Gem is in the country which contains the Nile River.",
           "The Scarlet Gem is in the country which contains the Pyramids of Giza.",
@@ -1721,7 +1720,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     try
     {
       Country india =new Country ("India",indiaEasy, indiaMedium,
-                                  indiaHard, ImageIO.read (new File ("pics/india.jpg")),
+                                  indiaHard, ImageIO.read (new File ("pics/india.png")),
                                   new String[]{
         "The Scarlet Gem is in the country which contains the Ganges river.",
           "The Scarlet Gem is in the country in which the Ghats mountain range is found.",
@@ -1835,7 +1834,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     try
     {
       Country russia =new Country ("Russia",russiaEasy, russiaMedium,
-                                   russiaHard, ImageIO.read (new File ("pics/russia.jpg")),
+                                   russiaHard, ImageIO.read (new File ("pics/russia.png")),
                                    new String[]{
         "The Scarlet Gem is in the largest country in the world.",
           "The Scarlet Gem is in the country which borders 3 oceans.",
@@ -1949,7 +1948,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     try
     {
       Country japan =new Country ("Japan",japanEasy, japanMedium,
-                                  japanHard, ImageIO.read (new File ("pics/japan.jpg")),
+                                  japanHard, ImageIO.read (new File ("pics/japan.png")),
                                   new String[]{
         "The Scarlet Gem is in the country in which Mt. Fuji is located.",
           "The Scarlet Gem is in the country in which Osaka is located.",
@@ -2062,7 +2061,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     };
     try
     {
-      Country france =new Country ("France",franceEasy,franceMedium, franceHard, ImageIO.read (new File ("pics/france.jpeg")),
+      Country france =new Country ("France",franceEasy,franceMedium, franceHard, ImageIO.read (new File ("pics/france.png")),
                                    new String[]{
         "The Scarlet Gem is in the largest country in Europe.",
           "The Scarlet Gem is in the country which shares a border with Spain and Germany.",
@@ -2175,7 +2174,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     };
     try
     {
-      Country england =new Country ("England",englandEasy, englandMedium, englandHard, ImageIO.read (new File ("pics/england.jpg")),
+      Country england =new Country ("England",englandEasy, englandMedium, englandHard, ImageIO.read (new File ("pics/england.png")),
                                     new String[]{
         "The Scarlet Gem is in the country where London can be found.",
           "The Scarlet Gem is in the country which was once ruled by Henry IV and Richard II.",
