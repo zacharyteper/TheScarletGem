@@ -273,8 +273,8 @@ public class GamePanel extends JPanel
     
     feedbackLabel.setBounds(250,450,200,30);
     pauseButton.setBounds(550,10,90,30);
-    levelCounter.setBounds(50,50,250,30);
-    questionCounter.setBounds(300,50,90,30);
+    levelCounter.setBounds(50,50,450,30);
+    questionCounter.setBounds(400,50,90,30);
     
     feedbackLabel.setVisible(false);
     

@@ -807,8 +807,19 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     //show splashscreen
     JLabel imageLabel=new JLabel();
     JLabel infoLabel=new JLabel();
+    JLabel logoLabel=new JLabel();
+    JLabel title=new JLabel();
     JPanel splashScreen=new JPanel();
     
+    try
+    {
+      logoLabel.setIcon(new ImageIcon(ImageIO.read(new File("pics/CakeSoft Inc.png"))));
+      title.setIcon(new ImageIcon(ImageIO.read(new File("pics/title.png"))));
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
     splashScreen.setLayout(null);
     
     infoLabel.setText("<html>Game: The Scarlet Gem"+
@@ -820,9 +831,14 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                       "<br><br>The Scarlet Gem is Loading...</html>");
     imageLabel.setIcon(splashImage);
     imageLabel.setBounds(0,0,700,600);
-    infoLabel.setBounds(250,50,500,500);
+    infoLabel.setBounds(250,150,500,500);
+    logoLabel.setBounds(0,0,300,100);
+    title.setBounds(200,150,300,100);
+    splashScreen.add(logoLabel);
+    splashScreen.add(title);
     splashScreen.add(infoLabel);
     splashScreen.add(imageLabel);
+    
     add(splashScreen);
     revalidate();
     

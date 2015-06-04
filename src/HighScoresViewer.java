@@ -135,7 +135,6 @@ public class HighScoresViewer extends JFrame implements ActionListener
             easyNames [x] = in.readLine ();
             if (easyNames [x].equals (""))
             {
-              System.out.println ("break1");
               break;
             }
             easyScores [x] = Integer.parseInt (in.readLine ());
@@ -148,7 +147,6 @@ public class HighScoresViewer extends JFrame implements ActionListener
             mediumNames [x] = in.readLine ();
             if (mediumNames [x].equals (""))
             {
-              System.out.println ("break2");
               break;
             }
             mediumScores [x] = Integer.parseInt (in.readLine ());
@@ -161,7 +159,6 @@ public class HighScoresViewer extends JFrame implements ActionListener
             hardNames [x] = in.readLine ();
             if (hardNames [x] == null)
             {
-              System.out.println ("break3");
               break;
             }
             hardScores [x] = Integer.parseInt (in.readLine ());
@@ -172,7 +169,6 @@ public class HighScoresViewer extends JFrame implements ActionListener
       PrintWriter out = new PrintWriter (new FileWriter ("High Scores.txt"));
       out.println ("The Scarlet Gem");
       out.println ("easy");
-      System.out.println ("easy");
       int x;
       for (x = 0; x < 10 && easyScores[x] > score; x++)
       for (x = 0; x < 10 && easyScores[x] > score + 180; x++)
@@ -250,12 +246,9 @@ public class HighScoresViewer extends JFrame implements ActionListener
         {
           for (int x = 0 ; x < 10 ; x++)
           {
-            System.out.println ("Loop"+x);
             easyNames [x] = in.readLine ();
-            System.out.println (easyNames[x]);
             if (easyNames [x].equals(""))
             {
-              System.out.println ("Break1");
               break;
             }
             easyScores [x] = Integer.parseInt (in.readLine ());
@@ -304,9 +297,6 @@ public class HighScoresViewer extends JFrame implements ActionListener
     score += "</html>";
     names = new JLabel (name);
     scores = new JLabel (score);
-    System.out.println (easyNames.length);
-    for (String s:easyNames)
-      System.out.println (s);
   }
   
   private void switchLevel (int level)
@@ -356,7 +346,6 @@ public class HighScoresViewer extends JFrame implements ActionListener
     names.setText(name);
     scores.setText(score);
 
-    System.out.println ("show");
     names.setVisible(true);
     scores.setVisible(true);
     difficulty.setVisible(true);

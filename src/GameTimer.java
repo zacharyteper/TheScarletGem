@@ -153,7 +153,6 @@ public class GameTimer extends Thread
     }
     if (gameWon)
     {
-      System.out.println ("game over");
       panel.remove (time);
       gameWon = false;
     }

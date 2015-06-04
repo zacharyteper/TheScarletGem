@@ -197,9 +197,22 @@ public class InstructionsViewer extends JFrame
        "He/she will give you a clue about the location of the Scarlet Gem, "+
        "once you answer the questions correctly."+
        "<br><br>After you have completed all of the levels, "+
-       "you will find the Scarlet Gem in the next Country that you travel to.</html>"
+       "you will find the Scarlet Gem in the next Country that you travel to."+
+       "<br<br> Image URLs: <ul>"+
+       "<li>http://imgs.mi9.com/uploads/landscape/2088/landscape-in-canada_1024x768_27732.jpg"+ 
+       "<li>http://1.bp.blogspot.com/-rjswD_56dgA/UGLLz-5pgVI/AAAAAAAACqA/wH7XHrlH9CYs1600__tulum_mexico.jpeg"+        
+       "<li>http://paradiseintheworld.com/wp-content/uploads/2012/03/portugal-lisbon.jpg"+                                 
+       "<li>http://www.touristmaker.com/images/south-australia/south-australia-desert.jpg"+                                 
+       "<li>http://www.jod.uk.com/media/1171/india-hero.jpg?width=1280"+                                                 
+       "<li>http://dalocollis.files.wordpress.com/2013/04/egypt-2006-2.jpg"+                                                 
+       "<li>http://digitalhint.net/wp-content/uploads/2015/02/Forbidden-City-Beijing-Wallpapers.jpg"+                 
+       "<li>http://mezenne.az/mezenne.az/img/article/World___Russia_Beautiful<br>_winter_morning_in_moscow_048359_.jpg"+ 
+       "<li>http://jimmyesl.com/wp-content/uploads/2014/03/japan-mt-fuji.jpg"+                                 
+       "<li>http://img0.mxstatic.com/wallpapers/20d68c77a63c018bc59df097b24f59ad_large.jpeg"+                         
+       "<li>http://cdn.images.express.co.uk/img/dynamic/25/590x/londoneye-442994.jpg"+
+       "<li>http://wondrouspics.com/wp-content/uploads/2011/12/new_york_1.jpg</ul></html>" 
       );
-    countriesLabel.setBounds(0,-100,700,400);
+    countriesLabel.setBounds(0,-50,700,600);
     countries.add(countriesLabel);
     countries.add(screenshots[1]);
     countries.add(backgrounds[1]);
@@ -216,9 +229,12 @@ public class InstructionsViewer extends JFrame
        "<br><br>Once you have chosen the correct Destination from the choices given, "+
        "you will be asked two questions, just like in the previous screen. "+
        "The game continues in this fashion until the level counter "+
-       "(found at the top of the screen) reaches 0.</html>"
+       "(found at the top of the screen) reaches 0."+
+       "<br><br>Questions Sourced from:<ul>"+
+       "<li>www.wikipedia.com"+
+       "<li>www.cia.gov</ul></html>"
       );
-    mapLabel.setBounds(0,-130,700,400);
+    mapLabel.setBounds(0,-50,700,400);
     map.add(mapLabel);
     map.add(screenshots[2]);
     map.add(backgrounds[2]);
