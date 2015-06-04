@@ -17,20 +17,6 @@ import java.util.*;
  */
 public class ScarletGemMain extends JFrame implements ActionListener, Printable,WindowListener
 {
-  /* currentCountry index:
-   * 0 - Canada
-   * 1 - China
-   * 2 - USA
-   * 3 - Mexico
-   * 4 - Portugal
-   * 5 - Australia
-   * 6 - Egypt
-   * 7 - India
-   * 8 - Russia
-   * 9 - Japan
-   * 10 - France
-   * 11 - England
-   */
   
   /**
    * Holds the country that the user is currently in. This value will be reassigned
@@ -93,11 +79,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    * using the menu option or by pressing Ctrl+E. This is only initialized once.
    */
   private HighScoresViewer highScoresViewer;
-  /**
-   * Holds the instance of the InstructionsViewer which the user can see at any time
-   * using the menu option or by pressing Ctrl+R. This is only initialized once.
-   */
-  private InstructionsViewer instructionsViewer;
   /**
    * Holds the number 1 or 0, depending on which question the user is currently on.
    */
@@ -208,8 +189,38 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    * Processes action events from all of the Buttons and Menus throughout the game.
    * Called by the JVM when a Button or Menu is pressed.
    * If statements control which block of code will be executed based on <code> ae</code>
+   * If statement in progress reading section sets the number of levels remaining.
+   * If statement in pause button processing calculates wether to pause or unpause.
    * 
-   * @param ae ActionEvent
+   * While loop in progress reading section keeps reading until it reaches a blank line.
+   * 
+   * <p>
+   * <b> Local Variables</b>
+   * <p>
+   * <b> job </b> PrinterJob - the printer job to print the high scores.
+   * <p>
+   * <b> file</b> File - the .chm file to be displayed.
+   * <p>
+   * <b> about </b> JFrame - the About dialog window.
+   * <p>
+   * <b> aboutPanel </b> JPanel - the Panel which holds the window components.
+   * <p>
+   * <b> infoLabel </b> JLabel - contains contact info about the game.
+   * <p>
+   * <b> background </b> JLabel - holds the background of the About dialog.
+   * <p>
+   * <b> logo </b> ImageIcon - holds the CakeSoft logo.
+   * <p>
+   * <b> logoLabel </b> JLabel - holds the ImageIcon specified by <code> logo </code>
+   * <p>
+   * <b> in </b> BufferedReader - reads in the progress file.
+   * <p>
+   * <b> next </b> String - holds the value of the next line in the progress file.
+   * <p>
+   * <b> total </b> int - holds the total number of levels in each difficulty mode.
+   * <p>
+   * 
+   * @param ae ActionEvent - the action which occured.
    */
   public void actionPerformed(ActionEvent ae)
   {
@@ -292,7 +303,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     else if (ae.getSource().equals(highScoresItem))
     {
-      HighScoresViewer h = new HighScoresViewer ();
+      new HighScoresViewer ();
     }
     else if (ae.getSource().equals(mainMenuPanel.getEasyButton()))
     {
@@ -383,10 +394,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       }
       
     }
-    else if (ae.getActionCommand().equals("loss"))
+    else
     {
-      JOptionPane.showMessageDialog(null,"Sorry, you ran out of time!");
-      endGame();
+      if (ae.getActionCommand().equals("loss"))
+      {
+        JOptionPane.showMessageDialog(null,"Sorry, you ran out of time!");
+        endGame();
+      }
     }
     revalidate();
   }
