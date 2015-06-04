@@ -314,7 +314,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     else if (ae.getSource().equals(mainMenuPanel.getLoadButton()))
     {
-      System.out.println ("load");
       try
       {
         BufferedReader in=new BufferedReader(new FileReader("progress.txt"));
@@ -329,7 +328,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
             break;
           alreadyBeen.add(getCountry(next));
         }
-        //in.readLine();
         
         
         currentCountry=getCountry(in.readLine());
@@ -337,7 +335,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
         GameTimer.timeRemaining=(Integer.parseInt(in.readLine()));
         in.readLine();
         currentQuestion=Integer.parseInt(in.readLine());
-        System.out.println (currentCountry.getName());
         
       }
       catch (IOException e)
@@ -460,7 +457,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    */
   private void save()
   {
-    System.out.println ("save");
     try
     {
       PrintWriter out=new PrintWriter(new FileWriter("progress.txt"));
@@ -522,7 +518,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                                         "                       Difficulty: "+difficultyString());
     gamePanel.getQuestionCounter().setText("Question: "+(currentQuestion+1)+"/"+2);
     gamePanel.getQuestionCounter().setVisible(true);
-    System.out.println (currentCountry.getName());
     try
     {
       Thread.sleep(500);
@@ -541,10 +536,8 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     else
     {
-      //Question temp=
       gamePanel.setQuestion(currentCountry.getRandQuestion(difficulty));
       gamePanel.switchToCountry();
-      //gamePanel.setQuestion(currentCountry.getRandQuestion(difficulty));
       gamePanel.getAButton().setEnabled(true);
       gamePanel.getBButton().setEnabled(true);
       gamePanel.getCButton().setEnabled(true);
@@ -568,7 +561,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     do
     {
-      System.out.println ("search");
       currentCountry=COUNTRIES[(int)(Math.random()*10)];
     }
     while (alreadyBeen.contains(currentCountry));
@@ -577,19 +569,16 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     Country wrong2;
     do
     {
-      System.out.println ("search2");
       wrong1=COUNTRIES[(int)(Math.random()*10)];
     }
     while (alreadyBeen.contains(wrong1)||wrong1.equals(currentCountry));
     
     do
     {
-      System.out.println ("search3");
       wrong2=COUNTRIES[(int)(Math.random()*10)];
     }
     while (alreadyBeen.contains(wrong2)||wrong1.equals(wrong2)
              ||wrong2.equals(currentCountry));
-    //System.out.println ("worng: "+wrong2.getName());
     gamePanel.setDestinations(new Country[]{currentCountry,wrong1,wrong2});
     gamePanel.switchToMap();
     gamePanel.getAButton().setEnabled(true);
@@ -597,7 +586,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     gamePanel.getCButton().setEnabled(true);
     repaint();
     
-    //COUNTRIES[(int)(Math.random()*
     
   }
   /**
@@ -615,7 +603,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
         score+=30;
         if (currentQuestion==0)
         {
-          System.out.println ("More");
           gamePanel.getAButton().setEnabled(true);
           gamePanel.getBButton().setEnabled(true);
           gamePanel.getCButton().setEnabled(true);
@@ -631,16 +618,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
         }
         else
         {
-          System.out.println ("Exec");
           levelsRemaining--;
-          System.out.println (levelsRemaining);
           alreadyBeen.add(currentCountry);
           showMapPanel();
         }
       }
       else
       {
-        System.out.println ("remove");
         gamePanel.removeWrongAnswer(answer);
         score -= 10;
       }
@@ -651,12 +635,10 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       {
         score+=30;
         showCountryPanel();
-        System.out.println ("show country");
       }
       else
       {
         gamePanel.removeWrongDestination(answer-65);
-        System.out.println ("remove country " + (answer-65));
         score -= 10;
       }
     }
@@ -678,7 +660,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     if (gamePanel.timer.getGameWon())
     {
       score += GameTimer.timeRemaining;
-      System.out.println (score);
       userName = JOptionPane.showInputDialog (null, 
                                               "Congratulations, you found the Scarlet Gem! Your score is "+
                                               score+" Please enter your user name!", 
@@ -750,7 +731,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     page.drawString("Score",550,350);
     for (int x=0;x<10;x++)
     {
-      System.out.println ("easy"+x);
       if (HighScoresViewer.easyNames[x].equals(""))
         break;
       page.drawString(HighScoresViewer.easyNames[x],50,400+x*50);
@@ -767,7 +747,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     for (int x=0;x<10;x++)
     {
-      System.out.println (x);
       if (HighScoresViewer.hardNames[x]==null)
         break;
       page.drawString(HighScoresViewer.hardNames[x],450,400+x*50);
@@ -791,8 +770,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     setDefaultCloseOperation (JFrame.DO_NOTHING_ON_CLOSE);
     requestFocusInWindow();
     
-    //setLayout(null);
-    
     //set the JFrame icon and read splashImage
     ImageIcon splashImage=null;
     try
@@ -802,7 +779,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     catch (IOException e)
     {
-      System.out.println ("Image IO");
     }
     //show splashscreen
     JLabel imageLabel=new JLabel();
@@ -950,7 +926,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     catch (IOException e)
     {
-      System.out.println ("IO");
     }
     //initialize China
     Question[] chinaEasy=
@@ -1064,7 +1039,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     catch (IOException e)
     {
-      System.out.println ("IO");
+      
     }
     //initialize USA
     Question[] usaEasy=
@@ -1177,7 +1152,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     catch (IOException e)
     {
-      System.out.println ("IO");
+      
     }
     //initialize mexico
     Question[] mexicoEasy=
@@ -1291,7 +1266,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     catch (IOException e)
     {
-      System.out.println ("IO");
+      
     }
     //initialize Portugal
     Question[] portugalEasy=
@@ -1405,7 +1380,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     catch (IOException e)
     {
-      System.out.println ("IO");
+      
     }
     //initialize Australia
     Question[] australiaEasy=
@@ -1519,7 +1494,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     catch (IOException e)
     {
-      System.out.println ("IO");
+      
     }
     //initialize Egypt
     Question[] egyptEasy=
@@ -1633,7 +1608,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     catch (IOException e)
     {
-      System.out.println ("IO");
+      
     }
     //initialize India
     Question[] indiaEasy=
@@ -1748,7 +1723,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     catch (IOException e)
     {
-      System.out.println ("IO");
+      
     }
     //initialize Russia
     Question[] russiaEasy=
@@ -1862,7 +1837,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     catch (IOException e)
     {
-      System.out.println ("IO");
+      
     }
     //initialize Japan
     Question[] japanEasy=
@@ -1976,7 +1951,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     catch (IOException e)
     {
-      System.out.println ("IO");
+      
     }
     //initialize France
     Question[] franceEasy=
@@ -2089,7 +2064,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     catch (IOException e)
     {
-      System.out.println ("IO");
+      
     }
     //initialize England
     Question[] englandEasy=
@@ -2202,7 +2177,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     catch (IOException e)
     {
-      System.out.println ("IO");
+      
     }
     try
     {
@@ -2216,7 +2191,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     
     alreadyBeen=new ArrayList<Country>();
     currentCountry=COUNTRIES[0];
-    //alreadyBeen.add(COUNTRIES[0]);
     
     //initialize menus
     JMenuBar menuBar=new JMenuBar();
@@ -2271,7 +2245,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     
     levelCounter=new JLabel(levelsRemaining+"");
     addWindowListener(this);
-    System.out.println ("ready");
     revalidate();
   }
   
