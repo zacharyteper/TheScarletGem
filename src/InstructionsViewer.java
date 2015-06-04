@@ -45,6 +45,7 @@ public class InstructionsViewer extends JFrame
   private JPanel contact=new JPanel();
   
   private JLabel[] backgrounds=new JLabel[7];
+  private JLabel[]screenshots=new JLabel[6];
   
   /**
    * Initializes Panels, TabbedPane, and adds text with screenshots to the Panels.
@@ -53,7 +54,7 @@ public class InstructionsViewer extends JFrame
   {
     super ("Instructions");
     setVisible (true);
-    setSize (800,550);
+    setSize (800,630);
     setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
     
     setLayout (new CardLayout());
@@ -78,7 +79,7 @@ public class InstructionsViewer extends JFrame
     for (int x=0;x<backgrounds.length;x++)
     {
       backgrounds[x]=new JLabel();
-      backgrounds[x].setBounds(0,0,800,500);
+      backgrounds[x].setBounds(0,0,800,580);
       try
       {
         backgrounds[x].setIcon(new ImageIcon (ImageIO.read( new File("pics/scarlet-gem5.png"))));
@@ -86,6 +87,63 @@ public class InstructionsViewer extends JFrame
       catch (IOException e)
       {
       }
+    }
+    
+    
+    screenshots[0]=new JLabel();
+    screenshots[0].setBounds(580,380,200,200);
+    try
+    {
+      screenshots[0].setIcon(new ImageIcon (ImageIO.read(new File("screenshots/main menu.png"))));
+    }
+    catch (IOException e)
+    {
+    }
+    screenshots[1]=new JLabel();
+    screenshots[1].setBounds(580,380,200,200);
+    try
+    {
+      screenshots[1].setIcon(new ImageIcon (ImageIO.read(new File("screenshots/country.png"))));
+    }
+    catch (IOException e)
+    {
+    }
+    screenshots[2]=new JLabel();
+    screenshots[2].setBounds(580,380,200,200);
+    try
+    {
+      screenshots[2].setIcon(new ImageIcon (ImageIO.read(new File("screenshots/map.png"))));
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
+    screenshots[3]=new JLabel();
+    screenshots[3].setBounds(580,380,200,200);
+    try
+    {
+      screenshots[3].setIcon(new ImageIcon (ImageIO.read(new File("screenshots/save.png"))));
+    }
+    catch (IOException e)
+    {
+    }
+    screenshots[4]=new JLabel();
+    screenshots[4].setBounds(580,380,200,200);
+    try
+    {
+      screenshots[4].setIcon(new ImageIcon (ImageIO.read(new File("screenshots/high scores.png"))));
+    }
+    catch (IOException e)
+    {
+    }
+    screenshots[5]=new JLabel();
+    screenshots[5].setBounds(580,380,200,200);
+    try
+    {
+      screenshots[5].setIcon(new ImageIcon (ImageIO.read(new File("screenshots/about.png"))));
+    }
+    catch (IOException e)
+    {
     }
     
     JLabel introLabel=new JLabel
@@ -118,6 +176,7 @@ public class InstructionsViewer extends JFrame
       );
     introLabel.setBounds(0,0,800,500);
     intro.add(introLabel);
+    intro.add(screenshots[0]);
     intro.add(backgrounds[0]);
     
     JLabel countriesLabel=new JLabel
@@ -142,6 +201,7 @@ public class InstructionsViewer extends JFrame
       );
     countriesLabel.setBounds(0,-100,700,400);
     countries.add(countriesLabel);
+    countries.add(screenshots[1]);
     countries.add(backgrounds[1]);
     
     JLabel mapLabel=new JLabel
@@ -160,6 +220,7 @@ public class InstructionsViewer extends JFrame
       );
     mapLabel.setBounds(0,-130,700,400);
     map.add(mapLabel);
+    map.add(screenshots[2]);
     map.add(backgrounds[2]);
     
     JLabel savingLabel=new JLabel
@@ -175,8 +236,9 @@ public class InstructionsViewer extends JFrame
       );
     savingLabel.setBounds(0,-100,700,400);
     saving.add(savingLabel);
+    saving.add(screenshots[3]);
     saving.add(backgrounds[3]);
-            
+    
     JLabel scoresLabel=new JLabel
       ("<html>When you win the game, your score will be displayed to you, "+
        "and you will be asked to enter your user name. "+
@@ -193,6 +255,7 @@ public class InstructionsViewer extends JFrame
       );
     scoresLabel.setBounds(0,-100,700,400);
     scores.add(scoresLabel);
+    scores.add(screenshots[4]);
     scores.add(backgrounds[4]);
     
     JLabel keysLabel=new JLabel 
@@ -208,8 +271,18 @@ public class InstructionsViewer extends JFrame
       );
     keysLabel.setBounds(0,-100,700,400);
     keys.add(keysLabel);
+    keys.add(screenshots[5]);
     keys.add(backgrounds[5]);
     
+    JLabel logo=new JLabel();
+    logo.setBounds(0,300,300,100);
+    try
+    {
+      logo.setIcon(new ImageIcon (ImageIO.read(new File("pics/CakeSoft Inc.png"))));
+    }
+    catch (IOException e)
+    {
+    }
     JLabel contactLabel=new JLabel
       ("<html>Contact Info:"+
        "<br><br>Game: The Scarlet Gem"+
@@ -219,9 +292,10 @@ public class InstructionsViewer extends JFrame
        "<br><br>Email: zacharyblacktail@gmail.com"+
        "<br><br>Phone: 416-223-6075"+
        "<br><br>Version: 1.0 06.09.2015</html>"
-    );
+      );
     contactLabel.setBounds(0,-60,700,400);
     contact.add(contactLabel);
+    contact.add(logo);
     contact.add(backgrounds[6]);
   }
   

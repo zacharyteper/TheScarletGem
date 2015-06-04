@@ -7,6 +7,8 @@
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
+import java.io.*;
+import javax.imageio.*;
 public class InstructionsViewer extends JFrame
 {
   /**
@@ -42,6 +44,8 @@ public class InstructionsViewer extends JFrame
    */
   private JPanel contact=new JPanel();
   
+  private JLabel[] backgrounds=new JLabel[7];
+  
   /**
    * Initializes Panels, TabbedPane, and adds text with screenshots to the Panels.
    */
@@ -49,7 +53,7 @@ public class InstructionsViewer extends JFrame
   {
     super ("Instructions");
     setVisible (true);
-    setSize (800,500);
+    setSize (800,550);
     setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
     
     setLayout (new CardLayout());
@@ -71,14 +75,27 @@ public class InstructionsViewer extends JFrame
     keys.setLayout(null);
     contact.setLayout(null);
     
+    for (int x=0;x<backgrounds.length;x++)
+    {
+      backgrounds[x]=new JLabel();
+      backgrounds[x].setBounds(0,0,800,500);
+      try
+      {
+        backgrounds[x].setIcon(new ImageIcon (ImageIO.read( new File("pics/scarlet-gem5.png"))));
+      }
+      catch (IOException e)
+      {
+      }
+    }
+    
     JLabel introLabel=new JLabel
-      ("<html>Welcome to The Scarlet Gem! <br>"+
+      ("<html>Welcome to The Scarlet Gem! <br><br>"+
        "In this game, you are a treasure hunter, on a quest "+
-       "to discover the secret location of the mysterious Scarlet Gem!<br>"+
+       "to discover the secret location of the mysterious Scarlet Gem!<br><br>"+
        "To play, you must travel around the world, finding clues which "+
-       "will lead you to the Gem's location. <br>"+
-       "To begin the game, select Easy, Medium or Hard from the Main Menu.<br>"+
-       "To load a previously saved game, select Load Game form the Main Menu.<br>"+
+       "will lead you to the Gem's location. <br><br>"+
+       "To begin the game, select Easy, Medium or Hard from the Main Menu.<br><br>"+
+       "To load a previously saved game, select Load Game form the Main Menu.<br><br>"+
        "How the Game Works: <ul><li>To win, you must find the Scarlet Gem before "+
        "time runs out, by travelling to the required number of countries. "+
        "<li>For Easy mode, you must travel to 3 countries. "+
@@ -94,36 +111,38 @@ public class InstructionsViewer extends JFrame
        "(e.g. Easy mode will have easy questions, "+
        "Medium mode will have somewhat more challenging questions, "+
        "Hard mode will have difficult questions) </ul>"+
-       "<br>Other Information: "+
+       "<br><br>Other Information: "+
        "<ul><li>Age group: 9-15 years "+
        "<li>Theme: World Geography, Educational "+
        "<li>System Requirements: Java Runtime Environment 8.0 or higher. </ul></html>"
       );
-    introLabel.setBounds(0,0,700,400);
+    introLabel.setBounds(0,0,800,500);
     intro.add(introLabel);
+    intro.add(backgrounds[0]);
     
     JLabel countriesLabel=new JLabel
       ("<html>At each country, you must answer two multiple-choice questions."+
        "This is known as the Country Stage. "+
-       "<br>When you start the game, you will find yourself in Canada. "+
+       "<br><br>When you start the game, you will find yourself in Canada. "+
        "On the right side of the screen, there will be a multiple-choice question, "+
        "with four possible answers to the question, labeled A, B, C and D. "+
        "Answer the question to the best of your ability by clicking one of the four buttons."+
        "If you get a question wrong, the choice will be disabled, "+
        "and ten points will be deducted from your score!"+
-       "<br>If you get the question right, another question will be displayed. "+
+       "<br><br>If you get the question right, another question will be displayed. "+
        "Answer the same way you did the first question. "+
-       "<br>After you have answered both questions correctly, "+
+       "<br><br>After you have answered both questions correctly, "+
        "you will move onto the Map stage (see next page)."+
-       "<br>On the left side, there will be a picture of a person who "+
+       "<br><br>On the left side, there will be a picture of a person who "+
        "is dressed in the style of the country you are in. "+
        "He/she will give you a clue about the location of the Scarlet Gem, "+
        "once you answer the questions correctly."+
-       "<br>After you have completed all of the levels, "+
+       "<br><br>After you have completed all of the levels, "+
        "you will find the Scarlet Gem in the next Country that you travel to.</html>"
       );
-    countriesLabel.setBounds(0,-200,700,400);
+    countriesLabel.setBounds(0,-100,700,400);
     countries.add(countriesLabel);
+    countries.add(backgrounds[1]);
     
     JLabel mapLabel=new JLabel
       ("<html>After you answer both questions correctly, a map will appear. "+
@@ -134,44 +153,47 @@ public class InstructionsViewer extends JFrame
        "a hint about which Destination you should go to. "+
        "Click on the Destination that most closely matches the Clue given. "+
        "Be careful - if you choose the wrong Destination, ten points will be deducted from your score!"+
-       "<br>Once you have chosen the correct Destination from the choices given, "+
+       "<br><br>Once you have chosen the correct Destination from the choices given, "+
        "you will asked two questions, just like in the previous screen. "+
        "The game continues in this fashion until the level counter "+
        "(found at the top of the screen) reaches 0.</html>"
       );
-    mapLabel.setBounds(0,-140,700,400);
+    mapLabel.setBounds(0,-130,700,400);
     map.add(mapLabel);
+    map.add(backgrounds[2]);
     
     JLabel savingLabel=new JLabel
       ("<html>This game allows you to save your progress when you are at the Country stage. "+
        "(Sorry, you cannot save while travelling!) "+
        "You can save by selecting the \"save\" item from the menu, or by pressing Ctrl+S. "+
        "When you are in the main menu, press Load Game to resume from where you last saved."+
-       "<br>Note: you can only have one save file. "+
+       "<br><br>Note: you can only have one save file. "+
        "That means that if you save twice, your first save will be deleted."+
-       "<br>The file that you save also contains the time remaining in the game. "+
+       "<br><br>The file that you save also contains the time remaining in the game. "+
        "That means that when you load your saved game, "+
        "you will start with the amount of time left when you saved.</html>"
       );
-    savingLabel.setBounds(0,-150,700,400);
+    savingLabel.setBounds(0,-100,700,400);
     saving.add(savingLabel);
-    
+    saving.add(backgrounds[3]);
+            
     JLabel scoresLabel=new JLabel
       ("<html>When you win the game, your score will be displayed to you, "+
        "and you will be asked to enter your user name. "+
-       "<br>The game automatically records the scores and names of "+
+       "<br><br>The game automatically records the scores and names of "+
        "the top 10 players in each category: Easy, Medium and Hard. "+
        "You can view these scores at any time by pressing Ctrl+E or by "+
        "selecting the \"view high scores\" item from the menu. "+
        "You can print these scores at any time by pressing"+
        "Ctrl+P or by selecting the \"print\" menu item."+
        "<br><br>This formula is used to compute your score: score = 200x +s -10y"+
-       "<br>,where x is the number of countries visited, "+
+       "<br><br>,where x is the number of countries visited, "+
        "s is the number of seconds remaining at the end of the game, "+
        "and y is the number of incorrect answers.</html>"
       );
-    scoresLabel.setBounds(0,-130,700,400);
+    scoresLabel.setBounds(0,-100,700,400);
     scores.add(scoresLabel);
+    scores.add(backgrounds[4]);
     
     JLabel keysLabel=new JLabel 
       ("<html>Here is a complete list of keyboard shortcuts within the game:"+
@@ -179,13 +201,14 @@ public class InstructionsViewer extends JFrame
        "<li>Ctrl+P - print "+
        "<li>Ctrl+E - view high scores "+
        "<li>Ctrl+S - save "+
-       "<li>Ctrl+A - view About dialog "+
+       "<li>Ctrl+U - view About dialog "+
        "<li>Ctrl+H - view Help dialog "+
        "<li>Ctrl+Q - quit/exit "+
        "<li>Ctrl+R - how to play/view instructions</ul></html>"
       );
     keysLabel.setBounds(0,-100,700,400);
     keys.add(keysLabel);
+    keys.add(backgrounds[5]);
     
     JLabel contactLabel=new JLabel
       ("<html>Contact Info:"+
@@ -199,6 +222,7 @@ public class InstructionsViewer extends JFrame
     );
     contactLabel.setBounds(0,-60,700,400);
     contact.add(contactLabel);
+    contact.add(backgrounds[6]);
   }
   
 }
