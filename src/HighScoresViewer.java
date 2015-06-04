@@ -66,6 +66,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
         hardScores [x] = 0;
         hardNames [x] = "";
       }
+      switchLevel (0);
     }
     else
       dispose();
