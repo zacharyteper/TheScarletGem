@@ -66,6 +66,8 @@ public class MainMenuPanel extends JPanel
   }
   /**
    * Initializes the buttons and the graphics.
+   * 
+   * Try block reads in background image.
    */
   public MainMenuPanel ()
   {

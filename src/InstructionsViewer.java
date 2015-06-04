@@ -43,12 +43,40 @@ public class InstructionsViewer extends JFrame
    * Holds the contact info Help Topic.
    */
   private JPanel contact=new JPanel();
-  
+  /**
+   * Holds the backgrounds for each panel.
+   */
   private JLabel[] backgrounds=new JLabel[7];
+  /**
+   * Holds the screenshots for each panel.
+   */
   private JLabel[]screenshots=new JLabel[6];
   
   /**
    * Initializes Panels, TabbedPane, and adds text with screenshots to the Panels.
+   * 
+   * For loop initializes all backgrounds.
+   * 
+   * Try blocks initialize all images.
+   * 
+   * <b> Local Variables </b>
+   * <p>
+   * <b> introLabel </b> holds the text content for the introduction.
+   * <p>
+   * <b> countryLabel </b> holds the text content for the country/question
+   * explanation.
+   * <p>
+   * <b> mapLabel </b> holds the text content for the map/travelling explanation.
+   * <p>
+   * <b> savingLabel </b> holds the text content for the saving progress explanation.
+   * <p>
+   * <b> scoresLabel </b> holds the text content for the high scores explanation.
+   * <p>
+   * <b> keysLabel </b> holds the text content for the key shortcuts explanation.
+   * <p>
+   * <b> contactLabel </b> holds the text content for the contact info screen.
+   * <p>
+   * <b> logo </b> holds the logo image.
    */
   public InstructionsViewer ()
   {
