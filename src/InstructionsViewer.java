@@ -164,7 +164,7 @@ public class InstructionsViewer extends JFrame
        "<li>You can pause the game at any time by pressing the \"pause\" button "+
        "(at the top of the screen). "+
        "<li>Unpause the game by pressing the \"pause\" button again."+
-       "<li>You are unabled to click on the menus while playing the game, unless you pause the game."+
+       "<li>You will not be able to click on the menus while playing the game, unless you pause the game."+
        "<li>The questions get harder with the Difficulty "+
        "(e.g. Easy mode will have easy questions, "+
        "Medium mode will have somewhat more challenging questions, "+
@@ -205,7 +205,7 @@ public class InstructionsViewer extends JFrame
     countries.add(backgrounds[1]);
     
     JLabel mapLabel=new JLabel
-      ("<html>After you answer both questions correctly, a map will appear. "+
+      ("<html>After you answer both questions correctly for each country, a map will appear. "+
        "On top of the map, there will be a clue, which will decide where the "+
        "next part of the game will be located. Below the map, "+
        "there will be three buttons displaying the names of various countries. "+
@@ -214,7 +214,7 @@ public class InstructionsViewer extends JFrame
        "Click on the Destination that most closely matches the Clue given. "+
        "Be careful - if you choose the wrong Destination, ten points will be deducted from your score!"+
        "<br><br>Once you have chosen the correct Destination from the choices given, "+
-       "you will asked two questions, just like in the previous screen. "+
+       "you will be asked two questions, just like in the previous screen. "+
        "The game continues in this fashion until the level counter "+
        "(found at the top of the screen) reaches 0.</html>"
       );
@@ -224,11 +224,10 @@ public class InstructionsViewer extends JFrame
     map.add(backgrounds[2]);
     
     JLabel savingLabel=new JLabel
-      ("<html>This game allows you to save your progress when you are at the Country stage. "+
-       "(Sorry, you cannot save while travelling!) "+
+      ("<html>This game allows you to save your progress during gameplay. "+
        "You can save by selecting the \"save\" item from the menu, or by pressing Ctrl+S. "+
        "When you are in the main menu, press Load Game to resume from where you last saved."+
-       "<br><br>Note: you can only have one save file. "+
+       "<br><br>Note: you can only have one saved file. "+
        "That means that if you save twice, your first save will be deleted."+
        "<br><br>The file that you save also contains the time remaining in the game. "+
        "That means that when you load your saved game, "+
@@ -244,9 +243,9 @@ public class InstructionsViewer extends JFrame
        "and you will be asked to enter your user name. "+
        "<br><br>The game automatically records the scores and names of "+
        "the top 10 players in each category: Easy, Medium and Hard. "+
-       "You can view these scores at any time by pressing Ctrl+E or by "+
+       "You can view these scores by pressing Ctrl+E or by "+
        "selecting the \"view high scores\" item from the menu. "+
-       "You can print these scores at any time by pressing"+
+       "You can print these scores by pressing "+
        "Ctrl+P or by selecting the \"print\" menu item."+
        "<br><br>This formula is used to compute your score: score = 200x +s -10y"+
        "<br><br>,where x is the number of countries visited, "+
@@ -260,7 +259,7 @@ public class InstructionsViewer extends JFrame
     
     JLabel keysLabel=new JLabel 
       ("<html>Here is a complete list of keyboard shortcuts within the game:"+
-       "<br><br><ul><li>p - pause/unpause "+
+       "<br><br><ul>"+
        "<li>Ctrl+P - print "+
        "<li>Ctrl+E - view high scores "+
        "<li>Ctrl+S - save "+
