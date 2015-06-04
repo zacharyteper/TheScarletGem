@@ -50,7 +50,6 @@ public class GamePanel extends JPanel
   
   public void setBackground(Image i)
   {
-    System.out.println ("image");
     background=i;
     imageLabel.setIcon(new ImageIcon(i));
     imageLabel.setBounds(0,0,700,600);
@@ -115,8 +114,6 @@ public class GamePanel extends JPanel
   private void shuffleButtons()
   {
     int index=(int)(Math.random()*3);
-    System.out.println ("shuffle: "+index);
-    //add(mapImageLabel);
     if (index==1)
     {
       a.setBounds(350,500,a.getPreferredSize().height+80,30);
@@ -154,7 +151,6 @@ public class GamePanel extends JPanel
   }
   public void switchToMap()
   {
-    System.out.println ("map");
     feedbackLabel.setVisible(false);
     d.setVisible(false);
     a.setText(destinations[0].getName());
@@ -166,7 +162,6 @@ public class GamePanel extends JPanel
     shuffleButtons();
     questionLabel.setBounds(650-questionLabel.getPreferredSize().width,120,500,30);
     mapImageLabel.setVisible(true);
-    //add(mapImageLabel);
     mapImageLabel.repaint();
     revalidate();
   }
@@ -259,7 +254,6 @@ public class GamePanel extends JPanel
     questionLabel=new JLabel();
     
     setLayout(null);
-    //Insets insets = this.getInsets ();
     a.setBounds(380,220,a.getPreferredSize().height+20,a.getPreferredSize().width);
     b.setBounds(500,220,b.getPreferredSize().height+20,b.getPreferredSize().width);
     c.setBounds(308,320,c.getPreferredSize().height+20,c.getPreferredSize().width);
@@ -273,8 +267,8 @@ public class GamePanel extends JPanel
     
     feedbackLabel.setBounds(250,450,200,30);
     pauseButton.setBounds(550,10,90,30);
-    levelCounter.setBounds(50,50,250,30);
-    questionCounter.setBounds(300,50,90,30);
+    levelCounter.setBounds(50,50,450,30);
+    questionCounter.setBounds(400,50,90,30);
     
     feedbackLabel.setVisible(false);
     

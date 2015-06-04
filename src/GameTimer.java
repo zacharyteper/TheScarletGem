@@ -130,7 +130,7 @@ public class GameTimer extends Thread
     {
       time.setText ("Time: "+minutes()+":"+seconds());
 
-      time.setBounds(550,50,80,20);
+      time.setBounds(550,50,80,30);
       panel.revalidate();
       try
       {
@@ -153,7 +153,6 @@ public class GameTimer extends Thread
     }
     if (gameWon)
     {
-      System.out.println ("game over");
       panel.remove (time);
       gameWon = false;
     }

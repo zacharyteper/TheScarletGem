@@ -6,6 +6,8 @@
  */
 import javax.swing.*;
 import java.awt.*;
+import javax.imageio.*;
+import java.io.*;
 public class MainMenuPanel extends JPanel
 {
   /**
@@ -24,6 +26,8 @@ public class MainMenuPanel extends JPanel
    * Loads the game stored in the progress file if possible.
    */
   private JButton loadGame;
+  
+  private JLabel title=new JLabel();
   
   private JLabel background=new JLabel();
   /**
@@ -67,16 +71,32 @@ public class MainMenuPanel extends JPanel
    */
   public MainMenuPanel ()
   {
-    
+    setLayout(null);
+    try
+    {
+      background.setIcon(new ImageIcon(ImageIO.read(new File ("pics/scarlet-gem2.png"))));
+      title.setIcon(new ImageIcon(ImageIO.read(new File("pics/title2.png"))));
+    }
+    catch (IOException e)
+    {
+    }
+    background.setBounds(0,0,700,600);
     easy=new JButton ("Easy");
     medium=new JButton ("Medium");
     hard=new JButton ("Hard");
-    loadGame=new JButton ("Load Game");
+    loadGame=new JButton ("Load Saved Game");
+    easy.setBounds(275,150,150,30);
+    medium.setBounds(275,250,150,30);
+    hard.setBounds(275,350,150,30);
+    loadGame.setBounds(275,450,150,30);
+    title.setBounds(50,20,600,100);
+    add(title);
     add(easy);
     add(medium);
     add(hard);
     add(loadGame);
     add(background);
+
     
     
     revalidate();
