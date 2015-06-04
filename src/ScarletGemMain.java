@@ -190,9 +190,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
    * Called by the JVM when a Button or Menu is pressed.
    * If statements control which block of code will be executed based on <code> ae</code>
    * If statement in progress reading section sets the number of levels remaining.
-   * If statement in pause button processing calculates wether to pause or unpause.
+   * If statement in pause button processing calculates whether to pause or unpause.
    * 
    * While loop in progress reading section keeps reading until it reaches a blank line.
+   *
+   * Try block in help button section runs execution of .chm file.
+   * Try block in progress reading section reads in from file.
+   * Try block in about dialog section reads in the background and logo image.
    * 
    * <p>
    * <b> Local Variables</b>
@@ -406,6 +410,8 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   /** Returns the country associated with a name
     * 
+    * If statements check what the name of the country is and return the result.
+    * 
     * @param name String the name of the Country
     * @return Country the instance of the country associated with name
     * @See "ScarletGemMain.COUNTRIES"
@@ -438,6 +444,9 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   /**
    * Asks the users if they want to save before closing the program. 
+   * 
+   * If statements control processing of user input.
+   * 
    * YES==save and close
    * NO==close without saving
    * CANCEL/ESCAPE==resume game without saving
@@ -468,6 +477,10 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   /**
    * saves the user's current progress to the file "progress.txt"
+   * 
+   * For loop writes out the names of the countries already visited.
+   * 
+   * Try block writes data to file.
    */
   private void save()
   {
@@ -513,6 +526,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     gamePanel.getQuestionCounter().setText("Question: "+(currentQuestion+1)+"/"+2);
     showCountryPanel();    
   }
+  /**
+   * Returns the String representation of the current difficulty.
+   * 
+   * If statements control return statements.
+   * 
+   * @return String the String represenation of the difficulty.
+   */
   public String difficultyString()
   {
     if (difficulty==0)
@@ -524,6 +544,10 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   /**
    * displays a random multiple-choice question to the user,
    * and waits for an answer.
+   * 
+   * If statement checks if the game is won.
+   * 
+   * Try block waits for half a second before displaying the screen.
    */
   private void showCountryPanel()
   {
@@ -562,6 +586,14 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   /**
    * Creates the 3 destination options for the Map screen and displays it.
    * While loops search for COUNTRIES that have not been visited in the game.
+   * 
+   * Try block waits for half a second before displaying screen.
+   * <p>
+   * <b> Local variables </b>
+   * <p>
+   * <b>wrong1</b> Country - holds one of the incorrect destinations.
+   * <p>
+   * <b>wrong2</b> Country - holds the other incorrect destination.
    */ 
   private void showMapPanel()
   {
@@ -605,6 +637,17 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   /**
    * Checks if the answer selected by the user is correct. If it is, the next screen is displayed.
    * If not, the choice is eliminated time is deducted from the user's score.
+   * 
+   * If statement checks if the game panel is at the country stage.
+   * If statement checks if the user selected the correct answer.
+   * If statement checks if the user selected the correct destination.
+   * 
+   * While loop continues drawing random questions until it draws one
+   * that is not a repetition of the one just answered.
+   * 
+   * <b> Local Variables</b>
+   * <p>
+   * <b> temp </b> Question - holds the potential value of the next question.
    * 
    * @param answer char the answer that the user selected
    */
@@ -659,7 +702,19 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   /**
    * resets game variables, closes the game screen, 
-   * and returns to the main menu.
+   * and returns to the main menu. Asks user for username, asks if he/she
+   * would like to continue.
+   * 
+   * If statement checks if the game has been won.
+   * If statement checks if the username is not <code> null</code>
+   * before adding it to High Scores.
+   * If statement checks if the difficulty is not Hard.
+   * If statement checks if the user wants to continue, and if the difficulty is not Hard.
+   * If statement checks if the difficulty is Easy.
+   * 
+   * <b> Local Variables </b>
+   * <p>
+   * <b>next </b> int - holds whether the user wants to continue.
    */
   public void endGame()
   {
@@ -714,6 +769,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   }
   /**
    * Sends a print command to the printer specified in the dialog box.
+   * 
+   * If statement checks if the index is greater than 0.
+   * 
+   * For loops and if statements print names and scores, will break if 
+   * the loop reaches a blank line.
+   * 
+   * Try block reads in the logo.
    * 
    * @param page Graphics the page to be printed
    * @param format PageFormat the format of the page to be printed
@@ -774,6 +836,120 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   /**
    * Displays the splash screen, initializes the game variables and displays the main menu.
    * Adds ActionListeners and KeyListeners to game Objects.
+   * 
+   * Try block reads in splashscreen image.
+   * Try block reads in logo and title image.
+   * Try blocks read in backgrounds for each country.
+   * 
+   * <b> Local Variables </b>
+   * <p>
+   * <b> imageLabel </b> JLabel - holds the splashscreen background.
+   * <p>
+   * <b> infoLabel </b> JLabel - holds the splashscreen information message.
+   * <p>
+   * <b>  logoLabel</b> JLabel - holds the company logo.
+   * <p>
+   * <b> splashImage</b> ImageIcon - holds the splashscreen background image.
+   * <p>
+   * <b> title </b> JLabel - holds the title image.
+   * <p>
+   * <b> splashScreen </b> JPanel - holds the panel displayed at the start of the game.
+   * <p>
+   * <b> canadaEasy </b> Question[] - holds the easy questions for Canada.
+   * <p>
+   * <b> canadaMedium </b> Question[] - holds the medium questions for Canada.
+   * <p>
+   * <b> canadaHard </b> Question[] - holds the hard questions for Canada.
+   * <p>
+   * <b> canada </b> Country - holds the Country instance for Canada.
+   * <p>
+   * <b> chinaEasy </b> Question[] - holds the easy questions for china.
+   * <p>
+   * <b> chinaMedium </b> Question[] - holds the medium questions for china.
+   * <p>
+   * <b> chinaHard </b> Question[] - holds the hard questions for china.
+   * <p>
+   * <b> china </b> Country - holds the Country instance for china.
+   * <p>
+   * <b> usaEasy </b> Question[] - holds the easy questions for usa.
+   * <p>
+   * <b> usaMedium </b> Question[] - holds the medium questions for usa.
+   * <p>
+   * <b> usaHard </b> Question[] - holds the hard questions for usa.
+   * <p>
+   * <b> usa </b> Country - holds the Country instance for usa.
+   * <p>
+   * <b> mexicoEasy </b> Question[] - holds the easy questions for mexico.
+   * <p>
+   * <b> mexicoMedium </b> Question[] - holds the medium questions for mexico.
+   * <p>
+   * <b> mexicoHard </b> Question[] - holds the hard questions for mexico.
+   * <p>
+   * <b> mexico </b> Country - holds the Country instance for mexico.
+   * <p>
+   * <b> portugalEasy </b> Question[] - holds the easy questions for portugal.
+   * <p>
+   * <b> portugalMedium </b> Question[] - holds the medium questions for portugal.
+   * <p>
+   * <b> portugalHard </b> Question[] - holds the hard questions for portugal.
+   * <p>
+   * <b> portugal </b> Country - holds the Country instance for portugal.
+   * <p>
+   * <b> australiaEasy </b> Question[] - holds the easy questions for australia.
+   * <p>
+   * <b> australiaMedium </b> Question[] - holds the medium questions for australia.
+   * <p>
+   * <b> australiaHard </b> Question[] - holds the hard questions for australia.
+   * <p>
+   * <b> australia </b> Country - holds the Country instance for australia.
+   * <p>
+   * <b> egyptEasy </b> Question[] - holds the easy questions for egypt.
+   * <p>
+   * <b> egyptMedium </b> Question[] - holds the medium questions for egypt.
+   * <p>
+   * <b> egyptHard </b> Question[] - holds the hard questions for egypt.
+   * <p>
+   * <b> egypt </b> Country - holds the Country instance for egypt.
+   * <p>
+   * <b> indiaEasy </b> Question[] - holds the easy questions for india.
+   * <p>
+   * <b> indiaMedium </b> Question[] - holds the medium questions for india.
+   * <p>
+   * <b> indiaHard </b> Question[] - holds the hard questions for india.
+   * <p>
+   * <b> india </b> Country - holds the Country instance for india.
+   * <p>
+   * <b> russiaEasy </b> Question[] - holds the easy questions for russia.
+   * <p>
+   * <b> russiaMedium </b> Question[] - holds the medium questions for russia.
+   * <p>
+   * <b> russiaHard </b> Question[] - holds the hard questions for russia.
+   * <p>
+   * <b> russia </b> Country - holds the Country instance for russia.
+   * <p>
+   * <b> japanEasy </b> Question[] - holds the easy questions for japan.
+   * <p>
+   * <b> japanMedium </b> Question[] - holds the medium questions for japan.
+   * <p>
+   * <b> japanHard </b> Question[] - holds the hard questions for japan.
+   * <p>
+   * <b> japan </b> Country - holds the Country instance for japan.
+   * <p>
+   * <b> franceEasy </b> Question[] - holds the easy questions for france.
+   * <p>
+   * <b> franceMedium </b> Question[] - holds the medium questions for france.
+   * <p>
+   * <b> franceHard </b> Question[] - holds the hard questions for france.
+   * <p>
+   * <b> france </b> Country - holds the Country instance for france.
+   * <p>
+   * <b> englandEasy </b> Question[] - holds the easy questions for england.
+   * <p>
+   * <b> englandMedium </b> Question[] - holds the medium questions for england.
+   * <p>
+   * <b> englandHard </b> Question[] - holds the hard questions for england.
+   * <p>
+   * <b> england </b> Country - holds the Country instance for england.
    */
   public ScarletGemMain()
   {
@@ -808,7 +984,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     }
     catch (IOException e)
     {
-      e.printStackTrace();
     }
     splashScreen.setLayout(null);
     
