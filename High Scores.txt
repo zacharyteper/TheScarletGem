@@ -1,7 +1,7 @@
 The Scarlet Gem
 easy
-shark
-208
+Kingfish
+193
 
 medium
 zachary

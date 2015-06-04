@@ -247,7 +247,7 @@ public class InstructionsViewer extends JFrame
        "selecting the \"view high scores\" item from the menu. "+
        "You can print these scores by pressing "+
        "Ctrl+P or by selecting the \"print\" menu item."+
-       "<br><br>This formula is used to compute your score: score = 200x +s -10y"+
+       "<br><br>This formula is used to compute your score: score = 30x +s -10y"+
        "<br><br>,where x is the number of countries visited, "+
        "s is the number of seconds remaining at the end of the game, "+
        "and y is the number of incorrect answers.</html>"
