@@ -7,7 +7,7 @@ import javax.imageio.*;
 /**
  * Displays instructions about gameplay to user using a JTabbedPane.
  * 
- * @author Zachary Teper (2 hours) and Angela Zhu (1.5 hours)
+ * @author Zachary Teper (2 hours) and Angela Zhu (1.5 hours mostly graphics)
  * @version 1.0 06.01.2015
  */
 public class InstructionsViewer extends JFrame

@@ -3,7 +3,7 @@ import java.awt.*;
 /**
  * Data class, which contains all the data for each country in the game.
  * 
- * @author Zachary Teper (0.5 hours) and Angela Zhu (0.5 hours)
+ * @author Zachary Teper (0.5 hours) and Angela Zhu (0 hours)
  * @version 1.0 06.09.2015
  */
 public class Country {

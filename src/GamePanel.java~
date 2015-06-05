@@ -1,12 +1,13 @@
+
+import javax.swing.*;
+import java.awt.*;
 /**
  * Holds all of the components on the game screen. Components are controlled
  * using the get/set methods included in this class.
  * 
- * @author Zachary Teper and Angela Zhu
+ * @author Zachary Teper (4 hours) and Angela Zhu (1 hour)
  * @version 1.0 06.01.2015
  */
-import javax.swing.*;
-import java.awt.*;
 public class GamePanel extends JPanel 
 {
   /** Holds the button representing choice A.
@@ -33,11 +34,18 @@ public class GamePanel extends JPanel
   /**Holds the button which is used to pause and unpause the game.
     */
   private JButton pauseButton = new JButton ("PAUSE");
-  /**
+  /**Displays the amount of time remaining to the user.
    */
   private JLabel timeLabel = new JLabel ("start");
+  /**Holds the text of the clue that is currently being viewed.
+    */
   private String currentClue;
+  /**Displays an 'INCORRECT' message if user chooses a wrong answer.
+    */
   private JLabel feedbackLabel= new JLabel("INCORRECT. Please try again.");
+  /**Holds a boolean value: if TRUE, the user is at the Country stage.
+    * if FALSE, the user is at the Travelling Stage.
+    */
   private boolean atQuestionStage=true;
   /**Displays the number of levels remaining to the user.
     */
@@ -205,7 +213,7 @@ public class GamePanel extends JPanel
     b.setBounds(500,220,b.getPreferredSize().height+20,30);
     c.setBounds(380,320,c.getPreferredSize().height+20,30);
     d.setBounds(500,320,d.getPreferredSize().height+20,30);
-    questionLabel.setBounds(380,100,400,100);
+    questionLabel.setBounds(380,100,600,100);
     revalidate();
   }
   /**
@@ -222,7 +230,7 @@ public class GamePanel extends JPanel
     questionLabel.setText(currentClue);
     atQuestionStage=false;
     shuffleButtons();
-    questionLabel.setBounds(650-questionLabel.getPreferredSize().width,120,500,30);
+    questionLabel.setBounds(650-questionLabel.getPreferredSize().width,120,600,30);
     mapImageLabel.setVisible(true);
     mapImageLabel.repaint();
     revalidate();
@@ -366,7 +374,7 @@ public class GamePanel extends JPanel
     b.setBounds(500,220,b.getPreferredSize().height+20,b.getPreferredSize().width);
     c.setBounds(308,320,c.getPreferredSize().height+20,c.getPreferredSize().width);
     d.setBounds(500,320,d.getPreferredSize().height+20,d.getPreferredSize().width);
-    questionLabel.setBounds(380,100,400,100);
+    questionLabel.setBounds(380,100,600,100);
     pauseButton.setBounds (450,50,pauseButton.getPreferredSize().width, pauseButton.getPreferredSize().height);
     
     mapImageLabel.setIcon(new ImageIcon("pics/map.jpg"));

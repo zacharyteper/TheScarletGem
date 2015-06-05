@@ -2,7 +2,7 @@
  * Holds the question String and answer char for each question in the game.
  * Answers and Questions can be accessed at any time by any class.
  * 
- * @author Zachary Teper (1 hour) and Angela Zhu (1 hour)
+ * @author Zachary Teper (1 hour) and Angela Zhu (0 hour)
  */
 public class Question {
   /**

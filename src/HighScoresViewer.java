@@ -8,7 +8,7 @@ import java.io.*;
 /**
  * Displays the High Scores to the user. Includes option to clear the high scores.
  * 
- * @author Angela Zhu (3 hours) and Zachary Teper (0.5 hours)
+ * @author Angela Zhu (4 hours + 0.5 hours graphics) and Zachary Teper (0.5 hours)
  * @version 1.0 09.06.2015
  */
 public class HighScoresViewer extends JFrame implements ActionListener

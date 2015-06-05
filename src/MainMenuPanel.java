@@ -6,7 +6,7 @@ import java.io.*;
 /**
  * Contains the main menu buttons that appear at the start of the game.
  * 
- * @author Zachary Teper (0.75 hours) and Angela Zhu (0.75 hours)
+ * @author Zachary Teper (0.75 hours) and Angela Zhu (1 hours mostly graphics)
  * @version 1.0 05.24.2015
  */
 public class MainMenuPanel extends JPanel

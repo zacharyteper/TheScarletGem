@@ -5,7 +5,7 @@ import java.awt.*;
  * Holds all of the components on the game screen. Components are controlled
  * using the get/set methods included in this class.
  * 
- * @author Zachary Teper (4 hours) and Angela Zhu (1 hour)
+ * @author Zachary Teper (4 hours) and Angela Zhu (2.5 hours + 3 hours graphics)
  * @version 1.0 06.01.2015
  */
 public class GamePanel extends JPanel 
