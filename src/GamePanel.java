@@ -33,14 +33,22 @@ public class GamePanel extends JPanel
   /**Holds the button which is used to pause and unpause the game.
     */
   private JButton pauseButton = new JButton ("PAUSE");
-  /**
+  /**Displays the amount of time remaining to the user.
    */
   private JLabel timeLabel = new JLabel ("start");
+  /**Holds the text of the clue that is currently being viewed.
+    */
   private String currentClue;
+  /**Displays an 'INCORRECT' message if user chooses a wrong answer.
+    */
   private JLabel feedbackLabel= new JLabel("INCORRECT. Please try again.");
+  /**Holds a boolean value: if TRUE, the user is at the Country stage.
+    * if FALSE, the user is at the Travelling Stage.
+    */
   private boolean atQuestionStage=true;
+  /**Displays the number of levels remaining to the user.
+    */
   private JLabel levelCounter=new JLabel();
-  private int currentQuestionNumber;
   private Country[] destinations;
   private int answer;
   public GameTimer timer;
@@ -70,10 +78,6 @@ public class GamePanel extends JPanel
   public void changeStage()
   {
     atQuestionStage=!atQuestionStage;
-  }
-  public int getQuestionNumber()
-  {
-    return currentQuestionNumber;
   }
   public JLabel getQuestionCounter()
   {

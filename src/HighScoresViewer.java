@@ -346,7 +346,11 @@ public class HighScoresViewer extends JFrame implements ActionListener
    * 
    * <b> Local variables </b>
    * <p>
-   * <b>
+   * <b> in </b> BufferedReader - reads the high scores file.
+   * <p>
+   * <b> name </b> String - the text of the names label.
+   * <p>
+   * <b> score </b> String - the text of the scores label.
    */
   private void output ()
   {    
@@ -412,6 +416,23 @@ public class HighScoresViewer extends JFrame implements ActionListener
     scores = new JLabel (score);
   }
   
+  /**
+   * Displays the names and scores for the difficulty specified
+   * by level.
+   * 
+   * If statement determines which set of scores to display.
+   * If statement stops display when score is at 0.
+   * 
+   * For loops display all records until an empty index is reached.
+   * 
+   * <b> Local Variables </b>
+   * <p>
+   * <b> name </b> the text of the names label.
+   * <p>
+   * <b> score </b> the text fo the scores label.
+   * 
+   * @param level int the difficulty to be displayed.
+   */
   private void switchLevel (int level)
   {
     difficulty.setVisible(false);
@@ -462,13 +483,18 @@ public class HighScoresViewer extends JFrame implements ActionListener
     names.setVisible(true);
     scores.setVisible(true);
     difficulty.setVisible(true);
-    difficulty.setBounds(190,130, difficulty.getPreferredSize().width + 30, difficulty.getPreferredSize().height);
-    names.setBounds (120, 160, names.getPreferredSize().width, names.getPreferredSize().height);
-    scores.setBounds (320, 160, scores.getPreferredSize().width, scores.getPreferredSize().height);
+    names.setBounds (100, 100, names.getPreferredSize().width, names.getPreferredSize().height);
+    scores.setBounds (350, 100, scores.getPreferredSize().width, scores.getPreferredSize().height);
+    difficulty.setBounds(180,60, difficulty.getPreferredSize().width + 30, difficulty.getPreferredSize().height);
     revalidate();
     repaint ();
   }
   
+  /**
+   * Creates and displays a new High Scores Viewer window.
+   * 
+   * Try block reads in the background.
+   */
   public HighScoresViewer ()
   {
     super ("High Scores");
@@ -497,20 +523,19 @@ public class HighScoresViewer extends JFrame implements ActionListener
     add(background);
     try
     {
-      background.setIcon(new ImageIcon(ImageIO.read(new File("pics/background2.png"))));
+      background.setIcon(new ImageIcon(ImageIO.read(new File("pics/scarlet-gem3.png"))));
     }
     catch (IOException e)
     {
-      e.printStackTrace();
     }
     background.setBounds(0,0,500,600);
     easy.setBounds(50,20, easy.getPreferredSize().width, easy.getPreferredSize().height);
-    medium.setBounds(210,20, medium.getPreferredSize().width, medium.getPreferredSize().height);
-    hard.setBounds(380,20, hard.getPreferredSize().width, hard.getPreferredSize().height);
-    close.setBounds(300,520, close.getPreferredSize().width, close.getPreferredSize().height);
-    clear.setBounds(120,520, clear.getPreferredSize().width, clear.getPreferredSize().height);
-    difficulty.setBounds(190,130, difficulty.getPreferredSize().width + 30, difficulty.getPreferredSize().height);
-    names.setBounds (120, 160, names.getPreferredSize().width, names.getPreferredSize().height);
-    scores.setBounds (320, 160, scores.getPreferredSize().width, scores.getPreferredSize().height);
+    medium.setBounds(200,20, medium.getPreferredSize().width, medium.getPreferredSize().height);
+    hard.setBounds(350,20, hard.getPreferredSize().width, hard.getPreferredSize().height);
+    close.setBounds(300,500, close.getPreferredSize().width, close.getPreferredSize().height);
+    clear.setBounds(100,500, clear.getPreferredSize().width, clear.getPreferredSize().height);
+    difficulty.setBounds(180,60, difficulty.getPreferredSize().width + 30, difficulty.getPreferredSize().height);
+    names.setBounds (100, 100, names.getPreferredSize().width, names.getPreferredSize().height);
+    scores.setBounds (350, 100, scores.getPreferredSize().width, scores.getPreferredSize().height);
   }
 }
