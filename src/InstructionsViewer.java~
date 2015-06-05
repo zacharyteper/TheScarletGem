@@ -1,14 +1,15 @@
-/**
- * Displays instructions about gameplay to user using a JTabbedPane.
- * 
- * @author Zachary Teper and Angela Zhu
- * @version 1.0 06.01.2015
- */ 
+ 
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 import java.io.*;
 import javax.imageio.*;
+/**
+ * Displays instructions about gameplay to user using a JTabbedPane.
+ * 
+ * @author Zachary Teper (2 hours) and Angela Zhu (1.5 hours)
+ * @version 1.0 06.01.2015
+ */
 public class InstructionsViewer extends JFrame
 {
   /**
@@ -43,12 +44,40 @@ public class InstructionsViewer extends JFrame
    * Holds the contact info Help Topic.
    */
   private JPanel contact=new JPanel();
-  
+  /**
+   * Holds the backgrounds for each panel.
+   */
   private JLabel[] backgrounds=new JLabel[7];
+  /**
+   * Holds the screenshots for each panel.
+   */
   private JLabel[]screenshots=new JLabel[6];
   
   /**
    * Initializes Panels, TabbedPane, and adds text with screenshots to the Panels.
+   * 
+   * For loop initializes all backgrounds.
+   * 
+   * Try blocks initialize all images.
+   * 
+   * <b> Local Variables </b>
+   * <p>
+   * <b> introLabel </b> holds the text content for the introduction.
+   * <p>
+   * <b> countryLabel </b> holds the text content for the country/question
+   * explanation.
+   * <p>
+   * <b> mapLabel </b> holds the text content for the map/travelling explanation.
+   * <p>
+   * <b> savingLabel </b> holds the text content for the saving progress explanation.
+   * <p>
+   * <b> scoresLabel </b> holds the text content for the high scores explanation.
+   * <p>
+   * <b> keysLabel </b> holds the text content for the key shortcuts explanation.
+   * <p>
+   * <b> contactLabel </b> holds the text content for the contact info screen.
+   * <p>
+   * <b> logo </b> holds the logo image.
    */
   public InstructionsViewer ()
   {
@@ -82,7 +111,7 @@ public class InstructionsViewer extends JFrame
       backgrounds[x].setBounds(0,0,800,580);
       try
       {
-        backgrounds[x].setIcon(new ImageIcon (ImageIO.read( new File("pics/scarlet-gem5.png"))));
+        backgrounds[x].setIcon(new ImageIcon (ImageIO.read( new File("pics/background4.png"))));
       }
       catch (IOException e)
       {
@@ -91,7 +120,7 @@ public class InstructionsViewer extends JFrame
     
     
     screenshots[0]=new JLabel();
-    screenshots[0].setBounds(580,380,200,200);
+    screenshots[0].setBounds(570,355,210,200);
     try
     {
       screenshots[0].setIcon(new ImageIcon (ImageIO.read(new File("screenshots/main menu.png"))));
@@ -100,7 +129,7 @@ public class InstructionsViewer extends JFrame
     {
     }
     screenshots[1]=new JLabel();
-    screenshots[1].setBounds(580,380,200,200);
+    screenshots[1].setBounds(570,355,210,200);
     try
     {
       screenshots[1].setIcon(new ImageIcon (ImageIO.read(new File("screenshots/country.png"))));
@@ -109,7 +138,7 @@ public class InstructionsViewer extends JFrame
     {
     }
     screenshots[2]=new JLabel();
-    screenshots[2].setBounds(580,380,200,200);
+    screenshots[2].setBounds(570,355,210,200);
     try
     {
       screenshots[2].setIcon(new ImageIcon (ImageIO.read(new File("screenshots/map.png"))));
@@ -119,7 +148,7 @@ public class InstructionsViewer extends JFrame
       e.printStackTrace();
     }
     screenshots[3]=new JLabel();
-    screenshots[3].setBounds(580,380,200,200);
+    screenshots[3].setBounds(580,355,200,200);
     try
     {
       screenshots[3].setIcon(new ImageIcon (ImageIO.read(new File("screenshots/save.png"))));
@@ -128,7 +157,7 @@ public class InstructionsViewer extends JFrame
     {
     }
     screenshots[4]=new JLabel();
-    screenshots[4].setBounds(580,380,200,200);
+    screenshots[4].setBounds(580,300,200,260);
     try
     {
       screenshots[4].setIcon(new ImageIcon (ImageIO.read(new File("screenshots/high scores.png"))));
@@ -137,7 +166,7 @@ public class InstructionsViewer extends JFrame
     {
     }
     screenshots[5]=new JLabel();
-    screenshots[5].setBounds(580,380,200,200);
+    screenshots[5].setBounds(580,355,200,200);
     try
     {
       screenshots[5].setIcon(new ImageIcon (ImageIO.read(new File("screenshots/about.png"))));
@@ -197,9 +226,22 @@ public class InstructionsViewer extends JFrame
        "He/she will give you a clue about the location of the Scarlet Gem, "+
        "once you answer the questions correctly."+
        "<br><br>After you have completed all of the levels, "+
-       "you will find the Scarlet Gem in the next Country that you travel to.</html>"
+       "you will find the Scarlet Gem in the next Country that you travel to."+
+       "<br<br> Image URLs: <ul>"+
+       "<li>http://imgs.mi9.com/uploads/landscape/2088/landscape-in-canada_1024x768_27732.jpg"+ 
+       "<li>http://1.bp.blogspot.com/-rjswD_56dgA/UGLLz-5pgVI/AAAAAAAACqA/wH7XHrlH9CYs1600__tulum_mexico.jpeg"+        
+       "<li>http://paradiseintheworld.com/wp-content/uploads/2012/03/portugal-lisbon.jpg"+                                 
+       "<li>http://www.touristmaker.com/images/south-australia/south-australia-desert.jpg"+                                 
+       "<li>http://www.jod.uk.com/media/1171/india-hero.jpg?width=1280"+                                                 
+       "<li>http://dalocollis.files.wordpress.com/2013/04/egypt-2006-2.jpg"+                                                 
+       "<li>http://digitalhint.net/wp-content/uploads/2015/02/Forbidden-City-Beijing-Wallpapers.jpg"+                 
+       "<li>http://mezenne.az/mezenne.az/img/article/World___Russia_Beautiful<br>_winter_morning_in_moscow_048359_.jpg"+ 
+       "<li>http://jimmyesl.com/wp-content/uploads/2014/03/japan-mt-fuji.jpg"+                                 
+       "<li>http://img0.mxstatic.com/wallpapers/20d68c77a63c018bc59df097b24f59ad_large.jpeg"+                         
+       "<li>http://cdn.images.express.co.uk/img/dynamic/25/590x/londoneye-442994.jpg"+
+       "<li>http://wondrouspics.com/wp-content/uploads/2011/12/new_york_1.jpg</ul></html>" 
       );
-    countriesLabel.setBounds(0,-100,700,400);
+    countriesLabel.setBounds(0,-50,700,600);
     countries.add(countriesLabel);
     countries.add(screenshots[1]);
     countries.add(backgrounds[1]);
@@ -216,9 +258,12 @@ public class InstructionsViewer extends JFrame
        "<br><br>Once you have chosen the correct Destination from the choices given, "+
        "you will be asked two questions, just like in the previous screen. "+
        "The game continues in this fashion until the level counter "+
-       "(found at the top of the screen) reaches 0.</html>"
+       "(found at the top of the screen) reaches 0."+
+       "<br><br>Questions Sourced from:<ul>"+
+       "<li>www.wikipedia.com"+
+       "<li>www.cia.gov</ul></html>"
       );
-    mapLabel.setBounds(0,-130,700,400);
+    mapLabel.setBounds(0,-50,700,400);
     map.add(mapLabel);
     map.add(screenshots[2]);
     map.add(backgrounds[2]);

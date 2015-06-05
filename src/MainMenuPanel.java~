@@ -1,13 +1,14 @@
-/**
- * Contains the main menu buttons that appear at the start of the game.
- * 
- * @author Zachary Teper and Angela Zhu
- * @version 1.0 05.24.2015
- */
+
 import javax.swing.*;
 import java.awt.*;
 import javax.imageio.*;
 import java.io.*;
+/**
+ * Contains the main menu buttons that appear at the start of the game.
+ * 
+ * @author Zachary Teper (0.75 hours) and Angela Zhu (0.75 hours)
+ * @version 1.0 05.24.2015
+ */
 public class MainMenuPanel extends JPanel
 {
   /**
@@ -26,8 +27,6 @@ public class MainMenuPanel extends JPanel
    * Loads the game stored in the progress file if possible.
    */
   private JButton loadGame;
-  
-  private JLabel title=new JLabel();
   
   private JLabel background=new JLabel();
   /**
@@ -68,14 +67,15 @@ public class MainMenuPanel extends JPanel
   }
   /**
    * Initializes the buttons and the graphics.
+   * 
+   * Try block reads in background image.
    */
   public MainMenuPanel ()
   {
     setLayout(null);
     try
     {
-      background.setIcon(new ImageIcon(ImageIO.read(new File ("pics/scarlet-gem2.png"))));
-      title.setIcon(new ImageIcon(ImageIO.read(new File("pics/title2.png"))));
+      background.setIcon(new ImageIcon(ImageIO.read(new File ("pics/background.png"))));
     }
     catch (IOException e)
     {
@@ -85,12 +85,10 @@ public class MainMenuPanel extends JPanel
     medium=new JButton ("Medium");
     hard=new JButton ("Hard");
     loadGame=new JButton ("Load Saved Game");
-    easy.setBounds(275,150,150,30);
-    medium.setBounds(275,250,150,30);
-    hard.setBounds(275,350,150,30);
-    loadGame.setBounds(275,450,150,30);
-    title.setBounds(50,20,600,100);
-    add(title);
+    easy.setBounds(275,250,150,30);
+    medium.setBounds(275,320,150,30);
+    hard.setBounds(275,390,150,30);
+    loadGame.setBounds(275,460,150,30);
     add(easy);
     add(medium);
     add(hard);

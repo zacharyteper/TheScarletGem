@@ -4,7 +4,7 @@ import java.awt.event.*;
  * This is the GameTimer class that controls the running and display of the timer used in the game.
  * It is a countdown timer.
  * 
- * @author Zachary Teper and Angela Zhu
+ * @author Zachary Teper (0 hours) and Angela Zhu (3.5 hours)
  * @version 1.0 05.24.2015
  */
 public class GameTimer extends Thread

@@ -1,31 +1,79 @@
-/**
- * Auto Generated Java Class.
- */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import javax.imageio.*;
 import java.io.*;
+/**
+ * Displays the High Scores to the user. Includes option to clear the high scores.
+ * 
+ * @author Angela Zhu (4 hours + 0.5 hours graphics) and Zachary Teper (0.5 hours)
+ * @version 1.0 09.06.2015
+ */
 public class HighScoresViewer extends JFrame implements ActionListener
 {
-  private Graphics screen;
+  /**
+   * Holds the button to display the Easy scores.
+   */
   private JButton easy = new JButton ("Easy");
+  /**Holds the button to display the Medium scores.
+    */
   private JButton medium = new JButton ("Medium");
+  /**Holds the button to display the Hard scores.
+    */
   private JButton hard = new JButton ("Hard");
+  /**Holds the button to close the window.
+    */
   private JButton close = new JButton ("Close");
+  /**Holds the button to clear the High Scores.
+    */
   private JButton clear = new JButton ("Clear");
+  /**Holds the background of the High Scores Viewer.
+    */
   private JLabel background=new JLabel();
+  /**Holds the set of Easy scores.
+    */
   public static int[] easyScores = new int [10];
+  /**Holds the set of Medium scores.
+    */
   public static int[] mediumScores = new int [10];
+  /**Holds the set of Hard scores.
+    */
   public static int[] hardScores = new int [10];
+  /**Holds the set of Easy names.
+    */
   public static String[] easyNames = new String [10];
+  /**Holds the set of Medium names.
+    */
   public static String[] mediumNames = new String [10];
+  /**Holds the set of Hard names.
+    */
   public static String[] hardNames = new String [10];
+  /**Displays the difficulty currently being viewed.
+    */
   private JLabel difficulty = new JLabel ("High Scores --- Easy");
+  /**Displays the list of names for the current difficulty.
+    */
   private JLabel names;
+  /**Displays the list of scores for the current difficulty.
+   */
   private JLabel scores;
-  
+  /**
+   * Responds when a button is pressed.
+   * 
+   * If statements determine which action was triggered.
+   * 
+   * For loop resets all elements of arrays.
+   * 
+   * try block writes an empty file.
+   * 
+   * <b> Local Variables </b>
+   * <p>
+   * <b>out </b> PrintWriter - used to write to the high scores file.
+   * 
+   * @param ae ActionEvent the action that was triggered.
+   */
   public void actionPerformed (ActionEvent ae)
   {
     if (ae.getActionCommand().equals ("Easy"))
@@ -71,7 +119,26 @@ public class HighScoresViewer extends JFrame implements ActionListener
     else
       dispose();
   }
-  
+  /**
+   * Reads in the high scores file to the arrays.
+   * 
+   * If statement checks if first line is valid.
+   * If statement checks if a valid file exists.
+   * 
+   * For loop initializes arrays.
+   * 
+   * Try block checks for a valid file.
+   * Try block writes a new empty file.
+   * 
+   * <b> Local variables </b>
+   * <p>
+   * <b> fileExist </b> boolean - checks if a valid file exists.
+   * <p>
+   * <b> in </b> BufferedReader - checks if the first line of an 
+   * existing file is valid.
+   * <p>
+   * <b> out </b> PrintWriter - writes a new empty file.
+   */
   public static void fileCheck ()
   {
     boolean fileExist = false;
@@ -86,10 +153,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
     {
       JOptionPane.showMessageDialog(null,"File unreadable.");
     }
-    catch (NullPointerException e)
-    {
-      fileExist = false;
-    }
+    
     if (fileExist == false)
     {
       try
@@ -119,7 +183,37 @@ public class HighScoresViewer extends JFrame implements ActionListener
     }
   }
   
-  //writes entry to file, puts it automatically in top 10 order.
+  /**writes entry to file, puts it automatically in top 10 order.
+    * 
+    * If statement checks if the first line of file is valid.
+    * For loop and if reads easy names and scores until a blank line is reached.
+    * For loop and if read medium names and scores until a blank line is reached.
+    * For loop and if read hard names and scores until a blank line is reached.
+    * If statement checks if level is Easy
+    * If statement checks if level is Medium
+    * If statement checks if level is Hard
+    * 
+    * For loop rewrites Easy entries.
+    * For lopp writes Easy entries lower than entry.
+    * For loop rewrites Medium entries.
+    * For loop rewrites Medium entries lower than entry.
+    * For loop rewrites Hard entries.
+    * For loop rewrites Hard entries lower than entry.
+    * For loop writes String text for names array.
+    * 
+    * Try block writes high scores file.
+    * Try block reads in Strings as integers.
+    *
+    * <b> Local Variables </b>
+    * <p>
+    * <b> in </b> BufferedReader - reads the file.
+    * <p>
+    * <b> out </b> PrintWriter - writes to the file.
+    * 
+    * @param score int the score that the user acheived.
+    * @param name String the username that the user entered.
+    * @param level int the difficulty that the user completed.
+    */
   public static void sort (int score, String name, int level)
   {
     fileCheck ();
@@ -171,7 +265,6 @@ public class HighScoresViewer extends JFrame implements ActionListener
       out.println ("easy");
       int x;
       for (x = 0; x < 10 && easyScores[x] > score; x++)
-      for (x = 0; x < 10 && easyScores[x] > score + 180; x++)
       {
         out.println (easyNames[x]);
         out.println (easyScores[x]);
@@ -235,6 +328,26 @@ public class HighScoresViewer extends JFrame implements ActionListener
     }
   }
   
+  /**
+   * Displays the names and scores to the user.
+   * 
+   * If statement checks if first line is valid.
+   * If statement checks if the next line is Easy.
+   * For loop and if statement read file until a blank line is reached.
+   * If statement checks if the next line is Medium.
+   * For loop and if statement read file until a blank line is reached.
+   * If statement checks if the next line is Hard.
+   * For loop and if statement read file until a blank line is reached.
+   * 
+   * For loop writes the String text of the names and scores.
+   * 
+   * Try block reads file.
+   * Try block converts String to int.
+   * 
+   * <b> Local variables </b>
+   * <p>
+   * <b>
+   */
   private void output ()
   {    
     try
@@ -349,22 +462,13 @@ public class HighScoresViewer extends JFrame implements ActionListener
     names.setVisible(true);
     scores.setVisible(true);
     difficulty.setVisible(true);
-    names.setBounds (100, 100, names.getPreferredSize().width, names.getPreferredSize().height);
-    scores.setBounds (350, 100, scores.getPreferredSize().width, scores.getPreferredSize().height);
-    difficulty.setBounds(180,60, difficulty.getPreferredSize().width + 30, difficulty.getPreferredSize().height);
+    difficulty.setBounds(190,130, difficulty.getPreferredSize().width + 30, difficulty.getPreferredSize().height);
+    names.setBounds (120, 160, names.getPreferredSize().width, names.getPreferredSize().height);
+    scores.setBounds (320, 160, scores.getPreferredSize().width, scores.getPreferredSize().height);
     revalidate();
     repaint ();
   }
   
-  public Graphics getScreen ()
-  {
-    return screen;
-  }
-  public void setScreen (Graphics g)
-  {
-    screen=g;
-  }
-  /* ADD YOUR CODE HERE */
   public HighScoresViewer ()
   {
     super ("High Scores");
@@ -393,7 +497,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
     add(background);
     try
     {
-      background.setIcon(new ImageIcon(ImageIO.read(new File("pics/scarlet-gem3.png"))));
+      background.setIcon(new ImageIcon(ImageIO.read(new File("pics/background2.png"))));
     }
     catch (IOException e)
     {
@@ -401,12 +505,12 @@ public class HighScoresViewer extends JFrame implements ActionListener
     }
     background.setBounds(0,0,500,600);
     easy.setBounds(50,20, easy.getPreferredSize().width, easy.getPreferredSize().height);
-    medium.setBounds(200,20, medium.getPreferredSize().width, medium.getPreferredSize().height);
-    hard.setBounds(350,20, hard.getPreferredSize().width, hard.getPreferredSize().height);
-    close.setBounds(300,500, close.getPreferredSize().width, close.getPreferredSize().height);
-    clear.setBounds(100,500, clear.getPreferredSize().width, clear.getPreferredSize().height);
-    difficulty.setBounds(180,60, difficulty.getPreferredSize().width + 30, difficulty.getPreferredSize().height);
-    names.setBounds (100, 100, names.getPreferredSize().width, names.getPreferredSize().height);
-    scores.setBounds (350, 100, scores.getPreferredSize().width, scores.getPreferredSize().height);
+    medium.setBounds(210,20, medium.getPreferredSize().width, medium.getPreferredSize().height);
+    hard.setBounds(380,20, hard.getPreferredSize().width, hard.getPreferredSize().height);
+    close.setBounds(300,520, close.getPreferredSize().width, close.getPreferredSize().height);
+    clear.setBounds(120,520, clear.getPreferredSize().width, clear.getPreferredSize().height);
+    difficulty.setBounds(190,130, difficulty.getPreferredSize().width + 30, difficulty.getPreferredSize().height);
+    names.setBounds (120, 160, names.getPreferredSize().width, names.getPreferredSize().height);
+    scores.setBounds (320, 160, scores.getPreferredSize().width, scores.getPreferredSize().height);
   }
 }

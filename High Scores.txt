@@ -1,6 +1,28 @@
 The Scarlet Gem
 easy
+Apple
+1544
+Bee
+1325
+Candy
+1111
+Doctor
+888
+Elephant
+675
+Francisco
+450
+Gelato
+225
+Hello
+221
+Indigo
+200
+Jackie
+180
 
 medium
 
 hard
+zachary
+613
