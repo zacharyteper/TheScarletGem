@@ -1,12 +1,13 @@
+
+import javax.swing.*;
+import java.awt.*;
 /**
  * Holds all of the components on the game screen. Components are controlled
  * using the get/set methods included in this class.
  * 
- * @author Zachary Teper and Angela Zhu
+ * @author Zachary Teper (4 hours) and Angela Zhu (1 hour)
  * @version 1.0 06.01.2015
  */
-import javax.swing.*;
-import java.awt.*;
 public class GamePanel extends JPanel 
 {
   /** Holds the button representing choice A.
@@ -49,13 +50,31 @@ public class GamePanel extends JPanel
   /**Displays the number of levels remaining to the user.
     */
   private JLabel levelCounter=new JLabel();
+  /**Holds the three destinations at the Map Stage.
+    */
   private Country[] destinations;
+  /**Holds 0,1 or 2, representing the correct answer to the clue.
+    */
   private int answer;
+  /**
+   * The GameTimer Instance which controls the timing of the game.
+   */
   public GameTimer timer;
+  /**
+   * The background image.
+   */
   private Image background;
+  /**Holds the background Image on the screen.
+    */
   private JLabel imageLabel=new JLabel();
+  /**Holds the travelling map image.
+    */
   private JLabel mapImageLabel=new JLabel();
-  
+  /**
+   * Sets the background of the game.
+   * 
+   * @param i Image the new background.
+   */
   public void setBackground(Image i)
   {
     background=i;
@@ -63,30 +82,50 @@ public class GamePanel extends JPanel
     imageLabel.setBounds(0,0,700,600);
     add(imageLabel);
   }
-  public JLabel getMapImage()
-  {
-    return mapImageLabel;
-  }
+  /**
+   * Returns the current Question.
+   * 
+   * @return Question the question currently being viewed.
+   */
   public Question getQuestion()
   {
     return currentQuestion;
   }
+  /**
+   * Returns true only if the user is a the Question stage.
+   * 
+   * @return boolean true only if the user is at the question stage.
+   */
   public boolean getStage()
   {
     return atQuestionStage;
   }
-  public void changeStage()
-  {
-    atQuestionStage=!atQuestionStage;
-  }
+  /**
+   * Returns the component displaying the question number, current country,
+   * and difficulty.
+   * 
+   * @return JLabel the question counter at the top of the scren.
+   */
   public JLabel getQuestionCounter()
   {
     return questionCounter;
   }
+  /**
+   * Returns the component displaying the current level number.
+   *
+   * @return JLabel the level counter at the top of the screen.
+   */
   public JLabel getLevelCounter()
   {
     return levelCounter;
   }
+  /**
+   * Disables the button specified by <code>button</code>
+   * Also displays the feedback label.
+   * If statements determine which button to disable.
+   * 
+   * @param button char the button to be disabled.
+   */
   public void removeWrongAnswer (char button)
   {
     if (button=='A')
@@ -99,6 +138,13 @@ public class GamePanel extends JPanel
       d.setEnabled(false);
     feedbackLabel.setVisible(true);
   }
+  /**
+   * Disables the destination specified by <code>button</code>
+   * Also displays the feedback label.
+   * If statements determine which button to disable.
+   * 
+   * @param button int the destination to be disabled.
+   */
   public void removeWrongDestination (int button)
   {
     if (button==0)
@@ -109,12 +155,26 @@ public class GamePanel extends JPanel
       c.setEnabled(false);
     feedbackLabel.setVisible(true);
   }
+  /**
+   * Sets the current question. Also hides the feedback label.
+   * 
+   * @param q Question the new Question.
+   */
   public void setQuestion(Question q)
   {
     currentQuestion=q;
     questionLabel.setText(q.getQuestion());
     feedbackLabel.setVisible(false);
   }
+  /**
+   * Shuffles the destination buttons in a random order.
+   * 
+   * If statements determine which arrangement should be used.
+   * 
+   * <b> Local variables </b>
+   * <p>
+   * <b> index </b> int - the new location of the correct answer.
+   */
   private void shuffleButtons()
   {
     int index=(int)(Math.random()*3);
@@ -137,6 +197,9 @@ public class GamePanel extends JPanel
       c.setBounds(500,500,c.getPreferredSize().height+80,30);
     }
   }
+  /**
+   * Switches the game panel to the Country stage.
+   */
   public void switchToCountry()
   {
     questionLabel.setText(currentQuestion.getQuestion());
@@ -153,6 +216,9 @@ public class GamePanel extends JPanel
     questionLabel.setBounds(380,100,600,100);
     revalidate();
   }
+  /**
+   * Switches the game panel to the Map stage.
+   */
   public void switchToMap()
   {
     feedbackLabel.setVisible(false);
@@ -169,7 +235,9 @@ public class GamePanel extends JPanel
     mapImageLabel.repaint();
     revalidate();
   }
-  
+  /**
+   * Switches the game panel to a Paused state.
+   */
   public void switchToPause ()
   {
     timer.setPaused (true);
@@ -183,7 +251,12 @@ public class GamePanel extends JPanel
     repaint ();
     revalidate ();
   }
-  
+  /**
+   * Unpauses the game panel.
+   * 
+   * If statement determines whether to show the questionor the clue.
+   * If statement determines whether to display choice D.
+   */
   public void unpause ()
   {
     timer.setPaused (false);
@@ -199,54 +272,93 @@ public class GamePanel extends JPanel
     repaint ();
     revalidate ();
   }
-  
+  /**
+   * Returns choice A.
+   * 
+   * @return JButton choice A.
+   */
   public JButton getAButton()
   {
     return a;
   }
+  /**
+   * Returns choice B.
+   * 
+   * @return JButton choice B.
+   */
   public JButton getBButton()
   {
     return b;
   }
+  /**
+   * Returns choice C.
+   * 
+   * @return JButton choice C.
+   */
   public JButton getCButton()
   {
     return c;
   }
+  /**
+   * Returns choice D.
+   * 
+   * @return JButton choice D.
+   */
   public JButton getDButton()
   {
     return d;
   }
-  
+  /**
+   * Returns the pause button.
+   * 
+   * @return JButton the pause button.
+   */
   public JButton getPauseButton ()
   {
     return pauseButton;
   }
-  public JLabel getFeedbackLabel()
-  {
-    return feedbackLabel;
-  }
-  
+  /**
+   * Returns the destinations currently displayed.
+   * 
+   * @return Country[] the destinations currently being displayed.
+   */
   public Country[] getDestinations ()
   {
     return destinations;
   }
+  /**
+   * Sets the new destinations for the game panel.
+   * 
+   * @param c Country[] the new destinations.
+   */
   public void setDestinations (Country[]c)
   {
     destinations=c;
   }
+  /**
+   * Returns the answer to the question.
+   * 
+   * @return int the answer to the question
+   */
   public int getAnswer()
   {
     return answer;
   }
-  public void setAnswer(int ans)
-  {
-    answer=ans;
-  }
+  /**
+   * Returns the GameTimer instance associated with this panel.
+   * 
+   * @return GameTimer the GameTimer instance associated with this panel.
+   */
   public GameTimer getTimer()
   {
     return timer;
   }
-  //The first element in c MUST be the correct answer!
+  /**
+   * Sets up a new Game Panel.
+   * 
+   * @param difficulty int the difficulty of the game.
+   * @param source ScarletGemMain the Main JFrame class.
+   */
   public GamePanel (int difficulty, ScarletGemMain source)
   {
     timer = new GameTimer (difficulty, timeLabel, this, source);

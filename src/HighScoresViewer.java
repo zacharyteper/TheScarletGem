@@ -1,15 +1,16 @@
-/**
- * Displays the High Scores to the user. Includes option to clear the high scores.
- * 
- * @author Angela Zhu and Zachary Teper
- * @version 1.0 09.06.2015
- */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import javax.imageio.*;
 import java.io.*;
+/**
+ * Displays the High Scores to the user. Includes option to clear the high scores.
+ * 
+ * @author Angela Zhu (3 hours) and Zachary Teper (0.5 hours)
+ * @version 1.0 09.06.2015
+ */
 public class HighScoresViewer extends JFrame implements ActionListener
 {
   /**
@@ -137,7 +138,6 @@ public class HighScoresViewer extends JFrame implements ActionListener
    * existing file is valid.
    * <p>
    * <b> out </b> PrintWriter - writes a new empty file.
-   * <p>
    */
   public static void fileCheck ()
   {

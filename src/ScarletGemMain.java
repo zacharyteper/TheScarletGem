@@ -12,7 +12,7 @@ import java.util.*;
  * processing and recordkeeping. The other classes are just utility classes that help to store temporary
  * game data (such as the question sets for each country) and display the GUI.
  * 
- * @author Zachary Teper and Angela Zhu
+ * @author Zachary Teper (13 hours) and Angela Zhu
  * @version 1.0 17.05.15
  */
 public class ScarletGemMain extends JFrame implements ActionListener, Printable,WindowListener
@@ -42,7 +42,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   private ArrayList <Country> alreadyBeen;
   /**
    * Holds the instances of each country in the game. These are the indexes of each country in this array:
-   * <p>
    * <ul>
    * <li>0 - Canada
    * <li>1 - China

@@ -42,7 +42,6 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
   private ArrayList <Country> alreadyBeen;
   /**
    * Holds the instances of each country in the game. These are the indexes of each country in this array:
-   * <p>
    * <ul>
    * <li>0 - Canada
    * <li>1 - China

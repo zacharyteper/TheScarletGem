@@ -1,14 +1,15 @@
-/**
- * Displays instructions about gameplay to user using a JTabbedPane.
- * 
- * @author Zachary Teper and Angela Zhu
- * @version 1.0 06.01.2015
- */ 
+ 
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 import java.io.*;
 import javax.imageio.*;
+/**
+ * Displays instructions about gameplay to user using a JTabbedPane.
+ * 
+ * @author Zachary Teper (2 hours) and Angela Zhu (1.5 hours)
+ * @version 1.0 06.01.2015
+ */
 public class InstructionsViewer extends JFrame
 {
   /**
