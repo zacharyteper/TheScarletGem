@@ -293,13 +293,13 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       logoLabel.setIcon(logo);
       try
       {
-        background.setIcon(new ImageIcon(ImageIO.read(new File("pics/scarlet-gem4.png"))));
+        background.setIcon(new ImageIcon(ImageIO.read(new File("pics/background3.png"))));
       }
       catch (IOException e)
       {
       }
       background.setBounds(0,0,400,500);
-      logoLabel.setBounds(50,50,200,60);
+      logoLabel.setBounds(0,0,200,60);
       infoLabel.setBounds(100,50,300,400);
       aboutPanel.add(logoLabel);
       aboutPanel.add(infoLabel);
