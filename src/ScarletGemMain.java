@@ -266,7 +266,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
                                   "<br><br>Email: zacharyblacktail@gmail.com"+
                                   "<br><br>Phone: 416-223-6075</html>");
       JLabel background=new JLabel();
-      ImageIcon logo=new ImageIcon ("pics/CakeSoft Inc.png");
+      ImageIcon logo=new ImageIcon ("pics/CakeSoftInc.png");
       JLabel logoLabel=new JLabel();
       
       about.setSize(400,500);
@@ -284,7 +284,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
       {
       }
       background.setBounds(0,0,400,500);
-      logoLabel.setBounds(50,50,300,100);
+      logoLabel.setBounds(50,50,200,60);
       infoLabel.setBounds(100,50,300,400);
       aboutPanel.add(logoLabel);
       aboutPanel.add(infoLabel);
@@ -789,7 +789,7 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     
     try
     {
-      logoLabel.setIcon(new ImageIcon(ImageIO.read(new File("pics/CakeSoft Inc.png"))));
+      logoLabel.setIcon(new ImageIcon(ImageIO.read(new File("pics/CakeSoftInc.png"))));
       title.setIcon(new ImageIcon(ImageIO.read(new File("pics/title.png"))));
     }
     catch (IOException e)
@@ -808,8 +808,8 @@ public class ScarletGemMain extends JFrame implements ActionListener, Printable,
     imageLabel.setIcon(splashImage);
     imageLabel.setBounds(0,0,700,600);
     infoLabel.setBounds(250,150,500,500);
-    logoLabel.setBounds(0,0,300,100);
-    title.setBounds(200,150,300,100);
+    logoLabel.setBounds(0,0,200,60);
+    title.setBounds(200,30,300,220);
     splashScreen.add(logoLabel);
     splashScreen.add(title);
     splashScreen.add(infoLabel);

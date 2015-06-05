@@ -27,8 +27,6 @@ public class MainMenuPanel extends JPanel
    */
   private JButton loadGame;
   
-  private JLabel title=new JLabel();
-  
   private JLabel background=new JLabel();
   /**
    * Returns the button to start the game in easy mode.
@@ -74,8 +72,7 @@ public class MainMenuPanel extends JPanel
     setLayout(null);
     try
     {
-      background.setIcon(new ImageIcon(ImageIO.read(new File ("pics/scarlet-gem2.png"))));
-      title.setIcon(new ImageIcon(ImageIO.read(new File("pics/title2.png"))));
+      background.setIcon(new ImageIcon(ImageIO.read(new File ("pics/background.png"))));
     }
     catch (IOException e)
     {
@@ -85,12 +82,10 @@ public class MainMenuPanel extends JPanel
     medium=new JButton ("Medium");
     hard=new JButton ("Hard");
     loadGame=new JButton ("Load Saved Game");
-    easy.setBounds(275,150,150,30);
-    medium.setBounds(275,250,150,30);
-    hard.setBounds(275,350,150,30);
-    loadGame.setBounds(275,450,150,30);
-    title.setBounds(50,20,600,100);
-    add(title);
+    easy.setBounds(275,250,150,30);
+    medium.setBounds(275,320,150,30);
+    hard.setBounds(275,390,150,30);
+    loadGame.setBounds(275,460,150,30);
     add(easy);
     add(medium);
     add(hard);
