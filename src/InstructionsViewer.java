@@ -110,7 +110,7 @@ public class InstructionsViewer extends JFrame
       backgrounds[x].setBounds(0,0,800,580);
       try
       {
-        backgrounds[x].setIcon(new ImageIcon (ImageIO.read( new File("pics/scarlet-gem5.png"))));
+        backgrounds[x].setIcon(new ImageIcon (ImageIO.read( new File("pics/background4.png"))));
       }
       catch (IOException e)
       {
@@ -119,7 +119,7 @@ public class InstructionsViewer extends JFrame
     
     
     screenshots[0]=new JLabel();
-    screenshots[0].setBounds(580,380,200,200);
+    screenshots[0].setBounds(570,355,210,200);
     try
     {
       screenshots[0].setIcon(new ImageIcon (ImageIO.read(new File("screenshots/main menu.png"))));
@@ -128,7 +128,7 @@ public class InstructionsViewer extends JFrame
     {
     }
     screenshots[1]=new JLabel();
-    screenshots[1].setBounds(580,380,200,200);
+    screenshots[1].setBounds(570,355,210,200);
     try
     {
       screenshots[1].setIcon(new ImageIcon (ImageIO.read(new File("screenshots/country.png"))));
@@ -137,7 +137,7 @@ public class InstructionsViewer extends JFrame
     {
     }
     screenshots[2]=new JLabel();
-    screenshots[2].setBounds(580,380,200,200);
+    screenshots[2].setBounds(570,355,210,200);
     try
     {
       screenshots[2].setIcon(new ImageIcon (ImageIO.read(new File("screenshots/map.png"))));
@@ -147,7 +147,7 @@ public class InstructionsViewer extends JFrame
       e.printStackTrace();
     }
     screenshots[3]=new JLabel();
-    screenshots[3].setBounds(580,380,200,200);
+    screenshots[3].setBounds(580,355,200,200);
     try
     {
       screenshots[3].setIcon(new ImageIcon (ImageIO.read(new File("screenshots/save.png"))));
@@ -156,7 +156,7 @@ public class InstructionsViewer extends JFrame
     {
     }
     screenshots[4]=new JLabel();
-    screenshots[4].setBounds(580,380,200,200);
+    screenshots[4].setBounds(580,300,200,260);
     try
     {
       screenshots[4].setIcon(new ImageIcon (ImageIO.read(new File("screenshots/high scores.png"))));
@@ -165,7 +165,7 @@ public class InstructionsViewer extends JFrame
     {
     }
     screenshots[5]=new JLabel();
-    screenshots[5].setBounds(580,380,200,200);
+    screenshots[5].setBounds(580,355,200,200);
     try
     {
       screenshots[5].setIcon(new ImageIcon (ImageIO.read(new File("screenshots/about.png"))));

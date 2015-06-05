@@ -462,9 +462,9 @@ public class HighScoresViewer extends JFrame implements ActionListener
     names.setVisible(true);
     scores.setVisible(true);
     difficulty.setVisible(true);
-    names.setBounds (100, 100, names.getPreferredSize().width, names.getPreferredSize().height);
-    scores.setBounds (350, 100, scores.getPreferredSize().width, scores.getPreferredSize().height);
-    difficulty.setBounds(180,60, difficulty.getPreferredSize().width + 30, difficulty.getPreferredSize().height);
+    difficulty.setBounds(190,130, difficulty.getPreferredSize().width + 30, difficulty.getPreferredSize().height);
+    names.setBounds (120, 160, names.getPreferredSize().width, names.getPreferredSize().height);
+    scores.setBounds (320, 160, scores.getPreferredSize().width, scores.getPreferredSize().height);
     revalidate();
     repaint ();
   }
@@ -497,7 +497,7 @@ public class HighScoresViewer extends JFrame implements ActionListener
     add(background);
     try
     {
-      background.setIcon(new ImageIcon(ImageIO.read(new File("pics/scarlet-gem3.png"))));
+      background.setIcon(new ImageIcon(ImageIO.read(new File("pics/background2.png"))));
     }
     catch (IOException e)
     {
@@ -505,12 +505,12 @@ public class HighScoresViewer extends JFrame implements ActionListener
     }
     background.setBounds(0,0,500,600);
     easy.setBounds(50,20, easy.getPreferredSize().width, easy.getPreferredSize().height);
-    medium.setBounds(200,20, medium.getPreferredSize().width, medium.getPreferredSize().height);
-    hard.setBounds(350,20, hard.getPreferredSize().width, hard.getPreferredSize().height);
-    close.setBounds(300,500, close.getPreferredSize().width, close.getPreferredSize().height);
-    clear.setBounds(100,500, clear.getPreferredSize().width, clear.getPreferredSize().height);
-    difficulty.setBounds(180,60, difficulty.getPreferredSize().width + 30, difficulty.getPreferredSize().height);
-    names.setBounds (100, 100, names.getPreferredSize().width, names.getPreferredSize().height);
-    scores.setBounds (350, 100, scores.getPreferredSize().width, scores.getPreferredSize().height);
+    medium.setBounds(210,20, medium.getPreferredSize().width, medium.getPreferredSize().height);
+    hard.setBounds(380,20, hard.getPreferredSize().width, hard.getPreferredSize().height);
+    close.setBounds(300,520, close.getPreferredSize().width, close.getPreferredSize().height);
+    clear.setBounds(120,520, clear.getPreferredSize().width, clear.getPreferredSize().height);
+    difficulty.setBounds(190,130, difficulty.getPreferredSize().width + 30, difficulty.getPreferredSize().height);
+    names.setBounds (120, 160, names.getPreferredSize().width, names.getPreferredSize().height);
+    scores.setBounds (320, 160, scores.getPreferredSize().width, scores.getPreferredSize().height);
   }
 }
